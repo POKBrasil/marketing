@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Empregabilidade · POK</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+:root {
+  --purple: #5123a4;
+  --purple-dark: #3a1878;
+  --purple-light: #e4dcf7;
+  --purple-faint: #F3EFF9;
+  --ink: #1E1230;
+  --ink-muted: #5E4E7A;
+  --ink-faint: #A899C2;
+  --border: #D8CEF0;
+  --white: #fff;
+  --radius-lg: 20px;
+  --radius-md: 12px;
+  --green: #1D9E75;
+  --green-light: #E2F4EB;
+  --green-dark: #0f6e56;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Poppins', sans-serif; background: var(--purple-faint); color: var(--ink); min-height: 100vh; }
+
+.hero { background: var(--purple-dark); padding: 44px 64px 36px; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; top: -80px; right: -80px; width: 340px; height: 340px; border-radius: 50%; background: rgba(123,79,207,0.25); pointer-events: none; }
+.hero::after { content: ''; position: absolute; bottom: -100px; left: 20%; width: 240px; height: 240px; border-radius: 50%; background: rgba(255,255,255,0.04); pointer-events: none; }
+.hero-inner { max-width: 960px; position: relative; z-index: 1; }
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; background: rgba(228,220,247,0.15); border: 1px solid rgba(228,220,247,0.2); border-radius: 99px; padding: 5px 14px; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple-light); margin-bottom: 14px; }
+.hero-eyebrow span { width: 6px; height: 6px; border-radius: 50%; background: #a78bf0; display: inline-block; }
+.hero-title { font-size: clamp(20px, 2.8vw, 32px); font-weight: 900; line-height: 1.15; color: #fff; letter-spacing: -0.02em; margin-bottom: 10px; }
+.hero-subtitle { font-size: 13px; color: rgba(228,220,247,0.75); line-height: 1.7; max-width: 580px; font-weight: 400; }
+
+.filters-bar { background: var(--white); border-bottom: 1px solid var(--border); padding: 14px 64px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.filter-select { font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 500; padding: 8px 32px 8px 14px; border: 1.5px solid var(--border); border-radius: 99px; background: var(--white); color: var(--ink); cursor: pointer; outline: none; appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235123a4' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; transition: border-color 0.15s; }
+.filter-select:hover { border-color: var(--purple); }
+.date-btn { font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 500; padding: 8px 16px; border: 1.5px solid var(--border); border-radius: 99px; background: var(--white); color: var(--ink); cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: border-color 0.15s; }
+.date-btn:hover { border-color: var(--purple); }
+.date-btn svg { width: 15px; height: 15px; color: var(--purple); flex-shrink: 0; }
+
+.content { max-width: 1120px; margin: 0 auto; padding: 40px 32px 72px; }
+
+.section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+.section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+/* FUNIL */
+.funnel-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px 32px; margin-bottom: 24px; }
+.funnel-card h3 { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+.funnel-card > p { font-size: 12px; color: var(--ink-muted); line-height: 1.5; margin-bottom: 20px; }
+.funnel-steps { display: flex; align-items: center; }
+.funnel-step { flex: 1; text-align: center; }
+.funnel-bar { height: 52px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 700; border-radius: var(--radius-md); margin: 0 3px; color: #fff; }
+.funnel-step-label { font-size: 10px; color: var(--ink-muted); margin-top: 8px; line-height: 1.4; font-weight: 500; }
+.funnel-step-pct { font-size: 10px; color: var(--ink-faint); margin-top: 3px; font-weight: 600; }
+.funnel-arrow { color: var(--ink-faint); font-size: 16px; flex-shrink: 0; padding: 0 2px 30px; }
+
+/* KPIs */
+.kpi-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-bottom: 24px; }
+.kpi-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 20px 22px; position: relative; }
+.kpi-card.highlight { border-left: 4px solid var(--purple); }
+.kpi-value { font-size: 30px; font-weight: 800; color: var(--ink); line-height: 1; margin-bottom: 6px; }
+.kpi-value.purple { color: var(--purple); }
+.kpi-label { font-size: 12px; color: var(--ink-muted); line-height: 1.4; font-weight: 500; padding-right: 24px; }
+
+/* CHART CARD */
+.chart-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px 32px; margin-bottom: 24px; }
+.chart-card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
+.chart-card-header h3 { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+.chart-card-header p { font-size: 12px; color: var(--ink-muted); line-height: 1.5; max-width: 520px; }
+.chart-metric-select { font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 600; padding: 8px 32px 8px 14px; border: 1.5px solid var(--purple-light); border-radius: 99px; background: var(--purple-faint); color: var(--purple); cursor: pointer; outline: none; appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235123a4' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; white-space: nowrap; flex-shrink: 0; }
+.chart-metric-select:hover { border-color: var(--purple); }
+
+/* axis zone labels */
+.chart-zone-labels { display: flex; margin-bottom: 6px; }
+.zone-label { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 10px; border-radius: 99px; }
+.zone-label.past { background: #f0edf8; color: var(--ink-faint); }
+.zone-label.future { background: var(--purple-light); color: var(--purple); margin-left: auto; }
+.zone-divider { flex: 1; }
+
+/* TABLE */
+.table-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); }
+.table-toolbar { display: flex; align-items: center; gap: 10px; padding: 16px 20px; border-bottom: 1px solid var(--border); flex-wrap: wrap; background: var(--purple-faint); border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
+.table-toolbar input { font-family: 'Poppins', sans-serif; font-size: 13px; padding: 8px 14px; border: 1.5px solid var(--border); border-radius: 99px; background: var(--white); color: var(--ink); outline: none; flex: 1; min-width: 160px; }
+.table-toolbar input:focus { border-color: var(--purple); }
+.table-toolbar select { font-family: 'Poppins', sans-serif; font-size: 13px; padding: 8px 32px 8px 14px; border: 1.5px solid var(--border); border-radius: 99px; background: var(--white); color: var(--ink); outline: none; appearance: none; background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235123a4' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; }
+.toggle-label { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--ink-muted); cursor: pointer; user-select: none; margin-left: auto; font-weight: 500; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+thead th { padding: 11px 16px; text-align: left; font-size: 10px; font-weight: 700; color: var(--ink-faint); letter-spacing: 0.1em; text-transform: uppercase; border-bottom: 1px solid var(--border); background: var(--white); }
+.th-inner { display: flex; align-items: center; gap: 5px; }
+tbody tr { border-bottom: 1px solid var(--border); transition: background 0.12s; }
+tbody tr:last-child { border-bottom: none; }
+tbody tr:hover { background: var(--purple-faint); }
+tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
+.td-muted { color: var(--ink-muted) !important; font-size: 12px; }
+.badge { display: inline-flex; align-items: center; font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 99px; letter-spacing: 0.05em; text-transform: uppercase; }
+.badge-novo { background: var(--green-light); color: var(--green-dark); }
+.badge-promo { background: var(--purple-light); color: var(--purple); }
+.badge-none { background: #f0edf8; color: var(--ink-faint); }
+.social-icons { display: flex; gap: 6px; }
+.social-btn { width: 30px; height: 30px; border-radius: 8px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; cursor: pointer; background: var(--white); }
+.social-btn.active { background: #dff0fd; border-color: #8ec8f4; }
+
+/* TOOLTIP */
+.info-btn { width: 15px; height: 15px; border-radius: 50%; border: 1.5px solid var(--border); display: inline-flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 700; color: var(--ink-faint); cursor: pointer; font-family: 'Poppins', sans-serif; background: transparent; flex-shrink: 0; vertical-align: middle; padding: 0; transition: border-color 0.12s, color 0.12s; }
+.info-btn:hover { border-color: var(--purple); color: var(--purple); }
+#gtip { position: fixed; z-index: 9999; background: var(--ink); color: #fff; font-family: 'Poppins', sans-serif; font-size: 11px; font-weight: 400; padding: 9px 13px; border-radius: 10px; line-height: 1.6; max-width: 220px; pointer-events: none; display: none; box-shadow: 0 4px 16px rgba(30,18,48,0.3); }
+#gtip-arrow { position: fixed; z-index: 9998; width: 0; height: 0; border-left: 6px solid transparent; border-right: 6px solid transparent; border-top: 7px solid #1E1230; pointer-events: none; display: none; }
+#emptyState { display: none; padding: 2.5rem; text-align: center; color: var(--ink-faint); font-size: 13px; font-weight: 500; }
+
+/* CALENDAR */
+.cal-overlay { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(30,18,48,0.4); align-items: center; justify-content: center; }
+.cal-overlay.open { display: flex; }
+.cal-box { background: var(--white); border-radius: var(--radius-lg); border: 1px solid var(--border); padding: 28px 32px; min-width: 660px; max-width: 92vw; box-shadow: 0 24px 64px rgba(81,35,164,0.18); }
+.cal-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+.cal-top-title { font-size: 15px; font-weight: 700; color: var(--ink); }
+.cal-nav { display: flex; gap: 8px; }
+.cal-nav button { background: var(--white); border: 1px solid var(--border); border-radius: 8px; width: 32px; height: 32px; cursor: pointer; color: var(--purple); font-size: 16px; display: flex; align-items: center; justify-content: center; font-family: 'Poppins', sans-serif; }
+.cal-nav button:hover { background: var(--purple-faint); }
+.cal-months { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+.cal-month-title { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 12px; text-transform: capitalize; }
+.cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
+.cal-dh { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-faint); text-align: center; padding: 4px 0 6px; }
+.cal-d { font-size: 13px; text-align: center; padding: 7px 4px; border-radius: 8px; cursor: pointer; color: var(--ink); font-weight: 500; }
+.cal-d:hover { background: var(--purple-light); }
+.cal-d.today { color: var(--purple); font-weight: 800; }
+.cal-d.selected { background: var(--purple) !important; color: #fff !important; }
+.cal-d.in-range { background: var(--purple-light); color: var(--purple); }
+.cal-d.empty { cursor: default; pointer-events: none; }
+.cal-actions { display: flex; justify-content: flex-end; gap: 12px; margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border); }
+.cal-cancel { font-family: 'Poppins', sans-serif; background: none; border: none; color: var(--purple); font-size: 14px; font-weight: 600; cursor: pointer; padding: 9px 18px; border-radius: 8px; }
+.cal-cancel:hover { background: var(--purple-faint); }
+.cal-apply { font-family: 'Poppins', sans-serif; background: var(--purple); color: #fff; border: none; font-size: 14px; font-weight: 700; cursor: pointer; padding: 10px 28px; border-radius: 10px; }
+.cal-apply:hover { background: var(--purple-dark); }
+
+.site-footer { text-align: center; padding: 36px 32px 48px; border-top: 1px solid var(--border); margin-top: 20px; }
+.footer-logo { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 8px; }
+.footer-logo-icon { width: 28px; height: 28px; border: 2px solid var(--purple); border-radius: 7px; display: flex; align-items: center; justify-content: center; }
+.footer-logo-text { font-size: 18px; font-weight: 800; color: var(--purple); }
+.site-footer p { font-size: 12px; color: var(--ink-faint); }
+
+@media (max-width: 900px) {
+  .hero { padding: 36px 24px 28px; }
+  .filters-bar { padding: 12px 24px; }
+  .content { padding: 28px 16px 48px; }
+  .kpi-grid { grid-template-columns: 1fr 1fr; }
+  .cal-months { grid-template-columns: 1fr; }
+  .cal-box { min-width: unset; }
+}
+@media (max-width: 600px) { .kpi-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<div id="gtip"></div>
+<div id="gtip-arrow"></div>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow"><span></span> POK · Plataforma de Impacto</div>
+    <h1 class="hero-title">Empregabilidade</h1>
+    <p class="hero-subtitle">Quando um beneficiário compartilha seu certificado no LinkedIn, a POK lê o histórico completo do perfil e monitora mudanças de carreira ao longo do tempo — novos empregos, promoções e evolução de habilidades.</p>
+  </div>
+</header>
+
+<div class="filters-bar">
+  <select class="filter-select"><option>Todos os certificados</option><option>AI Bootcamp 2025</option><option>Executive Program - T15</option><option>Missão IA</option></select>
+  <select class="filter-select"><option>Todos os anos</option><option>2026</option><option>2025</option><option>2024</option></select>
+  <select class="filter-select"><option>Todos os títulos</option><option>Analista</option><option>Gerente</option><option>Diretor</option></select>
+  <button class="date-btn" onclick="openCal()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+    <span id="dateLabel">Data validade</span>
+  </button>
+</div>
+
+<main class="content">
+
+  <div class="section-label">Funil de engajamento</div>
+  <div class="funnel-card">
+    <h3>Do certificado ao impacto real</h3>
+    <p>Cada etapa mostra quantos beneficiários avançaram no processo — do compartilhamento inicial até a mudança de carreira detectada no perfil.</p>
+    <div class="funnel-steps">
+      <div class="funnel-step"><div class="funnel-bar" style="background:#3a1878;">56</div><div class="funnel-step-label">Compartilhamentos<br>no LinkedIn</div><div class="funnel-step-pct">100%</div></div>
+      <div class="funnel-arrow">›</div>
+      <div class="funnel-step"><div class="funnel-bar" style="background:#5123a4;">25</div><div class="funnel-step-label">Publicações<br>detectadas</div><div class="funnel-step-pct">45%</div></div>
+      <div class="funnel-arrow">›</div>
+      <div class="funnel-step"><div class="funnel-bar" style="background:#6b45bb;">17</div><div class="funnel-step-label">Adicionado<br>ao perfil</div><div class="funnel-step-pct">30%</div></div>
+      <div class="funnel-arrow">›</div>
+      <div class="funnel-step"><div class="funnel-bar" style="background:#8f76cc;">10</div><div class="funnel-step-label">Algum impacto<br>detectado</div><div class="funnel-step-pct">18%</div></div>
+      <div class="funnel-arrow">›</div>
+      <div class="funnel-step"><div class="funnel-bar" style="background:#1D9E75;">5</div><div class="funnel-step-label">Novo<br>emprego</div><div class="funnel-step-pct">9%</div></div>
+      <div class="funnel-arrow">›</div>
+      <div class="funnel-step"><div class="funnel-bar" style="background:#5DCAA5;">5</div><div class="funnel-step-label">Promoção<br>detectada</div><div class="funnel-step-pct">9%</div></div>
+    </div>
+  </div>
+
+  <div class="section-label">Métricas principais</div>
+  <div class="kpi-grid">
+    <div class="kpi-card highlight">
+      <div class="kpi-value purple">76 dias</div>
+      <div class="kpi-label">Tempo médio até impacto</div>
+      <button class="info-btn" data-tip="Média de dias entre o compartilhamento do certificado e a primeira mudança detectada no perfil (novo emprego ou promoção).">i</button>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-value">18%</div>
+      <div class="kpi-label">Taxa de conversão geral</div>
+      <button class="info-btn" data-tip="Percentual de beneficiários que compartilharam o certificado e tiveram algum impacto detectado no período selecionado.">i</button>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-value">5</div>
+      <div class="kpi-label">Novos empregos detectados</div>
+      <button class="info-btn" data-tip="Beneficiários que mudaram de empresa ou saíram do desemprego após o certificado, identificados via atualização do Experience no LinkedIn.">i</button>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-value">5</div>
+      <div class="kpi-label">Promoções detectadas</div>
+      <button class="info-btn" data-tip="Beneficiários que atualizaram o cargo na mesma empresa com título de maior senioridade após o certificado.">i</button>
+    </div>
+  </div>
+
+  <!-- HYBRID CHART -->
+  <div class="section-label">Evolução do perfil dos beneficiários</div>
+  <div class="chart-card">
+    <div class="chart-card-header">
+      <div>
+        <h3>Trajetória agregada — antes e depois do compartilhamento</h3>
+        <p>Média dos beneficiários filtrados. À esquerda do marco: dados históricos lidos do LinkedIn no momento do compartilhamento. À direita: capturas periódicas após o compartilhamento.</p>
+      </div>
+      <select class="chart-metric-select" id="metricSelect" onchange="updateChart()">
+        <option value="senioridade">Senioridade média</option>
+        <option value="cargos">Nº de cargos acumulados</option>
+        <option value="skills">Nº de skills listadas</option>
+        <option value="certificados">Nº de certificados</option>
+        <option value="empresas">Nº de empresas diferentes</option>
+      </select>
+    </div>
+
+    <div class="chart-zone-labels">
+      <span class="zone-label past">← Histórico lido do LinkedIn</span>
+      <span class="zone-divider"></span>
+      <span class="zone-label future">Capturado após compartilhamento →</span>
+    </div>
+
+    <div style="position:relative; width:100%; height:280px;">
+      <canvas id="hybridChart" role="img" aria-label="Gráfico de evolução do perfil dos beneficiários antes e depois do compartilhamento do certificado"></canvas>
+    </div>
+
+    <div style="display:flex; align-items:center; justify-content:center; gap:6px; margin-top:14px; font-size:11px; color:var(--ink-faint);">
+      <div style="width:24px; height:2px; background:var(--purple); border-radius:1px;"></div>
+      Média dos beneficiários
+      <div style="width:1px; height:12px; background:var(--border); margin:0 8px;"></div>
+      <div style="width:2px; height:16px; background:var(--ink); border-radius:1px; opacity:0.3;"></div>
+      Marco do compartilhamento
+    </div>
+  </div>
+
+  <!-- TABLE -->
+  <div class="section-label">Beneficiários individuais</div>
+  <div class="table-card">
+    <div class="table-toolbar">
+      <input type="text" id="searchInput" placeholder="Buscar beneficiário ou programa..." oninput="filterTable()" />
+      <select id="impactFilter" onchange="filterTable()">
+        <option value="">Todos os impactos</option>
+        <option value="novo">Novo emprego</option>
+        <option value="promo">Promoção</option>
+        <option value="none">Sem impacto ainda</option>
+      </select>
+      <label class="toggle-label"><input type="checkbox" id="sharedOnly" onchange="filterTable()" /> Ver só com postagem compartilhada</label>
+    </div>
+    <div style="overflow-x:auto;">
+      <table>
+        <thead>
+          <tr>
+            <th><div class="th-inner">Data <button class="info-btn" data-tip="Data em que o beneficiário compartilhou o certificado no LinkedIn — este é o D+0, quando a leitura do perfil pela POK é iniciada.">i</button></div></th>
+            <th><div class="th-inner">Programa <button class="info-btn" data-tip="Nome do programa ou certificado POK que o beneficiário concluiu.">i</button></div></th>
+            <th><div class="th-inner">Beneficiário <button class="info-btn" data-tip="Nome do profissional que recebeu e compartilhou o certificado.">i</button></div></th>
+            <th><div class="th-inner">Cargo detectado <button class="info-btn" data-tip="Cargo e empresa registrados no campo Experience do LinkedIn no momento do compartilhamento ou em leitura posterior.">i</button></div></th>
+            <th><div class="th-inner">Impacto <button class="info-btn" data-tip="Tipo de mudança detectada: novo emprego (troca de empresa) ou promoção (mesmo empregador, cargo mais sênior). Sem impacto ainda indica que nenhuma mudança foi identificada até o momento.">i</button></div></th>
+            <th><div class="th-inner">Dias até impacto <button class="info-btn" data-tip="Número de dias entre o compartilhamento (D+0) e a detecção da mudança no perfil.">i</button></div></th>
+            <th><div class="th-inner">LinkedIn <button class="info-btn" data-tip="Ícone de perfil: acessa o LinkedIn do beneficiário. Ícone de postagem: indica se foi detectada uma publicação sobre o certificado no feed.">i</button></div></th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+    <div id="emptyState">Nenhum beneficiário encontrado com os filtros aplicados.</div>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-logo">
+    <div class="footer-logo-icon">
+      <svg viewBox="0 0 18 18" fill="none" width="16" height="16"><rect x="1" y="1" width="16" height="16" rx="3" stroke="#5123a4" stroke-width="2"/><polyline points="4,9 7.5,13 14,5" stroke="#5123a4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <span class="footer-logo-text">pok</span>
+  </div>
+  <p>Muito mais que certificados digitais · <a href="https://pok.tech" target="_blank" style="color:var(--purple);font-weight:600;text-decoration:none;">pok.tech</a></p>
+</footer>
+
+<div class="cal-overlay" id="calOverlay">
+  <div class="cal-box">
+    <div class="cal-top">
+      <span class="cal-top-title">Selecionar período</span>
+      <div class="cal-nav"><button onclick="shiftMonths(-1)">‹</button><button onclick="shiftMonths(1)">›</button></div>
+    </div>
+    <div class="cal-months">
+      <div><div class="cal-month-title" id="leftTitle"></div><div class="cal-grid" id="leftGrid"></div></div>
+      <div><div class="cal-month-title" id="rightTitle"></div><div class="cal-grid" id="rightGrid"></div></div>
+    </div>
+    <div class="cal-actions">
+      <button class="cal-cancel" onclick="closeCal()">Cancelar</button>
+      <button class="cal-apply" onclick="applyCal()">Aplicar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ─── CHART DATA ───────────────────────────────────────────────────────────────
+// X axis: labels split into two zones
+// Past zone: real historical dates (read from LinkedIn at moment of sharing)
+// Future zone: relative post-sharing intervals
+const pastLabels  = ['2018','2019','2020','2021','2022','2023','jan/24','jul/24','jan/25','jul/25'];
+const futureLabels = ['D+30','D+90','D+180'];
+const allLabels   = [...pastLabels, 'Compartilhamento', ...futureLabels];
+const shareIndex  = pastLabels.length; // index of the vertical marker
+
+const datasets = {
+  senioridade: {
+    label: 'Senioridade média (1=Júnior … 5=C-Level)',
+    past:   [1.0, 1.1, 1.3, 1.6, 1.9, 2.2, 2.4, 2.5, 2.6, 2.7],
+    share:  2.8,
+    future: [2.8, 3.1, 3.4],
+    yLabel: 'Nível de senioridade',
+    yMax: 5
+  },
+  cargos: {
+    label: 'Nº médio de cargos acumulados',
+    past:   [1, 1.2, 1.5, 1.8, 2.1, 2.4, 2.6, 2.8, 2.9, 3.0],
+    share:  3.1,
+    future: [3.1, 3.3, 3.6],
+    yLabel: 'Cargos acumulados',
+    yMax: 6
+  },
+  skills: {
+    label: 'Nº médio de skills listadas no perfil',
+    past:   [3, 4, 5, 7, 9, 11, 13, 14, 15, 16],
+    share:  17,
+    future: [19, 22, 24],
+    yLabel: 'Skills listadas',
+    yMax: 30
+  },
+  certificados: {
+    label: 'Nº médio de certificados no perfil',
+    past:   [0, 0, 1, 1, 1, 2, 2, 3, 3, 3],
+    share:  4,
+    future: [4, 4, 5],
+    yLabel: 'Certificados',
+    yMax: 8
+  },
+  empresas: {
+    label: 'Nº médio de empresas diferentes',
+    past:   [1, 1, 1, 2, 2, 2, 3, 3, 3, 3],
+    share:  3,
+    future: [3, 4, 4],
+    yLabel: 'Empresas',
+    yMax: 6
+  }
+};
+
+let chartInstance = null;
+
+function buildChartData(key) {
+  const d = datasets[key];
+  const values = [...d.past, d.share, ...d.future];
+  // Segment colors: past = faint purple, future = purple
+  const pointBg = allLabels.map((_, i) => {
+    if (i === shareIndex) return '#5123a4';
+    if (i < shareIndex) return '#A899C2';
+    return '#5123a4';
+  });
+  const pointR = allLabels.map((_, i) => i === shareIndex ? 7 : 4);
+  return { values, pointBg, pointR, d };
+}
+
+function updateChart() {
+  const key = document.getElementById('metricSelect').value;
+  const { values, pointBg, pointR, d } = buildChartData(key);
+
+  if (chartInstance) chartInstance.destroy();
+
+  const ctx = document.getElementById('hybridChart').getContext('2d');
+
+  // Gradient: past = faint, share onwards = purple
+  const grad = ctx.createLinearGradient(0, 0, ctx.canvas.width, 0);
+  grad.addColorStop(0, 'rgba(168,153,194,0.5)');
+  grad.addColorStop(shareIndex / (allLabels.length - 1), 'rgba(81,35,164,0.5)');
+  grad.addColorStop(1, 'rgba(81,35,164,0.9)');
+
+  chartInstance = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: allLabels,
+      datasets: [{
+        label: d.label,
+        data: values,
+        borderColor: grad,
+        borderWidth: 2.5,
+        pointBackgroundColor: pointBg,
+        pointBorderColor: '#fff',
+        pointBorderWidth: 2,
+        pointRadius: pointR,
+        pointHoverRadius: 7,
+        tension: 0.4,
+        fill: false
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            title: ctx => ctx[0].label === 'Compartilhamento' ? 'Compartilhamento (D+0)' : ctx[0].label,
+            label: ctx => `${d.yLabel}: ${ctx.parsed.y}`
+          },
+          bodyFont: { family: 'Poppins', size: 12 },
+          titleFont: { family: 'Poppins', size: 12, weight: '600' }
+        },
+        // Vertical line at share index
+        annotation: false
+      },
+      scales: {
+        x: {
+          ticks: {
+            font: { size: 11, family: 'Poppins' },
+            color: ctx => {
+              const i = ctx.index;
+              if (i === shareIndex) return '#5123a4';
+              if (i < shareIndex) return '#A899C2';
+              return '#5E4E7A';
+            },
+            maxRotation: 0
+          },
+          grid: { color: 'rgba(216,206,240,0.5)' }
+        },
+        y: {
+          min: 0,
+          max: d.yMax,
+          title: { display: true, text: d.yLabel, font: { size: 11, family: 'Poppins' }, color: '#A899C2' },
+          ticks: { font: { size: 11, family: 'Poppins' }, color: '#A899C2', stepSize: 1 },
+          grid: { color: 'rgba(216,206,240,0.4)' }
+        }
+      }
+    },
+    plugins: [{
+      // Draw vertical dashed line at share index + shaded zones
+      id: 'shareMarker',
+      afterDraw(chart) {
+        const { ctx, chartArea, scales } = chart;
+        const xScale = scales.x;
+        const shareX = xScale.getPixelForValue(shareIndex);
+
+        // Past zone shading
+        ctx.save();
+        ctx.fillStyle = 'rgba(243,239,249,0.5)';
+        ctx.fillRect(chartArea.left, chartArea.top, shareX - chartArea.left, chartArea.bottom - chartArea.top);
+
+        // Future zone shading
+        ctx.fillStyle = 'rgba(225,220,247,0.18)';
+        ctx.fillRect(shareX, chartArea.top, chartArea.right - shareX, chartArea.bottom - chartArea.top);
+
+        // Vertical line
+        ctx.beginPath();
+        ctx.setLineDash([5, 4]);
+        ctx.strokeStyle = 'rgba(81,35,164,0.5)';
+        ctx.lineWidth = 1.5;
+        ctx.moveTo(shareX, chartArea.top);
+        ctx.lineTo(shareX, chartArea.bottom);
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        // Label above line
+        ctx.fillStyle = '#5123a4';
+        ctx.font = '600 10px Poppins, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('Compartilhamento', shareX, chartArea.top - 6);
+        ctx.restore();
+      }
+    }]
+  });
+}
+
+updateChart();
+
+// ─── TABLE ────────────────────────────────────────────────────────────────────
+const rows = [
+  {date:'08/28/25',program:'Executive Program - T15',name:'Diogo Baum',cargo:null,empresa:null,impact:'none',dias:null,shared:false,hasPost:true},
+  {date:'08/28/25',program:'Executive Program - T15',name:'Jeferson Faes Bertolini',cargo:null,empresa:null,impact:'none',dias:null,shared:false,hasPost:false},
+  {date:'10/30/25',program:'AI Bootcamp 2025',name:'Guilherme Carbonari',cargo:'Learning Content Developer',empresa:'Capgemini',impact:'novo',dias:32,shared:true,hasPost:true},
+  {date:'10/30/25',program:'AI Bootcamp 2025',name:'Carolina Ferrés',cargo:null,empresa:null,impact:'none',dias:null,shared:false,hasPost:true},
+  {date:'10/30/25',program:'AI Bootcamp 2025',name:'Carlos Geraldo',cargo:null,empresa:null,impact:'none',dias:null,shared:false,hasPost:true},
+  {date:'12/01/25',program:'Missão IA',name:'André Baptista Vio',cargo:'Regional Head of Product Marketing',empresa:'Edenred Pay Brasil',impact:'promo',dias:31,shared:true,hasPost:true},
+  {date:'10/30/25',program:'AI Bootcamp 2025',name:'Danilo Pires',cargo:null,empresa:null,impact:'none',dias:null,shared:false,hasPost:true},
+  {date:'10/30/25',program:'AI Bootcamp 2025',name:'Izabella Adamuccio',cargo:null,empresa:null,impact:'none',dias:null,shared:false,hasPost:true},
+  {date:'08/28/25',program:'Executive Program - T15',name:'Bruno Reis de Arruda Alves',cargo:null,empresa:null,impact:'none',dias:null,shared:false,hasPost:false},
+  {date:'10/30/25',program:'AI Bootcamp 2025',name:'Yuri Oliveira',cargo:null,empresa:null,impact:'none',dias:null,shared:false,hasPost:true},
+];
+
+function badge(i){
+  if(i==='novo') return '<span class="badge badge-novo">Novo emprego</span>';
+  if(i==='promo') return '<span class="badge badge-promo">Promoção</span>';
+  return '<span class="badge badge-none">Sem impacto ainda</span>';
+}
+
+function renderTable(data){
+  const tb=document.getElementById('tableBody'),em=document.getElementById('emptyState');
+  if(!data.length){tb.innerHTML='';em.style.display='block';return;}
+  em.style.display='none';
+  tb.innerHTML=data.map(r=>`<tr>
+    <td class="td-muted">${r.date}</td>
+    <td class="td-muted">${r.program}</td>
+    <td><span style="font-weight:600;">${r.name}</span></td>
+    <td>${r.cargo?`<span style="font-weight:500;">${r.cargo}</span><br><span class="td-muted">${r.empresa}</span>`:'<span class="td-muted">—</span>'}</td>
+    <td>${badge(r.impact)}</td>
+    <td>${r.dias?`<span style="font-weight:700;">${r.dias}</span> <span class="td-muted">dias</span>`:'<span class="td-muted">—</span>'}</td>
+    <td><div class="social-icons">
+      <div class="social-btn ${r.hasPost?'active':''}" title="${r.hasPost?'Ver perfil':'Sem perfil'}">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="${r.hasPost?'#185FA5':'#A899C2'}" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      </div>
+      <div class="social-btn ${r.shared?'active':''}" title="${r.shared?'Postagem detectada':'Sem postagem'}">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="${r.shared?'#185FA5':'#A899C2'}" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+      </div>
+    </div></td>
+  </tr>`).join('');
+}
+
+function filterTable(){
+  const q=document.getElementById('searchInput').value.toLowerCase();
+  const imp=document.getElementById('impactFilter').value;
+  const so=document.getElementById('sharedOnly').checked;
+  renderTable(rows.filter(r=>{
+    if(q&&!r.name.toLowerCase().includes(q)&&!r.program.toLowerCase().includes(q))return false;
+    if(imp&&r.impact!==imp)return false;
+    if(so&&!r.shared)return false;
+    return true;
+  }));
+}
+renderTable(rows);
+
+// ─── TOOLTIP ─────────────────────────────────────────────────────────────────
+const gtip=document.getElementById('gtip');
+const garrow=document.getElementById('gtip-arrow');
+document.querySelectorAll('.info-btn[data-tip]').forEach(btn=>{
+  btn.addEventListener('mouseenter',()=>{
+    gtip.textContent=btn.getAttribute('data-tip');
+    gtip.style.display='block'; garrow.style.display='block';
+    positionTip(btn);
+  });
+  btn.addEventListener('mouseleave',()=>{ gtip.style.display='none'; garrow.style.display='none'; });
+});
+function positionTip(btn){
+  const r=btn.getBoundingClientRect(), tw=220, th=gtip.offsetHeight||60;
+  let left=r.left+r.width/2-tw/2;
+  left=Math.max(8,Math.min(left,window.innerWidth-tw-8));
+  gtip.style.left=left+'px'; gtip.style.top=(r.top-th-10)+'px'; gtip.style.width=tw+'px';
+  garrow.style.left=(r.left+r.width/2-6)+'px'; garrow.style.top=(r.top-10)+'px';
+}
+
+// ─── CALENDAR ─────────────────────────────────────────────────────────────────
+const MONTHS=['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
+const DAYS=['seg','ter','qua','qui','sex','sáb','dom'];
+let calBase=new Date(2026,3),selStart=null,selEnd=null;
+function openCal(){document.getElementById('calOverlay').classList.add('open');renderCal();}
+function closeCal(){document.getElementById('calOverlay').classList.remove('open');}
+function shiftMonths(d){calBase=new Date(calBase.getFullYear(),calBase.getMonth()+d);renderCal();}
+function renderCal(){
+  const L=new Date(calBase),R=new Date(calBase.getFullYear(),calBase.getMonth()+1);
+  document.getElementById('leftTitle').textContent=MONTHS[L.getMonth()]+' '+L.getFullYear();
+  document.getElementById('rightTitle').textContent=MONTHS[R.getMonth()]+' '+R.getFullYear();
+  renderMonth('leftGrid',L); renderMonth('rightGrid',R);
+}
+function renderMonth(id,date){
+  const g=document.getElementById(id); g.innerHTML='';
+  DAYS.forEach(d=>{const h=document.createElement('div');h.className='cal-dh';h.textContent=d;g.appendChild(h);});
+  const first=new Date(date.getFullYear(),date.getMonth(),1);
+  let dow=first.getDay(); dow=dow===0?6:dow-1;
+  for(let i=0;i<dow;i++){const e=document.createElement('div');e.className='cal-d empty';g.appendChild(e);}
+  const days=new Date(date.getFullYear(),date.getMonth()+1,0).getDate();
+  const today=new Date();
+  for(let d=1;d<=days;d++){
+    const el=document.createElement('div');
+    const curr=new Date(date.getFullYear(),date.getMonth(),d);
+    let cls='cal-d';
+    if(curr.toDateString()===today.toDateString())cls+=' today';
+    if(selStart&&curr.toDateString()===selStart.toDateString())cls+=' selected';
+    if(selEnd&&curr.toDateString()===selEnd.toDateString())cls+=' selected';
+    if(selStart&&selEnd&&curr>selStart&&curr<selEnd)cls+=' in-range';
+    el.className=cls; el.textContent=d;
+    el.onclick=()=>selectDay(new Date(date.getFullYear(),date.getMonth(),d));
+    g.appendChild(el);
+  }
+}
+function selectDay(d){
+  if(!selStart||(selStart&&selEnd)){selStart=d;selEnd=null;}
+  else{if(d<selStart){selEnd=selStart;selStart=d;}else{selEnd=d;}}
+  renderCal();
+}
+function applyCal(){
+  if(selStart){
+    const fmt=d=>d.toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit',year:'2-digit'});
+    document.getElementById('dateLabel').textContent=selEnd?fmt(selStart)+' — '+fmt(selEnd):fmt(selStart);
+  }
+  closeCal();
+}
+document.getElementById('calOverlay').addEventListener('click',function(e){if(e.target===this)closeCal();});
+</script>
+</body>
+</html>
