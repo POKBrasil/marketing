@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programa POK de Trilhas Formativas Micro-Certificadas por Competências</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F3EFF9;
+    --surface: #FFFFFF;
+    --surface-alt: #EDE6F6;
+    --ink: #1E1230;
+    --ink-muted: #5E4E7A;
+    --ink-faint: #A899C2;
+    --accent: #5123a4;
+    --accent-light: #e4dcf7;
+    --accent-mid: #7B4FCF;
+    --green: #1D7A4F;
+    --green-light: #E2F4EB;
+    --blue: #2A5BAD;
+    --blue-light: #DDE8F9;
+    --purple: #5123a4;
+    --purple-light: #e4dcf7;
+    --amber: #7A4F10;
+    --amber-light: #F9EDD8;
+    --border: #D8CEF0;
+    --radius: 10px;
+    --radius-lg: 16px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    min-height: 100vh;
+    padding: 0;
+  }
+
+  /* ── HEADER ───────────────────────────────────────────── */
+  .page-header {
+    background: var(--accent);
+    color: #fff;
+    padding: 2rem 2.5rem 1.75rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-header::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: rgba(228,220,247,0.15);
+    pointer-events: none;
+  }
+  .page-header::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: 30%;
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+    pointer-events: none;
+  }
+  .header-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .header-badge {
+    font-family: 'Poppins', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #e4dcf7;
+    background: rgba(228,220,247,0.2);
+    padding: 4px 10px;
+    border-radius: 99px;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  .header-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(16px, 3vw, 28px);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: #fff;
+  }
+  .header-title span { color: #e4dcf7; }
+  .header-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    margin-top: 6px;
+    font-weight: 300;
+  }
+  .header-meta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 1.25rem;
+    align-items: center;
+  }
+  .meta-stat {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 8px 14px;
+    text-align: center;
+    min-width: 80px;
+  }
+  .meta-stat .val {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+  }
+  .meta-stat .lbl {
+    font-size: 10px;
+    color: rgba(255,255,255,0.45);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 1px;
+  }
+  .progress-wrap {
+    margin-top: 1.25rem;
+  }
+  .progress-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 6px;
+  }
+  .progress-track {
+    background: rgba(255,255,255,0.1);
+    border-radius: 99px;
+    height: 5px;
+    overflow: hidden;
+  }
+  .progress-bar {
+    height: 100%;
+    border-radius: 99px;
+    background: #e4dcf7;
+    transition: width 0.5s cubic-bezier(0.4,0,0.2,1);
+    width: 0%;
+  }
+
+  /* ── TOOLBAR ──────────────────────────────────────────── */
+  .toolbar {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 0.75rem 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+  .filter-group {
+    display: flex;
+    gap: 4px;
+    background: var(--surface-alt);
+    border-radius: 8px;
+    padding: 3px;
+  }
+  .filter-btn {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    padding: 5px 12px;
+    border-radius: 6px;
+    border: none;
+    background: transparent;
+    color: var(--ink-muted);
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.15s;
+  }
+  .filter-btn.active {
+    background: var(--surface);
+    color: var(--ink);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  .toolbar-sep { flex: 1; }
+  .action-btn {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    padding: 6px 14px;
+    border-radius: 7px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--ink-muted);
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+  .action-btn:hover { background: var(--surface-alt); color: var(--ink); }
+  .action-btn.green { border-color: var(--accent); color: var(--accent); }
+  .action-btn.green:hover { background: var(--accent-light); }
+  .action-btn.red { border-color: #C0392B; color: #C0392B; }
+  .action-btn.red:hover { background: #FDECEA; }
+
+  /* ── LEGEND ───────────────────────────────────────────── */
+  .legend-bar {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 0.6rem 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .legend-lbl {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-right: 4px;
+  }
+  .leg-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    color: var(--ink-muted);
+    font-weight: 400;
+  }
+  .leg-dot {
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ── CALENDAR ─────────────────────────────────────────── */
+  .calendar-wrap {
+    padding: 2rem 2.5rem;
+  }
+  .cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .cal-header {
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    text-align: center;
+    padding: 6px 4px;
+  }
+  .cal-empty { /* spacer */ }
+
+  /* Day card */
+  .day-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 10px 9px;
+    min-height: 100px;
+    cursor: pointer;
+    position: relative;
+    transition: border-color 0.15s, transform 0.12s, box-shadow 0.15s;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    overflow: hidden;
+  }
+  .day-card:hover {
+    border-color: #C0BAB2;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+  }
+  .day-card.weekend {
+    background: var(--surface-alt);
+  }
+  .day-card.event-day {
+    border-color: var(--accent);
+    border-width: 1.5px;
+  }
+  .day-card.event-day::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--accent);
+    border-radius: var(--radius) var(--radius) 0 0;
+  }
+  .day-card.done-day {
+    background: #F5F0FD;
+    border-color: #C4AFF0;
+  }
+  .day-card.done-day .day-num { color: var(--ink-muted); }
+
+  .day-num {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .day-weekday {
+    font-size: 10px;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+    color: var(--ink-faint);
+  }
+  .done-check {
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .done-check svg { width: 9px; height: 9px; }
+
+  .chip {
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 5px;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    display: block;
+    width: fit-content;
+  }
+  .chip-nl  { background: #DDE8F9; color: #2A5BAD; }
+  .chip-nli { background: #DDE8F9; color: #2A5BAD; }
+  .chip-li  { background: #F0EBFF; color: #5123a4; }
+  .chip-em  { background: var(--green-light); color: var(--green); }
+  .chip-ev  { background: #5123a4; color: #fff; font-weight: 700; }
+  .chip-ca  { background: var(--amber-light); color: var(--amber); }
+
+  /* hidden in filter mode */
+  .day-card.hidden { display: none; }
+
+  /* ── MODAL ────────────────────────────────────────────── */
+  .overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(26,23,20,0.5);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(3px);
+    padding: 1rem;
+  }
+  .overlay.open { display: flex; }
+
+  .modal {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    width: 420px;
+    max-width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    border: 1px solid var(--border);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    animation: modal-in 0.2s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  @keyframes modal-in {
+    from { opacity: 0; transform: scale(0.93) translateY(10px); }
+    to   { opacity: 1; transform: scale(1) translateY(0); }
+  }
+  .modal-header {
+    padding: 1.25rem 1.25rem 1rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .modal-date-badge {
+    background: var(--accent);
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    width: 50px; height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .modal-header-text { flex: 1; }
+  .modal-header-text h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .modal-header-text p {
+    font-size: 13px;
+    color: var(--ink-muted);
+    margin-top: 2px;
+  }
+  .modal-close {
+    background: var(--surface-alt);
+    border: none;
+    border-radius: 7px;
+    width: 30px; height: 30px;
+    cursor: pointer;
+    color: var(--ink-muted);
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.12s;
+  }
+  .modal-close:hover { background: var(--border); }
+
+  .modal-body { padding: 1rem 1.25rem; }
+
+  .section-title {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: var(--ink-faint);
+    margin: 14px 0 8px;
+  }
+  .section-title:first-child { margin-top: 0; }
+
+  .task-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #F0EDE8;
+  }
+  .task-row:last-child { border-bottom: none; }
+  .task-row input[type=checkbox] {
+    width: 16px; height: 16px;
+    accent-color: var(--accent);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .task-row label {
+    font-size: 13.5px;
+    color: var(--ink);
+    cursor: pointer;
+    flex: 1;
+    line-height: 1.4;
+  }
+  .task-row label.done-task {
+    text-decoration: line-through;
+    color: var(--ink-faint);
+  }
+  .task-chip-modal {
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 5px;
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+
+  .notes-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: var(--ink-faint);
+    margin-bottom: 6px;
+    display: block;
+  }
+  textarea {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
+    color: var(--ink);
+    background: var(--surface-alt);
+    resize: vertical;
+    min-height: 80px;
+    transition: border-color 0.15s;
+    outline: none;
+  }
+  textarea:focus { border-color: #A0978E; }
+  textarea::placeholder { color: var(--ink-faint); }
+
+  .modal-footer {
+    padding: 1rem 1.25rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    gap: 8px;
+  }
+  .btn-primary {
+    flex: 1;
+    padding: 10px;
+    border-radius: 9px;
+    border: none;
+    background: var(--accent);
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13.5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .btn-primary:hover { background: #3D1880; }
+  .btn-primary.undone { background: var(--ink-muted); }
+  .btn-primary.undone:hover { background: var(--ink); }
+  .btn-secondary {
+    padding: 10px 18px;
+    border-radius: 9px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--ink-muted);
+    font-family: 'Poppins', sans-serif;
+    font-size: 13.5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .btn-secondary:hover { background: var(--surface-alt); }
+
+  /* ── KIT SECTION ──────────────────────────────────────── */
+  .kits-section {
+    padding: 0 2.5rem 2rem;
+  }
+  .kits-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-faint);
+    margin-bottom: 1rem;
+  }
+  .kits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 10px;
+  }
+  .kit-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+  }
+  .kit-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--ink-muted);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .kit-icon {
+    width: 20px; height: 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+  }
+  .kit-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 0;
+    border-bottom: 1px solid #F0EDE8;
+    font-size: 13px;
+    color: var(--ink-muted);
+  }
+  .kit-item:last-child { border-bottom: none; }
+  .kit-item input[type=checkbox] {
+    width: 14px; height: 14px;
+    accent-color: var(--accent);
+    cursor: pointer;
+  }
+  .kit-item label {
+    cursor: pointer;
+    flex: 1;
+    font-size: 13px;
+  }
+  .kit-item label.done-task {
+    text-decoration: line-through;
+    color: var(--ink-faint);
+  }
+
+  .bottom-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .bottom-col { display: flex; flex-direction: column; gap: 0; }
+
+  .event-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    height: 100%;
+  }
+  .event-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--ink-muted);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .event-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #EDE6F6;
+  }
+  .event-row:last-child { border-bottom: none; }
+  .event-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+  .event-name {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--ink);
+    flex: 1;
+  }
+  .event-date {
+    font-size: 11px;
+    color: var(--ink-faint);
+    background: var(--accent-light);
+    color: var(--accent);
+    padding: 2px 8px;
+    border-radius: 99px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .rotina-section {
+    padding: 0 2.5rem 2.5rem;
+  }
+  .rotina-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+  }
+  .rotina-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+  }
+  .rotina-day {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .rotina-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .rotina-list li {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    color: var(--ink-muted);
+    line-height: 1.4;
+  }
+  .rotina-chip {
+    font-size: 10px;
+    padding: 2px 7px;
+    border-radius: 5px;
+    font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 700px) {
+    .rotina-section { padding-left: 1rem; padding-right: 1rem; }
+  }
+
+  /* responsive */
+  @media (max-width: 700px) {
+    .page-header, .toolbar, .legend-bar, .calendar-wrap, .kits-section {
+      padding-left: 1rem; padding-right: 1rem;
+    }
+    .cal-grid { gap: 4px; }
+    .day-card { min-height: 70px; padding: 6px; }
+    .chip { font-size: 9px; }
+    .toolbar { gap: 6px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header class="page-header">
+  <div class="header-top">
+    <div>
+      <div class="header-badge">Campanha POK</div>
+      <h1 class="header-title">Programa POK de Trilhas Formativas<br><span>Micro-Certificadas por Competências</span></h1>
+      <p class="header-sub">Canvas de planejamento · Abril 2026</p>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <div class="meta-stat">
+        <div class="val" id="stat-tasks">0</div>
+        <div class="lbl">Tarefas</div>
+      </div>
+      <div class="meta-stat">
+        <div class="val" id="stat-done">0</div>
+        <div class="lbl">Concluídas</div>
+      </div>
+      <div class="meta-stat">
+        <div class="val">3</div>
+        <div class="lbl">Eventos</div>
+      </div>
+    </div>
+  </div>
+  <div class="progress-wrap">
+    <div class="progress-info">
+      <span>Progresso geral das tarefas</span>
+      <span id="prog-pct">0%</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-bar" id="prog-bar"></div>
+    </div>
+  </div>
+</header>
+
+<!-- ── TOOLBAR ── -->
+<div class="toolbar">
+  <div class="filter-group">
+    <button class="filter-btn active" id="fb-all" onclick="setFilter('all')">Todos</button>
+    <button class="filter-btn" id="fb-pending" onclick="setFilter('pending')">Pendentes</button>
+    <button class="filter-btn" id="fb-done" onclick="setFilter('done')">Concluídos</button>
+  </div>
+  <div class="toolbar-sep"></div>
+  <button class="action-btn green" onclick="markAllDone()">✓ Marcar todos</button>
+  <button class="action-btn red" onclick="clearAll()">↺ Limpar tudo</button>
+</div>
+
+<!-- ── LEGEND ── -->
+<div class="legend-bar">
+  <span class="legend-lbl">Legenda</span>
+  <div class="leg-item"><div class="leg-dot" style="background:#2A5BAD"></div>NL E-mail</div>
+  <div class="leg-item"><div class="leg-dot" style="background:#2A5BAD"></div>NL LinkedIn</div>
+  <div class="leg-item"><div class="leg-dot" style="background:#5123a4"></div>Post LinkedIn</div>
+  <div class="leg-item"><div class="leg-dot" style="background:#1D7A4F"></div>E-mail</div>
+  <div class="leg-item"><div class="leg-dot" style="background:#5123a4"></div>Evento</div>
+  <div class="leg-item"><div class="leg-dot" style="background:#5123a4"></div>✓ Concluído</div>
+</div>
+
+<!-- ── CALENDAR ── -->
+<div class="calendar-wrap">
+  <div class="cal-grid" id="cal-grid">
+    <div class="cal-header">Dom</div>
+    <div class="cal-header">Seg</div>
+    <div class="cal-header">Ter</div>
+    <div class="cal-header">Qua</div>
+    <div class="cal-header">Qui</div>
+    <div class="cal-header">Sex</div>
+    <div class="cal-header">Sáb</div>
+  </div>
+</div>
+
+<!-- ── KIT MATERIALS + EVENTOS + CANAIS ── -->
+<div class="kits-section">
+  <div class="kits-title">Materiais a desenvolver</div>
+  <div class="kits-grid" id="kits-grid"></div>
+
+  <div class="bottom-row">
+    <div class="bottom-col" id="canais-col"></div>
+    <div class="bottom-col" id="eventos-col"></div>
+  </div>
+</div>
+
+<!-- ── ROTINA DIGITAL ── -->
+<div class="rotina-section">
+  <div class="kits-title">Rotina virtual de campanha</div>
+  <div class="rotina-grid">
+    <div class="rotina-card">
+      <div class="rotina-day">Segunda-feira</div>
+      <ul class="rotina-list">
+        <li><span class="rotina-chip chip-nl">NL E-mail</span> Envio de newsletter por e-mail</li>
+      </ul>
+    </div>
+    <div class="rotina-card">
+      <div class="rotina-day">Terça-feira</div>
+      <ul class="rotina-list">
+        <li><span class="rotina-chip chip-li">Post LinkedIn</span> Post no LinkedIn</li>
+      </ul>
+    </div>
+    <div class="rotina-card">
+      <div class="rotina-day">Quarta-feira</div>
+      <ul class="rotina-list">
+        <li><span class="rotina-chip chip-li">Post LinkedIn</span> Post no LinkedIn</li>
+        <li><span class="rotina-chip chip-em">E-mail</span> Envio de e-mail</li>
+      </ul>
+    </div>
+    <div class="rotina-card">
+      <div class="rotina-day">Quinta-feira</div>
+      <ul class="rotina-list">
+        <li><span class="rotina-chip chip-li">Post LinkedIn</span> Post no LinkedIn</li>
+        <li><span class="rotina-chip chip-nli">NL LinkedIn</span> Newsletter no LinkedIn</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div class="overlay" id="overlay" onclick="overlayClick(event)">
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <div class="modal-date-badge" id="m-badge"></div>
+      <div class="modal-header-text">
+        <h2 id="m-title"></h2>
+        <p id="m-sub"></p>
+      </div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" id="m-body"></div>
+    <div style="padding:0 1.25rem 1rem;">
+      <span class="notes-label">Notas do dia</span>
+      <textarea id="m-notes" placeholder="Adicione observações, links, responsáveis..."></textarea>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-primary" id="btn-done" onclick="toggleDayDone()">Marcar dia como concluído</button>
+      <button class="btn-secondary" onclick="closeModal()">Fechar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const DAYS = {
+  1:  { lbl:'Qua', tasks:[{t:'Post LinkedIn',c:'li'},{t:'Envio de e-mail',c:'em'}] },
+  2:  { lbl:'Qui', tasks:[{t:'Post LinkedIn',c:'li'},{t:'Newsletter LinkedIn',c:'nli'}] },
+  3:  { lbl:'Sex', tasks:[] },
+  4:  { lbl:'Sáb', tasks:[], weekend:true },
+  5:  { lbl:'Dom', tasks:[], weekend:true },
+  6:  { lbl:'Seg', tasks:[{t:'Newsletter por e-mail',c:'nl'}] },
+  7:  { lbl:'Ter', tasks:[{t:'Post LinkedIn',c:'li'}] },
+  8:  { lbl:'Qua', tasks:[{t:'Post LinkedIn',c:'li'},{t:'Envio de e-mail',c:'em'}] },
+  9:  { lbl:'Qui', tasks:[{t:'Post LinkedIn',c:'li'},{t:'Newsletter LinkedIn',c:'nli'}] },
+  10: { lbl:'Sex', tasks:[] },
+  11: { lbl:'Sáb', tasks:[], weekend:true },
+  12: { lbl:'Dom', tasks:[], weekend:true },
+  13: { lbl:'Seg', tasks:[{t:'Newsletter por e-mail',c:'nl'}] },
+  14: { lbl:'Ter', tasks:[{t:'Post LinkedIn',c:'li'}] },
+  15: { lbl:'Qua', tasks:[{t:'Post LinkedIn',c:'li'},{t:'Envio de e-mail',c:'em'}], event:'FIAD' },
+  16: { lbl:'Qui', tasks:[{t:'Post LinkedIn',c:'li'},{t:'Newsletter LinkedIn',c:'nli'}] },
+  17: { lbl:'Sex', tasks:[] },
+  18: { lbl:'Sáb', tasks:[], weekend:true },
+  19: { lbl:'Dom', tasks:[], weekend:true },
+  20: { lbl:'Seg', tasks:[{t:'Newsletter por e-mail',c:'nl'}] },
+  21: { lbl:'Ter', tasks:[{t:'Post LinkedIn',c:'li'}] },
+  22: { lbl:'Qua', tasks:[{t:'Post LinkedIn',c:'li'},{t:'Envio de e-mail',c:'em'}] },
+  23: { lbl:'Qui', tasks:[{t:'Post LinkedIn',c:'li'},{t:'Newsletter LinkedIn',c:'nli'}] },
+  24: { lbl:'Sex', tasks:[] },
+  25: { lbl:'Sáb', tasks:[], weekend:true },
+  26: { lbl:'Dom', tasks:[], weekend:true },
+  27: { lbl:'Seg', tasks:[{t:'Newsletter por e-mail',c:'nl'}], event:'STHEM Eric Mazur' },
+  28: { lbl:'Ter', tasks:[{t:'Post LinkedIn',c:'li'}] },
+  29: { lbl:'Qua', tasks:[{t:'Post LinkedIn',c:'li'},{t:'Envio de e-mail',c:'em'}], event:'D2L CIAED' },
+  30: { lbl:'Qui', tasks:[{t:'Post LinkedIn',c:'li'},{t:'Newsletter LinkedIn',c:'nli'}] },
+};
+
+const CHIP_CLS = { nl:'chip-nl', nli:'chip-nli', li:'chip-li', em:'chip-em', ev:'chip-ev', ca:'chip-ca' };
+const CHIP_LBL = { nl:'NL E-mail', nli:'NL LinkedIn', li:'Post LinkedIn', em:'E-mail', ev:'Evento', ca:'Canal' };
+
+const KITS = [
+  { title:'Kit Virtual', icon:'💻', bg:'#e4dcf7', color:'#5123a4',
+    items:['Posts LinkedIn','E-mails','Newsletter','Flyer digital','Landing page','Pílulas dos vídeos'] },
+  { title:'Kit Físico · Eventos', icon:'🎪', bg:'#DDE8F9', color:'#2A5BAD',
+    items:['Banner evento','Camiseta evento','Flyer impresso'] },
+];
+
+const CANAIS = ['Mailing POK','Plataforma A','WAE','Bett','UC Semesp'];
+
+const EVENTOS = [
+  { name:'FIAD', date:'15/04', day: 15 },
+  { name:'STHEM Eric Mazur', date:'27/04', day: 27 },
+  { name:'D2L CIAED', date:'29/04', day: 29 },
+];
+
+let state = {};
+let currentDay = null;
+let currentFilter = 'all';
+
+function load() {
+  try { state = JSON.parse(localStorage.getItem('pok26') || '{}'); } catch(e) { state = {}; }
+}
+function save() {
+  try { localStorage.setItem('pok26', JSON.stringify(state)); } catch(e) {}
+}
+function getDay(d) {
+  if (!state[d]) state[d] = { tasks:{}, done:false, notes:'' };
+  return state[d];
+}
+function getKit() {
+  if (!state._kits) state._kits = {};
+  return state._kits;
+}
+
+// ── RENDER CALENDAR ──
+function renderCal() {
+  const grid = document.getElementById('cal-grid');
+  const headers = Array.from(grid.querySelectorAll('.cal-header'));
+  grid.innerHTML = '';
+  headers.forEach(h => grid.appendChild(h));
+
+  // April 1 2026 = Wednesday = col 3 (0-indexed Sun)
+  for (let i = 0; i < 3; i++) {
+    const e = document.createElement('div'); e.className='cal-empty'; grid.appendChild(e);
+  }
+
+  let totalTasks = 0, doneTasks = 0;
+
+  for (let d = 1; d <= 30; d++) {
+    const info = DAYS[d];
+    const st = getDay(d);
+    const allDone = info.tasks.length > 0 && info.tasks.every((_,i) => st.tasks[i]);
+
+    totalTasks += info.tasks.length;
+    info.tasks.forEach((_,i) => { if(st.tasks[i]) doneTasks++; });
+
+    let cls = 'day-card';
+    if (info.weekend) cls += ' weekend';
+    if (info.event) cls += ' event-day';
+    if (st.done) cls += ' done-day';
+    if (currentFilter === 'done' && !st.done) cls += ' hidden';
+    if (currentFilter === 'pending' && st.done) cls += ' hidden';
+
+    const card = document.createElement('div');
+    card.className = cls;
+    card.onclick = () => openModal(d);
+
+    const numRow = document.createElement('div');
+    numRow.className = 'day-num';
+    const numSpan = document.createElement('span');
+    numSpan.textContent = d;
+    const wkSpan = document.createElement('span');
+    wkSpan.className = 'day-weekday';
+    wkSpan.textContent = info.lbl;
+    numRow.appendChild(numSpan);
+    numRow.appendChild(wkSpan);
+    if (st.done) {
+      const chk = document.createElement('div');
+      chk.className = 'done-check';
+      chk.innerHTML = '<svg viewBox="0 0 9 9" fill="none"><polyline points="1.5,4.5 3.8,7 7.5,2" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+      numRow.appendChild(chk);
+    }
+    card.appendChild(numRow);
+
+    if (info.event) {
+      const ev = document.createElement('div');
+      ev.className = 'chip chip-ev';
+      ev.textContent = info.event;
+      card.appendChild(ev);
+    }
+
+    info.tasks.slice(0, 3).forEach(task => {
+      const chip = document.createElement('div');
+      chip.className = 'chip ' + (CHIP_CLS[task.c] || '');
+      chip.textContent = CHIP_LBL[task.c] || task.t;
+      card.appendChild(chip);
+    });
+
+    grid.appendChild(card);
+  }
+
+  document.getElementById('stat-tasks').textContent = totalTasks;
+  document.getElementById('stat-done').textContent = doneTasks;
+  const pct = totalTasks ? Math.round(doneTasks/totalTasks*100) : 0;
+  document.getElementById('prog-pct').textContent = pct + '%';
+  document.getElementById('prog-bar').style.width = pct + '%';
+}
+
+// ── RENDER KITS ──
+function renderKits() {
+  const grid = document.getElementById('kits-grid');
+  grid.innerHTML = '';
+  const kstate = getKit();
+
+  KITS.forEach((kit, ki) => {
+    const card = document.createElement('div');
+    card.className = 'kit-card';
+
+    const h3 = document.createElement('h3');
+    h3.innerHTML = `<div class="kit-icon" style="background:${kit.bg};color:${kit.color}">${kit.icon}</div>${kit.title}`;
+    card.appendChild(h3);
+
+    kit.items.forEach((item, ii) => {
+      const key = ki + '_' + ii;
+      const row = document.createElement('div');
+      row.className = 'kit-item';
+      const cb = document.createElement('input');
+      cb.type = 'checkbox';
+      cb.id = 'kit_'+key;
+      cb.checked = !!kstate[key];
+      const lbl = document.createElement('label');
+      lbl.htmlFor = 'kit_'+key;
+      lbl.textContent = item;
+      if (kstate[key]) lbl.className = 'done-task';
+      cb.onchange = () => {
+        kstate[key] = cb.checked;
+        lbl.className = cb.checked ? 'done-task' : '';
+        save();
+      };
+      row.appendChild(cb); row.appendChild(lbl);
+      card.appendChild(row);
+    });
+    grid.appendChild(card);
+  });
+}
+
+// ── MODAL ──
+function openModal(d) {
+  currentDay = d;
+  const info = DAYS[d];
+  const st = getDay(d);
+
+  document.getElementById('m-badge').textContent = d;
+  document.getElementById('m-title').textContent = d + ' de abril · ' + info.lbl;
+  document.getElementById('m-sub').textContent = info.event ? 'Evento: ' + info.event : 'Rotina virtual de campanha';
+  document.getElementById('m-notes').value = st.notes || '';
+  document.getElementById('m-notes').oninput = () => { st.notes = document.getElementById('m-notes').value; save(); };
+
+  const body = document.getElementById('m-body');
+  body.innerHTML = '';
+
+  // Tasks
+  if (info.tasks.length) {
+    const sec = document.createElement('div');
+    sec.className = 'section-title';
+    sec.textContent = 'Tarefas do dia';
+    body.appendChild(sec);
+
+    info.tasks.forEach((task, i) => {
+      const row = document.createElement('div');
+      row.className = 'task-row';
+      const cb = document.createElement('input');
+      cb.type = 'checkbox';
+      cb.id = 'mt_'+i;
+      cb.checked = !!st.tasks[i];
+      const lbl = document.createElement('label');
+      lbl.htmlFor = 'mt_'+i;
+      lbl.textContent = task.t;
+      if (st.tasks[i]) lbl.className = 'done-task';
+      const chip = document.createElement('span');
+      chip.className = 'task-chip-modal chip ' + (CHIP_CLS[task.c]||'');
+      chip.textContent = CHIP_LBL[task.c]||'';
+      cb.onchange = () => {
+        st.tasks[i] = cb.checked;
+        lbl.className = cb.checked ? 'done-task' : '';
+        save(); renderCal();
+      };
+      row.appendChild(cb); row.appendChild(lbl); row.appendChild(chip);
+      body.appendChild(row);
+    });
+  }
+
+  // Event physical materials
+  if (info.event) {
+    const sec2 = document.createElement('div');
+    sec2.className = 'section-title';
+    sec2.textContent = 'Materiais físicos para o evento';
+    body.appendChild(sec2);
+    ['Banner evento','Camiseta evento','Flyer impresso'].forEach((m, i) => {
+      const key = 'ev_'+d+'_'+i;
+      const kstate = getKit();
+      const row = document.createElement('div');
+      row.className = 'task-row';
+      const cb = document.createElement('input');
+      cb.type = 'checkbox';
+      cb.id = key;
+      cb.checked = !!kstate[key];
+      const lbl = document.createElement('label');
+      lbl.htmlFor = key;
+      lbl.textContent = m;
+      if (kstate[key]) lbl.className = 'done-task';
+      cb.onchange = () => { kstate[key]=cb.checked; lbl.className=cb.checked?'done-task':''; save(); };
+      row.appendChild(cb); row.appendChild(lbl);
+      body.appendChild(row);
+    });
+  }
+
+  // done state
+  const btn = document.getElementById('btn-done');
+  if (st.done) {
+    btn.textContent = 'Desmarcar dia';
+    btn.className = 'btn-primary undone';
+  } else {
+    btn.textContent = 'Marcar dia como concluído';
+    btn.className = 'btn-primary';
+  }
+
+  document.getElementById('overlay').classList.add('open');
+}
+
+function toggleDayDone() {
+  const st = getDay(currentDay);
+  st.done = !st.done;
+  const btn = document.getElementById('btn-done');
+  if (st.done) {
+    btn.textContent = 'Desmarcar dia';
+    btn.className = 'btn-primary undone';
+  } else {
+    btn.textContent = 'Marcar dia como concluído';
+    btn.className = 'btn-primary';
+  }
+  save(); renderCal();
+}
+
+function closeModal() {
+  document.getElementById('overlay').classList.remove('open');
+}
+function overlayClick(e) {
+  if (e.target === document.getElementById('overlay')) closeModal();
+}
+
+function setFilter(f) {
+  currentFilter = f;
+  ['all','pending','done'].forEach(x => {
+    document.getElementById('fb-'+x).classList.toggle('active', x===f);
+  });
+  renderCal();
+}
+
+function markAllDone() {
+  for (let d = 1; d <= 30; d++) getDay(d).done = true;
+  save(); renderCal();
+}
+
+function clearAll() {
+  if (confirm('Limpar todo o progresso? Essa ação não pode ser desfeita.')) {
+    state = {}; save(); renderCal(); renderKits();
+  }
+}
+
+function renderExtras() {
+  const kstate = getKit();
+
+  // ── Canais card ──
+  const canaisCol = document.getElementById('canais-col');
+  canaisCol.innerHTML = '';
+  const canaisCard = document.createElement('div');
+  canaisCard.className = 'kit-card';
+  canaisCard.style.height = '100%';
+  const canaisH3 = document.createElement('h3');
+  canaisH3.innerHTML = '<div class="kit-icon" style="background:#F9EDD8;color:#7A4F10">📡</div>Canais de divulgação';
+  canaisCard.appendChild(canaisH3);
+  CANAIS.forEach((canal, i) => {
+    const key = 'canal_' + i;
+    const row = document.createElement('div');
+    row.className = 'kit-item';
+    const cb = document.createElement('input');
+    cb.type = 'checkbox';
+    cb.id = key;
+    cb.checked = !!kstate[key];
+    const lbl = document.createElement('label');
+    lbl.htmlFor = key;
+    lbl.textContent = canal;
+    if (kstate[key]) lbl.className = 'done-task';
+    cb.onchange = () => { kstate[key] = cb.checked; lbl.className = cb.checked ? 'done-task' : ''; save(); };
+    row.appendChild(cb); row.appendChild(lbl);
+    canaisCard.appendChild(row);
+  });
+  canaisCol.appendChild(canaisCard);
+
+  // ── Eventos card ──
+  const eventosCol = document.getElementById('eventos-col');
+  eventosCol.innerHTML = '';
+  const eventosCard = document.createElement('div');
+  eventosCard.className = 'event-card';
+  const evH3 = document.createElement('h3');
+  evH3.innerHTML = '<div class="kit-icon" style="background:#e4dcf7;color:#5123a4">🗓</div>Eventos de Abril';
+  eventosCard.appendChild(evH3);
+  EVENTOS.forEach(ev => {
+    const row = document.createElement('div');
+    row.className = 'event-row';
+    row.style.cursor = 'pointer';
+    row.title = 'Abrir dia ' + ev.day;
+    row.onclick = () => openModal(ev.day);
+    const dot = document.createElement('div');
+    dot.className = 'event-dot';
+    const name = document.createElement('div');
+    name.className = 'event-name';
+    name.textContent = ev.name;
+    const date = document.createElement('div');
+    date.className = 'event-date';
+    date.textContent = ev.date;
+    row.appendChild(dot); row.appendChild(name); row.appendChild(date);
+    eventosCard.appendChild(row);
+  });
+  eventosCol.appendChild(eventosCard);
+}
+
+load();
+renderCal();
+renderKits();
+renderExtras();
+</script>
+</body>
+</html>
