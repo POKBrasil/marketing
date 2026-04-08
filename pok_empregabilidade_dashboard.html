@@ -291,6 +291,155 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
 
 </main>
 
+<section style="background:#1E1230; color:#fff; padding:48px 64px; margin-top:0;">
+  <div style="max-width:1120px; margin:0 auto;">
+
+    <div style="display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12); border-radius:99px; padding:5px 14px; font-size:10px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:#a78bf0; margin-bottom:20px;">
+      <span style="width:6px;height:6px;border-radius:50%;background:#a78bf0;display:inline-block;"></span>
+      Documentação para desenvolvedores
+    </div>
+
+    <h2 style="font-size:20px; font-weight:800; color:#fff; margin-bottom:6px; letter-spacing:-0.01em;">O que este dashboard coleta e como</h2>
+    <p style="font-size:13px; color:rgba(255,255,255,0.5); margin-bottom:32px; line-height:1.6; max-width:640px;">Referência técnica dos dados lidos do LinkedIn para alimentar cada componente do dashboard. A leitura é disparada pelo compartilhamento do certificado pelo beneficiário.</p>
+
+    <!-- TRIGGER -->
+    <div style="border:1px solid rgba(255,255,255,0.1); border-radius:16px; padding:24px 28px; margin-bottom:16px; background:rgba(255,255,255,0.03);">
+      <div style="font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:#a78bf0; margin-bottom:10px;">Gatilho de coleta</div>
+      <p style="font-size:13px; color:rgba(255,255,255,0.75); line-height:1.7;">
+        A coleta é iniciada quando o beneficiário <strong style="color:#fff;">compartilha o certificado POK no LinkedIn</strong>. Este evento é o <strong style="color:#fff;">D+0</strong> — marco zero de toda a linha do tempo. A partir deste momento, a POK lê o perfil público completo e agenda leituras periódicas automáticas em D+30, D+90 e D+180. O histórico anterior ao compartilhamento é lido retroativamente a partir dos dados já presentes no perfil (Experience, Education, Certifications com suas datas originais).
+      </p>
+    </div>
+
+    <!-- GRID DE DADOS -->
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
+
+      <!-- Experience -->
+      <div style="border:1px solid rgba(255,255,255,0.1); border-radius:16px; padding:24px 28px; background:rgba(255,255,255,0.03);">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+          <div style="width:32px; height:32px; border-radius:8px; background:rgba(81,35,164,0.4); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a78bf0" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+          </div>
+          <div style="font-size:13px; font-weight:700; color:#fff;">Experience</div>
+        </div>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:6px;">
+          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> Título do cargo (<code style="background:rgba(255,255,255,0.08); padding:1px 6px; border-radius:4px; font-size:11px;">title</code>)</li>
+          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> Nome da empresa (<code style="background:rgba(255,255,255,0.08); padding:1px 6px; border-radius:4px; font-size:11px;">company.name</code>)</li>
+          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> Setor da empresa (<code style="background:rgba(255,255,255,0.08); padding:1px 6px; border-radius:4px; font-size:11px;">company.industry</code>)</li>
+          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> Data de início e fim (<code style="background:rgba(255,255,255,0.08); padding:1px 6px; border-radius:4px; font-size:11px;">startDate / endDate</code>)</li>
+          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> Emprego atual (flag <code style="background:rgba(255,255,255,0.08); padding:1px 6px; border-radius:4px; font-size:11px;">isCurrent</code>)</li>
+        </ul>
+        <div style="margin-top:12px; font-size:11px; color:rgba(255,255,255,0.35); line-height:1.5;">Usado em: cargo detectado na tabela · nº de cargos e empresas na curva · detecção de novo emprego e promoção</div>
+      </div>
+
+      <!-- Skills -->
+      <div style="border:1px solid rgba(255,255,255,0.1); border-radius:16px; padding:24px 28px; background:rgba(255,255,255,0.03);">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+          <div style="width:32px; height:32px; border-radius:8px; background:rgba(81,35,164,0.4); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a78bf0" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div style="font-size:13px; font-weight:700; color:#fff;">Skills</div>
+        </div>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:6px;">
+          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> Lista de habilidades declaradas (<code style="background:rgba(255,255,255,0.08); padding:1px 6px; border-radius:4px; font-size:11px;">skills[].name</code>)</li>
+          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> Quantidade total de skills no perfil</li>
+          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> Número de endorsements por skill (<code style="background:rgba(255,255,255,0.08); padding:1px 6px; border-radius:4px; font-size:11px;">endorsementCount</code>)</li>
+        </ul>
+        <div style="margin-top:12px; font-size:11px; color:rgba(255,255,255,0.35); line-height:1.5;">Usado em: nº de skills listadas na curva · evolução pré e pós compartilhamento</div>
+      </div>
+
+      <!-- Licenses & Certifications -->
+      <div style="border:1px solid rgba(255,255,255,0.1); border-radius:16px; padding:24px 28px; background:rgba(255,255,255,0.03);">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+          <div style="width:32px; height:32px; border-radius:8px; background:rgba(81,35,164,0.4); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a78bf0" stroke-width="2"><rect x="1" y="1" width="16" height="16" rx="3"/><polyline points="4,9 7.5,13 14,5"/></svg>
+          </div>
+          <div style="font-size:13px; font-weight:700; color:#fff;">Licenses &amp; Certifications</div>
+        </div>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:6px;">
+          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> Nome do certificado (<code style="background:rgba(255,255,255,0.08); padding:1px 6px; border-radius:4px; font-size:11px;">name</code>)</li>
+          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> Organização emissora (<code style="background:rgba(255,255,255,0.08); padding:1px 6px; border-radius:4px; font-size:11px;">issuingOrganization</code>)</li>
+          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> Data de emissão (<code style="background:rgba(255,255,255,0.08); padding:1px 6px; border-radius:4px; font-size:11px;">issueDate</code>)</li>
+          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> Quantidade total de certificados no perfil</li>
+        </ul>
+        <div style="margin-top:12px; font-size:11px; color:rgba(255,255,255,0.35); line-height:1.5;">Usado em: nº de certificados na curva · verificação se o certificado POK foi adicionado ao perfil</div>
+      </div>
+
+      <!-- Education -->
+      <div style="border:1px solid rgba(255,255,255,0.1); border-radius:16px; padding:24px 28px; background:rgba(255,255,255,0.03);">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+          <div style="width:32px; height:32px; border-radius:8px; background:rgba(81,35,164,0.4); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a78bf0" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <div style="font-size:13px; font-weight:700; color:#fff;">Education</div>
+        </div>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:6px;">
+          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> Instituição (<code style="background:rgba(255,255,255,0.08); padding:1px 6px; border-radius:4px; font-size:11px;">schoolName</code>)</li>
+          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> Grau de formação (<code style="background:rgba(255,255,255,0.08); padding:1px 6px; border-radius:4px; font-size:11px;">degree</code>)</li>
+          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> Área de estudo (<code style="background:rgba(255,255,255,0.08); padding:1px 6px; border-radius:4px; font-size:11px;">fieldOfStudy</code>)</li>
+          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> Período (<code style="background:rgba(255,255,255,0.08); padding:1px 6px; border-radius:4px; font-size:11px;">startDate / endDate</code>)</li>
+        </ul>
+        <div style="margin-top:12px; font-size:11px; color:rgba(255,255,255,0.35); line-height:1.5;">Usado em: filtro por título · segmentação futura de impacto por nível de formação</div>
+      </div>
+
+      <!-- Headline & About -->
+      <div style="border:1px solid rgba(255,255,255,0.1); border-radius:16px; padding:24px 28px; background:rgba(255,255,255,0.03);">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+          <div style="width:32px; height:32px; border-radius:8px; background:rgba(81,35,164,0.4); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a78bf0" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          </div>
+          <div style="font-size:13px; font-weight:700; color:#fff;">Headline &amp; About</div>
+        </div>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:6px;">
+          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> Texto do headline (<code style="background:rgba(255,255,255,0.08); padding:1px 6px; border-radius:4px; font-size:11px;">headline</code>)</li>
+          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> Presença e comprimento do About (<code style="background:rgba(255,255,255,0.08); padding:1px 6px; border-radius:4px; font-size:11px;">summary</code>)</li>
+        </ul>
+        <div style="margin-top:12px; font-size:11px; color:rgba(255,255,255,0.35); line-height:1.5;">Usado em: detecção de atualização do perfil pós-compartilhamento (D+30, D+90)</div>
+      </div>
+
+      <!-- Activity -->
+      <div style="border:1px solid rgba(255,255,255,0.1); border-radius:16px; padding:24px 28px; background:rgba(255,255,255,0.03);">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+          <div style="width:32px; height:32px; border-radius:8px; background:rgba(81,35,164,0.4); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a78bf0" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+          </div>
+          <div style="font-size:13px; font-weight:700; color:#fff;">Activity (publicações)</div>
+        </div>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:6px;">
+          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> Detecção da postagem do certificado no feed</li>
+          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> Data da publicação (<code style="background:rgba(255,255,255,0.08); padding:1px 6px; border-radius:4px; font-size:11px;">publishedAt</code>)</li>
+          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> Adição do certificado à seção Licenses do perfil</li>
+        </ul>
+        <div style="margin-top:12px; font-size:11px; color:rgba(255,255,255,0.35); line-height:1.5;">Usado em: funil (publicações detectadas · adicionado ao perfil) · ícones de LinkedIn na tabela</div>
+      </div>
+
+    </div>
+
+    <!-- LÓGICA DE DETECÇÃO -->
+    <div style="border:1px solid rgba(167,139,240,0.3); border-left:3px solid #a78bf0; border-radius:16px; padding:24px 28px; background:rgba(167,139,240,0.06);">
+      <div style="font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:#a78bf0; margin-bottom:12px;">Lógica de detecção de impacto</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+        <div>
+          <div style="font-size:12px; font-weight:700; color:#fff; margin-bottom:6px;">Novo emprego</div>
+          <p style="font-size:12px; color:rgba(255,255,255,0.55); line-height:1.7;">Comparar <code style="background:rgba(255,255,255,0.08); padding:1px 6px; border-radius:4px; font-size:11px;">company.name</code> do cargo atual no snapshot D+0 com o mesmo campo em snapshots posteriores. Se <code style="background:rgba(255,255,255,0.08); padding:1px 6px; border-radius:4px; font-size:11px;">isCurrent = true</code> e a empresa mudou → novo emprego detectado.</p>
+        </div>
+        <div>
+          <div style="font-size:12px; font-weight:700; color:#fff; margin-bottom:6px;">Promoção</div>
+          <p style="font-size:12px; color:rgba(255,255,255,0.55); line-height:1.7;">Comparar <code style="background:rgba(255,255,255,0.08); padding:1px 6px; border-radius:4px; font-size:11px;">title</code> do cargo atual entre snapshots. Se a empresa permanece igual mas o título mudou para um nível superior → promoção detectada.</p>
+        </div>
+        <div>
+          <div style="font-size:12px; font-weight:700; color:#fff; margin-bottom:6px;">Dias até impacto</div>
+          <p style="font-size:12px; color:rgba(255,255,255,0.55); line-height:1.7;">Diferença em dias entre a data do compartilhamento (<code style="background:rgba(255,255,255,0.08); padding:1px 6px; border-radius:4px; font-size:11px;">sharedAt</code>) e a data de início do novo cargo (<code style="background:rgba(255,255,255,0.08); padding:1px 6px; border-radius:4px; font-size:11px;">startDate</code>) detectado na leitura posterior.</p>
+        </div>
+        <div>
+          <div style="font-size:12px; font-weight:700; color:#fff; margin-bottom:6px;">Senioridade</div>
+          <p style="font-size:12px; color:rgba(255,255,255,0.55); line-height:1.7;">Mapeamento do <code style="background:rgba(255,255,255,0.08); padding:1px 6px; border-radius:4px; font-size:11px;">title</code> para escala numérica (1–5): Estágio/Júnior → 1, Pleno → 2, Sênior → 3, Gerente/Especialista → 4, Diretor/VP/C-Level → 5.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <footer class="site-footer">
   <div class="footer-logo">
     <div class="footer-logo-icon">
