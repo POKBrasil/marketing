@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bases de Dados de Empregabilidade · POK × Serasa</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --purple: #5123a4;
+    --purple-dark: #3a1878;
+    --purple-light: #e4dcf7;
+    --purple-faint: #F3EFF9;
+    --ink: #1E1230;
+    --ink-muted: #5E4E7A;
+    --ink-faint: #A899C2;
+    --border: #D8CEF0;
+    --white: #fff;
+    --radius-lg: 20px;
+    --gold: #f1ce0a;
+    --gold-dark: #b89c00;
+    --gold-light: #fdf7c3;
+    --gold-ink: #5a4900;
+
+    --gov-bg: #E6F1FB;
+    --gov-border: #B5D4F4;
+    --gov-text: #0C447C;
+
+    --priv-bg: #EEEDFE;
+    --priv-border: #AFA9EC;
+    --priv-text: #3C3489;
+
+    --semi-bg: #EAF3DE;
+    --semi-border: #97C459;
+    --semi-text: #27500A;
+
+    --serasa-bg: #E1F5EE;
+    --serasa-border: #5DCAA5;
+    --serasa-text: #085041;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Poppins', sans-serif; background: var(--purple-faint); color: var(--ink); min-height: 100vh; }
+
+  .hero { background: var(--purple-dark); padding: 52px 64px 44px; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -80px; right: -80px; width: 380px; height: 380px; border-radius: 50%; background: rgba(123,79,207,0.25); pointer-events: none; }
+  .hero::after { content: ''; position: absolute; bottom: -100px; left: 20%; width: 280px; height: 280px; border-radius: 50%; background: rgba(255,255,255,0.04); pointer-events: none; }
+  .hero-inner { max-width: 960px; position: relative; z-index: 1; }
+  .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; background: rgba(228,220,247,0.15); border: 1px solid rgba(228,220,247,0.2); border-radius: 99px; padding: 5px 14px; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple-light); margin-bottom: 16px; }
+  .hero-eyebrow span { width: 6px; height: 6px; border-radius: 50%; background: #a78bf0; display: inline-block; }
+  .hero-title { font-size: clamp(22px, 3.2vw, 36px); font-weight: 900; line-height: 1.15; color: #fff; letter-spacing: -0.02em; margin-bottom: 14px; }
+  .hero-title em { color: var(--purple-light); font-style: normal; }
+  .hero-sub { font-size: 14px; color: rgba(228,220,247,0.75); line-height: 1.6; max-width: 600px; }
+
+  .gold-bar { height: 4px; background: linear-gradient(90deg, var(--gold) 0%, rgba(241,206,10,0.3) 100%); }
+
+  .intro-strip { background: var(--white); border-bottom: 1px solid var(--border); padding: 22px 64px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .intro-text h2 { font-size: 17px; font-weight: 700; color: var(--ink); margin-bottom: 3px; }
+  .intro-text p { font-size: 13px; color: var(--ink-muted); line-height: 1.5; }
+  .intro-logos { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+  .intro-logo-pok { background: var(--purple); color: #fff; font-size: 14px; font-weight: 800; padding: 8px 18px; border-radius: 10px; display: flex; align-items: center; gap: 7px; text-decoration: none; }
+  .intro-logo-pok svg { width: 16px; height: 16px; }
+  .intro-plus { font-size: 18px; color: var(--ink-faint); font-weight: 300; }
+  .intro-logo-serasa { background: #f5f5f5; border: 1px solid var(--border); color: var(--ink); font-size: 13px; font-weight: 700; padding: 8px 18px; border-radius: 10px; text-decoration: none; display: flex; align-items: center; }
+
+  .summary-strip { background: var(--purple-faint); border-bottom: 1px solid var(--border); padding: 28px 64px; }
+  .summary-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-faint); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .summary-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .summary-box { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 24px 28px; border-left: 4px solid var(--gold); }
+  .summary-box p { font-size: 14px; color: var(--ink-muted); line-height: 1.8; }
+  .summary-box strong { color: var(--ink); font-weight: 600; }
+  .research-highlight { background: var(--gold-light); border: 1px solid rgba(241,206,10,0.4); border-radius: 8px; padding: 12px 16px; margin-top: 14px; font-size: 13px; color: var(--gold-ink); display: flex; align-items: flex-start; gap: 10px; line-height: 1.6; }
+  .research-highlight .icon { font-size: 16px; flex-shrink: 0; margin-top: 2px; }
+  .research-highlight strong { font-weight: 700; color: var(--gold-dark); }
+
+  .legend-strip { background: var(--white); border-bottom: 1px solid var(--border); padding: 14px 64px; display: flex; align-items: center; gap: 6px 20px; flex-wrap: wrap; }
+  .legend-title { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-faint); margin-right: 4px; white-space: nowrap; }
+  .legend-pill { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 99px; white-space: nowrap; }
+  .pill-gov    { background: var(--gov-bg); color: var(--gov-text); border: 1px solid var(--gov-border); }
+  .pill-semi   { background: var(--semi-bg); color: var(--semi-text); border: 1px solid var(--semi-border); }
+  .pill-priv   { background: var(--priv-bg); color: var(--priv-text); border: 1px solid var(--priv-border); }
+  .pill-serasa { background: var(--serasa-bg); color: var(--serasa-text); border: 1px solid var(--serasa-border); }
+
+  .content { max-width: 1100px; margin: 0 auto; padding: 48px 32px 80px; }
+
+  .section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; margin-top: 52px; }
+  .section-header:first-child { margin-top: 0; }
+  .section-icon { width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+  .icon-gov    { background: var(--gov-bg); }
+  .icon-semi   { background: var(--semi-bg); }
+  .icon-priv   { background: var(--priv-bg); }
+  .icon-serasa { background: var(--purple-light); }
+  .section-title-block h2 { font-size: 20px; font-weight: 800; color: var(--ink); }
+  .section-title-block p { font-size: 13px; color: var(--ink-muted); margin-top: 2px; }
+
+  .cards-list { display: flex; flex-direction: column; gap: 14px; }
+
+  .base-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 18px 22px 20px; }
+  .base-card-name { font-size: 16px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+  .base-card-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.6; }
+
+  .origin-badge { display: inline-flex; align-items: center; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; padding: 3px 10px; border-radius: 99px; white-space: nowrap; margin-bottom: 8px; }
+  .badge-gov    { background: var(--gov-bg); color: var(--gov-text); border: 1px solid var(--gov-border); }
+  .badge-semi   { background: var(--semi-bg); color: var(--semi-text); border: 1px solid var(--semi-border); }
+  .badge-priv   { background: var(--priv-bg); color: var(--priv-text); border: 1px solid var(--priv-border); }
+  .badge-pok    { background: var(--purple-light); color: var(--purple); border: 1px solid var(--purple); }
+  .badge-serasa { background: var(--serasa-bg); color: var(--serasa-text); border: 1px solid var(--serasa-border); }
+
+  .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .tag { font-size: 11px; font-weight: 500; padding: 3px 9px; border-radius: 6px; background: var(--purple-faint); color: var(--ink-muted); border: 1px solid var(--border); }
+
+  .lgpd-box { background: var(--white); border: 1px solid var(--border); border-left: 4px solid var(--purple); border-radius: 16px; padding: 20px 24px; margin-top: 48px; display: flex; gap: 16px; }
+  .lgpd-icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
+  .lgpd-body h3 { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+  .lgpd-body p { font-size: 13px; color: var(--ink-muted); line-height: 1.7; }
+  .lgpd-body p + p { margin-top: 8px; }
+  .lgpd-body strong { color: var(--ink); font-weight: 600; }
+
+  .pres-footer { text-align: center; padding: 40px 32px 52px; border-top: 1px solid var(--border); margin-top: 56px; }
+  .pres-footer .logo-area { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 10px; }
+  .footer-logo-icon { width: 30px; height: 30px; border: 2px solid var(--purple); border-radius: 7px; display: flex; align-items: center; justify-content: center; }
+  .footer-logo-text { font-size: 20px; font-weight: 800; color: var(--purple); }
+  .pres-footer p { font-size: 13px; color: var(--ink-faint); }
+  .pres-footer a { color: var(--purple); text-decoration: none; font-weight: 600; }
+
+  .kit-divider { border: none; border-top: 1px solid var(--border); margin: 40px 0 0; }
+
+  @media (max-width: 800px) {
+    .hero { padding: 36px 24px 32px; }
+    .intro-strip { padding: 20px 24px; }
+    .legend-strip { padding: 14px 24px; }
+    .summary-strip { padding: 24px; }
+    .content { padding: 32px 16px 56px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow"><span></span> POK Educação · Pesquisa Estratégica</div>
+    <h1 class="hero-title"><em>POK Certificação</em><br>e Empregabilidade</h1>
+    <p class="hero-sub">Mapeamento de fontes para enriquecer a ferramenta de empregabilidade da POK — com foco nas possibilidades via Serasa Experian e o CPF como chave de integração.</p>
+  </div>
+</header>
+
+<div class="intro-strip">
+  <div class="intro-text">
+    <h2>POK × Serasa Experian</h2>
+    <p>Pesquisa interna sobre fontes de dados de empregabilidade — bases governamentais, semi-públicas e privadas</p>
+  </div>
+  <div class="intro-logos">
+    <a href="https://www.pok.tech/pt" target="_blank" class="intro-logo-pok">
+      <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0.5" y="0.5" width="15" height="15" rx="2.5" stroke="white" stroke-width="1.5"/>
+        <polyline points="3,8 6.5,12 13,4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      pok
+    </a>
+    <span class="intro-plus">×</span>
+    <a href="https://www.serasaexperian.com.br" target="_blank" class="intro-logo-serasa">Serasa Experian</a>
+  </div>
+</div>
+
+<div class="gold-bar"></div>
+
+<div class="summary-strip">
+  <div class="summary-label">O que é a POK</div>
+  <div class="summary-box" style="margin-bottom: 20px; border-left-color: #5123a4;">
+    <p>A <strong>POK</strong> é uma plataforma de emissão de certificados, micro-credenciais e badges com tecnologia blockchain. Cada certificado emitido é único, verificável e vinculado ao CPF do portador — garantindo autenticidade e rastreabilidade ao longo de toda a trajetória profissional e acadêmica do indivíduo.</p>
+    <p style="margin-top: 10px;">Além da emissão de certificados, a POK oferece ferramentas para a <strong>criação de trilhas micro-certificadas por competências</strong> — permitindo que instituições estruturem percursos formativos modulares — e ferramentas de <strong>leitura e análise de dados de empregabilidade</strong>, que cruzam os certificados emitidos com a trajetória profissional real dos portadores.</p>
+    <p style="margin-top: 10px;">Esta apresentação integra a <strong>conversa estratégica entre POK e Serasa Experian</strong> para explorar como os dados disponíveis na Serasa podem enriquecer essa infraestrutura, ampliando o valor dos certificados para portadores, instituições e empresas.</p>
+  </div>
+  <div class="summary-label" style="margin-top: 20px;">Contexto da pesquisa</div>
+  <div class="summary-box">
+    <p>A ferramenta de empregabilidade da POK hoje coleta dados de <strong>LinkedIn</strong> quando o portador do certificado compartilha seu perfil na rede. Esta pesquisa mapeia quais <strong>outras fontes de dados</strong> poderiam ampliar esse panorama — e especialmente o que pode ser adquirido ou acessado <strong>via Serasa Experian</strong>.</p>
+    <div class="research-highlight">
+      <span class="icon">🔑</span>
+      <span>Cada certificado POK contém o <strong>CPF do portador</strong> — o que viabiliza a consulta em qualquer base de dados que use o CPF como identificador, desde que com <strong>consentimento explícito do titular</strong> (LGPD).</span>
+    </div>
+  </div>
+</div>
+
+<div class="legend-strip">
+  <span class="legend-title">Legenda</span>
+  <span class="legend-pill pill-gov">🏛 Governamental</span>
+  <span class="legend-pill pill-semi">🤝 Semi-pública</span>
+  <span class="legend-pill pill-priv">🏢 Privada</span>
+  <span class="legend-pill pill-serasa">✦ Serasa Experian</span>
+</div>
+
+<main class="content">
+
+  <!-- BLOCO 1 -->
+  <div class="section-header">
+    <div class="section-icon icon-gov">🏛</div>
+    <div class="section-title-block">
+      <h2>1. Bases governamentais — emprego formal CLT</h2>
+      <p>Controladas pelo Ministério do Trabalho, INSS e Receita Federal. Cobertura nacional obrigatória.</p>
+    </div>
+  </div>
+
+  <div class="cards-list">
+
+    <div class="base-card">
+      <div class="origin-badge badge-gov">Governamental</div>
+      <div class="base-card-name">CAGED — Cadastro Geral de Empregados e Desempregados</div>
+      <div class="base-card-desc">Registro mensal de admissões e demissões de trabalhadores regidos pela CLT, gerido pelo Ministério do Trabalho. Informa setor (CNAE), cargo (CBO), salário, município e tipo de movimentação a cada evento. Passou a ser alimentado via eSocial em 2020.</div>
+      <div class="tag-row">
+        <span class="tag">Atualização mensal</span>
+        <span class="tag">Nível individual por CPF</span>
+        <span class="tag">Vínculo CLT</span>
+        <span class="tag">Via eSocial desde 2020</span>
+      </div>
+    </div>
+
+    <div class="base-card">
+      <div class="origin-badge badge-gov">Governamental</div>
+      <div class="base-card-name">RAIS — Relação Anual de Informações Sociais</div>
+      <div class="base-card-desc">Declaração anual obrigatória de empregadores. Contém remuneração histórica, jornada de trabalho, escolaridade, tempo de emprego e CBO por trabalhador. Cobre CLT e servidores públicos.</div>
+      <div class="tag-row">
+        <span class="tag">Periodicidade anual</span>
+        <span class="tag">CPF identificado</span>
+        <span class="tag">Cobre CLT + servidores</span>
+        <span class="tag">Histórico desde 1975</span>
+        <span class="tag">Dados de escolaridade</span>
+      </div>
+    </div>
+
+    <div class="base-card">
+      <div class="origin-badge badge-gov">Governamental — INSS</div>
+      <div class="base-card-name">CNIS — Cadastro Nacional de Informações Sociais</div>
+      <div class="base-card-desc">Base do INSS que consolida vínculos previdenciários, remunerações e contribuições por CPF. É a fonte que popula a Carteira de Trabalho Digital (CTPS Digital). Cobre CLT, autônomos contribuintes individuais e servidores.</div>
+      <div class="tag-row">
+        <span class="tag">CPF como chave</span>
+        <span class="tag">Cobre CLT + autônomos</span>
+        <span class="tag">Histórico desde 1994</span>
+        <span class="tag">Base da CTPS Digital</span>
+      </div>
+    </div>
+
+    <div class="base-card">
+      <div class="origin-badge badge-gov">Governamental — MTE + Receita Federal</div>
+      <div class="base-card-name">eSocial</div>
+      <div class="base-card-desc">Sistema unificado que absorveu o CAGED e parte da RAIS. Registra em tempo quase real admissões, demissões, férias, afastamentos, salário e jornada. É a fonte primária de dados trabalhistas no Brasil hoje — a mais completa e atualizada.</div>
+      <div class="tag-row">
+        <span class="tag">Quase tempo real</span>
+        <span class="tag">CLT + doméstico + MEI</span>
+        <span class="tag">Fonte primária atual</span>
+      </div>
+    </div>
+
+  </div>
+
+  <hr class="kit-divider">
+
+  <!-- BLOCO 2 -->
+  <div class="section-header">
+    <div class="section-icon icon-semi">🤝</div>
+    <div class="section-title-block">
+      <h2>2. Bases semi-públicas — intermediação e estágios</h2>
+      <p>Entidades conveniadas com o poder público ou sistemas nacionais de intermediação de mão de obra.</p>
+    </div>
+  </div>
+
+  <div class="cards-list">
+
+    <div class="base-card">
+      <div class="origin-badge badge-semi">Semi-pública — MTE</div>
+      <div class="base-card-name">SINE / Portal Emprega Brasil</div>
+      <div class="base-card-desc">Sistema Nacional de Emprego. Cadastro de trabalhadores e vagas mantido pelo Ministério do Trabalho. Registra perfil do trabalhador — formação, experiência declarada, pretensão salarial, candidaturas e encaminhamentos para vagas.</div>
+      <div class="tag-row">
+        <span class="tag">CPF como chave</span>
+        <span class="tag">Cobre trabalhadores sem vínculo ativo</span>
+        <span class="tag">Dados autoinformados</span>
+        <span class="tag">Perfil + histórico declarado</span>
+      </div>
+    </div>
+
+    <div class="base-card">
+      <div class="origin-badge badge-semi">Semi-pública — CNPq / MCTI</div>
+      <div class="base-card-name">Plataforma Lattes — CNPq</div>
+      <div class="base-card-desc">Sistema de currículo acadêmico e científico do CNPq, adotado por todas as instituições de ensino superior e agências de fomento do Brasil. Registra formação, vínculos institucionais, produção científica, orientações, projetos e bolsas. Especialmente relevante para o público da POK — egressos de graduação e pós-graduação têm Lattes como documento de identidade profissional no mundo acadêmico.</div>
+      <div class="tag-row">
+        <span class="tag">CPF como identificador</span>
+        <span class="tag">Formação acadêmica completa</span>
+        <span class="tag">Vínculos institucionais</span>
+        <span class="tag">Produção científica</span>
+        <span class="tag">Bolsas e financiamentos</span>
+        <span class="tag">API pública disponível</span>
+      </div>
+    </div>
+
+    <div class="base-card">
+      <div class="origin-badge badge-semi">Semi-pública — entidade conveniada</div>
+      <div class="base-card-name">CIEE / IEL / Nube e outros centros de integração</div>
+      <div class="base-card-desc">Entidades que registram contratos de estágio, área de atuação, instituição de ensino e empresa contratante. Cobrem o segmento de estagiários, que não têm vínculo CLT mas estão inseridos no mercado. Especialmente relevante para o público universitário da POK.</div>
+      <div class="tag-row">
+        <span class="tag">Contratos de estágio</span>
+        <span class="tag">CPF do estudante</span>
+        <span class="tag">Vincula empresa + curso + instituição</span>
+        <span class="tag">Complementar ao histórico CLT</span>
+      </div>
+    </div>
+
+  </div>
+
+  <hr class="kit-divider">
+
+  <!-- BLOCO 3 -->
+  <div class="section-header">
+    <div class="section-icon icon-priv">🏢</div>
+    <div class="section-title-block">
+      <h2>3. Bases privadas — mercado e qualificação</h2>
+      <p>Plataformas com dados ricos e atualizados, via parcerias e consentimento do usuário.</p>
+    </div>
+  </div>
+
+  <div class="cards-list">
+
+    <div class="base-card" style="border-color: #5123a4; border-width: 1.5px;">
+      <div class="origin-badge badge-pok">Privada · Já utilizado pela POK</div>
+      <div class="base-card-name">LinkedIn</div>
+      <div class="base-card-desc">Dados auto-declarados e públicos por escolha do usuário. Riqueza de cargo, empresa, setor, educação, habilidades e recomendações. Fonte atual da ferramenta de empregabilidade da POK.</div>
+      <div class="tag-row">
+        <span class="tag">Fonte atual da POK</span>
+        <span class="tag">Dados autoinformados</span>
+        <span class="tag">Cargo, empresa e setor</span>
+        <span class="tag">Habilidades e certificações</span>
+      </div>
+    </div>
+
+    <div class="base-card">
+      <div class="origin-badge badge-priv">Privada</div>
+      <div class="base-card-name">Plataformas de recrutamento — Catho, Infojobs, Vagas.com, Gupy</div>
+      <div class="base-card-desc">Currículos, candidaturas, histórico de empregos declarado, pretensão salarial e formação. Cobertura ampla de trabalhadores que buscam recolocação — perfil complementar ao do LinkedIn.</div>
+      <div class="tag-row">
+        <span class="tag">CPF opcional no cadastro</span>
+        <span class="tag">Dados autoinformados</span>
+        <span class="tag">Cobre CLT e informais</span>
+        <span class="tag">Pretensão salarial</span>
+        <span class="tag">Complementa LinkedIn</span>
+      </div>
+    </div>
+
+    <div class="base-card">
+      <div class="origin-badge badge-priv">Privada / Institucional</div>
+      <div class="base-card-name">Plataformas de cursos e certificações — Coursera, Alura, Fundação Bradesco, Senai, Sebrae</div>
+      <div class="base-card-desc">Registro de cursos concluídos, certificações, trilhas de qualificação e carga horária. Dados de upskilling que complementam a empregabilidade com informações sobre desenvolvimento profissional contínuo — especialmente relevante para o contexto da POK.</div>
+      <div class="tag-row">
+        <span class="tag">CPF como chave possível</span>
+        <span class="tag">Certificações e cursos</span>
+        <span class="tag">Complementa certificados POK</span>
+        <span class="tag">Trilhas de qualificação</span>
+        <span class="tag">Cobre informais e autônomos</span>
+      </div>
+    </div>
+
+    <div class="base-card" style="border-color: #5123a4; border-width: 1.5px;">
+      <div class="origin-badge badge-pok">Privada · Já parceira da POK</div>
+      <div class="base-card-name">Workalove / Workability</div>
+      <div class="base-card-desc">Plataforma de empregabilidade já parceira da POK na Pesquisa de Empregabilidade com Semesp. Dados de perfil profissional, candidaturas, matchs com vagas e contratações. Foco especial em inclusão de pessoas com deficiência (PcD) e diversidade.</div>
+      <div class="tag-row">
+        <span class="tag">Parceira atual POK + Semesp</span>
+        <span class="tag">CPF como identificador</span>
+        <span class="tag">Foco em diversidade e PcD</span>
+        <span class="tag">Dados de matching e contratação</span>
+      </div>
+    </div>
+
+  </div>
+
+  <hr class="kit-divider">
+
+  <!-- BLOCO 4 -->
+  <div class="section-header">
+    <div class="section-icon icon-serasa">✦</div>
+    <div class="section-title-block">
+      <h2>4. Dados disponíveis via Serasa Experian</h2>
+      <p>Produtos do portfólio Serasa integráveis ao CPF do portador do certificado POK.</p>
+    </div>
+  </div>
+
+  <div class="cards-list">
+
+    <div class="base-card">
+      <div class="origin-badge badge-serasa">Serasa Experian</div>
+      <div class="base-card-name">Dados cadastrais por CPF</div>
+      <div class="base-card-desc">Nome completo, data de nascimento, situação cadastral, endereço e vínculos societários (participação em CNPJs). Base para validar a identidade do portador do certificado POK e qualificar o registro antes de enriquecer com outros dados.</div>
+      <div class="tag-row">
+        <span class="tag">Validação de identidade</span>
+        <span class="tag">Vínculos societários</span>
+        <span class="tag">Situação cadastral</span>
+      </div>
+    </div>
+
+    <div class="base-card">
+      <div class="origin-badge badge-serasa">Serasa Experian</div>
+      <div class="base-card-name">Renda estimada (faixa mensal)</div>
+      <div class="base-card-desc">Estimativa de faixa de renda mensal por CPF, derivada de modelo proprietário alimentado por dados de crédito, histórico financeiro e comportamento de consumo. Proxy útil para posição no mercado de trabalho e segmentação da base de portadores de certificados.</div>
+      <div class="tag-row">
+        <span class="tag">Faixa mensal estimada</span>
+        <span class="tag">Proxy de nível salarial</span>
+        <span class="tag">Atualização frequente</span>
+      </div>
+    </div>
+
+    <div class="base-card">
+      <div class="origin-badge badge-serasa">Serasa Experian</div>
+      <div class="base-card-name">Estabilidade financeira — proxy de renda recorrente</div>
+      <div class="base-card-desc">Atributos que indicam comprometimento de renda, pontualidade de pagamento e capacidade financeira disponível. Indiretamente revelam estabilidade de renda — correlacionada com vínculo empregatício estável ou renda recorrente de autônomo.</div>
+      <div class="tag-row">
+        <span class="tag">Atributo comportamental</span>
+        <span class="tag">Correlato de renda estável</span>
+        <span class="tag">Complementa dados de emprego</span>
+      </div>
+    </div>
+
+    <div class="base-card">
+      <div class="origin-badge badge-serasa">Serasa Experian</div>
+      <div class="base-card-name">Verificação de renda e emprego ativo</div>
+      <div class="base-card-desc">A Serasa possui área dedicada a serviços de verificação de renda e emprego, e opera soluções de crédito consignado que pressupõem acesso a vínculo CLT ativo. Potencial de verificar situação empregatícia atual do portador do certificado.</div>
+      <div class="tag-row">
+        <span class="tag">Verificação de vínculo ativo</span>
+        <span class="tag">Renda verificada</span>
+        <span class="tag">Crédito consignado como referência</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- LGPD -->
+  <div class="lgpd-box">
+    <div class="lgpd-icon">⚖️</div>
+    <div class="lgpd-body">
+      <h3>LGPD e consentimento do titular</h3>
+      <p>Todos os dados atrelados ao CPF de uma pessoa física são <strong>dados pessoais</strong> sob a LGPD. Para consultar qualquer base em nome do portador do certificado, é obrigatório o <strong>consentimento explícito, informado e específico</strong> do titular.</p>
+      <p>O certificado POK já contém o CPF — e o <strong>fluxo de consentimento pode ser embutido</strong> no momento em que o portador ativa ou compartilha o certificado, tornando o processo transparente e legal.</p>
+    </div>
+  </div>
+
+</main>
+
+<div style="background: var(--purple-dark); padding: 0;">
+  <div style="max-width: 1100px; margin: 0 auto; padding: 52px 32px 56px;">
+
+    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 28px;">
+      <div style="width: 42px; height: 42px; border-radius: 12px; background: rgba(228,220,247,0.15); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0;">🌐</div>
+      <div>
+        <h2 style="font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 2px;">Expansão para outros setores</h2>
+        <p style="font-size: 13px; color: rgba(228,220,247,0.65);">A infraestrutura construída para a educação como base para novos mercados</p>
+      </div>
+    </div>
+
+    <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(228,220,247,0.15); border-radius: 16px; padding: 24px 28px; margin-bottom: 20px;">
+      <p style="font-size: 14px; color: rgba(255,255,255,0.8); line-height: 1.8;">O objetivo da POK é expandir a infraestrutura de certificação, rastreabilidade e leitura de dados construída para o setor de educação para outros setores da economia — onde a necessidade de <strong style="color: #fff;">autenticidade, verificabilidade e vínculo com CPF ou CNPJ</strong> é igualmente crítica.</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 24px;">
+
+      <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(228,220,247,0.12); border-radius: 12px; padding: 16px 18px;">
+        <div style="font-size: 18px; margin-bottom: 8px;">🏭</div>
+        <div style="font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 4px;">Cadeias produtivas</div>
+        <div style="font-size: 12px; color: rgba(228,220,247,0.6); line-height: 1.5;">Certificação de origem, qualificação de fornecedores e rastreabilidade de processos ao longo da cadeia.</div>
+      </div>
+
+      <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(228,220,247,0.12); border-radius: 12px; padding: 16px 18px;">
+        <div style="font-size: 18px; margin-bottom: 8px;">🏠</div>
+        <div style="font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 4px;">Cadeia imobiliária</div>
+        <div style="font-size: 12px; color: rgba(228,220,247,0.6); line-height: 1.5;">Certificação de profissionais, habilitações técnicas e histórico de transações e responsabilidades.</div>
+      </div>
+
+      <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(228,220,247,0.12); border-radius: 12px; padding: 16px 18px;">
+        <div style="font-size: 18px; margin-bottom: 8px;">💳</div>
+        <div style="font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 4px;">Cadeia financeira</div>
+        <div style="font-size: 12px; color: rgba(228,220,247,0.6); line-height: 1.5;">Credenciamento verificável de agentes, assessores e profissionais regulados do setor.</div>
+      </div>
+
+      <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(228,220,247,0.12); border-radius: 12px; padding: 16px 18px;">
+        <div style="font-size: 18px; margin-bottom: 8px;">🌿</div>
+        <div style="font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 4px;">Cadeia fundiária</div>
+        <div style="font-size: 12px; color: rgba(228,220,247,0.6); line-height: 1.5;">Rastreabilidade de titularidades, habilitações e vínculos ao longo de cadeias de posse e uso da terra.</div>
+      </div>
+
+      <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(228,220,247,0.12); border-radius: 12px; padding: 16px 18px;">
+        <div style="font-size: 18px; margin-bottom: 8px;">✅</div>
+        <div style="font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 4px;">Cadeia de compliance</div>
+        <div style="font-size: 12px; color: rgba(228,220,247,0.6); line-height: 1.5;">Certificação de treinamentos regulatórios, políticas internas e conformidade de profissionais e fornecedores.</div>
+      </div>
+
+    </div>
+
+    <div style="background: rgba(241,206,10,0.1); border: 1px solid rgba(241,206,10,0.25); border-radius: 12px; padding: 16px 20px; display: flex; align-items: flex-start; gap: 12px;">
+      <span style="font-size: 18px; flex-shrink: 0; margin-top: 2px;">🌍</span>
+      <div>
+        <div style="font-size: 12px; font-weight: 700; color: rgba(241,206,10,0.9); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px;">EUDR — EU Deforestation Regulation</div>
+        <p style="font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.6;">A infraestrutura POK tem potencial de atender os setores contemplados pelo regulamento europeu de desmatamento — como soja, carne, madeira, cacau, café, óleo de palma e borracha — onde a rastreabilidade verificável de origem e a certificação de práticas ao longo da cadeia produtiva são requisitos obrigatórios para acesso ao mercado europeu.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="pres-footer">
+  <div class="logo-area">
+    <div class="footer-logo-icon">
+      <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1" y="1" width="16" height="16" rx="3" stroke="#5123a4" stroke-width="2"/>
+        <polyline points="4,9 7.5,13 14,5" stroke="#5123a4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <span class="footer-logo-text">pok</span>
+  </div>
+  <p>Muito mais que certificados digitais · <a href="https://pok.tech" target="_blank">pok.tech</a></p>
+</footer>
+
+</body>
+</html>
