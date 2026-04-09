@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POK — Briefing de Parceria · TOTVS + Linx</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --purple-light: #EEEDFE;
+    --purple-mid: #534AB7;
+    --purple-dark: #3C3489;
+    --teal-light: #E1F5EE;
+    --teal-mid: #1D9E75;
+    --teal-dark: #0F6E56;
+    --red-light: #FCEBEB;
+    --red-dark: #A32D2D;
+    --green-light: #EAF3DE;
+    --green-dark: #3B6D11;
+    --amber-light: #FAEEDA;
+    --amber-mid: #BA7517;
+    --amber-dark: #854F0B;
+    --gray-50: #F8F7F4;
+    --gray-100: #EFEDE8;
+    --gray-300: #C8C5BC;
+    --gray-500: #7A7870;
+    --gray-700: #3D3C39;
+    --gray-900: #1A1918;
+    --border: 1px solid var(--gray-100);
+    --radius: 10px;
+    --radius-lg: 14px;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--gray-700);
+    background: #FAFAF8;
+    padding: 0;
+  }
+
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 60px 40px 80px;
+  }
+
+  /* Header */
+  .doc-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 56px;
+    padding-bottom: 32px;
+    border-bottom: 1.5px solid var(--gray-900);
+  }
+
+  .doc-header-left h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 36px;
+    font-weight: 400;
+    color: var(--gray-900);
+    line-height: 1.15;
+    margin-bottom: 8px;
+  }
+
+  .doc-header-left p {
+    font-size: 14px;
+    color: var(--gray-500);
+    letter-spacing: 0.02em;
+  }
+
+  .doc-meta {
+    text-align: right;
+    font-size: 12px;
+    color: var(--gray-500);
+    line-height: 1.8;
+  }
+
+  .pok-pill {
+    display: inline-block;
+    background: var(--gray-900);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 100px;
+    margin-bottom: 14px;
+  }
+
+  /* Company sections */
+  .company-section {
+    margin-bottom: 56px;
+  }
+
+  .company-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .company-number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 48px;
+    color: var(--gray-100);
+    line-height: 1;
+    min-width: 40px;
+  }
+
+  .company-info h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--gray-900);
+    margin-bottom: 2px;
+  }
+
+  .company-info .subtitle {
+    font-size: 13px;
+    color: var(--gray-500);
+  }
+
+  .contact-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: var(--border);
+    border-radius: 100px;
+    padding: 5px 14px 5px 5px;
+    font-size: 13px;
+    color: var(--gray-700);
+    margin-bottom: 20px;
+    background: #fff;
+  }
+
+  .contact-avatar {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--purple-light);
+    color: var(--purple-dark);
+    font-size: 10px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Who they are */
+  .who-box {
+    background: #fff;
+    border: var(--border);
+    border-radius: var(--radius-lg);
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    font-size: 14px;
+    color: var(--gray-700);
+    line-height: 1.75;
+  }
+
+  .who-box strong { font-weight: 500; color: var(--gray-900); }
+
+  /* Section labels */
+  .section-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gray-500);
+    margin-bottom: 14px;
+  }
+
+  /* Opportunity cards */
+  .opp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .opp-card {
+    background: #fff;
+    border: var(--border);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+  }
+
+  .opp-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 100px;
+    margin-bottom: 8px;
+  }
+
+  .tag-hot { background: var(--red-light); color: var(--red-dark); }
+  .tag-fit { background: var(--green-light); color: var(--green-dark); }
+
+  .opp-card h4 {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gray-900);
+    margin-bottom: 5px;
+    line-height: 1.4;
+  }
+
+  .opp-card p {
+    font-size: 12.5px;
+    color: var(--gray-500);
+    line-height: 1.6;
+  }
+
+  /* Argument box */
+  .argument-box {
+    border-radius: var(--radius);
+    padding: 18px 22px;
+    font-size: 14px;
+    line-height: 1.75;
+    font-style: italic;
+    position: relative;
+  }
+
+  .argument-box.purple {
+    background: var(--purple-light);
+    color: var(--purple-dark);
+    border-left: 3px solid var(--purple-mid);
+  }
+
+  .argument-box.teal {
+    background: var(--teal-light);
+    color: var(--teal-dark);
+    border-left: 3px solid var(--teal-mid);
+  }
+
+  .argument-label {
+    font-size: 11px;
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  /* Divider */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--gray-100);
+    margin: 48px 0;
+  }
+
+  /* Partnership models */
+  .model-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .model-card {
+    background: #fff;
+    border: var(--border);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+  }
+
+  .model-card h4 {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gray-900);
+    margin-bottom: 5px;
+  }
+
+  .model-card p {
+    font-size: 12.5px;
+    color: var(--gray-500);
+    line-height: 1.6;
+  }
+
+  /* Key question */
+  .key-question {
+    background: var(--gray-900);
+    color: #fff;
+    border-radius: var(--radius-lg);
+    padding: 28px 32px;
+    margin-top: 48px;
+  }
+
+  .key-question .kq-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 10px;
+  }
+
+  .key-question p {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.45;
+    color: #fff;
+  }
+
+  /* Footer */
+  .doc-footer {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid var(--gray-100);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .doc-footer span {
+    font-size: 12px;
+    color: var(--gray-500);
+  }
+
+  @media print {
+    body { background: #fff; }
+    .page { padding: 40px 32px; }
+    .opp-grid, .model-grid { page-break-inside: avoid; }
+  }
+
+  @media (max-width: 600px) {
+    .page { padding: 32px 20px 60px; }
+    .opp-grid, .model-grid { grid-template-columns: 1fr; }
+    .doc-header { flex-direction: column; gap: 12px; }
+    .doc-meta { text-align: left; }
+    .company-number { font-size: 36px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <header class="doc-header">
+    <div class="doc-header-left">
+      <span class="pok-pill">POK · Certificações em Blockchain</span>
+      <h1>Briefing de<br>Parceria Estratégica</h1>
+      <p>TOTVS &amp; Linx · Oportunidades de integração</p>
+    </div>
+    <div class="doc-meta">
+      <div>Abril 2026</div>
+      <div>Reunião comercial</div>
+      <div style="margin-top: 8px; color: #C8C5BC;">Confidencial</div>
+    </div>
+  </header>
+
+  <!-- TOTVS -->
+  <section class="company-section">
+    <div class="company-header">
+      <div class="company-number">01</div>
+      <div class="company-info">
+        <h2>TOTVS — Professional Services</h2>
+        <div class="subtitle">Maior empresa de tecnologia do Brasil · +70 mil clientes · 12 segmentos</div>
+      </div>
+    </div>
+
+    <div class="contact-chip">
+      <div class="contact-avatar">RP</div>
+      Rafael Pinheiro · Negócios para Segmentos — Professional Services
+    </div>
+
+    <div class="who-box">
+      O segmento de <strong>Professional Services</strong> atende prestadores de serviços (consultorias, escritórios, projetos) via ERP Protheus/RM. Possuem o programa <strong>HCT (Homologação e Certificação TOTVS)</strong> para seus consultores e parceiros, com mais de 80 exames e badges digitais — atualmente emitidos via sistema interno (MIT Digital / Universidade TOTVS).
+    </div>
+
+    <div class="section-label">Oportunidades para a POK</div>
+    <div class="opp-grid">
+      <div class="opp-card">
+        <span class="opp-tag tag-hot">Alta aderência</span>
+        <h4>Emissão de certificados verificáveis em blockchain para o programa HCT</h4>
+        <p>A TOTVS já emite badges digitais para seus consultores e canais parceiros. A POK pode complementar a emissão atual com certificados verificáveis em blockchain — trazendo rastreabilidade permanente e verificação pública sem depender dos sistemas da TOTVS.</p>
+      </div>
+      <div class="opp-card">
+        <span class="opp-tag tag-hot">Alta aderência</span>
+        <h4>Certificação de parceiros e canais homologados</h4>
+        <p>A TOTVS tem uma rede ampla de franquias e canais homologados que precisam comprovar sua certificação a clientes. Certificados POK em blockchain eliminam dúvidas sobre validade e autenticidade sem necessidade de consultar o portal TOTVS.</p>
+      </div>
+      <div class="opp-card">
+        <span class="opp-tag tag-fit">Fit estratégico</span>
+        <h4>Cursos e treinamentos da Universidade TOTVS</h4>
+        <p>A Universidade TOTVS oferece centenas de cursos presenciais e online. A POK pode ser a infraestrutura de certificação digital para todos eles, com open badges portáveis que profissionais adicionam ao LinkedIn e portfólios.</p>
+      </div>
+      <div class="opp-card">
+        <span class="opp-tag tag-fit">Fit estratégico</span>
+        <h4>Embedded no TOTVS ESG / Consulting</h4>
+        <p>A TOTVS Consulting oferece jornadas de ESG. Certificados verificáveis de capacitação em ESG e boas práticas são um diferencial de mercado — a POK pode entregar isso como parte da jornada.</p>
+      </div>
+    </div>
+
+    <div class="section-label">Argumento principal para o Rafael</div>
+    <div class="argument-box purple">
+      <span class="argument-label">Pitch central</span>
+      "A TOTVS já investiu em criar um programa robusto de certificação. A POK não concorre com isso — ela torna os seus certificados permanentemente verificáveis, portáveis e auditáveis. Um parceiro TOTVS homologado pode provar sua certificação a qualquer cliente sem depender dos seus portais. Isso valoriza o programa HCT e fortalece a confiança no ecossistema."
+    </div>
+
+    <!-- TOTVS Educacional subsection -->
+    <div style="margin-top: 36px; padding-top: 28px; border-top: 1px dashed var(--gray-300);">
+      <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
+        <span style="font-family: 'DM Serif Display', serif; font-size: 13px; color: var(--gray-500); letter-spacing: 0.02em;">Frente adicional</span>
+        <span style="height: 1px; flex: 1; background: var(--gray-100);"></span>
+        <span style="font-size: 11px; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; background: var(--amber-light); color: var(--amber-dark); padding: 3px 10px; border-radius: 100px;">Alto potencial</span>
+      </div>
+
+      <div class="company-header" style="margin-bottom: 16px;">
+        <div class="company-info">
+          <h2 style="font-size: 20px;">TOTVS Educacional · Universidades</h2>
+          <div class="subtitle">+700 instituições de ensino · +1,5 milhão de alunos · 12 das 20 melhores universidades privadas do Brasil</div>
+        </div>
+      </div>
+
+      <div class="who-box" style="margin-bottom: 20px;">
+        Além do segmento de Professional Services, a TOTVS opera uma vertical educacional de grande escala: o <strong>TOTVS Educacional</strong>, sistema ERP que gerencia toda a jornada acadêmica — do processo seletivo à diplomação. Atende educação básica, superior (graduação, pós-graduação, MBA) e educação continuada. Tem integração nativa com <strong>Google Classroom, MS Teams e Moodle</strong>, e já gerencia os processos de matrícula, notas, frequência, cobranças e certificação de milhões de estudantes no Brasil.
+      </div>
+
+      <div class="section-label">Oportunidades para a POK no segmento educacional</div>
+      <div class="opp-grid">
+        <div class="opp-card">
+          <span class="opp-tag tag-hot">Alta aderência</span>
+          <h4>Diplomas e certificados verificáveis em blockchain</h4>
+          <p>O TOTVS Educacional já gerencia o processo até a diplomação. A POK pode ser a camada de emissão de diplomas e certificados verificáveis em blockchain para as 700+ instituições clientes, sem que cada universidade precise contratar a POK diretamente.</p>
+        </div>
+        <div class="opp-card">
+          <span class="opp-tag tag-hot">Alta aderência</span>
+          <h4>Certificação de pós-graduação, MBA e educação continuada</h4>
+          <p>O sistema atende pós-graduações, MBAs e cursos livres — exatamente onde certificados portáveis e verificáveis têm mais valor de mercado. Profissionais em busca de novas oportunidades precisam de credenciais que resistam a qualquer verificação.</p>
+        </div>
+        <div class="opp-card">
+          <span class="opp-tag tag-fit">Fit estratégico</span>
+          <h4>Modelo B2B2B: TOTVS → Universidade → Aluno</h4>
+          <p>A TOTVS vende para a instituição, e a POK entra como módulo complementar dentro da plataforma TOTVS Educacional. As instituições oferecem o diferencial da certificação em blockchain sem precisar gerir uma integração direta com a POK.</p>
+        </div>
+        <div class="opp-card">
+          <span class="opp-tag tag-fit">Fit estratégico</span>
+          <h4>Open badges portáveis para o mercado de trabalho</h4>
+          <p>Com integração nativa em LMS (Moodle, Teams, Classroom), os certificados POK podem ser emitidos automaticamente ao concluir cursos e disciplinas, gerando um portfólio verificável que os egressos levam ao mercado de trabalho.</p>
+        </div>
+      </div>
+
+      <div class="argument-box" style="background: var(--amber-light); color: var(--amber-dark); border-left: 3px solid #BA7517;">
+        <span class="argument-label" style="color: var(--amber-dark);">Ângulo para ampliar a conversa com o Rafael</span>
+        "A reunião é sobre Professional Services, mas a TOTVS já atende mais de 700 instituições de ensino com mais de 1,5 milhão de alunos. A POK pode ser a infraestrutura de certificação em blockchain para todas essas instituições — um módulo que a TOTVS oferece aos seus clientes educacionais sem que cada universidade precise de uma integração própria."
+      </div>
+    </div>
+
+    <!-- POK + ESG + Cadeias Produtivas -->
+    <div style="margin-top: 36px; padding-top: 28px; border-top: 1px dashed var(--gray-300);">
+      <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
+        <span style="font-family: 'DM Serif Display', serif; font-size: 13px; color: var(--gray-500); letter-spacing: 0.02em;">Frente adicional</span>
+        <span style="height: 1px; flex: 1; background: var(--gray-100);"></span>
+        <span style="font-size: 11px; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; background: var(--green-light); color: var(--green-dark); padding: 3px 10px; border-radius: 100px;">Expansão estratégica</span>
+      </div>
+
+      <div class="company-header" style="margin-bottom: 16px;">
+        <div class="company-info">
+          <h2 style="font-size: 20px;">POK além da certificação de pessoas · Rastreabilidade de cadeias produtivas e ESG</h2>
+          <div class="subtitle">Registro imutável em blockchain para cadeias produtivas, ambientais e de governança</div>
+        </div>
+      </div>
+
+      <div class="who-box" style="margin-bottom: 20px;">
+        A POK não é apenas uma plataforma de certificação de competências. Por ser baseada em blockchain, sua infraestrutura serve para <strong>qualquer tipo de registro que precise de rastreabilidade, imutabilidade e verificação pública</strong> — seja uma qualificação profissional, seja um lote de produto agrícola, seja uma emissão de carbono de uma unidade fabril. Isso a posiciona diretamente no centro da agenda ESG da TOTVS Consulting, especialmente nos pilares Ambiental e Social.
+      </div>
+
+      <div class="section-label">Casos de uso em cadeias produtivas e ESG</div>
+      <div class="opp-grid">
+        <div class="opp-card">
+          <span class="opp-tag tag-hot">Pilar Ambiental (E)</span>
+          <h4>Rastreabilidade de origem de produtos agrícolas e industriais</h4>
+          <p>Comprovar de onde vem um insumo ou produto ao longo de toda a cadeia — madeira certificada, soja sem desmatamento, café orgânico, aço reciclado. Essencial para exportadores que precisam atender às regulações europeias de desmatamento (EUDR) e ao mecanismo de ajuste de carbono nas fronteiras (CBAM).</p>
+        </div>
+        <div class="opp-card">
+          <span class="opp-tag tag-hot">Pilar Ambiental (E)</span>
+          <h4>Registro auditável de emissões de carbono por etapa da cadeia</h4>
+          <p>Cada elo da cadeia produtiva pode registrar seu impacto ambiental em blockchain de forma imutável, alimentando inventários de GEE (gases de efeito estufa) compatíveis com padrões como o CDP — que a própria TOTVS já utiliza internamente.</p>
+        </div>
+        <div class="opp-card">
+          <span class="opp-tag tag-hot">Pilar Social (S)</span>
+          <h4>Certificação de capacitação e boas práticas trabalhistas na cadeia</h4>
+          <p>Comprovar que trabalhadores e fornecedores da cadeia receberam treinamentos em segurança, compliance e boas práticas sociais — requisito crescente de due diligence ESG para grandes compradores e investidores institucionais.</p>
+        </div>
+        <div class="opp-card">
+          <span class="opp-tag tag-fit">Pilar Governança (G)</span>
+          <h4>Certificação de fornecedores e conformidade regulatória</h4>
+          <p>Atestar em blockchain que fornecedores cumprem requisitos ambientais, trabalhistas e de governança — verificável por compradores, investidores e reguladores sem depender de relatórios internos ou auditorias caras.</p>
+        </div>
+      </div>
+
+      <div class="section-label" style="margin-top: 4px;">Segmentos da TOTVS onde isso já é uma dor real</div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 20px;">
+        <div class="model-card">
+          <h4>Agro</h4>
+          <p>TOTVS tem vertical agrícola forte. Rastreabilidade em blockchain é demanda crescente para exportação de soja, café e carne para mercados europeus e asiáticos.</p>
+        </div>
+        <div class="model-card">
+          <h4>Manufatura e Distribuição</h4>
+          <p>Certificação de fornecedores da cadeia de suprimentos com registros auditáveis de conformidade ambiental e social — exigência crescente de grandes compradores globais.</p>
+        </div>
+        <div class="model-card">
+          <h4>Construção</h4>
+          <p>Rastreabilidade de materiais com certificação ambiental (madeira FSC, aço com baixo carbono) e comprovação de boas práticas trabalhistas em obras.</p>
+        </div>
+      </div>
+
+      <div class="argument-box" style="background: var(--green-light); color: var(--green-dark); border-left: 3px solid #1D9E75;">
+        <span class="argument-label" style="color: var(--green-dark);">Reposicionamento da POK para a TOTVS Consulting ESG</span>
+        "A POK não é só uma ferramenta de certificação de pessoas. É uma infraestrutura de registro verificável em blockchain que pode ser usada para qualquer ativo que precise de rastreabilidade e comprovação — seja a competência de um profissional, seja um lote de produto agrícola, seja uma emissão de carbono de uma unidade fabril. Isso coloca a POK no centro da jornada ESG da TOTVS Consulting, especialmente para clientes que precisam comprovar suas práticas para mercados internacionais e investidores."
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- Linx -->
+  <section class="company-section">
+    <div class="company-header">
+      <div class="company-number">02</div>
+      <div class="company-info">
+        <h2>Linx · grupo Stone Co</h2>
+        <div class="subtitle">Líder em tecnologia para o varejo · 45% market share · +50 mil clientes</div>
+      </div>
+    </div>
+
+    <div class="who-box">
+      Empresa do grupo Stone Co especializada em ERP, PDV, e-commerce e omnichannel para o varejo. Atende segmentos como moda, farmácias, food service, supermercados, automotivo e mais. Têm mais de 3 mil profissionais, ampla rede de clientes varejistas e parceiros de integração. O desafio central é capacitar constantemente equipes internas e os times de seus clientes varejistas.
+    </div>
+
+    <div class="section-label">Oportunidades para a POK</div>
+    <div class="opp-grid">
+      <div class="opp-card">
+        <span class="opp-tag tag-hot">Alta aderência</span>
+        <h4>Certificação de capacitação para equipes de varejo</h4>
+        <p>A Linx forma e certifica os times dos seus clientes varejistas para usar seus sistemas. Certificados POK em blockchain permitem que gerentes de loja, operadores de PDV e analistas comprovem suas qualificações de forma portável e auditável.</p>
+      </div>
+      <div class="opp-card">
+        <span class="opp-tag tag-hot">Alta aderência</span>
+        <h4>Certificação de parceiros integradores</h4>
+        <p>A Linx possui um ecossistema de 150+ parceiros de negócios e integradores. A POK pode emitir credenciais verificáveis para esses parceiros, sinalizando ao mercado quem está habilitado a implementar soluções Linx.</p>
+      </div>
+      <div class="opp-card">
+        <span class="opp-tag tag-fit">Fit estratégico</span>
+        <h4>Certificação de digitalização para PMEs do varejo</h4>
+        <p>A Linx está ativa no movimento de digitalização de pequenos e médios varejistas. Uma certificação de "varejista digitalizado" em blockchain pode ser um ativo de marketing e confiança para essas empresas junto a fornecedores e clientes.</p>
+      </div>
+      <div class="opp-card">
+        <span class="opp-tag tag-fit">Fit estratégico</span>
+        <h4>Certificados para o ecossistema food service (Linx Degust)</h4>
+        <p>Com o Linx Degust atendendo restaurantes e dark kitchens, há oportunidade de certificar operadores e gestores em higiene, gestão e tecnologia — especialmente relevante para franquias e redes.</p>
+      </div>
+    </div>
+
+    <div class="section-label">Argumento principal para a Linx</div>
+    <div class="argument-box teal">
+      <span class="argument-label">Pitch central</span>
+      "O varejo brasileiro está em plena digitalização, mas a certificação de competências ainda é informal. A POK permite que a Linx ofereça aos seus 50 mil clientes e parceiros um diferencial: credenciais digitais verificáveis que viram ativo para quem as tem — seja para contratar, ser contratado ou ganhar confiança no mercado."
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- Partnership models -->
+  <section>
+    <div class="section-label">Modelo de parceria sugerido</div>
+    <div class="model-grid">
+      <div class="model-card">
+        <h4>Integração de plataforma</h4>
+        <p>A POK se conecta à plataforma de LMS/treinamento de cada empresa. Ao concluir um curso ou passar numa prova, o certificado é emitido automaticamente em blockchain pela POK.</p>
+      </div>
+      <div class="model-card">
+        <h4>White-label / co-branded</h4>
+        <p>Os certificados saem com a marca TOTVS ou Linx, mas a infraestrutura de verificação e blockchain é da POK. O certificado é portável e verificável publicamente.</p>
+      </div>
+      <div class="model-card">
+        <h4>Revenue share ou licença</h4>
+        <p>Modelo de cobrança por volume de certificados emitidos, ou licença anual pelo uso da plataforma POK integrada ao ecossistema de cada empresa.</p>
+      </div>
+      <div class="model-card">
+        <h4>Programa piloto</h4>
+        <p>Propor um piloto com um segmento específico (ex: parceiros HCT da TOTVS em SP, ou integradores Linx) para validar o fit antes da expansão.</p>
+      </div>
+    </div>
+
+    <!-- Key question -->
+    <div class="key-question">
+      <div class="kq-label">Pergunta-chave para as duas reuniões</div>
+      <p>"Qual é o processo atual de vocês para comprovar que um parceiro ou consultor está realmente certificado?"</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="doc-footer">
+    <span>POK · Certificações verificáveis em blockchain</span>
+    <span>Abril 2026 · Confidencial</span>
+  </footer>
+
+</div>
+</body>
+</html>
