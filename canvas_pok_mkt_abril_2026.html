@@ -871,17 +871,6 @@
   </div>
 </div>
 
-<!-- ── KIT MATERIALS + EVENTOS + CANAIS ── -->
-<div class="kits-section">
-  <div class="kits-title">Materiais a desenvolver</div>
-  <div class="kits-grid" id="kits-grid"></div>
-
-  <div class="bottom-row">
-    <div class="bottom-col" id="canais-col"></div>
-    <div class="bottom-col" id="eventos-col"></div>
-  </div>
-</div>
-
 <!-- ── ROTINA DIGITAL ── -->
 <div class="rotina-section">
   <div class="kits-title">Rotina virtual de campanha</div>
@@ -1146,6 +1135,7 @@ function renderCal() {
 // ── RENDER KITS ──
 function renderKits() {
   const grid = document.getElementById('kits-grid');
+  if (!grid) return;
   grid.innerHTML = '';
   const kstate = getKit();
 
@@ -1310,57 +1300,61 @@ function renderExtras() {
 
   // ── Canais card ──
   const canaisCol = document.getElementById('canais-col');
-  canaisCol.innerHTML = '';
-  const canaisCard = document.createElement('div');
-  canaisCard.className = 'kit-card';
-  canaisCard.style.height = '100%';
-  const canaisH3 = document.createElement('h3');
-  canaisH3.innerHTML = '<div class="kit-icon" style="background:#F9EDD8;color:#7A4F10">📡</div>Canais de divulgação';
-  canaisCard.appendChild(canaisH3);
-  CANAIS.forEach((canal, i) => {
-    const key = 'canal_' + i;
-    const row = document.createElement('div');
-    row.className = 'kit-item';
-    const cb = document.createElement('input');
-    cb.type = 'checkbox';
-    cb.id = key;
-    cb.checked = !!kstate[key];
-    const lbl = document.createElement('label');
-    lbl.htmlFor = key;
-    lbl.textContent = canal;
-    if (kstate[key]) lbl.className = 'done-task';
-    cb.onchange = () => { kstate[key] = cb.checked; lbl.className = cb.checked ? 'done-task' : ''; save(); };
-    row.appendChild(cb); row.appendChild(lbl);
-    canaisCard.appendChild(row);
-  });
-  canaisCol.appendChild(canaisCard);
+  if (canaisCol) {
+    canaisCol.innerHTML = '';
+    const canaisCard = document.createElement('div');
+    canaisCard.className = 'kit-card';
+    canaisCard.style.height = '100%';
+    const canaisH3 = document.createElement('h3');
+    canaisH3.innerHTML = '<div class="kit-icon" style="background:#F9EDD8;color:#7A4F10">📡</div>Canais de divulgação';
+    canaisCard.appendChild(canaisH3);
+    CANAIS.forEach((canal, i) => {
+      const key = 'canal_' + i;
+      const row = document.createElement('div');
+      row.className = 'kit-item';
+      const cb = document.createElement('input');
+      cb.type = 'checkbox';
+      cb.id = key;
+      cb.checked = !!kstate[key];
+      const lbl = document.createElement('label');
+      lbl.htmlFor = key;
+      lbl.textContent = canal;
+      if (kstate[key]) lbl.className = 'done-task';
+      cb.onchange = () => { kstate[key] = cb.checked; lbl.className = cb.checked ? 'done-task' : ''; save(); };
+      row.appendChild(cb); row.appendChild(lbl);
+      canaisCard.appendChild(row);
+    });
+    canaisCol.appendChild(canaisCard);
+  }
 
   // ── Eventos card ──
   const eventosCol = document.getElementById('eventos-col');
-  eventosCol.innerHTML = '';
-  const eventosCard = document.createElement('div');
-  eventosCard.className = 'event-card';
-  const evH3 = document.createElement('h3');
-  evH3.innerHTML = '<div class="kit-icon" style="background:#e4dcf7;color:#5123a4">🗓</div>Eventos de Abril';
-  eventosCard.appendChild(evH3);
-  EVENTOS.forEach(ev => {
-    const row = document.createElement('div');
-    row.className = 'event-row';
-    row.style.cursor = 'pointer';
-    row.title = 'Abrir dia ' + ev.day;
-    row.onclick = () => openModal(ev.day);
-    const dot = document.createElement('div');
-    dot.className = 'event-dot';
-    const name = document.createElement('div');
-    name.className = 'event-name';
-    name.textContent = ev.name;
-    const date = document.createElement('div');
-    date.className = 'event-date';
-    date.textContent = ev.date;
-    row.appendChild(dot); row.appendChild(name); row.appendChild(date);
-    eventosCard.appendChild(row);
-  });
-  eventosCol.appendChild(eventosCard);
+  if (eventosCol) {
+    eventosCol.innerHTML = '';
+    const eventosCard = document.createElement('div');
+    eventosCard.className = 'event-card';
+    const evH3 = document.createElement('h3');
+    evH3.innerHTML = '<div class="kit-icon" style="background:#e4dcf7;color:#5123a4">🗓</div>Eventos de Abril';
+    eventosCard.appendChild(evH3);
+    EVENTOS.forEach(ev => {
+      const row = document.createElement('div');
+      row.className = 'event-row';
+      row.style.cursor = 'pointer';
+      row.title = 'Abrir dia ' + ev.day;
+      row.onclick = () => openModal(ev.day);
+      const dot = document.createElement('div');
+      dot.className = 'event-dot';
+      const name = document.createElement('div');
+      name.className = 'event-name';
+      name.textContent = ev.name;
+      const date = document.createElement('div');
+      date.className = 'event-date';
+      date.textContent = ev.date;
+      row.appendChild(dot); row.appendChild(name); row.appendChild(date);
+      eventosCard.appendChild(row);
+    });
+    eventosCol.appendChild(eventosCard);
+  }
 }
 
 load();
