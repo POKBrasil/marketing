@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Campanha de Certificação em Blockchain para Egressos · POK</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F3EFF9;
+    --surface: #FFFFFF;
+    --surface-alt: #EDE6F6;
+    --ink: #1E1230;
+    --ink-muted: #5E4E7A;
+    --ink-faint: #A899C2;
+    --accent: #5123a4;
+    --accent-light: #e4dcf7;
+    --accent-mid: #7B4FCF;
+    --green: #1D7A4F;
+    --green-light: #E2F4EB;
+    --blue: #2A5BAD;
+    --blue-light: #DDE8F9;
+    --border: #D8CEF0;
+    --radius: 10px;
+    --radius-lg: 16px;
+    /* nova cor da campanha */
+    --gold: #f1ce0a;
+    --gold-dark: #b89c00;
+    --gold-light: #fdf7c3;
+    --gold-ink: #5a4900;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ─────────────────────────────────────────────── */
+  .page-header {
+    background: var(--accent);
+    color: #fff;
+    padding: 2.5rem 2.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-header::before {
+    content: '';
+    position: absolute;
+    top: -50px; right: -50px;
+    width: 260px; height: 260px;
+    border-radius: 50%;
+    background: rgba(228,220,247,0.12);
+    pointer-events: none;
+  }
+  .page-header::after {
+    content: '';
+    position: absolute;
+    bottom: -70px; left: 28%;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+    pointer-events: none;
+  }
+
+  .header-badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: rgba(241,206,10,0.15);
+    border: 1px solid rgba(241,206,10,0.3);
+    padding: 4px 12px;
+    border-radius: 99px;
+    display: inline-block;
+    margin-bottom: 14px;
+  }
+
+  .header-title {
+    font-size: clamp(18px, 3.5vw, 32px);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: #fff;
+    max-width: 700px;
+  }
+  .header-title .gold { color: var(--gold); }
+
+  .header-sub {
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    margin-top: 8px;
+    font-weight: 300;
+    max-width: 600px;
+    line-height: 1.6;
+  }
+
+  .header-pills {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+  }
+  .pill {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 8px 16px;
+    text-align: center;
+  }
+  .pill .val {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--gold);
+    display: block;
+  }
+  .pill .lbl {
+    font-size: 10px;
+    color: rgba(255,255,255,0.45);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-top: 1px;
+  }
+
+  .gold-bar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--gold) 0%, rgba(241,206,10,0.3) 100%);
+  }
+
+  /* ── PARCEIROS STRIP ─────────────────────────────────────── */
+  .parceiros-strip {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 0.9rem 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .parceiros-lbl {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+    white-space: nowrap;
+  }
+  .parceiros-sep {
+    width: 1px;
+    height: 20px;
+    background: var(--border);
+    flex-shrink: 0;
+  }
+  .parceiro-tag {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--accent-light);
+    padding: 4px 12px;
+    border-radius: 6px;
+  }
+  .pesquisa-note {
+    font-size: 12px;
+    color: var(--ink-muted);
+    font-weight: 400;
+    flex: 1;
+  }
+  .pesquisa-note strong { color: var(--ink); font-weight: 600; }
+
+  /* ── MAIN CONTENT ───────────────────────────────────────── */
+  .content {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2.5rem 2.5rem 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  /* ── SECTION TITLES ─────────────────────────────────────── */
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-faint);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── CARDS ──────────────────────────────────────────────── */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem 2rem;
+  }
+
+  .card-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+  }
+
+  .card-body {
+    font-size: 13.5px;
+    color: var(--ink-muted);
+    line-height: 1.75;
+  }
+
+  /* ── INTRO CARD ─────────────────────────────────────────── */
+  .intro-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem 2rem;
+    border-left: 4px solid var(--gold);
+  }
+  .intro-card p {
+    font-size: 14px;
+    color: var(--ink-muted);
+    line-height: 1.8;
+  }
+  .intro-card p + p { margin-top: 0.75rem; }
+  .intro-card strong { color: var(--ink); font-weight: 600; }
+
+  .research-highlight {
+    background: var(--gold-light);
+    border: 1px solid rgba(241,206,10,0.4);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-top: 1rem;
+    font-size: 13px;
+    color: var(--gold-ink);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.6;
+  }
+  .research-highlight .icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+  .research-highlight strong { font-weight: 700; color: var(--gold-dark); }
+
+  /* ── STEPS ──────────────────────────────────────────────── */
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .step {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .step-num {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: var(--gold-ink);
+    font-size: 14px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .step-content { flex: 1; }
+  .step-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .step-desc {
+    font-size: 13px;
+    color: var(--ink-muted);
+    line-height: 1.65;
+  }
+
+  /* ── OBJECTIVES GRID ────────────────────────────────────── */
+  .obj-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+  }
+  .obj-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .obj-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gold);
+  }
+  .obj-icon {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  .obj-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .obj-desc {
+    font-size: 12px;
+    color: var(--ink-muted);
+    line-height: 1.6;
+  }
+
+  /* ── POR QUE PARTICIPAR ─────────────────────────────────── */
+  .benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .benefit-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .benefit-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .benefit-icon {
+    width: 38px; height: 38px;
+    border-radius: 10px;
+    background: var(--gold-light);
+    border: 1px solid rgba(241,206,10,0.35);
+    color: var(--gold-dark);
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .benefit-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .benefit-sub {
+    font-size: 11px;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-top: 1px;
+  }
+  .benefit-body {
+    font-size: 13px;
+    color: var(--ink-muted);
+    line-height: 1.7;
+  }
+  .benefit-body p + p { margin-top: 0.6rem; }
+  .benefit-body strong { color: var(--ink); font-weight: 600; }
+
+  .benefit-card.full {
+    grid-column: auto;
+  }
+
+
+  /* ── ELEGIBILIDADE ──────────────────────────────────────── */
+  .elegib-bar {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+  }
+  .elegib-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .elegib-content { flex: 1; min-width: 220px; }
+  .elegib-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .elegib-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+  .elegib-desc {
+    font-size: 13px;
+    color: var(--ink-muted);
+    line-height: 1.7;
+  }
+  .elegib-desc strong { color: var(--ink); font-weight: 600; }
+  .elegib-btn {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    white-space: nowrap;
+    align-self: center;
+    flex-shrink: 0;
+    transition: background 0.15s;
+  }
+  .elegib-btn:hover { background: #3a1878; }
+  /* ── PERÍODO DESTAQUE ───────────────────────────────────── */
+  .periodo-bar {
+    background: var(--accent);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem 2rem;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .periodo-bar .icon { font-size: 28px; flex-shrink: 0; }
+  .periodo-content { flex: 1; }
+  .periodo-content h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .periodo-content p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.5;
+  }
+  .periodo-dates {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .date-chip {
+    background: var(--gold);
+    color: var(--gold-ink);
+    font-weight: 800;
+    font-size: 13px;
+    padding: 6px 16px;
+    border-radius: 8px;
+  }
+  .date-arrow {
+    color: rgba(255,255,255,0.4);
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  /* ── FOOTER ─────────────────────────────────────────────── */
+  .page-footer {
+    background: var(--accent);
+    color: rgba(255,255,255,0.45);
+    text-align: center;
+    padding: 1.25rem 2rem;
+    font-size: 12px;
+  }
+  .page-footer strong { color: rgba(255,255,255,0.8); }
+
+  @media (max-width: 600px) {
+    .content { padding: 1.5rem 1.25rem 3rem; }
+    .page-header { padding: 1.75rem 1.25rem 1.5rem; }
+    .parceiros-strip { padding: 0.75rem 1.25rem; }
+    .card { padding: 1.25rem 1.25rem; }
+    .benefit-grid { grid-template-columns: 1fr; }
+    .obj-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="page-header">
+  <div class="header-badge">🎓 POK Empregabilidade 2026</div>
+  <h1 class="header-title">Campanha POK <span class="gold">Egressos e Empregabilidade</span></h1>
+  <p class="header-sub">Uma iniciativa inédita da POK em parceria com 20 universidades selecionadas, para reconectar egressos ao valor da sua formação.</p>
+  <div class="header-pills">
+    <div class="pill">
+      <span class="val">20</span>
+      <span class="lbl">Universidades</span>
+    </div>
+    <div class="pill">
+      <span class="val">1.000</span>
+      <span class="lbl">Créditos / IES</span>
+    </div>
+    <div class="pill">
+      <span class="val">2 meses</span>
+      <span class="lbl">Mai → Jun 2026</span>
+    </div>
+    <div class="pill">
+      <span class="val">FNESP</span>
+      <span class="lbl">Destino da pesquisa</span>
+    </div>
+  </div>
+</header>
+<div class="gold-bar"></div>
+
+<!-- PARCEIROS STRIP -->
+<div class="parceiros-strip">
+  <span class="parceiros-lbl">Parceiros</span>
+  <div class="parceiros-sep"></div>
+  <span class="parceiro-tag">POK</span>
+  <span class="parceiro-tag">Semesp</span>
+  <span class="parceiro-tag">Workalove</span>
+  <div class="parceiros-sep"></div>
+  <span class="pesquisa-note">Os resultados integram a <strong>Pesquisa de Empregabilidade</strong> a ser apresentada no <strong>FNESP</strong></span>
+</div>
+
+<!-- MAIN -->
+<main class="content">
+
+  <!-- APRESENTAÇÃO -->
+  <section>
+    <div class="section-label">Sobre a campanha</div>
+    <div class="intro-card">
+      <p>A POK está lançando uma campanha inédita em parceria com <strong>20 universidades selecionadas</strong>, oferecendo <strong>1.000 créditos para certificação em blockchain</strong> a cada instituição parceira. Os créditos serão utilizados em uma ação conjunta voltada aos egressos, com vigência de <strong>1º de maio a 30 de junho de 2026</strong>.</p>
+      <p>A POK trabalhará em conjunto com a equipe de marketing de cada universidade para desenvolver e executar a campanha, garantindo que a ação seja relevante para o público e efetiva nos seus resultados.</p>
+      <div class="research-highlight">
+        <span class="icon">🔬</span>
+        <span>Os resultados desta campanha integrarão a <strong>Pesquisa de Empregabilidade</strong> desenvolvida em parceria com o <strong>Semesp</strong> e a <strong>Workalove</strong> — um estudo de alcance nacional sobre a trajetória profissional de egressos do ensino superior brasileiro, a ser apresentado no <strong>FNESP</strong>.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERÍODO -->
+  <div class="periodo-bar">
+    <div class="icon">📅</div>
+    <div class="periodo-content">
+      <h3>Período de execução da campanha</h3>
+      <p>Os créditos devem ser utilizados dentro da janela de vigência abaixo.</p>
+    </div>
+    <div class="periodo-dates">
+      <span class="date-chip">1º de Maio</span>
+      <span class="date-arrow">→</span>
+      <span class="date-chip">30 de Junho</span>
+    </div>
+  </div>
+
+
+  <!-- ELEGIBILIDADE -->
+  <div class="elegib-bar">
+    <div class="elegib-icon">🎓</div>
+    <div class="elegib-content">
+      <div class="elegib-label">Requisito de participação</div>
+      <div class="elegib-title">Para participar da campanha, a universidade precisa estar inscrita no Programa POK de Trilhas Formativas Micro-Certificadas por Competências</div>
+      <div class="elegib-desc">A participação no programa é condição de elegibilidade para a campanha. Ao menos um funcionário da instituição deve estar ativo no programa. Ainda não está inscrito? <strong>Inscreva-se agora e garanta sua vaga na campanha.</strong></div>
+    </div>
+    <a href="https://pok672.ac-page.com/programa-pok-de-trilhas-formativas-microcertificadas?test=true" target="_blank" class="elegib-btn">Inscrever-se no Programa →</a>
+  </div>
+
+  <!-- COMO FUNCIONA -->
+  <section>
+    <div class="section-label">Como funciona</div>
+    <div class="card">
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-title">Seleção do público</div>
+            <div class="step-desc">Juntos, identificamos o curso ou grupo de egressos que a universidade deseja contemplar, transformando conquistas acadêmicas já vividas em certificações reconhecidas no mercado — agora registradas em blockchain.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-title">Construção da campanha</div>
+            <div class="step-desc">Desenvolvemos a estratégia de marketing em conjunto com a universidade, criando uma ação que gera valor real para o egresso — como vantagens exclusivas para quem retorna via certificado — e abre espaço para a universidade se posicionar, inclusive com presença de marca na landing page da campanha.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-title">Ativação no mercado de trabalho</div>
+            <div class="step-desc">Incentivamos cada egresso a compartilhar seu certificado no LinkedIn, destacando o diferencial competitivo que a certificação em blockchain representa para sua carreira.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OBJETIVOS -->
+  <section>
+    <div class="section-label">Objetivos da campanha</div>
+    <div class="obj-grid">
+      <div class="obj-card">
+        <div class="obj-icon">🤝</div>
+        <div class="obj-title">Reconexão com egressos</div>
+        <div class="obj-desc">Oferece às universidades uma oportunidade concreta de retomar o relacionamento com quem já passou por suas salas de aula.</div>
+      </div>
+      <div class="obj-card">
+        <div class="obj-icon">📊</div>
+        <div class="obj-title">Dados de empregabilidade</div>
+        <div class="obj-desc">A ação capta informações reais sobre a trajetória profissional dos egressos, devolvendo à universidade um panorama valioso sobre seus cursos.</div>
+      </div>
+      <div class="obj-card">
+        <div class="obj-icon">🔬</div>
+        <div class="obj-title">Pesquisa de impacto nacional</div>
+        <div class="obj-desc">Os dados alimentarão a pesquisa apresentada no FNESP, em parceria com o Semesp e a Workalove, ampliando o alcance para o setor educacional.</div>
+      </div>
+      <div class="obj-card">
+        <div class="obj-icon">🏆</div>
+        <div class="obj-title">Posicionamento da POK</div>
+        <div class="obj-desc">A campanha consolida a POK como referência em certificações e empregabilidade, demonstrando na prática o potencial da plataforma.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POR QUE PARTICIPAR -->
+  <section>
+    <div class="section-label">Por que participar?</div>
+    <div class="benefit-grid">
+
+      <!-- Universidade -->
+      <div class="benefit-card">
+        <div class="benefit-header">
+          <div class="benefit-icon">🏛️</div>
+          <div>
+            <div class="benefit-title">Para a universidade</div>
+            <div class="benefit-sub">IMPACTO INSTITUCIONAL</div>
+          </div>
+        </div>
+        <div class="benefit-body">
+          <p>Manter o vínculo com egressos é um dos maiores desafios das instituições de ensino — e também uma das maiores oportunidades. Participar desta campanha significa retomar esse contato de forma relevante, entregando algo concreto: uma <strong>certificação moderna, verificável e com valor de mercado</strong>.</p>
+          <p>A universidade passa a ter acesso a <strong>dados reais de empregabilidade</strong> dos seus formandos — informações que normalmente são difíceis de obter e que têm impacto direto na avaliação institucional, no planejamento pedagógico e na comunicação com futuros alunos.</p>
+          <p>Ao associar sua marca a uma iniciativa inovadora, a universidade demonstra que <strong>acompanha as transformações do mercado de trabalho</strong> e segue investindo nos seus alunos — mesmo depois da formatura. Tudo isso com suporte completo da POK, sem sobrecarregar a equipe interna.</p>
+        </div>
+      </div>
+
+      <!-- Egresso -->
+      <div class="benefit-card">
+        <div class="benefit-header">
+          <div class="benefit-icon">🎓</div>
+          <div>
+            <div class="benefit-title">Para o egresso</div>
+            <div class="benefit-sub">IMPACTO PESSOAL</div>
+          </div>
+        </div>
+        <div class="benefit-body">
+          <p>Receber um certificado em blockchain não é apenas um reconhecimento simbólico. É um <strong>registro permanente, verificável e inviolável</strong> de uma conquista real — gratuito para o egresso, sem prazo de validade, emitido pela própria universidade onde estudou e compatível com os <strong>padrões internacionais Open Badges</strong>, reconhecido por empresas, universidades e plataformas de recrutamento no mundo inteiro.</p>
+          <p>Em um mercado de trabalho cada vez mais competitivo, esse diferencial importa. Um <strong>QR code ou link público permanente</strong> permite que qualquer recrutador verifique a autenticidade da credencial em segundos, em qualquer lugar do mundo. A <strong>integração direta com o LinkedIn</strong> torna ainda mais simples mostrar ao mercado que a formação tem respaldo, transparência e credibilidade tecnológica.</p>
+          <p>Enquanto o diploma atesta a conclusão do curso, o certificado digital <strong>complementa essa conquista</strong> detalhando competências específicas de forma portátil e verificável — sinalizando ao mercado global que a trajetória acadêmica é real, atual e reconhecida. É visibilidade profissional com substância.</p>
+        </div>
+      </div>
+
+      <!-- Setor educacional -->
+      <div class="benefit-card full">
+        <div class="benefit-header">
+          <div class="benefit-icon">🇧🇷</div>
+          <div>
+            <div class="benefit-title">Para o setor educacional</div>
+            <div class="benefit-sub">Impacto nacional</div>
+          </div>
+        </div>
+        <div class="benefit-body">
+          <p>Os dados de empregabilidade captados durante a campanha não ficam restritos às universidades participantes — eles integram a <strong>Pesquisa de Empregabilidade</strong> desenvolvida em parceria com o <strong>Semesp</strong> e a <strong>Workalove</strong>, a ser apresentada no <strong>FNESP</strong>.</p>
+          <p>Esses dados demonstram na prática a capacidade da POK de levantar, em escala, informações reais sobre a trajetória profissional de egressos do ensino superior — algo que raramente é possível com a precisão e a rastreabilidade que a <strong>certificação em blockchain</strong> oferece.</p>
+          <p>Participar é também contribuir para uma visão mais ampla e embasada sobre empregabilidade no Brasil — e posicionar as instituições parceiras como <strong>protagonistas de uma transformação</strong> que começa na sala de aula e se estende ao mercado de trabalho.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="page-footer">
+  <strong>POK · Campanha de Certificação para Egressos 2026</strong> &nbsp;·&nbsp; Em parceria com Semesp e Workalove &nbsp;·&nbsp; Resultados apresentados no FNESP
+</footer>
+
+</body>
+</html>
