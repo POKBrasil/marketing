@@ -39,6 +39,39 @@
     min-height: 100vh;
   }
 
+  /* ── LANG SWITCH ────────────────────────────────────────── */
+  .lang-switch {
+    position: absolute;
+    top: 1.5rem;
+    right: 2.5rem;
+    display: flex;
+    gap: 4px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.18);
+    padding: 4px;
+    border-radius: 99px;
+    z-index: 10;
+    backdrop-filter: blur(6px);
+  }
+  .lang-btn {
+    background: transparent;
+    border: none;
+    color: rgba(255,255,255,0.6);
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 6px 14px;
+    border-radius: 99px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .lang-btn:hover { color: #fff; }
+  .lang-btn.active {
+    background: var(--gold);
+    color: var(--gold-ink);
+  }
+
   /* ── HEADER ─────────────────────────────────────────────── */
   .page-header {
     background: var(--accent);
@@ -497,6 +530,7 @@
   @media (max-width: 600px) {
     .content { padding: 1.5rem 1.25rem 3rem; }
     .page-header { padding: 1.75rem 1.25rem 1.5rem; }
+    .lang-switch { top: 1rem; right: 1.25rem; }
     .parceiros-strip { padding: 0.75rem 1.25rem; }
     .card { padding: 1.25rem 1.25rem; }
     .benefit-grid { grid-template-columns: 1fr; }
@@ -508,25 +542,43 @@
 
 <!-- HEADER -->
 <header class="page-header">
-  <div class="header-badge">🎓 POK Empregabilidade 2026</div>
-  <h1 class="header-title">Campanha POK <span class="gold">Egressos e Empregabilidade</span></h1>
-  <p class="header-sub">Uma iniciativa inédita da POK em parceria com 20 universidades selecionadas, para reconectar egressos ao valor da sua formação.</p>
+
+  <!-- LANG SWITCH -->
+  <div class="lang-switch">
+    <button class="lang-btn active" data-lang="pt">PORT</button>
+    <button class="lang-btn" data-lang="es">ESP</button>
+  </div>
+
+  <div class="header-badge"
+       data-pt="🎓 POK Empregabilidade 2026"
+       data-es="🎓 POK Empleabilidad 2026">🎓 POK Empregabilidade 2026</div>
+
+  <h1 class="header-title">
+    <span data-pt="Campanha POK " data-es="Campaña POK ">Campanha POK </span><span class="gold" data-pt="Egressos e Empregabilidade" data-es="Egresados y Empleabilidad">Egressos e Empregabilidade</span>
+  </h1>
+
+  <p class="header-sub"
+     data-pt="Uma iniciativa inédita da POK em parceria com 20 universidades selecionadas, para reconectar egressos ao valor da sua formação."
+     data-es="Una iniciativa inédita de POK en alianza con 20 universidades seleccionadas, para reconectar a los egresados con el valor de su formación.">Uma iniciativa inédita da POK em parceria com 20 universidades selecionadas, para reconectar egressos ao valor da sua formação.</p>
+
   <div class="header-pills">
     <div class="pill">
       <span class="val">20</span>
-      <span class="lbl">Universidades</span>
+      <span class="lbl" data-pt="Universidades" data-es="Universidades">Universidades</span>
     </div>
     <div class="pill">
       <span class="val">1.000</span>
-      <span class="lbl">Créditos / IES</span>
+      <span class="lbl" data-pt="Créditos / IES" data-es="Créditos / IES">Créditos / IES</span>
     </div>
     <div class="pill">
-      <span class="val">2 meses</span>
-      <span class="lbl">Mai → Jun 2026</span>
+      <span class="val" data-pt="2 meses" data-es="2 meses">2 meses</span>
+      <span class="lbl" data-pt="Mai → Jun 2026" data-es="May → Jun 2026">Mai → Jun 2026</span>
     </div>
     <div class="pill">
       <span class="val">FNESP</span>
-      <span class="lbl">Destino da pesquisa</span>
+      <span class="lbl"
+            data-pt="Destino da pesquisa"
+            data-es="Destino de la investigación">Destino da pesquisa</span>
     </div>
   </div>
 </header>
@@ -534,13 +586,17 @@
 
 <!-- PARCEIROS STRIP -->
 <div class="parceiros-strip">
-  <span class="parceiros-lbl">Parceiros</span>
+  <span class="parceiros-lbl"
+        data-pt="Parceiros"
+        data-es="Aliados">Parceiros</span>
   <div class="parceiros-sep"></div>
   <span class="parceiro-tag">POK</span>
   <span class="parceiro-tag">Semesp</span>
   <span class="parceiro-tag">Workalove</span>
   <div class="parceiros-sep"></div>
-  <span class="pesquisa-note">Os resultados integram a <strong>Pesquisa de Empregabilidade</strong> a ser apresentada no <strong>FNESP</strong></span>
+  <span class="pesquisa-note"
+        data-pt="Os resultados integram a <strong>Pesquisa de Empregabilidade</strong> a ser apresentada no <strong>FNESP</strong>"
+        data-es="Los resultados integran la <strong>Investigación de Empleabilidad</strong> que se presentará en el <strong>FNESP</strong>">Os resultados integram a <strong>Pesquisa de Empregabilidade</strong> a ser apresentada no <strong>FNESP</strong></span>
 </div>
 
 <!-- MAIN -->
@@ -548,13 +604,18 @@
 
   <!-- APRESENTAÇÃO -->
   <section>
-    <div class="section-label">Sobre a campanha</div>
+    <div class="section-label"
+         data-pt="Sobre a campanha"
+         data-es="Sobre la campaña">Sobre a campanha</div>
     <div class="intro-card">
-      <p>A POK está lançando uma campanha inédita em parceria com <strong>20 universidades selecionadas</strong>, oferecendo <strong>1.000 créditos para certificação em blockchain</strong> a cada instituição parceira. Os créditos serão utilizados em uma ação conjunta voltada aos egressos, com vigência de <strong>1º de maio a 30 de junho de 2026</strong>.</p>
-      <p>A POK trabalhará em conjunto com a equipe de marketing de cada universidade para desenvolver e executar a campanha, garantindo que a ação seja relevante para o público e efetiva nos seus resultados.</p>
+      <p data-pt="A POK está lançando uma campanha inédita em parceria com <strong>20 universidades selecionadas</strong>, oferecendo <strong>1.000 créditos para certificação em blockchain</strong> a cada instituição parceira. Os créditos serão utilizados em uma ação conjunta voltada aos egressos, com vigência de <strong>1º de maio a 30 de junho de 2026</strong>."
+         data-es="POK está lanzando una campaña inédita en alianza con <strong>20 universidades seleccionadas</strong>, ofreciendo <strong>1.000 créditos para certificación en blockchain</strong> a cada institución aliada. Los créditos se utilizarán en una acción conjunta dirigida a los egresados, con vigencia del <strong>1 de mayo al 30 de junio de 2026</strong>.">A POK está lançando uma campanha inédita em parceria com <strong>20 universidades selecionadas</strong>, oferecendo <strong>1.000 créditos para certificação em blockchain</strong> a cada instituição parceira. Os créditos serão utilizados em uma ação conjunta voltada aos egressos, com vigência de <strong>1º de maio a 30 de junho de 2026</strong>.</p>
+      <p data-pt="A POK trabalhará em conjunto com a equipe de marketing de cada universidade para desenvolver e executar a campanha, garantindo que a ação seja relevante para o público e efetiva nos seus resultados."
+         data-es="POK trabajará en conjunto con el equipo de marketing de cada universidad para desarrollar y ejecutar la campaña, garantizando que la acción sea relevante para el público y efectiva en sus resultados.">A POK trabalhará em conjunto com a equipe de marketing de cada universidade para desenvolver e executar a campanha, garantindo que a ação seja relevante para o público e efetiva nos seus resultados.</p>
       <div class="research-highlight">
         <span class="icon">🔬</span>
-        <span>Os resultados desta campanha integrarão a <strong>Pesquisa de Empregabilidade</strong> desenvolvida em parceria com o <strong>Semesp</strong> e a <strong>Workalove</strong> — um estudo de alcance nacional sobre a trajetória profissional de egressos do ensino superior brasileiro, a ser apresentado no <strong>FNESP</strong>.</span>
+        <span data-pt="Os resultados desta campanha integrarão a <strong>Pesquisa de Empregabilidade</strong> desenvolvida em parceria com o <strong>Semesp</strong> e a <strong>Workalove</strong> — um estudo de alcance nacional sobre a trajetória profissional de egressos do ensino superior brasileiro, a ser apresentado no <strong>FNESP</strong>."
+              data-es="Los resultados de esta campaña integrarán la <strong>Investigación de Empleabilidad</strong> desarrollada en alianza con <strong>Semesp</strong> y <strong>Workalove</strong> — un estudio de alcance nacional sobre la trayectoria profesional de los egresados de la educación superior brasileña, que se presentará en el <strong>FNESP</strong>.">Os resultados desta campanha integrarão a <strong>Pesquisa de Empregabilidade</strong> desenvolvida em parceria com o <strong>Semesp</strong> e a <strong>Workalove</strong> — um estudo de alcance nacional sobre a trajetória profissional de egressos do ensino superior brasileiro, a ser apresentado no <strong>FNESP</strong>.</span>
       </div>
     </div>
   </section>
@@ -563,13 +624,19 @@
   <div class="periodo-bar">
     <div class="icon">📅</div>
     <div class="periodo-content">
-      <h3>Período de execução da campanha</h3>
-      <p>Os créditos devem ser utilizados dentro da janela de vigência abaixo.</p>
+      <h3 data-pt="Período de execução da campanha"
+          data-es="Período de ejecución de la campaña">Período de execução da campanha</h3>
+      <p data-pt="Os créditos devem ser utilizados dentro da janela de vigência abaixo."
+         data-es="Los créditos deben utilizarse dentro de la ventana de vigencia indicada a continuación.">Os créditos devem ser utilizados dentro da janela de vigência abaixo.</p>
     </div>
     <div class="periodo-dates">
-      <span class="date-chip">1º de Maio</span>
+      <span class="date-chip"
+            data-pt="1º de Maio"
+            data-es="1 de Mayo">1º de Maio</span>
       <span class="date-arrow">→</span>
-      <span class="date-chip">30 de Junho</span>
+      <span class="date-chip"
+            data-pt="30 de Junho"
+            data-es="30 de Junio">30 de Junho</span>
     </div>
   </div>
 
@@ -578,37 +645,59 @@
   <div class="elegib-bar">
     <div class="elegib-icon">🎓</div>
     <div class="elegib-content">
-      <div class="elegib-label">Requisito de participação</div>
-      <div class="elegib-title">Para participar da campanha, a universidade precisa estar inscrita no Programa POK de Trilhas Formativas Micro-Certificadas por Competências</div>
-      <div class="elegib-desc">A participação no programa é condição de elegibilidade para a campanha. Ao menos um funcionário da instituição deve estar ativo no programa. Ainda não está inscrito? <strong>Inscreva-se agora e garanta sua vaga na campanha.</strong></div>
+      <div class="elegib-label"
+           data-pt="Requisito de participação"
+           data-es="Requisito de participación">Requisito de participação</div>
+      <div class="elegib-title"
+           data-pt="Para participar da campanha, a universidade precisa estar inscrita no Programa POK de Trilhas Formativas Micro-Certificadas por Competências"
+           data-es="Para participar en la campaña, la universidad debe estar inscrita en el Programa POK de Itinerarios Formativos Micro-Certificados por Competencias">Para participar da campanha, a universidade precisa estar inscrita no Programa POK de Trilhas Formativas Micro-Certificadas por Competências</div>
+      <div class="elegib-desc"
+           data-pt="A participação no programa é condição de elegibilidade para a campanha. Ao menos um funcionário da instituição deve estar ativo no programa. Ainda não está inscrito? <strong>Inscreva-se agora e garanta sua vaga na campanha.</strong>"
+           data-es="La participación en el programa es condición de elegibilidad para la campaña. Al menos un colaborador de la institución debe estar activo en el programa. ¿Todavía no se ha inscrito? <strong>Inscríbase ahora y asegure su lugar en la campaña.</strong>">A participação no programa é condição de elegibilidade para a campanha. Ao menos um funcionário da instituição deve estar ativo no programa. Ainda não está inscrito? <strong>Inscreva-se agora e garanta sua vaga na campanha.</strong></div>
     </div>
-    <a href="https://pok672.ac-page.com/programa-pok-de-trilhas-formativas-microcertificadas?test=true" target="_blank" class="elegib-btn">Inscrever-se no Programa →</a>
+    <a href="https://pok672.ac-page.com/programa-pok-de-trilhas-formativas-microcertificadas?test=true" target="_blank" class="elegib-btn"
+       data-pt="Inscrever-se no Programa →"
+       data-es="Inscribirse en el Programa →">Inscrever-se no Programa →</a>
   </div>
 
   <!-- COMO FUNCIONA -->
   <section>
-    <div class="section-label">Como funciona</div>
+    <div class="section-label"
+         data-pt="Como funciona"
+         data-es="Cómo funciona">Como funciona</div>
     <div class="card">
       <div class="steps">
         <div class="step">
           <div class="step-num">1</div>
           <div class="step-content">
-            <div class="step-title">Seleção do público</div>
-            <div class="step-desc">Juntos, identificamos o curso ou grupo de egressos que a universidade deseja contemplar, transformando conquistas acadêmicas já vividas em certificações reconhecidas no mercado — agora registradas em blockchain.</div>
+            <div class="step-title"
+                 data-pt="Seleção do público"
+                 data-es="Selección del público">Seleção do público</div>
+            <div class="step-desc"
+                 data-pt="Juntos, identificamos o curso ou grupo de egressos que a universidade deseja contemplar, transformando conquistas acadêmicas já vividas em certificações reconhecidas no mercado — agora registradas em blockchain."
+                 data-es="Juntos identificamos la carrera o grupo de egresados que la universidad desea contemplar, transformando logros académicos ya alcanzados en certificaciones reconocidas en el mercado — ahora registradas en blockchain.">Juntos, identificamos o curso ou grupo de egressos que a universidade deseja contemplar, transformando conquistas acadêmicas já vividas em certificações reconhecidas no mercado — agora registradas em blockchain.</div>
           </div>
         </div>
         <div class="step">
           <div class="step-num">2</div>
           <div class="step-content">
-            <div class="step-title">Construção da campanha</div>
-            <div class="step-desc">Desenvolvemos a estratégia de marketing em conjunto com a universidade, criando uma ação que gera valor real para o egresso — como vantagens exclusivas para quem retorna via certificado — e abre espaço para a universidade se posicionar, inclusive com presença de marca na landing page da campanha.</div>
+            <div class="step-title"
+                 data-pt="Construção da campanha"
+                 data-es="Construcción de la campaña">Construção da campanha</div>
+            <div class="step-desc"
+                 data-pt="Desenvolvemos a estratégia de marketing em conjunto com a universidade, criando uma ação que gera valor real para o egresso — como vantagens exclusivas para quem retorna via certificado — e abre espaço para a universidade se posicionar, inclusive com presença de marca na landing page da campanha."
+                 data-es="Desarrollamos la estrategia de marketing en conjunto con la universidad, creando una acción que genera valor real para el egresado — como ventajas exclusivas para quien regresa a través del certificado — y abre espacio para que la universidad se posicione, incluso con presencia de marca en la landing page de la campaña.">Desenvolvemos a estratégia de marketing em conjunto com a universidade, criando uma ação que gera valor real para o egresso — como vantagens exclusivas para quem retorna via certificado — e abre espaço para a universidade se posicionar, inclusive com presença de marca na landing page da campanha.</div>
           </div>
         </div>
         <div class="step">
           <div class="step-num">3</div>
           <div class="step-content">
-            <div class="step-title">Ativação no mercado de trabalho</div>
-            <div class="step-desc">Incentivamos cada egresso a compartilhar seu certificado no LinkedIn, destacando o diferencial competitivo que a certificação em blockchain representa para sua carreira.</div>
+            <div class="step-title"
+                 data-pt="Ativação no mercado de trabalho"
+                 data-es="Activación en el mercado laboral">Ativação no mercado de trabalho</div>
+            <div class="step-desc"
+                 data-pt="Incentivamos cada egresso a compartilhar seu certificado no LinkedIn, destacando o diferencial competitivo que a certificação em blockchain representa para sua carreira."
+                 data-es="Incentivamos a cada egresado a compartir su certificado en LinkedIn, destacando el diferencial competitivo que la certificación en blockchain representa para su carrera.">Incentivamos cada egresso a compartilhar seu certificado no LinkedIn, destacando o diferencial competitivo que a certificação em blockchain representa para sua carreira.</div>
           </div>
         </div>
       </div>
@@ -617,34 +706,54 @@
 
   <!-- OBJETIVOS -->
   <section>
-    <div class="section-label">Objetivos da campanha</div>
+    <div class="section-label"
+         data-pt="Objetivos da campanha"
+         data-es="Objetivos de la campaña">Objetivos da campanha</div>
     <div class="obj-grid">
       <div class="obj-card">
         <div class="obj-icon">🤝</div>
-        <div class="obj-title">Reconexão com egressos</div>
-        <div class="obj-desc">Oferece às universidades uma oportunidade concreta de retomar o relacionamento com quem já passou por suas salas de aula.</div>
+        <div class="obj-title"
+             data-pt="Reconexão com egressos"
+             data-es="Reconexión con egresados">Reconexão com egressos</div>
+        <div class="obj-desc"
+             data-pt="Oferece às universidades uma oportunidade concreta de retomar o relacionamento com quem já passou por suas salas de aula."
+             data-es="Ofrece a las universidades una oportunidad concreta de retomar la relación con quienes ya pasaron por sus aulas.">Oferece às universidades uma oportunidade concreta de retomar o relacionamento com quem já passou por suas salas de aula.</div>
       </div>
       <div class="obj-card">
         <div class="obj-icon">📊</div>
-        <div class="obj-title">Dados de empregabilidade</div>
-        <div class="obj-desc">A ação capta informações reais sobre a trajetória profissional dos egressos, devolvendo à universidade um panorama valioso sobre seus cursos.</div>
+        <div class="obj-title"
+             data-pt="Dados de empregabilidade"
+             data-es="Datos de empleabilidad">Dados de empregabilidade</div>
+        <div class="obj-desc"
+             data-pt="A ação capta informações reais sobre a trajetória profissional dos egressos, devolvendo à universidade um panorama valioso sobre seus cursos."
+             data-es="La acción capta información real sobre la trayectoria profesional de los egresados, devolviendo a la universidad un panorama valioso sobre sus carreras.">A ação capta informações reais sobre a trajetória profissional dos egressos, devolvendo à universidade um panorama valioso sobre seus cursos.</div>
       </div>
       <div class="obj-card">
         <div class="obj-icon">🔬</div>
-        <div class="obj-title">Pesquisa de impacto nacional</div>
-        <div class="obj-desc">Os dados alimentarão a pesquisa apresentada no FNESP, em parceria com o Semesp e a Workalove, ampliando o alcance para o setor educacional.</div>
+        <div class="obj-title"
+             data-pt="Pesquisa de impacto nacional"
+             data-es="Investigación de impacto nacional">Pesquisa de impacto nacional</div>
+        <div class="obj-desc"
+             data-pt="Os dados alimentarão a pesquisa apresentada no FNESP, em parceria com o Semesp e a Workalove, ampliando o alcance para o setor educacional."
+             data-es="Los datos alimentarán la investigación presentada en el FNESP, en alianza con Semesp y Workalove, ampliando el alcance al sector educativo.">Os dados alimentarão a pesquisa apresentada no FNESP, em parceria com o Semesp e a Workalove, ampliando o alcance para o setor educacional.</div>
       </div>
       <div class="obj-card">
         <div class="obj-icon">🏆</div>
-        <div class="obj-title">Posicionamento da POK</div>
-        <div class="obj-desc">A campanha consolida a POK como referência em certificações e empregabilidade, demonstrando na prática o potencial da plataforma.</div>
+        <div class="obj-title"
+             data-pt="Posicionamento da POK"
+             data-es="Posicionamiento de POK">Posicionamento da POK</div>
+        <div class="obj-desc"
+             data-pt="A campanha consolida a POK como referência em certificações e empregabilidade, demonstrando na prática o potencial da plataforma."
+             data-es="La campaña consolida a POK como referente en certificaciones y empleabilidad, demostrando en la práctica el potencial de la plataforma.">A campanha consolida a POK como referência em certificações e empregabilidade, demonstrando na prática o potencial da plataforma.</div>
       </div>
     </div>
   </section>
 
   <!-- POR QUE PARTICIPAR -->
   <section>
-    <div class="section-label">Por que participar?</div>
+    <div class="section-label"
+         data-pt="Por que participar?"
+         data-es="¿Por qué participar?">Por que participar?</div>
     <div class="benefit-grid">
 
       <!-- Universidade -->
@@ -652,14 +761,21 @@
         <div class="benefit-header">
           <div class="benefit-icon">🏛️</div>
           <div>
-            <div class="benefit-title">Para a universidade</div>
-            <div class="benefit-sub">IMPACTO INSTITUCIONAL</div>
+            <div class="benefit-title"
+                 data-pt="Para a universidade"
+                 data-es="Para la universidad">Para a universidade</div>
+            <div class="benefit-sub"
+                 data-pt="IMPACTO INSTITUCIONAL"
+                 data-es="IMPACTO INSTITUCIONAL">IMPACTO INSTITUCIONAL</div>
           </div>
         </div>
         <div class="benefit-body">
-          <p>Manter o vínculo com egressos é um dos maiores desafios das instituições de ensino — e também uma das maiores oportunidades. Participar desta campanha significa retomar esse contato de forma relevante, entregando algo concreto: uma <strong>certificação moderna, verificável e com valor de mercado</strong>.</p>
-          <p>A universidade passa a ter acesso a <strong>dados reais de empregabilidade</strong> dos seus formandos — informações que normalmente são difíceis de obter e que têm impacto direto na avaliação institucional, no planejamento pedagógico e na comunicação com futuros alunos.</p>
-          <p>Ao associar sua marca a uma iniciativa inovadora, a universidade demonstra que <strong>acompanha as transformações do mercado de trabalho</strong> e segue investindo nos seus alunos — mesmo depois da formatura. Tudo isso com suporte completo da POK, sem sobrecarregar a equipe interna.</p>
+          <p data-pt="Manter o vínculo com egressos é um dos maiores desafios das instituições de ensino — e também uma das maiores oportunidades. Participar desta campanha significa retomar esse contato de forma relevante, entregando algo concreto: uma <strong>certificação moderna, verificável e com valor de mercado</strong>."
+             data-es="Mantener el vínculo con los egresados es uno de los mayores desafíos de las instituciones de enseñanza — y también una de las mayores oportunidades. Participar en esta campaña significa retomar ese contacto de forma relevante, entregando algo concreto: una <strong>certificación moderna, verificable y con valor de mercado</strong>.">Manter o vínculo com egressos é um dos maiores desafios das instituições de ensino — e também uma das maiores oportunidades. Participar desta campanha significa retomar esse contato de forma relevante, entregando algo concreto: uma <strong>certificação moderna, verificável e com valor de mercado</strong>.</p>
+          <p data-pt="A universidade passa a ter acesso a <strong>dados reais de empregabilidade</strong> dos seus formandos — informações que normalmente são difíceis de obter e que têm impacto direto na avaliação institucional, no planejamento pedagógico e na comunicação com futuros alunos."
+             data-es="La universidad pasa a tener acceso a <strong>datos reales de empleabilidad</strong> de sus graduados — información que normalmente es difícil de obtener y que tiene impacto directo en la evaluación institucional, en la planificación pedagógica y en la comunicación con futuros alumnos.">A universidade passa a ter acesso a <strong>dados reais de empregabilidade</strong> dos seus formandos — informações que normalmente são difíceis de obter e que têm impacto direto na avaliação institucional, no planejamento pedagógico e na comunicação com futuros alunos.</p>
+          <p data-pt="Ao associar sua marca a uma iniciativa inovadora, a universidade demonstra que <strong>acompanha as transformações do mercado de trabalho</strong> e segue investindo nos seus alunos — mesmo depois da formatura. Tudo isso com suporte completo da POK, sem sobrecarregar a equipe interna."
+             data-es="Al asociar su marca a una iniciativa innovadora, la universidad demuestra que <strong>acompaña las transformaciones del mercado laboral</strong> y sigue invirtiendo en sus alumnos — incluso después de la graduación. Todo esto con soporte completo de POK, sin sobrecargar al equipo interno.">Ao associar sua marca a uma iniciativa inovadora, a universidade demonstra que <strong>acompanha as transformações do mercado de trabalho</strong> e segue investindo nos seus alunos — mesmo depois da formatura. Tudo isso com suporte completo da POK, sem sobrecarregar a equipe interna.</p>
         </div>
       </div>
 
@@ -668,14 +784,21 @@
         <div class="benefit-header">
           <div class="benefit-icon">🎓</div>
           <div>
-            <div class="benefit-title">Para o egresso</div>
-            <div class="benefit-sub">IMPACTO PESSOAL</div>
+            <div class="benefit-title"
+                 data-pt="Para o egresso"
+                 data-es="Para el egresado">Para o egresso</div>
+            <div class="benefit-sub"
+                 data-pt="IMPACTO PESSOAL"
+                 data-es="IMPACTO PERSONAL">IMPACTO PESSOAL</div>
           </div>
         </div>
         <div class="benefit-body">
-          <p>Receber um certificado em blockchain não é apenas um reconhecimento simbólico. É um <strong>registro permanente, verificável e inviolável</strong> de uma conquista real — gratuito para o egresso, sem prazo de validade, emitido pela própria universidade onde estudou e compatível com os <strong>padrões internacionais Open Badges</strong>, reconhecido por empresas, universidades e plataformas de recrutamento no mundo inteiro.</p>
-          <p>Em um mercado de trabalho cada vez mais competitivo, esse diferencial importa. Um <strong>QR code ou link público permanente</strong> permite que qualquer recrutador verifique a autenticidade da credencial em segundos, em qualquer lugar do mundo. A <strong>integração direta com o LinkedIn</strong> torna ainda mais simples mostrar ao mercado que a formação tem respaldo, transparência e credibilidade tecnológica.</p>
-          <p>Enquanto o diploma atesta a conclusão do curso, o certificado digital <strong>complementa essa conquista</strong> detalhando competências específicas de forma portátil e verificável — sinalizando ao mercado global que a trajetória acadêmica é real, atual e reconhecida. É visibilidade profissional com substância.</p>
+          <p data-pt="Receber um certificado em blockchain não é apenas um reconhecimento simbólico. É um <strong>registro permanente, verificável e inviolável</strong> de uma conquista real — gratuito para o egresso, sem prazo de validade, emitido pela própria universidade onde estudou e compatível com os <strong>padrões internacionais Open Badges</strong>, reconhecido por empresas, universidades e plataformas de recrutamento no mundo inteiro."
+             data-es="Recibir un certificado en blockchain no es solo un reconocimiento simbólico. Es un <strong>registro permanente, verificable e inviolable</strong> de un logro real — gratuito para el egresado, sin fecha de vencimiento, emitido por la propia universidad donde estudió y compatible con los <strong>estándares internacionales Open Badges</strong>, reconocido por empresas, universidades y plataformas de reclutamiento en todo el mundo.">Receber um certificado em blockchain não é apenas um reconhecimento simbólico. É um <strong>registro permanente, verificável e inviolável</strong> de uma conquista real — gratuito para o egresso, sem prazo de validade, emitido pela própria universidade onde estudou e compatível com os <strong>padrões internacionais Open Badges</strong>, reconhecido por empresas, universidades e plataformas de recrutamento no mundo inteiro.</p>
+          <p data-pt="Em um mercado de trabalho cada vez mais competitivo, esse diferencial importa. Um <strong>QR code ou link público permanente</strong> permite que qualquer recrutador verifique a autenticidade da credencial em segundos, em qualquer lugar do mundo. A <strong>integração direta com o LinkedIn</strong> torna ainda mais simples mostrar ao mercado que a formação tem respaldo, transparência e credibilidade tecnológica."
+             data-es="En un mercado laboral cada vez más competitivo, ese diferencial importa. Un <strong>código QR o enlace público permanente</strong> permite que cualquier reclutador verifique la autenticidad de la credencial en segundos, en cualquier lugar del mundo. La <strong>integración directa con LinkedIn</strong> hace aún más simple mostrar al mercado que la formación tiene respaldo, transparencia y credibilidad tecnológica.">Em um mercado de trabalho cada vez mais competitivo, esse diferencial importa. Um <strong>QR code ou link público permanente</strong> permite que qualquer recrutador verifique a autenticidade da credencial em segundos, em qualquer lugar do mundo. A <strong>integração direta com o LinkedIn</strong> torna ainda mais simples mostrar ao mercado que a formação tem respaldo, transparência e credibilidade tecnológica.</p>
+          <p data-pt="Enquanto o diploma atesta a conclusão do curso, o certificado digital <strong>complementa essa conquista</strong> detalhando competências específicas de forma portátil e verificável — sinalizando ao mercado global que a trajetória acadêmica é real, atual e reconhecida. É visibilidade profissional com substância."
+             data-es="Mientras el diploma certifica la conclusión de la carrera, el certificado digital <strong>complementa ese logro</strong> detallando competencias específicas de forma portátil y verificable — señalando al mercado global que la trayectoria académica es real, actual y reconocida. Es visibilidad profesional con sustancia.">Enquanto o diploma atesta a conclusão do curso, o certificado digital <strong>complementa essa conquista</strong> detalhando competências específicas de forma portátil e verificável — sinalizando ao mercado global que a trajetória acadêmica é real, atual e reconhecida. É visibilidade profissional com substância.</p>
         </div>
       </div>
 
@@ -684,14 +807,21 @@
         <div class="benefit-header">
           <div class="benefit-icon">🇧🇷</div>
           <div>
-            <div class="benefit-title">Para o setor educacional</div>
-            <div class="benefit-sub">Impacto nacional</div>
+            <div class="benefit-title"
+                 data-pt="Para o setor educacional"
+                 data-es="Para el sector educativo">Para o setor educacional</div>
+            <div class="benefit-sub"
+                 data-pt="Impacto nacional"
+                 data-es="Impacto nacional">Impacto nacional</div>
           </div>
         </div>
         <div class="benefit-body">
-          <p>Os dados de empregabilidade captados durante a campanha não ficam restritos às universidades participantes — eles integram a <strong>Pesquisa de Empregabilidade</strong> desenvolvida em parceria com o <strong>Semesp</strong> e a <strong>Workalove</strong>, a ser apresentada no <strong>FNESP</strong>.</p>
-          <p>Esses dados demonstram na prática a capacidade da POK de levantar, em escala, informações reais sobre a trajetória profissional de egressos do ensino superior — algo que raramente é possível com a precisão e a rastreabilidade que a <strong>certificação em blockchain</strong> oferece.</p>
-          <p>Participar é também contribuir para uma visão mais ampla e embasada sobre empregabilidade no Brasil — e posicionar as instituições parceiras como <strong>protagonistas de uma transformação</strong> que começa na sala de aula e se estende ao mercado de trabalho.</p>
+          <p data-pt="Os dados de empregabilidade captados durante a campanha não ficam restritos às universidades participantes — eles integram a <strong>Pesquisa de Empregabilidade</strong> desenvolvida em parceria com o <strong>Semesp</strong> e a <strong>Workalove</strong>, a ser apresentada no <strong>FNESP</strong>."
+             data-es="Los datos de empleabilidad captados durante la campaña no quedan restringidos a las universidades participantes — integran la <strong>Investigación de Empleabilidad</strong> desarrollada en alianza con <strong>Semesp</strong> y <strong>Workalove</strong>, que se presentará en el <strong>FNESP</strong>.">Os dados de empregabilidade captados durante a campanha não ficam restritos às universidades participantes — eles integram a <strong>Pesquisa de Empregabilidade</strong> desenvolvida em parceria com o <strong>Semesp</strong> e a <strong>Workalove</strong>, a ser apresentada no <strong>FNESP</strong>.</p>
+          <p data-pt="Esses dados demonstram na prática a capacidade da POK de levantar, em escala, informações reais sobre a trajetória profissional de egressos do ensino superior — algo que raramente é possível com a precisão e a rastreabilidade que a <strong>certificação em blockchain</strong> oferece."
+             data-es="Estos datos demuestran en la práctica la capacidad de POK de relevar, a escala, información real sobre la trayectoria profesional de egresados de la educación superior — algo que rara vez es posible con la precisión y trazabilidad que la <strong>certificación en blockchain</strong> ofrece.">Esses dados demonstram na prática a capacidade da POK de levantar, em escala, informações reais sobre a trajetória profissional de egressos do ensino superior — algo que raramente é possível com a precisão e a rastreabilidade que a <strong>certificação em blockchain</strong> oferece.</p>
+          <p data-pt="Participar é também contribuir para uma visão mais ampla e embasada sobre empregabilidade no Brasil — e posicionar as instituições parceiras como <strong>protagonistas de uma transformação</strong> que começa na sala de aula e se estende ao mercado de trabalho."
+             data-es="Participar es también contribuir a una visión más amplia y fundamentada sobre la empleabilidad en Brasil — y posicionar a las instituciones aliadas como <strong>protagonistas de una transformación</strong> que comienza en el aula y se extiende al mercado laboral.">Participar é também contribuir para uma visão mais ampla e embasada sobre empregabilidade no Brasil — e posicionar as instituições parceiras como <strong>protagonistas de uma transformação</strong> que começa na sala de aula e se estende ao mercado de trabalho.</p>
         </div>
       </div>
 
@@ -702,8 +832,33 @@
 
 <!-- FOOTER -->
 <footer class="page-footer">
-  <strong>POK · Campanha de Certificação para Egressos 2026</strong> &nbsp;·&nbsp; Em parceria com Semesp e Workalove &nbsp;·&nbsp; Resultados apresentados no FNESP
+  <span data-pt="<strong>POK · Campanha de Certificação para Egressos 2026</strong> &nbsp;·&nbsp; Em parceria com Semesp e Workalove &nbsp;·&nbsp; Resultados apresentados no FNESP"
+        data-es="<strong>POK · Campaña de Certificación para Egresados 2026</strong> &nbsp;·&nbsp; En alianza con Semesp y Workalove &nbsp;·&nbsp; Resultados presentados en el FNESP"><strong>POK · Campanha de Certificação para Egressos 2026</strong> &nbsp;·&nbsp; Em parceria com Semesp e Workalove &nbsp;·&nbsp; Resultados apresentados no FNESP</span>
 </footer>
+
+<script>
+  (function () {
+    const buttons = document.querySelectorAll('.lang-btn');
+    const elements = document.querySelectorAll('[data-pt], [data-es]');
+
+    function setLang(lang) {
+      document.documentElement.lang = (lang === 'es') ? 'es' : 'pt-BR';
+
+      elements.forEach(el => {
+        const val = el.getAttribute('data-' + lang);
+        if (val !== null) el.innerHTML = val;
+      });
+
+      buttons.forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+      });
+    }
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => setLang(btn.getAttribute('data-lang')));
+    });
+  })();
+</script>
 
 </body>
 </html>
