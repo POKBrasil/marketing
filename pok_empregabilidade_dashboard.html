@@ -428,12 +428,12 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
           <div style="font-size:13px; font-weight:700; color:#fff;">experience[]</div>
         </div>
         <ul style="list-style:none; display:flex; flex-direction:column; gap:6px;">
-          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> <span><code style="color:#a78bf0;">position</code> — título do cargo (texto livre)</span></li>
-          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> <span><code style="color:#a78bf0;">companyName</code> — nome da empresa</span></li>
-          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> <span><code style="color:#a78bf0;">employmentType</code> — Full-time, Part-time, Internship</span></li>
-          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> <span><code style="color:#a78bf0;">startDate + endDate</code> — período do vínculo</span></li>
-          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> <span><code style="color:#a78bf0;">workplaceType</code> — On-site, Remote, Hybrid</span></li>
-          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> <span><code style="color:#a78bf0;">location</code> — cidade e país do vínculo</span></li>
+          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> <span id="t-g-exp1"><code style="color:#a78bf0;">position</code> — título do cargo (texto livre)</span></li>
+          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> <span id="t-g-exp2"><code style="color:#a78bf0;">companyName</code> — nome da empresa</span></li>
+          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> <span id="t-g-exp3"><code style="color:#a78bf0;">employmentType</code> — Full-time, Part-time, Internship</span></li>
+          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> <span id="t-g-exp4"><code style="color:#a78bf0;">startDate + endDate</code> — período do vínculo</span></li>
+          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> <span id="t-g-exp5"><code style="color:#a78bf0;">workplaceType</code> — On-site, Remote, Hybrid</span></li>
+          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> <span id="t-g-exp6"><code style="color:#a78bf0;">location</code> — cidade e país do vínculo</span></li>
         </ul>
         <div style="margin-top:12px; font-size:11px; color:rgba(255,255,255,0.35); line-height:1.5;"><span id="t-dev-exp-used">Usado em: cargo na tabela · linha do tempo do drawer · detecção de novo emprego e promoção · gráfico de impactos acumulados</span></div>
       </div>
@@ -447,10 +447,10 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
           <div style="font-size:13px; font-weight:700; color:#fff;">education[]</div>
         </div>
         <ul style="list-style:none; display:flex; flex-direction:column; gap:6px;">
-          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> <span><code style="color:#a78bf0;">schoolName</code> — nome da instituição</span></li>
-          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> <span><code style="color:#a78bf0;">degree</code> — grau de formação</span></li>
-          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> <span><code style="color:#a78bf0;">fieldOfStudy</code> — área de estudo</span></li>
-          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> <span><code style="color:#a78bf0;">startDate + endDate</code> — período</span></li>
+          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> <span id="t-g-edu1"><code style="color:#a78bf0;">schoolName</code> — nome da instituição</span></li>
+          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> <span id="t-g-edu2"><code style="color:#a78bf0;">degree</code> — grau de formação</span></li>
+          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> <span id="t-g-edu3"><code style="color:#a78bf0;">fieldOfStudy</code> — área de estudo</span></li>
+          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> <span id="t-g-edu4"><code style="color:#a78bf0;">startDate + endDate</code> — período</span></li>
         </ul>
         <div style="margin-top:12px; font-size:11px; color:rgba(255,255,255,0.35); line-height:1.5;"><span id="t-dev-edu-used">Usado em: seção de formação no drawer · filtro por título</span></div>
       </div>
@@ -464,9 +464,9 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
           <div style="font-size:13px; font-weight:700; color:#fff;">certifications[]</div>
         </div>
         <ul style="list-style:none; display:flex; flex-direction:column; gap:6px;">
-          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> <span><code style="color:#a78bf0;">title</code> — nome do certificado</span></li>
-          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> <span><code style="color:#a78bf0;">issuedBy</code> — organização emissora</span></li>
-          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> <span><code style="color:#a78bf0;">issuedAt</code> — data de emissão</span></li>
+          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> <span id="t-g-cert1"><code style="color:#a78bf0;">title</code> — nome do certificado</span></li>
+          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> <span id="t-g-cert2"><code style="color:#a78bf0;">issuedBy</code> — organização emissora</span></li>
+          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> <span id="t-g-cert3"><code style="color:#a78bf0;">issuedAt</code> — data de emissão</span></li>
         </ul>
         <div style="margin-top:12px; font-size:11px; color:rgba(255,255,255,0.35); line-height:1.5;"><span id="t-dev-cert-used">Usado em: verificação se o certificado POK foi adicionado ao perfil · ícone de post na tabela</span></div>
       </div>
@@ -480,8 +480,8 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
           <div style="font-size:13px; font-weight:700; color:#fff;">skills[]</div>
         </div>
         <ul style="list-style:none; display:flex; flex-direction:column; gap:6px;">
-          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> <span><code style="color:#a78bf0;">name</code> — nome da habilidade</span></li>
-          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> <span><code style="color:#a78bf0;">endorsements</code> — número de endorsements (quando presente)</span></li>
+          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> <span id="t-g-sk1"><code style="color:#a78bf0;">name</code> — nome da habilidade</span></li>
+          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> <span id="t-g-sk2"><code style="color:#a78bf0;">endorsements</code> — número de endorsements (quando presente)</span></li>
         </ul>
         <div style="margin-top:12px; font-size:11px; color:rgba(255,255,255,0.35); line-height:1.5;"><span id="t-dev-skills-used">Usado em: chips de habilidades no drawer</span></div>
       </div>
@@ -495,11 +495,11 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
           <div style="font-size:13px; font-weight:700; color:#fff;"><span id="t-dev-identity">Identidade do portador</span></div>
         </div>
         <ul style="list-style:none; display:flex; flex-direction:column; gap:6px;">
-          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> <span><code style="color:#a78bf0;">firstName + lastName</code> — nome completo</span></li>
-          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> <span><code style="color:#a78bf0;">location.parsed</code> — cidade e país</span></li>
-          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> <span><code style="color:#a78bf0;">connectionsCount</code> — número de conexões</span></li>
-          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> <span><code style="color:#a78bf0;">openToWork</code> — booleano: está buscando emprego</span></li>
-          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> <span><code style="color:#a78bf0;">verified</code> — conta verificada pelo LinkedIn (não é dado de empregabilidade)</span></li>
+          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> <span id="t-g-id1"><code style="color:#a78bf0;">firstName + lastName</code> — nome completo</span></li>
+          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> <span id="t-g-id2"><code style="color:#a78bf0;">location.parsed</code> — cidade e país</span></li>
+          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> <span id="t-g-id3"><code style="color:#a78bf0;">connectionsCount</code> — número de conexões</span></li>
+          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> <span id="t-g-id4"><code style="color:#a78bf0;">openToWork</code> — booleano: está buscando emprego</span></li>
+          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> <span id="t-g-id5"><code style="color:#a78bf0;">verified</code> — conta verificada pelo LinkedIn (não é dado de empregabilidade)</span></li>
         </ul>
         <div style="margin-top:12px; font-size:11px; color:rgba(255,255,255,0.35); line-height:1.5;"><span id="t-dev-identity-used">Usado em: cabeçalho do drawer · distribuição geográfica futura</span></div>
       </div>
@@ -513,8 +513,8 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
           <div style="font-size:13px; font-weight:700; color:#fff;">languages[]</div>
         </div>
         <ul style="list-style:none; display:flex; flex-direction:column; gap:6px;">
-          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> <span><code style="color:#a78bf0;">name</code> — idioma</span></li>
-          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> <span><code style="color:#a78bf0;">proficiency</code> — nível declarado</span></li>
+          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> <span id="t-g-lang1"><code style="color:#a78bf0;">name</code> — idioma</span></li>
+          <li style="font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:8px;"><span style="color:#a78bf0; flex-shrink:0;">→</span> <span id="t-g-lang2"><code style="color:#a78bf0;">proficiency</code> — nível declarado</span></li>
         </ul>
         <div style="margin-top:12px; font-size:11px; color:rgba(255,255,255,0.35); line-height:1.5;"><span id="t-dev-lang-used">Disponível para uso futuro — não utilizado no dashboard atual</span></div>
       </div>
@@ -539,7 +539,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
 <div class="cal-overlay" id="calOverlay">
   <div class="cal-box">
     <div class="cal-top">
-      <span class="cal-top-title">Selecionar período</span>
+      <span class="cal-top-title" id="t-cal-title">Selecionar período</span>
       <div class="cal-nav"><button onclick="shiftMonths(-1)">‹</button><button onclick="shiftMonths(1)">›</button></div>
     </div>
     <div class="cal-months">
@@ -823,7 +823,7 @@ function openCal(ctx){
   calContext = ctx || 'emissao';
   document.getElementById('calOverlay').classList.add('open');
   const titles = {
-    'emissao': 'Selecionar período — Data de emissão',
+    'emissao': document.getElementById('btn-pt') && document.getElementById('btn-pt').style.background !== 'var(--purple)' ? 'Seleccionar período — Fecha de emisión' : 'Selecionar período — Data de emissão',
     'compartilhamento': 'Selecionar período — Data de compartilhamento'
   };
   document.querySelector('.cal-top-title').textContent = titles[calContext] || 'Selecionar período';
@@ -925,7 +925,7 @@ document.getElementById('calOverlay').addEventListener('click',function(e){if(e.
         <div class="tl-item">
           <div class="tl-dot before"></div>
           <div class="tl-card">
-            <div class="tl-card-period">Set 2011 — Abr 2013 · Antes do certificado</div>
+            <div class="tl-card-period"><span id="t-tl-before">Antes do certificado</span> · Set 2011 — Abr 2013</div>
             <div class="tl-card-title">Application Scientist</div>
             <div class="tl-card-sub">Bio-Xin Pvt. Ltd. · Dhaka, Bangladesh</div>
             <span class="tl-card-type type-full">Full-time</span>
@@ -935,7 +935,7 @@ document.getElementById('calOverlay').addEventListener('click',function(e){if(e.
         <div class="tl-item">
           <div class="tl-dot before"></div>
           <div class="tl-card">
-            <div class="tl-card-period">Set 2015 — Nov 2018 · Antes do certificado</div>
+            <div class="tl-card-period">Set 2015 — Nov 2018 · <span class="tl-before-label">Antes do certificado</span></div>
             <div class="tl-card-title">Certified Pharmacy Technician</div>
             <div class="tl-card-sub">CVS Health · Los Angeles, CA</div>
             <span class="tl-card-type type-part">Part-time</span>
@@ -945,7 +945,7 @@ document.getElementById('calOverlay').addEventListener('click',function(e){if(e.
         <div class="tl-item">
           <div class="tl-dot before"></div>
           <div class="tl-card">
-            <div class="tl-card-period">Nov 2018 — Nov 2022 · Antes do certificado</div>
+            <div class="tl-card-period">Nov 2018 — Nov 2022 · <span class="tl-before-label">Antes do certificado</span></div>
             <div class="tl-card-title">Intern Pharmacist</div>
             <div class="tl-card-sub">CVS Health · Los Angeles, CA</div>
             <span class="tl-card-type type-intern">Internship</span>
@@ -955,7 +955,7 @@ document.getElementById('calOverlay').addEventListener('click',function(e){if(e.
         <div class="tl-item">
           <div class="tl-dot before"></div>
           <div class="tl-card">
-            <div class="tl-card-period">Nov 2022 — Dez 2023 · Antes do certificado</div>
+            <div class="tl-card-period">Nov 2022 — Dez 2023 · <span class="tl-before-label">Antes do certificado</span></div>
             <div class="tl-card-title">Support Pharmacist</div>
             <div class="tl-card-sub">CVS Health · Los Angeles, CA</div>
             <span class="tl-card-type type-full">Full-time</span>
@@ -967,7 +967,7 @@ document.getElementById('calOverlay').addEventListener('click',function(e){if(e.
           <div class="tl-dot cert"></div>
           <div class="tl-card cert-marker">
             <div class="tl-card-period" id="drawerCertDateTl">Out 2025</div>
-            <div class="tl-card-title" id="drawerCertNameTl">Certificado POK emitido</div>
+            <div class="tl-card-title" id="drawerCertNameTl"><span id="t-cert-marker">Certificado POK emitido</span></div>
             <div class="tl-card-sub" id="drawerCertProgramTl">AI Bootcamp 2025</div>
           </div>
         </div>
@@ -976,7 +976,7 @@ document.getElementById('calOverlay').addEventListener('click',function(e){if(e.
         <div class="tl-item">
           <div class="tl-dot after"></div>
           <div class="tl-card after-cert">
-            <div class="tl-card-period">Jan 2024 — Presente · Após o certificado</div>
+            <div class="tl-card-period">Jan 2024 — Presente · <span class="tl-after-label">Após o certificado</span></div>
             <div class="tl-card-title">Staff Pharmacist</div>
             <div class="tl-card-sub">CVS Health · Thousand Oaks, CA</div>
             <span class="tl-card-type type-full">Full-time · On-site</span>
@@ -1036,10 +1036,10 @@ document.getElementById('calOverlay').addEventListener('click',function(e){if(e.
 
     <!-- DEV NOTES -->
     <div class="dev-note">
-      <div class="dev-note-title">⚙ Orientação ao desenvolvedor — campos LinkedIn utilizados</div>
-      <div class="dev-note-row"><span class="dev-note-field">firstName + lastName</span><span class="dev-note-desc">Nome exibido no cabeçalho do drawer</span></div>
-      <div class="dev-note-row"><span class="dev-note-field">location.parsed</span><span class="dev-note-desc">Cidade e país exibidos abaixo do nome</span></div>
-      <div class="dev-note-row"><span class="dev-note-field">connectionsCount</span><span class="dev-note-desc">Número de conexões exibido no cabeçalho</span></div>
+      <div class="dev-note-title"><span id="t-dn-title">⚙ Orientação ao desenvolvedor — campos LinkedIn utilizados</span></div>
+      <div class="dev-note-row"><span class="dev-note-field">firstName + lastName</span><span class="dev-note-desc" id="t-dn9">Nome exibido no cabeçalho do drawer</span></div>
+      <div class="dev-note-row"><span class="dev-note-field">location.parsed</span><span class="dev-note-desc" id="t-dn10">Cidade e país exibidos abaixo do nome</span></div>
+      <div class="dev-note-row"><span class="dev-note-field">connectionsCount</span><span class="dev-note-desc" id="t-dn11">Número de conexões exibido no cabeçalho</span></div>
       <div class="dev-note-row"><span class="dev-note-field">experience[].position</span><span class="dev-note-desc" id="t-dn1">Título do cargo em cada item da linha do tempo</span></div>
       <div class="dev-note-row"><span class="dev-note-field">experience[].companyName</span><span class="dev-note-desc" id="t-dn2">Nome da empresa em cada item da linha do tempo</span></div>
       <div class="dev-note-row"><span class="dev-note-field">experience[].employmentType</span><span class="dev-note-desc" id="t-dn3">Badge de tipo de vínculo (Full-time, Part-time, Internship)</span></div>
@@ -1048,7 +1048,7 @@ document.getElementById('calOverlay').addEventListener('click',function(e){if(e.
       <div class="dev-note-row"><span class="dev-note-field">education[].schoolName</span><span class="dev-note-desc" id="t-dn6">Nome da instituição na seção de formação</span></div>
       <div class="dev-note-row"><span class="dev-note-field">education[].startDate + endDate</span><span class="dev-note-desc" id="t-dn7">Período da formação</span></div>
       <div class="dev-note-row"><span class="dev-note-field">skills[].name</span><span class="dev-note-desc" id="t-dn8">Chips de habilidades declaradas</span></div>
-      <div class="dev-note-row" style="margin-top:10px; padding-top:10px; border-top:1px solid #1f2937;"><span class="dev-note-field" style="color:#6B7280;">Lógica antes/após</span><span class="dev-note-desc">experience[].startDate é comparado com a data de emissão do certificado POK (armazenada na plataforma). Experiências cujo startDate é anterior à emissão são classificadas como "antes"; posteriores como "após". Experiências em andamento (endDate ausente) na data da emissão aparecem como "em curso no momento".</span></div>
+      <div class="dev-note-row" style="margin-top:10px; padding-top:10px; border-top:1px solid #1f2937;"><span class="dev-note-field" style="color:#6B7280;" id="t-dn-logic-label">Lógica antes/após</span><span class="dev-note-desc" id="t-dn-logic">experience[].startDate é comparado com a data de emissão do certificado POK (armazenada na plataforma). Experiências cujo startDate é anterior à emissão são classificadas como "antes"; posteriores como "após". Experiências em andamento (endDate ausente) na data da emissão aparecem como "em curso no momento".</span></div>
     </div>
 
   </div>
@@ -1210,6 +1210,68 @@ const translations = {
     'dn6': 'Nome da instituição na seção de formação',
     'dn7': 'Período da formação',
     'dn8': 'Chips de habilidades declaradas',
+    'dn9': 'Nome exibido no cabeçalho do drawer',
+    'dn10': 'Cidade e país exibidos abaixo do nome',
+    'dn11': 'Número de conexões exibido no cabeçalho',
+    'dn-title': '⚙ Orientação ao desenvolvedor — campos LinkedIn utilizados',
+    'dn-logic-label': 'Lógica antes/após',
+    'dn-logic': 'experience[].startDate é comparado com a data de emissão do certificado POK (armazenada na plataforma). Experiências cujo startDate é anterior à emissão são classificadas como "antes"; posteriores como "após". Experiências em andamento (endDate ausente) na data da emissão aparecem como "em curso no momento".',
+    'cert-marker': 'Certificado POK emitido',
+    'tl-before': 'Antes do certificado',
+    'g-exp1': '<code style="color:#a78bf0;">position</code> — título do cargo (texto livre)',
+    'g-exp2': '<code style="color:#a78bf0;">companyName</code> — nome da empresa',
+    'g-exp3': '<code style="color:#a78bf0;">employmentType</code> — Full-time, Part-time, Internship',
+    'g-exp4': '<code style="color:#a78bf0;">startDate + endDate</code> — período do vínculo',
+    'g-exp5': '<code style="color:#a78bf0;">workplaceType</code> — On-site, Remote, Hybrid',
+    'g-exp6': '<code style="color:#a78bf0;">location</code> — cidade e país do vínculo',
+    'g-edu1': '<code style="color:#a78bf0;">schoolName</code> — nome da instituição',
+    'g-edu2': '<code style="color:#a78bf0;">degree</code> — grau de formação',
+    'g-edu3': '<code style="color:#a78bf0;">fieldOfStudy</code> — área de estudo',
+    'g-edu4': '<code style="color:#a78bf0;">startDate + endDate</code> — período',
+    'g-cert1': '<code style="color:#a78bf0;">title</code> — nome do certificado',
+    'g-cert2': '<code style="color:#a78bf0;">issuedBy</code> — organização emissora',
+    'g-cert3': '<code style="color:#a78bf0;">issuedAt</code> — data de emissão',
+    'g-sk1': '<code style="color:#a78bf0;">name</code> — nome da habilidade',
+    'g-sk2': '<code style="color:#a78bf0;">endorsements</code> — número de endorsements (quando presente)',
+    'g-id1': '<code style="color:#a78bf0;">firstName + lastName</code> — nome completo',
+    'g-id2': '<code style="color:#a78bf0;">location.parsed</code> — cidade e país',
+    'g-id3': '<code style="color:#a78bf0;">connectionsCount</code> — número de conexões',
+    'g-id4': '<code style="color:#a78bf0;">openToWork</code> — booleano: está buscando emprego',
+    'g-id5': '<code style="color:#a78bf0;">verified</code> — conta verificada pelo LinkedIn (não é dado de empregabilidade)',
+    'g-lang1': '<code style="color:#a78bf0;">name</code> — idioma',
+    'g-lang2': '<code style="color:#a78bf0;">proficiency</code> — nível declarado',
+    'cal-title': 'Selecionar período',
+    'dn9': 'Nombre mostrado en el encabezado del panel',
+    'dn10': 'Ciudad y país mostrados debajo del nombre',
+    'dn11': 'Número de conexiones mostrado en el encabezado',
+    'dn-title': '⚙ Orientación al desarrollador — campos de LinkedIn utilizados',
+    'dn-logic-label': 'Lógica antes/después',
+    'dn-logic': 'experience[].startDate se compara con la fecha de emisión del certificado POK (almacenada en la plataforma). Las experiencias cuyo startDate es anterior a la emisión se clasifican como "antes"; las posteriores como "después". Las experiencias en curso (endDate ausente) en la fecha de emisión aparecen como "en curso en ese momento".',
+    'cert-marker': 'Certificado POK emitido',
+    'tl-before': 'Antes del certificado',
+    'g-exp1': '<code style="color:#a78bf0;">position</code> — título del cargo (texto libre)',
+    'g-exp2': '<code style="color:#a78bf0;">companyName</code> — nombre de la empresa',
+    'g-exp3': '<code style="color:#a78bf0;">employmentType</code> — Full-time, Part-time, Internship',
+    'g-exp4': '<code style="color:#a78bf0;">startDate + endDate</code> — período del vínculo',
+    'g-exp5': '<code style="color:#a78bf0;">workplaceType</code> — On-site, Remote, Hybrid',
+    'g-exp6': '<code style="color:#a78bf0;">location</code> — ciudad y país del vínculo',
+    'g-edu1': '<code style="color:#a78bf0;">schoolName</code> — nombre de la institución',
+    'g-edu2': '<code style="color:#a78bf0;">degree</code> — grado de formación',
+    'g-edu3': '<code style="color:#a78bf0;">fieldOfStudy</code> — área de estudio',
+    'g-edu4': '<code style="color:#a78bf0;">startDate + endDate</code> — período',
+    'g-cert1': '<code style="color:#a78bf0;">title</code> — nombre del certificado',
+    'g-cert2': '<code style="color:#a78bf0;">issuedBy</code> — organización emisora',
+    'g-cert3': '<code style="color:#a78bf0;">issuedAt</code> — fecha de emisión',
+    'g-sk1': '<code style="color:#a78bf0;">name</code> — nombre de la habilidad',
+    'g-sk2': '<code style="color:#a78bf0;">endorsements</code> — número de endorsements (cuando está presente)',
+    'g-id1': '<code style="color:#a78bf0;">firstName + lastName</code> — nombre completo',
+    'g-id2': '<code style="color:#a78bf0;">location.parsed</code> — ciudad y país',
+    'g-id3': '<code style="color:#a78bf0;">connectionsCount</code> — número de conexiones',
+    'g-id4': '<code style="color:#a78bf0;">openToWork</code> — booleano: está buscando empleo',
+    'g-id5': '<code style="color:#a78bf0;">verified</code> — cuenta verificada por LinkedIn (no es dato de empleabilidad)',
+    'g-lang1': '<code style="color:#a78bf0;">name</code> — idioma',
+    'g-lang2': '<code style="color:#a78bf0;">proficiency</code> — nivel declarado',
+    'cal-title': 'Seleccionar período',
     'chart-title': 'Trajetória agregada — impactos acumulados',
     'zone-past': '← Antes do compartilhamento',
     'zone-future': 'Após o compartilhamento →',
@@ -1287,6 +1349,37 @@ const translations = {
     'dn6': 'Nombre de la institución en la sección de formación',
     'dn7': 'Período de la formación',
     'dn8': 'Chips de habilidades declaradas',
+    'dn9': 'Nombre mostrado en el encabezado del panel',
+    'dn10': 'Ciudad y país mostrados debajo del nombre',
+    'dn11': 'Número de conexiones mostrado en el encabezado',
+    'dn-title': '⚙ Orientación al desarrollador — campos de LinkedIn utilizados',
+    'dn-logic-label': 'Lógica antes/después',
+    'dn-logic': 'experience[].startDate se compara con la fecha de emisión del certificado POK (almacenada en la plataforma). Las experiencias cuyo startDate es anterior a la emisión se clasifican como "antes"; las posteriores como "después". Las experiencias en curso (endDate ausente) en la fecha de emisión aparecen como "en curso en ese momento".',
+    'cert-marker': 'Certificado POK emitido',
+    'tl-before': 'Antes del certificado',
+    'g-exp1': '<code style="color:#a78bf0;">position</code> — título del cargo (texto libre)',
+    'g-exp2': '<code style="color:#a78bf0;">companyName</code> — nombre de la empresa',
+    'g-exp3': '<code style="color:#a78bf0;">employmentType</code> — Full-time, Part-time, Internship',
+    'g-exp4': '<code style="color:#a78bf0;">startDate + endDate</code> — período del vínculo',
+    'g-exp5': '<code style="color:#a78bf0;">workplaceType</code> — On-site, Remote, Hybrid',
+    'g-exp6': '<code style="color:#a78bf0;">location</code> — ciudad y país del vínculo',
+    'g-edu1': '<code style="color:#a78bf0;">schoolName</code> — nombre de la institución',
+    'g-edu2': '<code style="color:#a78bf0;">degree</code> — grado de formación',
+    'g-edu3': '<code style="color:#a78bf0;">fieldOfStudy</code> — área de estudio',
+    'g-edu4': '<code style="color:#a78bf0;">startDate + endDate</code> — período',
+    'g-cert1': '<code style="color:#a78bf0;">title</code> — nombre del certificado',
+    'g-cert2': '<code style="color:#a78bf0;">issuedBy</code> — organización emisora',
+    'g-cert3': '<code style="color:#a78bf0;">issuedAt</code> — fecha de emisión',
+    'g-sk1': '<code style="color:#a78bf0;">name</code> — nombre de la habilidad',
+    'g-sk2': '<code style="color:#a78bf0;">endorsements</code> — número de endorsements (cuando está presente)',
+    'g-id1': '<code style="color:#a78bf0;">firstName + lastName</code> — nombre completo',
+    'g-id2': '<code style="color:#a78bf0;">location.parsed</code> — ciudad y país',
+    'g-id3': '<code style="color:#a78bf0;">connectionsCount</code> — número de conexiones',
+    'g-id4': '<code style="color:#a78bf0;">openToWork</code> — booleano: está buscando empleo',
+    'g-id5': '<code style="color:#a78bf0;">verified</code> — cuenta verificada por LinkedIn (no es dato de empleabilidad)',
+    'g-lang1': '<code style="color:#a78bf0;">name</code> — idioma',
+    'g-lang2': '<code style="color:#a78bf0;">proficiency</code> — nivel declarado',
+    'cal-title': 'Seleccionar período',
   }
 };
 
@@ -1295,6 +1388,13 @@ function setLang(lang) {
   Object.keys(t).forEach(key => {
     const el = document.getElementById('t-' + key);
     if (el) el.innerHTML = t[key];
+  });
+  // Translate class-based labels
+  document.querySelectorAll('.tl-before-label').forEach(el => {
+    el.innerHTML = lang === 'es' ? 'Antes del certificado' : 'Antes do certificado';
+  });
+  document.querySelectorAll('.tl-after-label').forEach(el => {
+    el.innerHTML = lang === 'es' ? 'Después del certificado' : 'Após o certificado';
   });
   document.getElementById('btn-pt').style.background = lang === 'pt' ? 'var(--purple)' : 'var(--white)';
   document.getElementById('btn-pt').style.color = lang === 'pt' ? '#fff' : 'var(--ink-muted)';
