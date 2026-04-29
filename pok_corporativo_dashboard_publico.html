@@ -76,7 +76,7 @@ body { font-family: 'Poppins', sans-serif; background: var(--purple-faint); colo
 .zone-header.dev { background: linear-gradient(135deg, var(--purple-faint) 0%, var(--gold-light) 100%); border: 1px solid var(--purple-light); }
 .zone-header.com { background: linear-gradient(135deg, var(--green-light) 0%, #f4faf7 100%); border: 1px solid #c5e4d6; }
 .zone-header h2 { font-size: 18px; font-weight: 800; color: var(--ink); margin-bottom: 6px; letter-spacing: -0.01em; }
-.zone-header p { font-size: 13px; color: var(--ink-muted); line-height: 1.5; max-width: 720px; }
+.zone-header p { font-size: 13px; color: var(--ink); line-height: 1.5; }
 .zone-header-pill { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.7); border: 1px solid rgba(81,35,164,0.15); border-radius: 99px; padding: 4px 12px; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--purple); margin-bottom: 12px; }
 .zone-header-pill .dot { width: 6px; height: 6px; border-radius: 50%; }
 .zone-header-pill .dot.gold { background: var(--gold); }
@@ -380,48 +380,44 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
 </header>
 
 <div class="filters-bar" style="justify-content:space-between;">
-  <div style="display:flex;align-items:center;gap:6px;">
-    <select class="filter-select">
-      <option value="" data-opt-pt="Todas as áreas" data-opt-es="Todas las áreas">Todas as áreas</option>
-      <option data-opt-pt="Comercial" data-opt-es="Comercial">Comercial</option>
-      <option data-opt-pt="Operações" data-opt-es="Operaciones">Operações</option>
-      <option data-opt-pt="Tecnologia" data-opt-es="Tecnología">Tecnologia</option>
-      <option data-opt-pt="Finanças" data-opt-es="Finanzas">Finanças</option>
-      <option data-opt-pt="Pessoas &amp; Cultura" data-opt-es="Personas &amp; Cultura">Pessoas & Cultura</option>
-    </select>
-    <button class="info-btn" data-tip="Filtra por área/diretoria do colaborador." data-tip-pt="Filtra por área/diretoria do colaborador." data-tip-es="Filtra por área/dirección del colaborador.">i</button>
-  </div>
 
   <div style="display:flex;align-items:center;gap:6px;">
-    <select class="filter-select">
+    <select class="filter-select" id="filterCert">
       <option value="" data-opt-pt="Todos os programas" data-opt-es="Todos los programas">Todos os programas</option>
-      <option data-opt-pt="Liderança Inclusiva 2025" data-opt-es="Liderazgo Inclusivo 2025">Liderança Inclusiva 2025</option>
-      <option data-opt-pt="Excelência Operacional" data-opt-es="Excelencia Operacional">Excelência Operacional</option>
-      <option data-opt-pt="NR-10 — Reciclagem" data-opt-es="NR-10 — Reciclaje">NR-10 — Reciclagem</option>
-      <option data-opt-pt="LGPD para Áreas de Negócio" data-opt-es="LGPD para Áreas de Negocio">LGPD para Áreas de Negócio</option>
-      <option data-opt-pt="Compliance Antissuborno" data-opt-es="Cumplimiento Antisoborno">Compliance Antissuborno</option>
+      <option>AI Bootcamp 2025</option>
+      <option>Executive Program - T15</option>
+      <option>Missão IA</option>
     </select>
-    <button class="info-btn" data-tip="Filtra pelo programa ou trilha de credenciamento." data-tip-pt="Filtra pelo programa ou trilha de credenciamento." data-tip-es="Filtra por programa o ruta de credenciamiento.">i</button>
+    <button class="info-btn" data-tip="Filtra pelo nome do programa." data-tip-pt="Filtra pelo nome do programa." data-tip-es="Filtra por el nombre del programa.">i</button>
   </div>
 
   <div style="display:flex;align-items:center;gap:6px;">
-    <button class="date-btn">
+    <button class="date-btn" onclick="openCal('emissao')">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-      <span>Últimos 12 meses</span>
+      <span id="labelEmissao"><span data-pt="Data de emissão" data-es="Fecha de emisión">Data de emissão</span></span>
     </button>
-    <button class="info-btn" data-tip="Período de análise. Define a janela de leitura das credenciais e dos eventos de carreira." data-tip-pt="Período de análise. Define a janela de leitura das credenciais e dos eventos de carreira." data-tip-es="Período de análisis. Define la ventana de lectura de las credenciales y los eventos de carrera.">i</button>
+    <button class="info-btn" data-tip="Filtra pelo período em que a credencial foi emitida pela POK." data-tip-pt="Filtra pelo período em que a credencial foi emitida pela POK." data-tip-es="Filtra por el período en que la credencial fue emitida por POK.">i</button>
   </div>
 
   <div style="display:flex;align-items:center;gap:6px;">
-    <select class="filter-select">
-      <option value="" data-opt-pt="Toda a população" data-opt-es="Toda la población">Toda a população</option>
-      <option data-opt-pt="Liderança" data-opt-es="Liderazgo">Liderança</option>
-      <option data-opt-pt="Especialistas" data-opt-es="Especialistas">Especialistas</option>
-      <option data-opt-pt="Operacional" data-opt-es="Operacional">Operacional</option>
-      <option data-opt-pt="Trainees" data-opt-es="Trainees">Trainees</option>
-    </select>
-    <button class="info-btn" data-tip="Filtra por banda funcional ou nível hierárquico." data-tip-pt="Filtra por banda funcional ou nível hierárquico." data-tip-es="Filtra por banda funcional o nivel jerárquico.">i</button>
+    <button class="date-btn" onclick="openCal('compartilhamento')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+      <span id="labelCompartilhamento"><span data-pt="Data de compartilhamento" data-es="Fecha de compartición">Data de compartilhamento</span></span>
+    </button>
+    <button class="info-btn" data-tip="Filtra pelo período em que o portador compartilhou a credencial no LinkedIn." data-tip-pt="Filtra pelo período em que o portador compartilhou a credencial no LinkedIn." data-tip-es="Filtra por el período en que el portador compartió la credencial en LinkedIn.">i</button>
   </div>
+
+  <div style="display:flex;align-items:center;gap:6px;">
+    <select class="filter-select" id="filterTitulo">
+      <option value="" data-opt-pt="Todos os títulos" data-opt-es="Todos los títulos">Todos os títulos</option>
+      <option>Tecnólogo em Análise e Desenvolvimento de Sistemas</option>
+      <option>Bacharel em Administração</option>
+      <option>MBA em Gestão de Projetos</option>
+      <option>Especialização em Inteligência Artificial</option>
+    </select>
+    <button class="info-btn" data-tip="Filtra pelo título de formação registrado na credencial POK." data-tip-pt="Filtra pelo título de formação registrado na credencial POK." data-tip-es="Filtra por el título de formación registrado en la credencial POK.">i</button>
+  </div>
+
 </div>
 
 <main class="content">
@@ -436,7 +432,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
       <div class="overview-card dev">
         <div class="overview-card-label"><span class="dot gold"></span> <span data-pt="Desenvolvimento" data-es="Desarrollo">Desenvolvimento</span></div>
         <div class="overview-card-value">68%</div>
-        <div class="overview-card-sub"><span data-pt="internalizaram skills do programa" data-es="internalizaron habilidades del programa">internalizaram skills do programa</span> <span class="trend-up">↑ 12 p.p. vs. trimestre anterior</span></div>
+        <div class="overview-card-sub"><span data-pt="internalizaram habilidades do programa" data-es="internalizaron habilidades del programa">internalizaram habilidades do programa</span></div>
       </div>
       <div class="overview-card dev">
         <div class="overview-card-label"><span class="dot gold"></span> <span data-pt="Mobilidade" data-es="Movilidad">Mobilidade</span></div>
@@ -451,7 +447,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
       <div class="overview-card com">
         <div class="overview-card-label"><span class="dot green"></span> <span data-pt="Retenção" data-es="Retención">Retenção</span></div>
         <div class="overview-card-value">91%</div>
-        <div class="overview-card-sub"><span data-pt="12 meses pós-credencial" data-es="12 meses post-credencial">12 meses pós-credencial</span> <span class="trend-up"><span data-pt="↑ 6 p.p. vs. média geral" data-es="↑ 6 p.p. vs. media general">↑ 6 p.p. vs. média geral</span></span></div>
+        <div class="overview-card-sub"><span data-pt="12 meses pós-credencial" data-es="12 meses post-credencial">12 meses pós-credencial</span></div>
       </div>
     </div>
 
@@ -464,10 +460,10 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
           <span data-pt="Desenvolvimento humano" data-es="Desarrollo humano">Desenvolvimento humano</span>
         </div>
         <h3 class="vision-card-title"><span data-pt="Quem está crescendo, em que ritmo, com qual evidência" data-es="Quién está creciendo, a qué ritmo, con qué evidencia">Quem está crescendo, em que ritmo, com qual evidência</span></h3>
-        <p class="vision-card-desc"><span data-pt="Acompanha a internalização das skills ensinadas (declaração no perfil), aplicação em projetos, mobilidade interna detectada via mudança de cargo dentro da mesma empresa, e retenção dos talentos certificados." data-es="Acompaña la internalización de las habilidades enseñadas (declaración en el perfil), aplicación en proyectos, movilidad interna detectada vía cambio de cargo dentro de la misma empresa, y retención de los talentos certificados.">Acompanha a internalização das skills ensinadas (declaração no perfil), aplicação em projetos, mobilidade interna detectada via mudança de cargo dentro da mesma empresa, e retenção dos talentos certificados.</span></p>
+        <p class="vision-card-desc"><span data-pt="A partir do compartilhamento da credencial no LinkedIn, acompanha a internalização das habilidades ensinadas, mobilidade interna detectada via mudança de cargo dentro da mesma empresa, e retenção dos talentos certificados." data-es="A partir del compartir de la credencial en LinkedIn, acompaña la internalización de las habilidades enseñadas, movilidad interna detectada vía cambio de cargo dentro de la misma empresa, y retención de los talentos certificados.">A partir do compartilhamento da credencial no LinkedIn, acompanha a internalização das habilidades ensinadas, mobilidade interna detectada via mudança de cargo dentro da mesma empresa, e retenção dos talentos certificados.</span></p>
         <ul class="vision-card-list">
           <li><span data-pt="Funil de desenvolvimento em 6 etapas" data-es="Embudo de desarrollo en 6 etapas">Funil de desenvolvimento em 6 etapas</span></li>
-          <li><span data-pt="Taxa de internalização de skills" data-es="Tasa de internalización de habilidades">Taxa de internalização de skills</span></li>
+          <li><span data-pt="Taxa de internalização de habilidades" data-es="Tasa de internalización de habilidades">Taxa de internalização de habilidades</span></li>
           <li><span data-pt="Mobilidade interna e retenção pós-credencial" data-es="Movilidad interna y retención post-credencial">Mobilidade interna e retenção pós-credencial</span></li>
           <li><span data-pt="Tabela individual de portadores" data-es="Tabla individual de portadores">Tabela individual de portadores</span></li>
         </ul>
@@ -508,51 +504,52 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
     <div class="zone-header dev">
       <div class="zone-header-pill"><span class="dot gold"></span> <span data-pt="Zona de desenvolvimento" data-es="Zona de desarrollo">Zona de desenvolvimento</span></div>
       <h2><span data-pt="O que está acontecendo com seus talentos" data-es="Qué está pasando con tus talentos">O que está acontecendo com seus talentos</span></h2>
-      <p><span data-pt="Cada credencial concluída inicia uma leitura contínua do perfil profissional do colaborador. Aqui acompanhamos a internalização das skills ensinadas, a aplicação em projetos, a mobilidade interna e a retenção dos talentos certificados." data-es="Cada credencial concluida inicia una lectura continua del perfil profesional del colaborador. Aquí acompañamos la internalización de las habilidades enseñadas, la aplicación en proyectos, la movilidad interna y la retención de los talentos certificados.">Cada credencial concluída inicia uma leitura contínua do perfil profissional do colaborador. Aqui acompanhamos a internalização das skills ensinadas, a aplicação em projetos, a mobilidade interna e a retenção dos talentos certificados.</span></p>
+      <p><span data-pt="Quando o portador compartilha a credencial no LinkedIn, a POK passa a ler o perfil profissional dele. A partir desse marco, acompanhamos a internalização das habilidades ensinadas, a mobilidade interna e a retenção dos talentos certificados." data-es="Cuando el portador comparte la credencial en LinkedIn, POK pasa a leer su perfil profesional. A partir de ese hito, acompañamos la internalización de las habilidades enseñadas, la movilidad interna y la retención de los talentos certificados.">Quando o portador compartilha a credencial no LinkedIn, a POK passa a ler o perfil profissional dele. A partir desse marco, acompanhamos a internalização das habilidades ensinadas, a mobilidade interna e a retenção dos talentos certificados.</span></p>
     </div>
 
     <!-- Funnel -->
     <div class="section-label"><span class="accent gold"></span> <span data-pt="Funil de desenvolvimento" data-es="Embudo de desarrollo">Funil de desenvolvimento</span></div>
     <div class="funnel-card">
-      <h3><span data-pt="Da credencial à transformação de carreira" data-es="De la credencial a la transformación de carrera">Da credencial à transformação de carreira</span></h3>
-      <p><span data-pt="Cada etapa mostra quantos colaboradores avançaram no processo — da emissão da credencial até evidências concretas de desenvolvimento e retenção." data-es="Cada etapa muestra cuántos colaboradores avanzaron en el proceso — desde la emisión de la credencial hasta evidencias concretas de desarrollo y retención.">Cada etapa mostra quantos colaboradores avançaram no processo — da emissão da credencial até evidências concretas de desenvolvimento e retenção.</span></p>
+      <h3><span data-pt="Da credencial à evidência de desenvolvimento" data-es="De la credencial a la evidencia de desarrollo">Da credencial à evidência de desenvolvimento</span></h3>
+      <p><span data-pt="A leitura do desenvolvimento começa quando o portador compartilha a credencial no LinkedIn — esse é o gatilho que conecta a credencial POK ao perfil profissional do colaborador. Todas as etapas seguintes são lidas do perfil público." data-es="La lectura del desarrollo comienza cuando el portador comparte la credencial en LinkedIn — ese es el detonante que conecta la credencial POK al perfil profesional del colaborador. Todas las etapas siguientes se leen del perfil público.">A leitura do desenvolvimento começa quando o portador compartilha a credencial no LinkedIn — esse é o gatilho que conecta a credencial POK ao perfil profissional do colaborador. Todas as etapas seguintes são lidas do perfil público.</span></p>
       <div class="funnel-steps">
         <div class="funnel-step"><div class="funnel-bar" style="background:#3a1878;">312</div><div class="funnel-step-label"><span data-pt="Credenciais&lt;br&gt;emitidas" data-es="Credenciales&lt;br&gt;emitidas">Credenciais<br>emitidas</span></div><div class="funnel-step-pct">100%</div></div>
         <div class="funnel-arrow">›</div>
-        <div class="funnel-step"><div class="funnel-bar" style="background:#5123a4;">248</div><div class="funnel-step-label"><span data-pt="Adicionada&lt;br&gt;ao perfil" data-es="Añadida&lt;br&gt;al perfil">Adicionada<br>ao perfil</span></div><div class="funnel-step-pct">79%</div></div>
+        <div class="funnel-step"><div class="funnel-bar" style="background:#5123a4;">248</div><div class="funnel-step-label"><span data-pt="Compartilhada&lt;br&gt;no LinkedIn" data-es="Compartida&lt;br&gt;en LinkedIn">Compartilhada<br>no LinkedIn</span></div><div class="funnel-step-pct">79%</div></div>
         <div class="funnel-arrow">›</div>
-        <div class="funnel-step"><div class="funnel-bar" style="background:#6b45bb;">213</div><div class="funnel-step-label"><span data-pt="Skills do programa&lt;br&gt;declaradas" data-es="Habilidades del programa&lt;br&gt;declaradas">Skills do programa<br>declaradas</span></div><div class="funnel-step-pct">68%</div></div>
+        <div class="funnel-step"><div class="funnel-bar" style="background:#6b45bb;">221</div><div class="funnel-step-label"><span data-pt="Adicionada&lt;br&gt;ao perfil" data-es="Añadida&lt;br&gt;al perfil">Adicionada<br>ao perfil</span></div><div class="funnel-step-pct">71%</div></div>
         <div class="funnel-arrow">›</div>
-        <div class="funnel-step"><div class="funnel-bar" style="background:#C8A04C;">86</div><div class="funnel-step-label"><span data-pt="Aplicação&lt;br&gt;em projeto" data-es="Aplicación&lt;br&gt;en proyecto">Aplicação<br>em projeto</span></div><div class="funnel-step-pct">28%</div></div>
+        <div class="funnel-step"><div class="funnel-bar" style="background:#C8A04C;">169</div><div class="funnel-step-label"><span data-pt="Habilidades do programa&lt;br&gt;declaradas" data-es="Habilidades del programa&lt;br&gt;declaradas">Habilidades do programa<br>declaradas</span></div><div class="funnel-step-pct">54%</div></div>
         <div class="funnel-arrow">›</div>
-        <div class="funnel-step"><div class="funnel-bar" style="background:#8C6E27;">47</div><div class="funnel-step-label"><span data-pt="Movimento&lt;br&gt;interno" data-es="Movimiento&lt;br&gt;interno">Movimento<br>interno</span></div><div class="funnel-step-pct">15%</div></div>
+        <div class="funnel-step"><div class="funnel-bar" style="background:#8C6E27;">38</div><div class="funnel-step-label"><span data-pt="Movimento&lt;br&gt;interno" data-es="Movimiento&lt;br&gt;interno">Movimento<br>interno</span></div><div class="funnel-step-pct">12%</div></div>
         <div class="funnel-arrow">›</div>
-        <div class="funnel-step"><div class="funnel-bar" style="background:#1D9E75;">284</div><div class="funnel-step-label"><span data-pt="Retidos&lt;br&gt;(12 meses)" data-es="Retenidos&lt;br&gt;(12 meses)">Retidos<br>(12 meses)</span></div><div class="funnel-step-pct">91%</div></div>
+        <div class="funnel-step"><div class="funnel-bar" style="background:#1D9E75;">226</div><div class="funnel-step-label"><span data-pt="Retidos&lt;br&gt;(12 meses)" data-es="Retenidos&lt;br&gt;(12 meses)">Retidos<br>(12 meses)</span></div><div class="funnel-step-pct">91%</div></div>
       </div>
     </div>
 
     <!-- KPIs -->
     <div class="section-label"><span class="accent gold"></span> <span data-pt="Métricas-chave de desenvolvimento" data-es="Métricas clave de desarrollo">Métricas-chave de desenvolvimento</span></div>
+    <p style="font-size:11px; color:var(--ink-muted); margin:-8px 0 14px 0; line-height:1.5; padding:8px 14px; background:var(--purple-faint); border-left:3px solid var(--purple-light); border-radius:4px;"><span data-pt="Métricas calculadas sobre os portadores que compartilharam a credencial no LinkedIn — único caminho pelo qual a POK conecta a credencial ao perfil profissional do colaborador." data-es="Métricas calculadas sobre los portadores que compartieron la credencial en LinkedIn — único camino por el cual POK conecta la credencial al perfil profesional del colaborador.">Métricas calculadas sobre os portadores que compartilharam a credencial no LinkedIn — único caminho pelo qual a POK conecta a credencial ao perfil profissional do colaborador.</span></p>
     <div class="kpi-grid">
       <div class="kpi-card highlight-dev">
-        <div class="kpi-value gold">68%</div>
-        <div class="kpi-label"><span data-pt="Taxa de internalização da skill" data-es="Tasa de internalización de la habilidad">Taxa de internalização da skill</span></div>
-        <button class="info-btn" data-tip="% de portadores que adicionaram ao perfil do LinkedIn pelo menos uma das skills declaradas pelo programa POK." data-tip-pt="% de portadores que adicionaram ao perfil do LinkedIn pelo menos uma das skills declaradas pelo programa POK." data-tip-es="% de portadores que añadieron al perfil de LinkedIn al menos una de las habilidades declaradas por el programa POK.">i</button>
+        <div class="kpi-value gold">54%</div>
+        <div class="kpi-label"><span data-pt="Taxa de internalização de habilidades" data-es="Tasa de internalización de habilidades">Taxa de internalização de habilidades</span></div>
+        <button class="info-btn" data-tip="Entre os portadores que compartilharam a credencial, % que adicionou ao perfil pelo menos uma das habilidades declaradas pelo programa POK. O matching é feito por nome de habilidade entre o cadastro do programa e o campo skills[] do LinkedIn." data-tip-pt="Entre os portadores que compartilharam a credencial, % que adicionou ao perfil pelo menos uma das habilidades declaradas pelo programa POK. O matching é feito por nome de habilidade entre o cadastro do programa e o campo skills[] do LinkedIn." data-tip-es="Entre los portadores que compartieron la credencial, % que añadió al perfil al menos una de las habilidades declaradas por el programa POK. El matching se hace por nombre de habilidad entre el registro del programa y el campo skills[] de LinkedIn.">i</button>
       </div>
       <div class="kpi-card highlight-dev">
         <div class="kpi-value gold"><span data-pt="42 dias" data-es="42 días">42 dias</span></div>
-        <div class="kpi-label"><span data-pt="Tempo médio até aplicação" data-es="Tiempo medio hasta aplicación">Tempo médio até aplicação</span></div>
-        <button class="info-btn" data-tip="Dias entre a emissão da credencial e a primeira evidência de aplicação (skill declarada, mudança de cargo, ou registro de aplicação no perfil)." data-tip-pt="Dias entre a emissão da credencial e a primeira evidência de aplicação (skill declarada, mudança de cargo, ou registro de aplicação no perfil)." data-tip-es="Días entre la emisión de la credencial y la primera evidencia de aplicación (habilidad declarada, cambio de cargo, o registro de aplicación en el perfil).">i</button>
+        <div class="kpi-label"><span data-pt="Tempo médio até primeira evidência" data-es="Tiempo medio hasta primera evidencia">Tempo médio até primeira evidência</span></div>
+        <button class="info-btn" data-tip="Dias entre o compartilhamento da credencial e a primeira evidência de desenvolvimento detectada no perfil (habilidade declarada ou mudança de cargo). Calculado apenas para portadores compartilhadores." data-tip-pt="Dias entre o compartilhamento da credencial e a primeira evidência de desenvolvimento detectada no perfil (habilidade declarada ou mudança de cargo). Calculado apenas para portadores compartilhadores." data-tip-es="Días entre el compartir de la credencial y la primera evidencia de desarrollo detectada en el perfil (habilidad declarada o cambio de cargo). Calculado solo para portadores que compartieron.">i</button>
       </div>
       <div class="kpi-card highlight-dev">
-        <div class="kpi-value gold">47</div>
+        <div class="kpi-value gold">38</div>
         <div class="kpi-label"><span data-pt="Movimentos internos detectados" data-es="Movimientos internos detectados">Movimentos internos detectados</span></div>
-        <button class="info-btn" data-tip="Mudanças de cargo dentro da mesma empresa (mesmo companyId, position diferente) registradas após o recebimento da credencial." data-tip-pt="Mudanças de cargo dentro da mesma empresa (mesmo companyId, position diferente) registradas após o recebimento da credencial." data-tip-es="Cambios de cargo dentro de la misma empresa (mismo companyId, position diferente) registrados después de la recepción de la credencial.">i</button>
+        <button class="info-btn" data-tip="Mudanças de cargo dentro da mesma empresa (mesmo companyId, position diferente) registradas no LinkedIn após o compartilhamento da credencial. Só é possível detectar para portadores compartilhadores." data-tip-pt="Mudanças de cargo dentro da mesma empresa (mesmo companyId, position diferente) registradas no LinkedIn após o compartilhamento da credencial. Só é possível detectar para portadores compartilhadores." data-tip-es="Cambios de cargo dentro de la misma empresa (mismo companyId, position diferente) registrados en LinkedIn después del compartir de la credencial. Solo es posible detectar para portadores que compartieron.">i</button>
       </div>
       <div class="kpi-card highlight-dev">
         <div class="kpi-value gold">91%</div>
         <div class="kpi-label"><span data-pt="Retenção pós-credencial (12m)" data-es="Retención post-credencial (12m)">Retenção pós-credencial (12m)</span></div>
-        <button class="info-btn" data-tip="% de portadores que continuam empregados na mesma empresa 12 meses após receberem a credencial. Comparar com a taxa de retenção geral da população." data-tip-pt="% de portadores que continuam empregados na mesma empresa 12 meses após receberem a credencial. Comparar com a taxa de retenção geral da população." data-tip-es="% de portadores que continúan empleados en la misma empresa 12 meses después de recibir la credencial. Comparar con la tasa de retención general de la población.">i</button>
+        <button class="info-btn" data-tip="% de portadores compartilhadores que continuam na mesma empresa 12 meses após o compartilhamento. Detectado pela permanência do mesmo companyId no LinkedIn." data-tip-pt="% de portadores compartilhadores que continuam na mesma empresa 12 meses após o compartilhamento. Detectado pela permanência do mesmo companyId no LinkedIn." data-tip-es="% de portadores que compartieron y continúan en la misma empresa 12 meses después del compartir. Detectado por la permanencia del mismo companyId en LinkedIn.">i</button>
       </div>
     </div>
 
@@ -561,24 +558,24 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
     <div class="chart-card">
       <div class="chart-card-header">
         <div>
-          <h3><span data-pt="Trajetória agregada — skills relevantes no perfil" data-es="Trayectoria agregada — habilidades relevantes en el perfil">Trajetória agregada — skills relevantes no perfil</span></h3>
-          <p><span data-pt="Média de skills (entre as ensinadas pelo programa) declaradas no perfil do LinkedIn dos portadores. À esquerda do marco: leitura histórica antes da credencial. À direita: evolução após a emissão." data-es="Media de habilidades (entre las enseñadas por el programa) declaradas en el perfil de LinkedIn de los portadores. A la izquierda del hito: lectura histórica antes de la credencial. A la derecha: evolución después de la emisión.">Média de skills (entre as ensinadas pelo programa) declaradas no perfil do LinkedIn dos portadores. À esquerda do marco: leitura histórica antes da credencial. À direita: evolução após a emissão.</span></p>
+          <h3><span data-pt="Trajetória agregada — habilidades relevantes no perfil" data-es="Trayectoria agregada — habilidades relevantes en el perfil">Trajetória agregada — habilidades relevantes no perfil</span></h3>
+          <p><span data-pt="Média de habilidades (entre as ensinadas pelo programa) declaradas no perfil do LinkedIn dos portadores compartilhadores. À esquerda do marco: leitura histórica antes do compartilhamento. À direita: evolução após o compartilhamento da credencial." data-es="Media de habilidades (entre las enseñadas por el programa) declaradas en el perfil de LinkedIn de los portadores que compartieron. A la izquierda del hito: lectura histórica antes del compartir. A la derecha: evolución después del compartir de la credencial.">Média de habilidades (entre as ensinadas pelo programa) declaradas no perfil do LinkedIn dos portadores compartilhadores. À esquerda do marco: leitura histórica antes do compartilhamento. À direita: evolução após o compartilhamento da credencial.</span></p>
         </div>
       </div>
       <div class="chart-zone-labels">
-        <span class="zone-label past"><span data-pt="← Antes da credencial" data-es="← Antes de la credencial">← Antes da credencial</span></span>
+        <span class="zone-label past"><span data-pt="← Antes do compartilhamento" data-es="← Antes del compartir">← Antes do compartilhamento</span></span>
         <span class="zone-divider-x"></span>
-        <span class="zone-label future"><span data-pt="Após a credencial →" data-es="Después de la credencial →">Após a credencial →</span></span>
+        <span class="zone-label future"><span data-pt="Após o compartilhamento →" data-es="Después del compartir →">Após o compartilhamento →</span></span>
       </div>
       <div style="position:relative; width:100%; height:280px;">
         <canvas id="devChart"></canvas>
       </div>
       <div style="display:flex; align-items:center; justify-content:center; gap:6px; margin-top:14px; font-size:11px; color:var(--ink-faint);">
         <div style="width:24px; height:2px; background:var(--gold); border-radius:1px;"></div>
-        <span data-pt="Média de skills do programa declaradas no perfil" data-es="Media de habilidades del programa declaradas en el perfil">Média de skills do programa declaradas no perfil</span>
+        <span data-pt="Média de habilidades do programa declaradas no perfil" data-es="Media de habilidades del programa declaradas en el perfil">Média de habilidades do programa declaradas no perfil</span>
         <div style="width:1px; height:12px; background:var(--border); margin:0 8px;"></div>
         <div style="width:2px; height:16px; background:var(--ink); border-radius:1px; opacity:0.3;"></div>
-        <span data-pt="Marco da credencial" data-es="Hito de la credencial">Marco da credencial</span>
+        <span data-pt="Marco do compartilhamento" data-es="Hito del compartir">Marco do compartilhamento</span>
       </div>
     </div>
 
@@ -591,7 +588,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
           <option value="" data-opt-pt="Todos os impactos" data-opt-es="Todos los impactos">Todos os impactos</option>
           <option data-opt-pt="Promoção interna" data-opt-es="Promoción interna">Promoção interna</option>
           <option data-opt-pt="Movimento lateral" data-opt-es="Movimiento lateral">Movimento lateral</option>
-          <option data-opt-pt="Skill internalizada" data-opt-es="Habilidad internalizada">Skill internalizada</option>
+          <option data-opt-pt="Habilidade internalizada" data-opt-es="Habilidad internalizada">Habilidade internalizada</option>
           <option data-opt-pt="Sem impacto ainda" data-opt-es="Sin impacto todavía">Sem impacto ainda</option>
         </select>
       </div>
@@ -602,9 +599,9 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
               <th><div class="th-inner">Colaborador <button class="info-btn" data-tip="Nome do colaborador (anonimizável conforme política da empresa)." data-tip-pt="Nome do colaborador (anonimizável conforme política da empresa)." data-tip-es="Nombre del colaborador (anonimizable según política de la empresa).">i</button></div></th>
               <th><div class="th-inner">Cargo · Área <button class="info-btn" data-tip="Cargo e área atuais, lidos do campo experience[] do LinkedIn." data-tip-pt="Cargo e área atuais, lidos do campo experience[] do LinkedIn." data-tip-es="Cargo y área actuales, leídos del campo experience[] de LinkedIn.">i</button></div></th>
               <th><div class="th-inner">Programa <button class="info-btn" data-tip="Credencial POK recebida." data-tip-pt="Credencial POK recebida." data-tip-es="Credencial POK recibida.">i</button></div></th>
-              <th><div class="th-inner"><span data-pt="Skills internalizadas" data-es="Habilidades internalizadas">Skills internalizadas</span> <button class="info-btn" data-tip="Quantas das skills declaradas pelo programa foram adicionadas ao perfil do LinkedIn pelo colaborador." data-tip-pt="Quantas das skills declaradas pelo programa foram adicionadas ao perfil do LinkedIn pelo colaborador." data-tip-es="Cuántas de las habilidades declaradas por el programa fueron añadidas al perfil de LinkedIn por el colaborador.">i</button></div></th>
-              <th><div class="th-inner"><span data-pt="Movimento detectado" data-es="Movimiento detectado">Movimento detectado</span> <button class="info-btn" data-tip="Mudança de cargo dentro da mesma empresa após a credencial, ou aplicação registrada." data-tip-pt="Mudança de cargo dentro da mesma empresa após a credencial, ou aplicação registrada." data-tip-es="Cambio de cargo dentro de la misma empresa después de la credencial, o aplicación registrada.">i</button></div></th>
-              <th><div class="th-inner"><span data-pt="Tempo até impacto" data-es="Tiempo hasta impacto">Tempo até impacto</span> <button class="info-btn" data-tip="Dias entre a emissão da credencial e a primeira evidência de aplicação ou movimento." data-tip-pt="Dias entre a emissão da credencial e a primeira evidência de aplicação ou movimento." data-tip-es="Días entre la emisión de la credencial y la primera evidencia de aplicación o movimiento.">i</button></div></th>
+              <th><div class="th-inner"><span data-pt="Habilidades internalizadas" data-es="Habilidades internalizadas">Habilidades internalizadas</span> <button class="info-btn" data-tip="Quantas das habilidades declaradas pelo programa POK foram adicionadas ao perfil do LinkedIn pelo colaborador. Lido a partir do compartilhamento da credencial." data-tip-pt="Quantas das habilidades declaradas pelo programa POK foram adicionadas ao perfil do LinkedIn pelo colaborador. Lido a partir do compartilhamento da credencial." data-tip-es="Cuántas de las habilidades declaradas por el programa POK fueron añadidas al perfil de LinkedIn por el colaborador. Leído a partir del compartir de la credencial.">i</button></div></th>
+              <th><div class="th-inner"><span data-pt="Movimento detectado" data-es="Movimiento detectado">Movimento detectado</span> <button class="info-btn" data-tip="Mudança de cargo dentro da mesma empresa (mesmo companyId, position diferente no LinkedIn) registrada após o compartilhamento da credencial." data-tip-pt="Mudança de cargo dentro da mesma empresa (mesmo companyId, position diferente no LinkedIn) registrada após o compartilhamento da credencial." data-tip-es="Cambio de cargo dentro de la misma empresa (mismo companyId, position diferente en LinkedIn) registrado después del compartir de la credencial.">i</button></div></th>
+              <th><div class="th-inner"><span data-pt="Tempo até evidência" data-es="Tiempo hasta evidencia">Tempo até evidência</span> <button class="info-btn" data-tip="Dias entre o compartilhamento da credencial no LinkedIn e a primeira evidência de desenvolvimento detectada (habilidade declarada ou mudança de cargo)." data-tip-pt="Dias entre o compartilhamento da credencial no LinkedIn e a primeira evidência de desenvolvimento detectada (habilidade declarada ou mudança de cargo)." data-tip-es="Días entre el compartir de la credencial en LinkedIn y la primera evidencia de desarrollo detectada (habilidad declarada o cambio de cargo).">i</button></div></th>
               <th><div class="th-inner"><span data-pt="Tempo de casa" data-es="Antigüedad">Tempo de casa</span> <button class="info-btn" data-tip="Tempo total na empresa, calculado pelo startDate da experiência atual." data-tip-pt="Tempo total na empresa, calculado pelo startDate da experiência atual." data-tip-es="Tiempo total en la empresa, calculado por el startDate de la experiencia actual.">i</button></div></th>
             </tr>
           </thead>
@@ -612,7 +609,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
             <tr>
               <td><span style="font-weight:600;">Ana Beatriz Costa</span></td>
               <td><span style="font-weight:500;"><span data-pt="Gerente de Operações" data-es="Gerente de Operaciones">Gerente de Operações</span></span><br><span class="td-muted"><span data-pt="Operações" data-es="Operaciones">Operações</span></span></td>
-              <td class="td-muted"><span data-pt="Liderança Inclusiva 2025" data-es="Liderazgo Inclusivo 2025">Liderança Inclusiva 2025</span></td>
+              <td class="td-muted">Executive Program - T15</td>
               <td><span class="skill-progress">5/6 <span class="skill-progress-bar"><span class="skill-progress-fill" style="width:83%;"></span></span></span></td>
               <td><span class="badge badge-promo-int"><span data-pt="Promoção interna" data-es="Promoción interna">Promoção interna</span></span></td>
               <td><span style="font-weight:700;">38</span> <span class="td-muted"><span data-pt="dias" data-es="días">dias</span></span></td>
@@ -621,7 +618,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
             <tr>
               <td><span style="font-weight:600;">Bruno Henrique Silva</span></td>
               <td><span style="font-weight:500;"><span data-pt="Analista Pleno de Dados" data-es="Analista Semi-Sénior de Datos">Analista Pleno de Dados</span></span><br><span class="td-muted"><span data-pt="Tecnologia" data-es="Tecnología">Tecnologia</span></span></td>
-              <td class="td-muted"><span data-pt="Excelência Operacional" data-es="Excelencia Operacional">Excelência Operacional</span></td>
+              <td class="td-muted">AI Bootcamp 2025</td>
               <td><span class="skill-progress">4/5 <span class="skill-progress-bar"><span class="skill-progress-fill" style="width:80%;"></span></span></span></td>
               <td><span class="badge badge-mov-lat"><span data-pt="Movimento lateral" data-es="Movimiento lateral">Movimento lateral</span></span></td>
               <td><span style="font-weight:700;">61</span> <span class="td-muted"><span data-pt="dias" data-es="días">dias</span></span></td>
@@ -630,25 +627,25 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
             <tr>
               <td><span style="font-weight:600;">Camila Fernandes Rocha</span></td>
               <td><span style="font-weight:500;"><span data-pt="Especialista em CX" data-es="Especialista en CX">Especialista em CX</span></span><br><span class="td-muted">Comercial</span></td>
-              <td class="td-muted"><span data-pt="Liderança Inclusiva 2025" data-es="Liderazgo Inclusivo 2025">Liderança Inclusiva 2025</span></td>
+              <td class="td-muted">Executive Program - T15</td>
               <td><span class="skill-progress">6/6 <span class="skill-progress-bar"><span class="skill-progress-fill" style="width:100%;"></span></span></span></td>
-              <td><span class="badge badge-skill-up"><span data-pt="Skill internalizada" data-es="Habilidad internalizada">Skill internalizada</span></span></td>
+              <td><span class="badge badge-skill-up"><span data-pt="Habilidade internalizada" data-es="Habilidad internalizada">Habilidade internalizada</span></span></td>
               <td><span style="font-weight:700;">22</span> <span class="td-muted"><span data-pt="dias" data-es="días">dias</span></span></td>
               <td class="td-muted"><span data-pt="6 anos" data-es="6 años">6 anos</span></td>
             </tr>
             <tr>
               <td><span style="font-weight:600;">Diogo Antunes Lima</span></td>
               <td><span style="font-weight:500;"><span data-pt="Coordenador Financeiro" data-es="Coordinador Financiero">Coordenador Financeiro</span></span><br><span class="td-muted"><span data-pt="Finanças" data-es="Finanzas">Finanças</span></span></td>
-              <td class="td-muted"><span data-pt="LGPD para Áreas de Negócio" data-es="LGPD para Áreas de Negocio">LGPD para Áreas de Negócio</span></td>
+              <td class="td-muted">Missão IA</td>
               <td><span class="skill-progress">3/4 <span class="skill-progress-bar"><span class="skill-progress-fill" style="width:75%;"></span></span></span></td>
-              <td><span class="badge badge-skill-up"><span data-pt="Skill internalizada" data-es="Habilidad internalizada">Skill internalizada</span></span></td>
+              <td><span class="badge badge-skill-up"><span data-pt="Habilidade internalizada" data-es="Habilidad internalizada">Habilidade internalizada</span></span></td>
               <td><span style="font-weight:700;">54</span> <span class="td-muted"><span data-pt="dias" data-es="días">dias</span></span></td>
               <td class="td-muted"><span data-pt="3 anos" data-es="3 años">3 anos</span></td>
             </tr>
             <tr>
               <td><span style="font-weight:600;">Elaine Pereira Santos</span></td>
               <td><span style="font-weight:500;"><span data-pt="Engenheira de Processos" data-es="Ingeniera de Procesos">Engenheira de Processos</span></span><br><span class="td-muted"><span data-pt="Operações" data-es="Operaciones">Operações</span></span></td>
-              <td class="td-muted"><span data-pt="Excelência Operacional" data-es="Excelencia Operacional">Excelência Operacional</span></td>
+              <td class="td-muted">AI Bootcamp 2025</td>
               <td><span class="skill-progress">2/5 <span class="skill-progress-bar"><span class="skill-progress-fill" style="width:40%;"></span></span></span></td>
               <td><span class="badge badge-none"><span data-pt="Sem impacto ainda" data-es="Sin impacto todavía">Sem impacto ainda</span></span></td>
               <td class="td-muted">—</td>
@@ -657,7 +654,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
             <tr>
               <td><span style="font-weight:600;">Felipe Ramos Oliveira</span></td>
               <td><span style="font-weight:500;">Tech Lead</span><br><span class="td-muted"><span data-pt="Tecnologia" data-es="Tecnología">Tecnologia</span></span></td>
-              <td class="td-muted"><span data-pt="Liderança Inclusiva 2025" data-es="Liderazgo Inclusivo 2025">Liderança Inclusiva 2025</span></td>
+              <td class="td-muted">AI Bootcamp 2025</td>
               <td><span class="skill-progress">5/6 <span class="skill-progress-bar"><span class="skill-progress-fill" style="width:83%;"></span></span></span></td>
               <td><span class="badge badge-promo-int"><span data-pt="Promoção interna" data-es="Promoción interna">Promoção interna</span></span></td>
               <td><span style="font-weight:700;">29</span> <span class="td-muted"><span data-pt="dias" data-es="días">dias</span></span></td>
@@ -666,7 +663,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
             <tr>
               <td><span style="font-weight:600;">Gabriela Mendes Souza</span></td>
               <td><span style="font-weight:500;"><span data-pt="Analista Sênior de RH" data-es="Analista Sénior de RR.HH.">Analista Sênior de RH</span></span><br><span class="td-muted"><span data-pt="Pessoas &amp; Cultura" data-es="Personas &amp; Cultura">Pessoas & Cultura</span></span></td>
-              <td class="td-muted"><span data-pt="Liderança Inclusiva 2025" data-es="Liderazgo Inclusivo 2025">Liderança Inclusiva 2025</span></td>
+              <td class="td-muted">Missão IA</td>
               <td><span class="skill-progress">4/6 <span class="skill-progress-bar"><span class="skill-progress-fill" style="width:67%;"></span></span></span></td>
               <td><span class="badge badge-mov-lat"><span data-pt="Movimento lateral" data-es="Movimiento lateral">Movimento lateral</span></span></td>
               <td><span style="font-weight:700;">47</span> <span class="td-muted"><span data-pt="dias" data-es="días">dias</span></span></td>
@@ -984,7 +981,7 @@ function initDevChart() {
         ctx.lineTo(shareX, chartArea.bottom);
         ctx.stroke();
         ctx.setLineDash([]);
-        const pillText = 'Credencial emitida';
+        const pillText = currentLang === 'es' ? 'Compartir' : 'Compartilhamento';
         ctx.font = '600 11px Poppins, sans-serif';
         ctx.textAlign = 'center';
         const pillW = ctx.measureText(pillText).width + 20;
