@@ -217,6 +217,16 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
   .zone-header { padding: 20px 18px; }
   .section-label { padding: 0 4px; }
 }
+
+.lang-toggle { position: absolute; top: 24px; right: 32px; display: inline-flex; gap: 2px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 99px; padding: 3px; z-index: 5; }
+.lang-btn { font-family: 'Poppins', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.05em; padding: 6px 12px; border-radius: 99px; background: transparent; color: rgba(255,255,255,0.65); border: none; cursor: pointer; transition: all 0.18s; min-width: 36px; }
+.lang-btn:hover { color: #fff; }
+.lang-btn.active { background: #fff; color: var(--purple); }
+@media (max-width: 600px) {
+  .lang-toggle { top: 14px; right: 14px; }
+  .lang-btn { padding: 5px 10px; font-size: 10px; min-width: 32px; }
+}
+
 </style>
 </head>
 <body>
@@ -225,15 +235,20 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
 <div id="gtip-arrow"></div>
 
 <header class="hero">
+    <div class="lang-toggle">
+      <button class="lang-btn active" data-lang="pt" onclick="setLang('pt')">PT</button>
+      <button class="lang-btn" data-lang="es" onclick="setLang('es')">ES</button>
+    </div>
+
   <div class="hero-inner">
     <div class="hero-eyebrow"><span></span> Módulo Corporativo · Capital Humano</div>
-    <h1 class="hero-title">Capital humano em movimento</h1>
-    <p class="hero-subtitle">Cada credencial POK emitida no programa corporativo gera duas leituras complementares: o desenvolvimento real do colaborador (skills internalizadas, mobilidade interna, retenção) e a conformidade da empresa (cobertura, validade, auditabilidade). Os dados são lidos do perfil público do LinkedIn e cruzados com os metadados da credencial.</p>
+    <h1 class="hero-title"><span data-pt="Capital humano em movimento" data-es="Capital humano en movimiento">Capital humano em movimento</span></h1>
+    <p class="hero-subtitle"><span data-pt="Cada credencial POK emitida no programa corporativo gera duas leituras complementares: o desenvolvimento real do colaborador (skills internalizadas, mobilidade interna, retenção) e a conformidade da empresa (cobertura, validade, auditabilidade). Os dados são lidos do perfil público do LinkedIn e cruzados com os metadados da credencial." data-es="Cada credencial POK emitida en el programa corporativo genera dos lecturas complementarias: el desarrollo real del colaborador (habilidades internalizadas, movilidad interna, retención) y la conformidad de la empresa (cobertura, validez, auditabilidad). Los datos se leen del perfil público de LinkedIn y se cruzan con los metadatos de la credencial.">Cada credencial POK emitida no programa corporativo gera duas leituras complementares: o desenvolvimento real do colaborador (skills internalizadas, mobilidade interna, retenção) e a conformidade da empresa (cobertura, validade, auditabilidade). Os dados são lidos do perfil público do LinkedIn e cruzados com os metadados da credencial.</span></p>
 
     <div class="zone-tabs" role="tablist">
-      <button class="zone-tab active" data-zone="overview" onclick="setZone('overview')"><span class="dot all"></span> Visão geral</button>
-      <button class="zone-tab" data-zone="dev" onclick="setZone('dev')"><span class="dot dev"></span> Desenvolvimento humano</button>
-      <button class="zone-tab" data-zone="com" onclick="setZone('com')"><span class="dot com"></span> Conformidade</button>
+      <button class="zone-tab active" data-zone="overview" onclick="setZone('overview')"><span class="dot all"></span> <span data-pt="Visão geral" data-es="Visión general">Visão geral</span></button>
+      <button class="zone-tab" data-zone="dev" onclick="setZone('dev')"><span class="dot dev"></span> <span data-pt="Desenvolvimento humano" data-es="Desarrollo humano">Desenvolvimento humano</span></button>
+      <button class="zone-tab" data-zone="com" onclick="setZone('com')"><span class="dot com"></span> <span data-pt="Conformidade" data-es="Conformidad">Conformidade</span></button>
     </div>
   </div>
 </header>
@@ -241,26 +256,26 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
 <div class="filters-bar" style="justify-content:space-between;">
   <div style="display:flex;align-items:center;gap:6px;">
     <select class="filter-select">
-      <option value="">Todas as áreas</option>
-      <option>Comercial</option>
-      <option>Operações</option>
-      <option>Tecnologia</option>
-      <option>Finanças</option>
-      <option>Pessoas & Cultura</option>
+      <option value="" data-opt-pt="Todas as áreas" data-opt-es="Todas las áreas">Todas as áreas</option>
+      <option data-opt-pt="Comercial" data-opt-es="Comercial">Comercial</option>
+      <option data-opt-pt="Operações" data-opt-es="Operaciones">Operações</option>
+      <option data-opt-pt="Tecnologia" data-opt-es="Tecnología">Tecnologia</option>
+      <option data-opt-pt="Finanças" data-opt-es="Finanzas">Finanças</option>
+      <option data-opt-pt="Pessoas &amp; Cultura" data-opt-es="Personas &amp; Cultura">Pessoas & Cultura</option>
     </select>
-    <button class="info-btn" data-tip="Filtra por área/diretoria do colaborador.">i</button>
+    <button class="info-btn" data-tip="Filtra por área/diretoria do colaborador." data-tip-pt="Filtra por área/diretoria do colaborador." data-tip-es="Filtra por área/dirección del colaborador.">i</button>
   </div>
 
   <div style="display:flex;align-items:center;gap:6px;">
     <select class="filter-select">
-      <option value="">Todos os programas</option>
-      <option>Liderança Inclusiva 2025</option>
-      <option>Excelência Operacional</option>
-      <option>NR-10 — Reciclagem</option>
-      <option>LGPD para Áreas de Negócio</option>
-      <option>Compliance Antissuborno</option>
+      <option value="" data-opt-pt="Todos os programas" data-opt-es="Todos los programas">Todos os programas</option>
+      <option data-opt-pt="Liderança Inclusiva 2025" data-opt-es="Liderazgo Inclusivo 2025">Liderança Inclusiva 2025</option>
+      <option data-opt-pt="Excelência Operacional" data-opt-es="Excelencia Operacional">Excelência Operacional</option>
+      <option data-opt-pt="NR-10 — Reciclagem" data-opt-es="NR-10 — Reciclaje">NR-10 — Reciclagem</option>
+      <option data-opt-pt="LGPD para Áreas de Negócio" data-opt-es="LGPD para Áreas de Negocio">LGPD para Áreas de Negócio</option>
+      <option data-opt-pt="Compliance Antissuborno" data-opt-es="Cumplimiento Antisoborno">Compliance Antissuborno</option>
     </select>
-    <button class="info-btn" data-tip="Filtra pelo programa ou trilha de credenciamento.">i</button>
+    <button class="info-btn" data-tip="Filtra pelo programa ou trilha de credenciamento." data-tip-pt="Filtra pelo programa ou trilha de credenciamento." data-tip-es="Filtra por programa o ruta de credenciamiento.">i</button>
   </div>
 
   <div style="display:flex;align-items:center;gap:6px;">
@@ -268,18 +283,18 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
       <span>Últimos 12 meses</span>
     </button>
-    <button class="info-btn" data-tip="Período de análise. Define a janela de leitura das credenciais e dos eventos de carreira.">i</button>
+    <button class="info-btn" data-tip="Período de análise. Define a janela de leitura das credenciais e dos eventos de carreira." data-tip-pt="Período de análise. Define a janela de leitura das credenciais e dos eventos de carreira." data-tip-es="Período de análisis. Define la ventana de lectura de las credenciales y los eventos de carrera.">i</button>
   </div>
 
   <div style="display:flex;align-items:center;gap:6px;">
     <select class="filter-select">
-      <option value="">Toda a população</option>
-      <option>Liderança</option>
-      <option>Especialistas</option>
-      <option>Operacional</option>
-      <option>Trainees</option>
+      <option value="" data-opt-pt="Toda a população" data-opt-es="Toda la población">Toda a população</option>
+      <option data-opt-pt="Liderança" data-opt-es="Liderazgo">Liderança</option>
+      <option data-opt-pt="Especialistas" data-opt-es="Especialistas">Especialistas</option>
+      <option data-opt-pt="Operacional" data-opt-es="Operacional">Operacional</option>
+      <option data-opt-pt="Trainees" data-opt-es="Trainees">Trainees</option>
     </select>
-    <button class="info-btn" data-tip="Filtra por banda funcional ou nível hierárquico.">i</button>
+    <button class="info-btn" data-tip="Filtra por banda funcional ou nível hierárquico." data-tip-pt="Filtra por banda funcional ou nível hierárquico." data-tip-es="Filtra por banda funcional o nivel jerárquico.">i</button>
   </div>
 </div>
 
@@ -290,55 +305,55 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
   <!-- ─────────────────────────────────────────────────────────────────────── -->
   <section class="zone-section active" id="zone-overview">
 
-    <div class="section-label"><span class="accent purple"></span> Síntese executiva</div>
+    <div class="section-label"><span class="accent purple"></span> <span data-pt="Síntese executiva" data-es="Síntesis ejecutiva">Síntese executiva</span></div>
     <div class="overview-grid">
       <div class="overview-card dev">
-        <div class="overview-card-label"><span class="dot gold"></span> Desenvolvimento</div>
+        <div class="overview-card-label"><span class="dot gold"></span> <span data-pt="Desenvolvimento" data-es="Desarrollo">Desenvolvimento</span></div>
         <div class="overview-card-value">68%</div>
-        <div class="overview-card-sub">internalizaram skills do programa <span class="trend-up">↑ 12 p.p. vs. trimestre anterior</span></div>
+        <div class="overview-card-sub"><span data-pt="internalizaram skills do programa" data-es="internalizaron habilidades del programa">internalizaram skills do programa</span> <span class="trend-up">↑ 12 p.p. vs. trimestre anterior</span></div>
       </div>
       <div class="overview-card dev">
-        <div class="overview-card-label"><span class="dot gold"></span> Mobilidade</div>
+        <div class="overview-card-label"><span class="dot gold"></span> <span data-pt="Mobilidade" data-es="Movilidad">Mobilidade</span></div>
         <div class="overview-card-value">47</div>
-        <div class="overview-card-sub">movimentos internos pós-credencial</div>
+        <div class="overview-card-sub"><span data-pt="movimentos internos pós-credencial" data-es="movimientos internos post-credencial">movimentos internos pós-credencial</span></div>
       </div>
       <div class="overview-card com">
-        <div class="overview-card-label"><span class="dot green"></span> Conformidade</div>
+        <div class="overview-card-label"><span class="dot green"></span> <span data-pt="Conformidade" data-es="Conformidad">Conformidade</span></div>
         <div class="overview-card-value">94%</div>
-        <div class="overview-card-sub">cobertura na população obrigatória</div>
+        <div class="overview-card-sub"><span data-pt="cobertura na população obrigatória" data-es="cobertura en la población obligada">cobertura na população obrigatória</span></div>
       </div>
       <div class="overview-card com">
-        <div class="overview-card-label"><span class="dot green"></span> Retenção</div>
+        <div class="overview-card-label"><span class="dot green"></span> <span data-pt="Retenção" data-es="Retención">Retenção</span></div>
         <div class="overview-card-value">91%</div>
-        <div class="overview-card-sub">12 meses pós-credencial <span class="trend-up">↑ 6 p.p. vs. média geral</span></div>
+        <div class="overview-card-sub"><span data-pt="12 meses pós-credencial" data-es="12 meses post-credencial">12 meses pós-credencial</span> <span class="trend-up"><span data-pt="↑ 6 p.p. vs. média geral" data-es="↑ 6 p.p. vs. media general">↑ 6 p.p. vs. média geral</span></span></div>
       </div>
     </div>
 
-    <div class="section-label"><span class="accent purple"></span> O que esta visão entrega</div>
+    <div class="section-label"><span class="accent purple"></span> <span data-pt="O que esta visão entrega" data-es="Qué entrega esta visión">O que esta visão entrega</span></div>
     <div style="background:var(--white); border:1px solid var(--border); border-radius:var(--radius-lg); padding:28px 32px; margin-bottom:24px;">
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:32px;">
         <div>
-          <div style="display:inline-flex; align-items:center; gap:8px; background:var(--gold-light); border:1px solid #f0e2c0; border-radius:99px; padding:4px 12px; font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold-dark); margin-bottom:12px;"><span style="width:6px; height:6px; border-radius:50%; background:var(--gold);"></span> Desenvolvimento humano</div>
-          <h3 style="font-size:15px; font-weight:700; margin-bottom:8px;">Quem está crescendo, em que ritmo, com qual evidência</h3>
-          <p style="font-size:12px; color:var(--ink-muted); line-height:1.6;">Acompanha a internalização das skills ensinadas (declaração no perfil), aplicação em projetos, mobilidade interna detectada via mudança de cargo dentro da mesma empresa, e retenção dos talentos certificados. Útil para RH/T&D, Gestão de Talentos e Sucessão.</p>
+          <div style="display:inline-flex; align-items:center; gap:8px; background:var(--gold-light); border:1px solid #f0e2c0; border-radius:99px; padding:4px 12px; font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold-dark); margin-bottom:12px;"><span style="width:6px; height:6px; border-radius:50%; background:var(--gold);"></span> <span data-pt="Desenvolvimento humano" data-es="Desarrollo humano">Desenvolvimento humano</span></div>
+          <h3 style="font-size:15px; font-weight:700; margin-bottom:8px;"><span data-pt="Quem está crescendo, em que ritmo, com qual evidência" data-es="Quién está creciendo, a qué ritmo, con qué evidencia">Quem está crescendo, em que ritmo, com qual evidência</span></h3>
+          <p style="font-size:12px; color:var(--ink-muted); line-height:1.6;"><span data-pt="Acompanha a internalização das skills ensinadas (declaração no perfil), aplicação em projetos, mobilidade interna detectada via mudança de cargo dentro da mesma empresa, e retenção dos talentos certificados. Útil para RH/T&amp;D, Gestão de Talentos e Sucessão." data-es="Acompaña la internalización de las habilidades enseñadas (declaración en el perfil), aplicación en proyectos, movilidad interna detectada vía cambio de cargo dentro de la misma empresa, y retención de los talentos certificados. Útil para RR.HH./Capacitación, Gestión de Talento y Sucesión.">Acompanha a internalização das skills ensinadas (declaração no perfil), aplicação em projetos, mobilidade interna detectada via mudança de cargo dentro da mesma empresa, e retenção dos talentos certificados. Útil para RH/T&D, Gestão de Talentos e Sucessão.</span></p>
         </div>
         <div>
-          <div style="display:inline-flex; align-items:center; gap:8px; background:var(--green-light); border:1px solid #c5e4d6; border-radius:99px; padding:4px 12px; font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--green-dark); margin-bottom:12px;"><span style="width:6px; height:6px; border-radius:50%; background:var(--green);"></span> Conformidade</div>
-          <h3 style="font-size:15px; font-weight:700; margin-bottom:8px;">A empresa está em ordem, com prova auditável</h3>
-          <p style="font-size:12px; color:var(--ink-muted); line-height:1.6;">Garante cobertura da população obrigada, monitora vencimentos de credenciais regulatórias, evidencia eficácia dos treinamentos e produz trilha auditável via blockchain. Útil para Compliance, Jurídico, Auditoria Interna e setores regulados.</p>
+          <div style="display:inline-flex; align-items:center; gap:8px; background:var(--green-light); border:1px solid #c5e4d6; border-radius:99px; padding:4px 12px; font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--green-dark); margin-bottom:12px;"><span style="width:6px; height:6px; border-radius:50%; background:var(--green);"></span> <span data-pt="Conformidade" data-es="Conformidad">Conformidade</span></div>
+          <h3 style="font-size:15px; font-weight:700; margin-bottom:8px;"><span data-pt="A empresa está em ordem, com prova auditável" data-es="La empresa está en orden, con prueba auditable">A empresa está em ordem, com prova auditável</span></h3>
+          <p style="font-size:12px; color:var(--ink-muted); line-height:1.6;"><span data-pt="Garante cobertura da população obrigada, monitora vencimentos de credenciais regulatórias, evidencia eficácia dos treinamentos e produz trilha auditável via blockchain. Útil para Compliance, Jurídico, Auditoria Interna e setores regulados." data-es="Garantiza cobertura de la población obligada, monitorea vencimientos de credenciales regulatorias, evidencia eficacia de las capacitaciones y produce trazabilidad auditable vía blockchain. Útil para Cumplimiento, Legal, Auditoría Interna y sectores regulados.">Garante cobertura da população obrigada, monitora vencimentos de credenciais regulatórias, evidencia eficácia dos treinamentos e produz trilha auditável via blockchain. Útil para Compliance, Jurídico, Auditoria Interna e setores regulados.</span></p>
         </div>
       </div>
     </div>
 
-    <div class="section-label"><span class="accent purple"></span> Atalhos para aprofundar</div>
+    <div class="section-label"><span class="accent purple"></span> <span data-pt="Atalhos para aprofundar" data-es="Atajos para profundizar">Atalhos para aprofundar</span></div>
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:24px;">
       <div onclick="setZone('dev')" style="background:var(--white); border:1px solid var(--border); border-left:4px solid var(--gold); border-radius:var(--radius-lg); padding:22px 24px; cursor:pointer; transition:all 0.18s;" onmouseover="this.style.borderColor='var(--gold)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='var(--border)'; this.style.borderLeftColor='var(--gold)'; this.style.transform='translateY(0)';">
-        <div style="font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold-dark); margin-bottom:8px;">Ver desenvolvimento humano →</div>
-        <p style="font-size:12px; color:var(--ink-muted); line-height:1.5;">Funil de desenvolvimento, skills internalizadas, movimentos de carreira, retenção e tabela individual de portadores.</p>
+        <div style="font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold-dark); margin-bottom:8px;"><span data-pt="Ver desenvolvimento humano →" data-es="Ver desarrollo humano →">Ver desenvolvimento humano →</span></div>
+        <p style="font-size:12px; color:var(--ink-muted); line-height:1.5;"><span data-pt="Funil de desenvolvimento, skills internalizadas, movimentos de carreira, retenção e tabela individual de portadores." data-es="Embudo de desarrollo, habilidades internalizadas, movimientos de carrera, retención y tabla individual de portadores.">Funil de desenvolvimento, skills internalizadas, movimentos de carreira, retenção e tabela individual de portadores.</span></p>
       </div>
       <div onclick="setZone('com')" style="background:var(--white); border:1px solid var(--border); border-left:4px solid var(--green); border-radius:var(--radius-lg); padding:22px 24px; cursor:pointer; transition:all 0.18s;" onmouseover="this.style.borderColor='var(--green)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='var(--border)'; this.style.borderLeftColor='var(--green)'; this.style.transform='translateY(0)';">
-        <div style="font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--green-dark); margin-bottom:8px;">Ver conformidade →</div>
-        <p style="font-size:12px; color:var(--ink-muted); line-height:1.5;">Cobertura por norma, credenciais a vencer, gaps por área, status auditável e ações requeridas.</p>
+        <div style="font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--green-dark); margin-bottom:8px;"><span data-pt="Ver conformidade →" data-es="Ver conformidad →">Ver conformidade →</span></div>
+        <p style="font-size:12px; color:var(--ink-muted); line-height:1.5;"><span data-pt="Cobertura por norma, credenciais a vencer, gaps por área, status auditável e ações requeridas." data-es="Cobertura por norma, credenciales por vencer, brechas por área, estado auditable y acciones requeridas.">Cobertura por norma, credenciais a vencer, gaps por área, status auditável e ações requeridas.</span></p>
       </div>
     </div>
 
@@ -350,171 +365,171 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
   <section class="zone-section" id="zone-dev">
 
     <div class="zone-header dev">
-      <div class="zone-header-pill"><span class="dot gold"></span> Zona de desenvolvimento</div>
-      <h2>O que está acontecendo com seus talentos</h2>
-      <p>Cada credencial concluída inicia uma leitura contínua do perfil profissional do colaborador. Aqui acompanhamos a internalização das skills ensinadas, a aplicação em projetos, a mobilidade interna e a retenção dos talentos certificados.</p>
+      <div class="zone-header-pill"><span class="dot gold"></span> <span data-pt="Zona de desenvolvimento" data-es="Zona de desarrollo">Zona de desenvolvimento</span></div>
+      <h2><span data-pt="O que está acontecendo com seus talentos" data-es="Qué está pasando con tus talentos">O que está acontecendo com seus talentos</span></h2>
+      <p><span data-pt="Cada credencial concluída inicia uma leitura contínua do perfil profissional do colaborador. Aqui acompanhamos a internalização das skills ensinadas, a aplicação em projetos, a mobilidade interna e a retenção dos talentos certificados." data-es="Cada credencial concluida inicia una lectura continua del perfil profesional del colaborador. Aquí acompañamos la internalización de las habilidades enseñadas, la aplicación en proyectos, la movilidad interna y la retención de los talentos certificados.">Cada credencial concluída inicia uma leitura contínua do perfil profissional do colaborador. Aqui acompanhamos a internalização das skills ensinadas, a aplicação em projetos, a mobilidade interna e a retenção dos talentos certificados.</span></p>
     </div>
 
     <!-- Funnel -->
-    <div class="section-label"><span class="accent gold"></span> Funil de desenvolvimento</div>
+    <div class="section-label"><span class="accent gold"></span> <span data-pt="Funil de desenvolvimento" data-es="Embudo de desarrollo">Funil de desenvolvimento</span></div>
     <div class="funnel-card">
-      <h3>Da credencial à transformação de carreira</h3>
-      <p>Cada etapa mostra quantos colaboradores avançaram no processo — da emissão da credencial até evidências concretas de desenvolvimento e retenção.</p>
+      <h3><span data-pt="Da credencial à transformação de carreira" data-es="De la credencial a la transformación de carrera">Da credencial à transformação de carreira</span></h3>
+      <p><span data-pt="Cada etapa mostra quantos colaboradores avançaram no processo — da emissão da credencial até evidências concretas de desenvolvimento e retenção." data-es="Cada etapa muestra cuántos colaboradores avanzaron en el proceso — desde la emisión de la credencial hasta evidencias concretas de desarrollo y retención.">Cada etapa mostra quantos colaboradores avançaram no processo — da emissão da credencial até evidências concretas de desenvolvimento e retenção.</span></p>
       <div class="funnel-steps">
-        <div class="funnel-step"><div class="funnel-bar" style="background:#3a1878;">312</div><div class="funnel-step-label">Credenciais<br>emitidas</div><div class="funnel-step-pct">100%</div></div>
+        <div class="funnel-step"><div class="funnel-bar" style="background:#3a1878;">312</div><div class="funnel-step-label"><span data-pt="Credenciais&lt;br&gt;emitidas" data-es="Credenciales&lt;br&gt;emitidas">Credenciais<br>emitidas</span></div><div class="funnel-step-pct">100%</div></div>
         <div class="funnel-arrow">›</div>
-        <div class="funnel-step"><div class="funnel-bar" style="background:#5123a4;">248</div><div class="funnel-step-label">Adicionada<br>ao perfil</div><div class="funnel-step-pct">79%</div></div>
+        <div class="funnel-step"><div class="funnel-bar" style="background:#5123a4;">248</div><div class="funnel-step-label"><span data-pt="Adicionada&lt;br&gt;ao perfil" data-es="Añadida&lt;br&gt;al perfil">Adicionada<br>ao perfil</span></div><div class="funnel-step-pct">79%</div></div>
         <div class="funnel-arrow">›</div>
-        <div class="funnel-step"><div class="funnel-bar" style="background:#6b45bb;">213</div><div class="funnel-step-label">Skills do programa<br>declaradas</div><div class="funnel-step-pct">68%</div></div>
+        <div class="funnel-step"><div class="funnel-bar" style="background:#6b45bb;">213</div><div class="funnel-step-label"><span data-pt="Skills do programa&lt;br&gt;declaradas" data-es="Habilidades del programa&lt;br&gt;declaradas">Skills do programa<br>declaradas</span></div><div class="funnel-step-pct">68%</div></div>
         <div class="funnel-arrow">›</div>
-        <div class="funnel-step"><div class="funnel-bar" style="background:#C8A04C;">86</div><div class="funnel-step-label">Aplicação<br>em projeto</div><div class="funnel-step-pct">28%</div></div>
+        <div class="funnel-step"><div class="funnel-bar" style="background:#C8A04C;">86</div><div class="funnel-step-label"><span data-pt="Aplicação&lt;br&gt;em projeto" data-es="Aplicación&lt;br&gt;en proyecto">Aplicação<br>em projeto</span></div><div class="funnel-step-pct">28%</div></div>
         <div class="funnel-arrow">›</div>
-        <div class="funnel-step"><div class="funnel-bar" style="background:#8C6E27;">47</div><div class="funnel-step-label">Movimento<br>interno</div><div class="funnel-step-pct">15%</div></div>
+        <div class="funnel-step"><div class="funnel-bar" style="background:#8C6E27;">47</div><div class="funnel-step-label"><span data-pt="Movimento&lt;br&gt;interno" data-es="Movimiento&lt;br&gt;interno">Movimento<br>interno</span></div><div class="funnel-step-pct">15%</div></div>
         <div class="funnel-arrow">›</div>
-        <div class="funnel-step"><div class="funnel-bar" style="background:#1D9E75;">284</div><div class="funnel-step-label">Retidos<br>(12 meses)</div><div class="funnel-step-pct">91%</div></div>
+        <div class="funnel-step"><div class="funnel-bar" style="background:#1D9E75;">284</div><div class="funnel-step-label"><span data-pt="Retidos&lt;br&gt;(12 meses)" data-es="Retenidos&lt;br&gt;(12 meses)">Retidos<br>(12 meses)</span></div><div class="funnel-step-pct">91%</div></div>
       </div>
     </div>
 
     <!-- KPIs -->
-    <div class="section-label"><span class="accent gold"></span> Métricas-chave de desenvolvimento</div>
+    <div class="section-label"><span class="accent gold"></span> <span data-pt="Métricas-chave de desenvolvimento" data-es="Métricas clave de desarrollo">Métricas-chave de desenvolvimento</span></div>
     <div class="kpi-grid">
       <div class="kpi-card highlight-dev">
         <div class="kpi-value gold">68%</div>
-        <div class="kpi-label">Taxa de internalização da skill</div>
-        <button class="info-btn" data-tip="% de portadores que adicionaram ao perfil do LinkedIn pelo menos uma das skills declaradas pelo programa POK.">i</button>
+        <div class="kpi-label"><span data-pt="Taxa de internalização da skill" data-es="Tasa de internalización de la habilidad">Taxa de internalização da skill</span></div>
+        <button class="info-btn" data-tip="% de portadores que adicionaram ao perfil do LinkedIn pelo menos uma das skills declaradas pelo programa POK." data-tip-pt="% de portadores que adicionaram ao perfil do LinkedIn pelo menos uma das skills declaradas pelo programa POK." data-tip-es="% de portadores que añadieron al perfil de LinkedIn al menos una de las habilidades declaradas por el programa POK.">i</button>
       </div>
       <div class="kpi-card highlight-dev">
-        <div class="kpi-value gold">42 dias</div>
-        <div class="kpi-label">Tempo médio até aplicação</div>
-        <button class="info-btn" data-tip="Dias entre a emissão da credencial e a primeira evidência de aplicação (skill declarada, mudança de cargo, ou registro de aplicação no perfil).">i</button>
+        <div class="kpi-value gold"><span data-pt="42 dias" data-es="42 días">42 dias</span></div>
+        <div class="kpi-label"><span data-pt="Tempo médio até aplicação" data-es="Tiempo medio hasta aplicación">Tempo médio até aplicação</span></div>
+        <button class="info-btn" data-tip="Dias entre a emissão da credencial e a primeira evidência de aplicação (skill declarada, mudança de cargo, ou registro de aplicação no perfil)." data-tip-pt="Dias entre a emissão da credencial e a primeira evidência de aplicação (skill declarada, mudança de cargo, ou registro de aplicação no perfil)." data-tip-es="Días entre la emisión de la credencial y la primera evidencia de aplicación (habilidad declarada, cambio de cargo, o registro de aplicación en el perfil).">i</button>
       </div>
       <div class="kpi-card highlight-dev">
         <div class="kpi-value gold">47</div>
-        <div class="kpi-label">Movimentos internos detectados</div>
-        <button class="info-btn" data-tip="Mudanças de cargo dentro da mesma empresa (mesmo companyId, position diferente) registradas após o recebimento da credencial.">i</button>
+        <div class="kpi-label"><span data-pt="Movimentos internos detectados" data-es="Movimientos internos detectados">Movimentos internos detectados</span></div>
+        <button class="info-btn" data-tip="Mudanças de cargo dentro da mesma empresa (mesmo companyId, position diferente) registradas após o recebimento da credencial." data-tip-pt="Mudanças de cargo dentro da mesma empresa (mesmo companyId, position diferente) registradas após o recebimento da credencial." data-tip-es="Cambios de cargo dentro de la misma empresa (mismo companyId, position diferente) registrados después de la recepción de la credencial.">i</button>
       </div>
       <div class="kpi-card highlight-dev">
         <div class="kpi-value gold">91%</div>
-        <div class="kpi-label">Retenção pós-credencial (12m)</div>
-        <button class="info-btn" data-tip="% de portadores que continuam empregados na mesma empresa 12 meses após receberem a credencial. Comparar com a taxa de retenção geral da população.">i</button>
+        <div class="kpi-label"><span data-pt="Retenção pós-credencial (12m)" data-es="Retención post-credencial (12m)">Retenção pós-credencial (12m)</span></div>
+        <button class="info-btn" data-tip="% de portadores que continuam empregados na mesma empresa 12 meses após receberem a credencial. Comparar com a taxa de retenção geral da população." data-tip-pt="% de portadores que continuam empregados na mesma empresa 12 meses após receberem a credencial. Comparar com a taxa de retenção geral da população." data-tip-es="% de portadores que continúan empleados en la misma empresa 12 meses después de recibir la credencial. Comparar con la tasa de retención general de la población.">i</button>
       </div>
     </div>
 
     <!-- Chart antes/depois -->
-    <div class="section-label"><span class="accent gold"></span> Evolução de skills declaradas</div>
+    <div class="section-label"><span class="accent gold"></span> <span data-pt="Evolução de skills declaradas" data-es="Evolución de habilidades declaradas">Evolução de skills declaradas</span></div>
     <div class="chart-card">
       <div class="chart-card-header">
         <div>
-          <h3>Trajetória agregada — skills relevantes no perfil</h3>
-          <p>Média de skills (entre as ensinadas pelo programa) declaradas no perfil do LinkedIn dos portadores. À esquerda do marco: leitura histórica antes da credencial. À direita: evolução após a emissão.</p>
+          <h3><span data-pt="Trajetória agregada — skills relevantes no perfil" data-es="Trayectoria agregada — habilidades relevantes en el perfil">Trajetória agregada — skills relevantes no perfil</span></h3>
+          <p><span data-pt="Média de skills (entre as ensinadas pelo programa) declaradas no perfil do LinkedIn dos portadores. À esquerda do marco: leitura histórica antes da credencial. À direita: evolução após a emissão." data-es="Media de habilidades (entre las enseñadas por el programa) declaradas en el perfil de LinkedIn de los portadores. A la izquierda del hito: lectura histórica antes de la credencial. A la derecha: evolución después de la emisión.">Média de skills (entre as ensinadas pelo programa) declaradas no perfil do LinkedIn dos portadores. À esquerda do marco: leitura histórica antes da credencial. À direita: evolução após a emissão.</span></p>
         </div>
       </div>
       <div class="chart-zone-labels">
-        <span class="zone-label past">← Antes da credencial</span>
+        <span class="zone-label past"><span data-pt="← Antes da credencial" data-es="← Antes de la credencial">← Antes da credencial</span></span>
         <span class="zone-divider-x"></span>
-        <span class="zone-label future">Após a credencial →</span>
+        <span class="zone-label future"><span data-pt="Após a credencial →" data-es="Después de la credencial →">Após a credencial →</span></span>
       </div>
       <div style="position:relative; width:100%; height:280px;">
         <canvas id="devChart"></canvas>
       </div>
       <div style="display:flex; align-items:center; justify-content:center; gap:6px; margin-top:14px; font-size:11px; color:var(--ink-faint);">
         <div style="width:24px; height:2px; background:var(--gold); border-radius:1px;"></div>
-        Média de skills do programa declaradas no perfil
+        <span data-pt="Média de skills do programa declaradas no perfil" data-es="Media de habilidades del programa declaradas en el perfil">Média de skills do programa declaradas no perfil</span>
         <div style="width:1px; height:12px; background:var(--border); margin:0 8px;"></div>
         <div style="width:2px; height:16px; background:var(--ink); border-radius:1px; opacity:0.3;"></div>
-        Marco da credencial
+        <span data-pt="Marco da credencial" data-es="Hito de la credencial">Marco da credencial</span>
       </div>
     </div>
 
     <!-- Table -->
-    <div class="section-label"><span class="accent gold"></span> Portadores individuais</div>
+    <div class="section-label"><span class="accent gold"></span> <span data-pt="Portadores individuais" data-es="Portadores individuales">Portadores individuais</span></div>
     <div class="table-card">
       <div class="table-toolbar">
-        <input type="text" placeholder="Buscar colaborador, área ou programa..." />
+        <input type="text" placeholder="Buscar colaborador, área ou programa..." data-ph-pt="Buscar colaborador, área ou programa..." data-ph-es="Buscar colaborador, área o programa..." />
         <select>
-          <option value="">Todos os impactos</option>
-          <option>Promoção interna</option>
-          <option>Movimento lateral</option>
-          <option>Skill internalizada</option>
-          <option>Sem impacto ainda</option>
+          <option value="" data-opt-pt="Todos os impactos" data-opt-es="Todos los impactos">Todos os impactos</option>
+          <option data-opt-pt="Promoção interna" data-opt-es="Promoción interna">Promoção interna</option>
+          <option data-opt-pt="Movimento lateral" data-opt-es="Movimiento lateral">Movimento lateral</option>
+          <option data-opt-pt="Skill internalizada" data-opt-es="Habilidad internalizada">Skill internalizada</option>
+          <option data-opt-pt="Sem impacto ainda" data-opt-es="Sin impacto todavía">Sem impacto ainda</option>
         </select>
       </div>
       <div style="overflow-x:auto;">
         <table>
           <thead>
             <tr>
-              <th><div class="th-inner">Colaborador <button class="info-btn" data-tip="Nome do colaborador (anonimizável conforme política da empresa).">i</button></div></th>
-              <th><div class="th-inner">Cargo · Área <button class="info-btn" data-tip="Cargo e área atuais, lidos do campo experience[] do LinkedIn.">i</button></div></th>
-              <th><div class="th-inner">Programa <button class="info-btn" data-tip="Credencial POK recebida.">i</button></div></th>
-              <th><div class="th-inner">Skills internalizadas <button class="info-btn" data-tip="Quantas das skills declaradas pelo programa foram adicionadas ao perfil do LinkedIn pelo colaborador.">i</button></div></th>
-              <th><div class="th-inner">Movimento detectado <button class="info-btn" data-tip="Mudança de cargo dentro da mesma empresa após a credencial, ou aplicação registrada.">i</button></div></th>
-              <th><div class="th-inner">Tempo até impacto <button class="info-btn" data-tip="Dias entre a emissão da credencial e a primeira evidência de aplicação ou movimento.">i</button></div></th>
-              <th><div class="th-inner">Tempo de casa <button class="info-btn" data-tip="Tempo total na empresa, calculado pelo startDate da experiência atual.">i</button></div></th>
+              <th><div class="th-inner">Colaborador <button class="info-btn" data-tip="Nome do colaborador (anonimizável conforme política da empresa)." data-tip-pt="Nome do colaborador (anonimizável conforme política da empresa)." data-tip-es="Nombre del colaborador (anonimizable según política de la empresa).">i</button></div></th>
+              <th><div class="th-inner">Cargo · Área <button class="info-btn" data-tip="Cargo e área atuais, lidos do campo experience[] do LinkedIn." data-tip-pt="Cargo e área atuais, lidos do campo experience[] do LinkedIn." data-tip-es="Cargo y área actuales, leídos del campo experience[] de LinkedIn.">i</button></div></th>
+              <th><div class="th-inner">Programa <button class="info-btn" data-tip="Credencial POK recebida." data-tip-pt="Credencial POK recebida." data-tip-es="Credencial POK recibida.">i</button></div></th>
+              <th><div class="th-inner"><span data-pt="Skills internalizadas" data-es="Habilidades internalizadas">Skills internalizadas</span> <button class="info-btn" data-tip="Quantas das skills declaradas pelo programa foram adicionadas ao perfil do LinkedIn pelo colaborador." data-tip-pt="Quantas das skills declaradas pelo programa foram adicionadas ao perfil do LinkedIn pelo colaborador." data-tip-es="Cuántas de las habilidades declaradas por el programa fueron añadidas al perfil de LinkedIn por el colaborador.">i</button></div></th>
+              <th><div class="th-inner"><span data-pt="Movimento detectado" data-es="Movimiento detectado">Movimento detectado</span> <button class="info-btn" data-tip="Mudança de cargo dentro da mesma empresa após a credencial, ou aplicação registrada." data-tip-pt="Mudança de cargo dentro da mesma empresa após a credencial, ou aplicação registrada." data-tip-es="Cambio de cargo dentro de la misma empresa después de la credencial, o aplicación registrada.">i</button></div></th>
+              <th><div class="th-inner"><span data-pt="Tempo até impacto" data-es="Tiempo hasta impacto">Tempo até impacto</span> <button class="info-btn" data-tip="Dias entre a emissão da credencial e a primeira evidência de aplicação ou movimento." data-tip-pt="Dias entre a emissão da credencial e a primeira evidência de aplicação ou movimento." data-tip-es="Días entre la emisión de la credencial y la primera evidencia de aplicación o movimiento.">i</button></div></th>
+              <th><div class="th-inner"><span data-pt="Tempo de casa" data-es="Antigüedad">Tempo de casa</span> <button class="info-btn" data-tip="Tempo total na empresa, calculado pelo startDate da experiência atual." data-tip-pt="Tempo total na empresa, calculado pelo startDate da experiência atual." data-tip-es="Tiempo total en la empresa, calculado por el startDate de la experiencia actual.">i</button></div></th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td><span style="font-weight:600;">Ana Beatriz Costa</span></td>
-              <td><span style="font-weight:500;">Gerente de Operações</span><br><span class="td-muted">Operações</span></td>
-              <td class="td-muted">Liderança Inclusiva 2025</td>
+              <td><span style="font-weight:500;"><span data-pt="Gerente de Operações" data-es="Gerente de Operaciones">Gerente de Operações</span></span><br><span class="td-muted"><span data-pt="Operações" data-es="Operaciones">Operações</span></span></td>
+              <td class="td-muted"><span data-pt="Liderança Inclusiva 2025" data-es="Liderazgo Inclusivo 2025">Liderança Inclusiva 2025</span></td>
               <td><span class="skill-progress">5/6 <span class="skill-progress-bar"><span class="skill-progress-fill" style="width:83%;"></span></span></span></td>
-              <td><span class="badge badge-promo-int">Promoção interna</span></td>
-              <td><span style="font-weight:700;">38</span> <span class="td-muted">dias</span></td>
-              <td class="td-muted">4 anos</td>
+              <td><span class="badge badge-promo-int"><span data-pt="Promoção interna" data-es="Promoción interna">Promoção interna</span></span></td>
+              <td><span style="font-weight:700;">38</span> <span class="td-muted"><span data-pt="dias" data-es="días">dias</span></span></td>
+              <td class="td-muted"><span data-pt="4 anos" data-es="4 años">4 anos</span></td>
             </tr>
             <tr>
               <td><span style="font-weight:600;">Bruno Henrique Silva</span></td>
-              <td><span style="font-weight:500;">Analista Pleno de Dados</span><br><span class="td-muted">Tecnologia</span></td>
-              <td class="td-muted">Excelência Operacional</td>
+              <td><span style="font-weight:500;"><span data-pt="Analista Pleno de Dados" data-es="Analista Semi-Sénior de Datos">Analista Pleno de Dados</span></span><br><span class="td-muted"><span data-pt="Tecnologia" data-es="Tecnología">Tecnologia</span></span></td>
+              <td class="td-muted"><span data-pt="Excelência Operacional" data-es="Excelencia Operacional">Excelência Operacional</span></td>
               <td><span class="skill-progress">4/5 <span class="skill-progress-bar"><span class="skill-progress-fill" style="width:80%;"></span></span></span></td>
-              <td><span class="badge badge-mov-lat">Movimento lateral</span></td>
-              <td><span style="font-weight:700;">61</span> <span class="td-muted">dias</span></td>
-              <td class="td-muted">2 anos</td>
+              <td><span class="badge badge-mov-lat"><span data-pt="Movimento lateral" data-es="Movimiento lateral">Movimento lateral</span></span></td>
+              <td><span style="font-weight:700;">61</span> <span class="td-muted"><span data-pt="dias" data-es="días">dias</span></span></td>
+              <td class="td-muted"><span data-pt="2 anos" data-es="2 años">2 anos</span></td>
             </tr>
             <tr>
               <td><span style="font-weight:600;">Camila Fernandes Rocha</span></td>
-              <td><span style="font-weight:500;">Especialista em CX</span><br><span class="td-muted">Comercial</span></td>
-              <td class="td-muted">Liderança Inclusiva 2025</td>
+              <td><span style="font-weight:500;"><span data-pt="Especialista em CX" data-es="Especialista en CX">Especialista em CX</span></span><br><span class="td-muted">Comercial</span></td>
+              <td class="td-muted"><span data-pt="Liderança Inclusiva 2025" data-es="Liderazgo Inclusivo 2025">Liderança Inclusiva 2025</span></td>
               <td><span class="skill-progress">6/6 <span class="skill-progress-bar"><span class="skill-progress-fill" style="width:100%;"></span></span></span></td>
-              <td><span class="badge badge-skill-up">Skill internalizada</span></td>
-              <td><span style="font-weight:700;">22</span> <span class="td-muted">dias</span></td>
-              <td class="td-muted">6 anos</td>
+              <td><span class="badge badge-skill-up"><span data-pt="Skill internalizada" data-es="Habilidad internalizada">Skill internalizada</span></span></td>
+              <td><span style="font-weight:700;">22</span> <span class="td-muted"><span data-pt="dias" data-es="días">dias</span></span></td>
+              <td class="td-muted"><span data-pt="6 anos" data-es="6 años">6 anos</span></td>
             </tr>
             <tr>
               <td><span style="font-weight:600;">Diogo Antunes Lima</span></td>
-              <td><span style="font-weight:500;">Coordenador Financeiro</span><br><span class="td-muted">Finanças</span></td>
-              <td class="td-muted">LGPD para Áreas de Negócio</td>
+              <td><span style="font-weight:500;"><span data-pt="Coordenador Financeiro" data-es="Coordinador Financiero">Coordenador Financeiro</span></span><br><span class="td-muted"><span data-pt="Finanças" data-es="Finanzas">Finanças</span></span></td>
+              <td class="td-muted"><span data-pt="LGPD para Áreas de Negócio" data-es="LGPD para Áreas de Negocio">LGPD para Áreas de Negócio</span></td>
               <td><span class="skill-progress">3/4 <span class="skill-progress-bar"><span class="skill-progress-fill" style="width:75%;"></span></span></span></td>
-              <td><span class="badge badge-skill-up">Skill internalizada</span></td>
-              <td><span style="font-weight:700;">54</span> <span class="td-muted">dias</span></td>
-              <td class="td-muted">3 anos</td>
+              <td><span class="badge badge-skill-up"><span data-pt="Skill internalizada" data-es="Habilidad internalizada">Skill internalizada</span></span></td>
+              <td><span style="font-weight:700;">54</span> <span class="td-muted"><span data-pt="dias" data-es="días">dias</span></span></td>
+              <td class="td-muted"><span data-pt="3 anos" data-es="3 años">3 anos</span></td>
             </tr>
             <tr>
               <td><span style="font-weight:600;">Elaine Pereira Santos</span></td>
-              <td><span style="font-weight:500;">Engenheira de Processos</span><br><span class="td-muted">Operações</span></td>
-              <td class="td-muted">Excelência Operacional</td>
+              <td><span style="font-weight:500;"><span data-pt="Engenheira de Processos" data-es="Ingeniera de Procesos">Engenheira de Processos</span></span><br><span class="td-muted"><span data-pt="Operações" data-es="Operaciones">Operações</span></span></td>
+              <td class="td-muted"><span data-pt="Excelência Operacional" data-es="Excelencia Operacional">Excelência Operacional</span></td>
               <td><span class="skill-progress">2/5 <span class="skill-progress-bar"><span class="skill-progress-fill" style="width:40%;"></span></span></span></td>
-              <td><span class="badge badge-none">Sem impacto ainda</span></td>
+              <td><span class="badge badge-none"><span data-pt="Sem impacto ainda" data-es="Sin impacto todavía">Sem impacto ainda</span></span></td>
               <td class="td-muted">—</td>
               <td class="td-muted">8 meses</td>
             </tr>
             <tr>
               <td><span style="font-weight:600;">Felipe Ramos Oliveira</span></td>
-              <td><span style="font-weight:500;">Tech Lead</span><br><span class="td-muted">Tecnologia</span></td>
-              <td class="td-muted">Liderança Inclusiva 2025</td>
+              <td><span style="font-weight:500;">Tech Lead</span><br><span class="td-muted"><span data-pt="Tecnologia" data-es="Tecnología">Tecnologia</span></span></td>
+              <td class="td-muted"><span data-pt="Liderança Inclusiva 2025" data-es="Liderazgo Inclusivo 2025">Liderança Inclusiva 2025</span></td>
               <td><span class="skill-progress">5/6 <span class="skill-progress-bar"><span class="skill-progress-fill" style="width:83%;"></span></span></span></td>
-              <td><span class="badge badge-promo-int">Promoção interna</span></td>
-              <td><span style="font-weight:700;">29</span> <span class="td-muted">dias</span></td>
-              <td class="td-muted">5 anos</td>
+              <td><span class="badge badge-promo-int"><span data-pt="Promoção interna" data-es="Promoción interna">Promoção interna</span></span></td>
+              <td><span style="font-weight:700;">29</span> <span class="td-muted"><span data-pt="dias" data-es="días">dias</span></span></td>
+              <td class="td-muted"><span data-pt="5 anos" data-es="5 años">5 anos</span></td>
             </tr>
             <tr>
               <td><span style="font-weight:600;">Gabriela Mendes Souza</span></td>
-              <td><span style="font-weight:500;">Analista Sênior de RH</span><br><span class="td-muted">Pessoas & Cultura</span></td>
-              <td class="td-muted">Liderança Inclusiva 2025</td>
+              <td><span style="font-weight:500;"><span data-pt="Analista Sênior de RH" data-es="Analista Sénior de RR.HH.">Analista Sênior de RH</span></span><br><span class="td-muted"><span data-pt="Pessoas &amp; Cultura" data-es="Personas &amp; Cultura">Pessoas & Cultura</span></span></td>
+              <td class="td-muted"><span data-pt="Liderança Inclusiva 2025" data-es="Liderazgo Inclusivo 2025">Liderança Inclusiva 2025</span></td>
               <td><span class="skill-progress">4/6 <span class="skill-progress-bar"><span class="skill-progress-fill" style="width:67%;"></span></span></span></td>
-              <td><span class="badge badge-mov-lat">Movimento lateral</span></td>
-              <td><span style="font-weight:700;">47</span> <span class="td-muted">dias</span></td>
-              <td class="td-muted">2 anos</td>
+              <td><span class="badge badge-mov-lat"><span data-pt="Movimento lateral" data-es="Movimiento lateral">Movimento lateral</span></span></td>
+              <td><span style="font-weight:700;">47</span> <span class="td-muted"><span data-pt="dias" data-es="días">dias</span></span></td>
+              <td class="td-muted"><span data-pt="2 anos" data-es="2 años">2 anos</span></td>
             </tr>
           </tbody>
         </table>
@@ -529,73 +544,73 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
   <section class="zone-section" id="zone-com">
 
     <div class="zone-header com">
-      <div class="zone-header-pill"><span class="dot green"></span> Zona de conformidade</div>
-      <h2>A empresa está em ordem, com prova auditável</h2>
-      <p>Cada credencial POK é registrada em blockchain com data de emissão, validade e prova criptográfica de integridade. Aqui acompanhamos a cobertura da população obrigada, vencimentos próximos e o status de conformidade por norma e por área.</p>
+      <div class="zone-header-pill"><span class="dot green"></span> <span data-pt="Zona de conformidade" data-es="Zona de conformidad">Zona de conformidade</span></div>
+      <h2><span data-pt="A empresa está em ordem, com prova auditável" data-es="La empresa está en orden, con prueba auditable">A empresa está em ordem, com prova auditável</span></h2>
+      <p><span data-pt="Cada credencial POK é registrada em blockchain com data de emissão, validade e prova criptográfica de integridade. Aqui acompanhamos a cobertura da população obrigada, vencimentos próximos e o status de conformidade por norma e por área." data-es="Cada credencial POK se registra en blockchain con fecha de emisión, validez y prueba criptográfica de integridad. Aquí acompañamos la cobertura de la población obligada, vencimientos próximos y el estado de conformidad por norma y por área.">Cada credencial POK é registrada em blockchain com data de emissão, validade e prova criptográfica de integridade. Aqui acompanhamos a cobertura da população obrigada, vencimentos próximos e o status de conformidade por norma e por área.</span></p>
     </div>
 
     <!-- Alert banner -->
     <div class="alert-banner">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
       <div class="alert-banner-content">
-        <div class="alert-banner-title">23 credenciais vencem nos próximos 30 dias</div>
-        <div class="alert-banner-desc">Concentradas em NR-10 (Operações) e LGPD (Comercial). Recomenda-se acionar o fluxo de reciclagem antes do vencimento para manter a cobertura acima de 90%.</div>
+        <div class="alert-banner-title"><span data-pt="23 credenciais vencem nos próximos 30 dias" data-es="23 credenciales vencen en los próximos 30 días">23 credenciais vencem nos próximos 30 dias</span></div>
+        <div class="alert-banner-desc"><span data-pt="Concentradas em NR-10 (Operações) e LGPD (Comercial). Recomenda-se acionar o fluxo de reciclagem antes do vencimento para manter a cobertura acima de 90%." data-es="Concentradas en NR-10 (Operaciones) y LGPD (Comercial). Se recomienda activar el flujo de reciclaje antes del vencimiento para mantener la cobertura por encima del 90%.">Concentradas em NR-10 (Operações) e LGPD (Comercial). Recomenda-se acionar o fluxo de reciclagem antes do vencimento para manter a cobertura acima de 90%.</span></div>
       </div>
       <button class="alert-banner-action">Ver lista →</button>
     </div>
 
     <!-- Funil de cobertura -->
-    <div class="section-label"><span class="accent green"></span> Funil de cobertura</div>
+    <div class="section-label"><span class="accent green"></span> <span data-pt="Funil de cobertura" data-es="Embudo de cobertura">Funil de cobertura</span></div>
     <div class="funnel-card">
-      <h3>Da população obrigada à conformidade vigente</h3>
-      <p>Cada etapa mostra a progressão da população obrigatória até o status de conformidade auditável e dentro do prazo de validade.</p>
+      <h3><span data-pt="Da população obrigada à conformidade vigente" data-es="De la población obligada a la conformidad vigente">Da população obrigada à conformidade vigente</span></h3>
+      <p><span data-pt="Cada etapa mostra a progressão da população obrigatória até o status de conformidade auditável e dentro do prazo de validade." data-es="Cada etapa muestra la progresión de la población obligada hasta el estado de conformidad auditable y dentro del plazo de validez.">Cada etapa mostra a progressão da população obrigatória até o status de conformidade auditável e dentro do prazo de validade.</span></p>
       <div class="funnel-steps">
-        <div class="funnel-step"><div class="funnel-bar" style="background:#0f6e56;">428</div><div class="funnel-step-label">População<br>obrigada</div><div class="funnel-step-pct">100%</div></div>
+        <div class="funnel-step"><div class="funnel-bar" style="background:#0f6e56;">428</div><div class="funnel-step-label"><span data-pt="População&lt;br&gt;obrigada" data-es="Población&lt;br&gt;obligada">População<br>obrigada</span></div><div class="funnel-step-pct">100%</div></div>
         <div class="funnel-arrow">›</div>
-        <div class="funnel-step"><div class="funnel-bar" style="background:#1D9E75;">412</div><div class="funnel-step-label">Treinamento<br>iniciado</div><div class="funnel-step-pct">96%</div></div>
+        <div class="funnel-step"><div class="funnel-bar" style="background:#1D9E75;">412</div><div class="funnel-step-label"><span data-pt="Treinamento&lt;br&gt;iniciado" data-es="Capacitación&lt;br&gt;iniciada">Treinamento<br>iniciado</span></div><div class="funnel-step-pct">96%</div></div>
         <div class="funnel-arrow">›</div>
-        <div class="funnel-step"><div class="funnel-bar" style="background:#5DCAA5;">405</div><div class="funnel-step-label">Treinamento<br>concluído</div><div class="funnel-step-pct">95%</div></div>
+        <div class="funnel-step"><div class="funnel-bar" style="background:#5DCAA5;">405</div><div class="funnel-step-label"><span data-pt="Treinamento&lt;br&gt;concluído" data-es="Capacitación&lt;br&gt;concluida">Treinamento<br>concluído</span></div><div class="funnel-step-pct">95%</div></div>
         <div class="funnel-arrow">›</div>
-        <div class="funnel-step"><div class="funnel-bar" style="background:#82D9B5;">405</div><div class="funnel-step-label">Credencial<br>emitida</div><div class="funnel-step-pct">95%</div></div>
+        <div class="funnel-step"><div class="funnel-bar" style="background:#82D9B5;">405</div><div class="funnel-step-label"><span data-pt="Credencial&lt;br&gt;emitida" data-es="Credencial&lt;br&gt;emitida">Credencial<br>emitida</span></div><div class="funnel-step-pct">95%</div></div>
         <div class="funnel-arrow">›</div>
-        <div class="funnel-step"><div class="funnel-bar" style="background:#a3e3c8;color:#0f6e56;">389</div><div class="funnel-step-label">Avaliação<br>aprovada</div><div class="funnel-step-pct">91%</div></div>
+        <div class="funnel-step"><div class="funnel-bar" style="background:#a3e3c8;color:#0f6e56;">389</div><div class="funnel-step-label"><span data-pt="Avaliação&lt;br&gt;aprovada" data-es="Evaluación&lt;br&gt;aprobada">Avaliação<br>aprovada</span></div><div class="funnel-step-pct">91%</div></div>
         <div class="funnel-arrow">›</div>
-        <div class="funnel-step"><div class="funnel-bar" style="background:#1D9E75;">402</div><div class="funnel-step-label">Vigentes<br>(no prazo)</div><div class="funnel-step-pct">94%</div></div>
+        <div class="funnel-step"><div class="funnel-bar" style="background:#1D9E75;">402</div><div class="funnel-step-label"><span data-pt="Vigentes&lt;br&gt;(no prazo)" data-es="Vigentes&lt;br&gt;(en plazo)">Vigentes<br>(no prazo)</span></div><div class="funnel-step-pct">94%</div></div>
       </div>
     </div>
 
     <!-- KPIs compliance -->
-    <div class="section-label"><span class="accent green"></span> Métricas-chave de conformidade</div>
+    <div class="section-label"><span class="accent green"></span> <span data-pt="Métricas-chave de conformidade" data-es="Métricas clave de conformidad">Métricas-chave de conformidade</span></div>
     <div class="kpi-grid">
       <div class="kpi-card highlight-com">
         <div class="kpi-value green">94%</div>
-        <div class="kpi-label">Cobertura na população obrigada</div>
-        <button class="info-btn" data-tip="% de colaboradores obrigados pela norma que possuem credencial vigente.">i</button>
+        <div class="kpi-label"><span data-pt="Cobertura na população obrigada" data-es="Cobertura en la población obligada">Cobertura na população obrigada</span></div>
+        <button class="info-btn" data-tip="% de colaboradores obrigados pela norma que possuem credencial vigente." data-tip-pt="% de colaboradores obrigados pela norma que possuem credencial vigente." data-tip-es="% de colaboradores obligados por la norma que poseen credencial vigente.">i</button>
       </div>
       <div class="kpi-card highlight-com">
         <div class="kpi-value green">23</div>
-        <div class="kpi-label">Credenciais a vencer (30 dias)</div>
-        <button class="info-btn" data-tip="Número de credenciais vigentes hoje cuja validade expira nos próximos 30 dias.">i</button>
+        <div class="kpi-label"><span data-pt="Credenciais a vencer (30 dias)" data-es="Credenciales por vencer (30 días)">Credenciais a vencer (30 dias)</span></div>
+        <button class="info-btn" data-tip="Número de credenciais vigentes hoje cuja validade expira nos próximos 30 dias." data-tip-pt="Número de credenciais vigentes hoje cuja validade expira nos próximos 30 dias." data-tip-es="Número de credenciales vigentes hoy cuya validez expira en los próximos 30 días.">i</button>
       </div>
       <div class="kpi-card highlight-com">
-        <div class="kpi-value green">8 dias</div>
-        <div class="kpi-label">Tempo médio de remediação</div>
-        <button class="info-btn" data-tip="Tempo médio entre a detecção de não-conformidade e o retorno ao status conforme.">i</button>
+        <div class="kpi-value green"><span data-pt="8 dias" data-es="8 días">8 dias</span></div>
+        <div class="kpi-label"><span data-pt="Tempo médio de remediação" data-es="Tiempo medio de remediación">Tempo médio de remediação</span></div>
+        <button class="info-btn" data-tip="Tempo médio entre a detecção de não-conformidade e o retorno ao status conforme." data-tip-pt="Tempo médio entre a detecção de não-conformidade e o retorno ao status conforme." data-tip-es="Tiempo medio entre la detección de no-conformidad y el retorno al estado conforme.">i</button>
       </div>
       <div class="kpi-card highlight-com">
         <div class="kpi-value green">100%</div>
-        <div class="kpi-label">Auditabilidade blockchain</div>
-        <button class="info-btn" data-tip="% de credenciais com prova de integridade verificável em blockchain. Crítico para auditorias regulatórias.">i</button>
+        <div class="kpi-label"><span data-pt="Auditabilidade blockchain" data-es="Auditabilidad blockchain">Auditabilidade blockchain</span></div>
+        <button class="info-btn" data-tip="% de credenciais com prova de integridade verificável em blockchain. Crítico para auditorias regulatórias." data-tip-pt="% de credenciais com prova de integridade verificável em blockchain. Crítico para auditorias regulatórias." data-tip-es="% de credenciales con prueba de integridad verificable en blockchain. Crítico para auditorías regulatorias.">i</button>
       </div>
     </div>
 
     <!-- Cobertura no tempo -->
-    <div class="section-label"><span class="accent green"></span> Cobertura ao longo do tempo</div>
+    <div class="section-label"><span class="accent green"></span> <span data-pt="Cobertura ao longo do tempo" data-es="Cobertura a lo largo del tiempo">Cobertura ao longo do tempo</span></div>
     <div class="chart-card">
       <div class="chart-card-header">
         <div>
           <h3>Histórico de cobertura por norma</h3>
-          <p>Evolução da % de cobertura da população obrigada nos últimos 12 meses, com marcos de auditoria e linha-limiar mínima exigida (90%).</p>
+          <p><span data-pt="Evolução da % de cobertura da população obrigada nos últimos 12 meses, com marcos de auditoria e linha-limiar mínima exigida (90%)." data-es="Evolución del % de cobertura de la población obligada en los últimos 12 meses, con hitos de auditoría y línea-umbral mínima exigida (90%).">Evolução da % de cobertura da população obrigada nos últimos 12 meses, com marcos de auditoria e linha-limiar mínima exigida (90%).</span></p>
         </div>
       </div>
       <div style="position:relative; width:100%; height:280px;">
@@ -605,21 +620,21 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
         <span style="display:inline-flex; align-items:center; gap:6px;"><span style="width:14px; height:2px; background:var(--green); border-radius:1px;"></span> NR-10</span>
         <span style="display:inline-flex; align-items:center; gap:6px;"><span style="width:14px; height:2px; background:var(--purple); border-radius:1px;"></span> LGPD</span>
         <span style="display:inline-flex; align-items:center; gap:6px;"><span style="width:14px; height:2px; background:var(--gold); border-radius:1px;"></span> Antissuborno</span>
-        <span style="display:inline-flex; align-items:center; gap:6px;"><span style="width:18px; height:0; border-top:2px dashed var(--red); display:inline-block;"></span> Limiar mínimo (90%)</span>
+        <span style="display:inline-flex; align-items:center; gap:6px;"><span style="width:18px; height:0; border-top:2px dashed var(--red); display:inline-block;"></span> <span data-pt="Limiar mínimo (90%)" data-es="Umbral mínimo (90%)">Limiar mínimo (90%)</span></span>
       </div>
     </div>
 
     <!-- Tabela de status -->
-    <div class="section-label"><span class="accent green"></span> Status por colaborador</div>
+    <div class="section-label"><span class="accent green"></span> <span data-pt="Status por colaborador" data-es="Estado por colaborador">Status por colaborador</span></div>
     <div class="table-card">
       <div class="table-toolbar com">
-        <input type="text" placeholder="Buscar colaborador, norma ou área..." />
+        <input type="text" placeholder="Buscar colaborador, norma ou área..." data-ph-pt="Buscar colaborador, norma ou área..." data-ph-es="Buscar colaborador, norma o área..." />
         <select>
-          <option value="">Todos os status</option>
-          <option>Conforme</option>
-          <option>Vence em breve</option>
-          <option>Vencido</option>
-          <option>Pendente</option>
+          <option value="" data-opt-pt="Todos os status" data-opt-es="Todos los estados">Todos os status</option>
+          <option data-opt-pt="Conforme" data-opt-es="Conforme">Conforme</option>
+          <option data-opt-pt="Vence em breve" data-opt-es="Vence pronto">Vence em breve</option>
+          <option data-opt-pt="Vencido" data-opt-es="Vencido">Vencido</option>
+          <option data-opt-pt="Pendente" data-opt-es="Pendiente">Pendente</option>
         </select>
       </div>
       <div style="overflow-x:auto;">
@@ -628,68 +643,68 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
             <tr>
               <th><div class="th-inner">Colaborador</div></th>
               <th><div class="th-inner">Cargo · Área</div></th>
-              <th><div class="th-inner">Norma / Treinamento <button class="info-btn" data-tip="Norma regulatória ou treinamento obrigatório.">i</button></div></th>
-              <th><div class="th-inner">Status <button class="info-btn" data-tip="Conforme: credencial vigente. Vence em breve: vencimento em até 30 dias. Vencido: fora do prazo. Pendente: nunca emitiu.">i</button></div></th>
-              <th><div class="th-inner">Validade</div></th>
-              <th><div class="th-inner">Ação requerida</div></th>
+              <th><div class="th-inner"><span data-pt="Norma / Treinamento" data-es="Norma / Capacitación">Norma / Treinamento</span> <button class="info-btn" data-tip="Norma regulatória ou treinamento obrigatório." data-tip-pt="Norma regulatória ou treinamento obrigatório." data-tip-es="Norma regulatoria o capacitación obligatoria.">i</button></div></th>
+              <th><div class="th-inner"><span data-pt="Status" data-es="Estado">Status</span> <button class="info-btn" data-tip="Conforme: credencial vigente. Vence em breve: vencimento em até 30 dias. Vencido: fora do prazo. Pendente: nunca emitiu." data-tip-pt="Conforme: credencial vigente. Vence em breve: vencimento em até 30 dias. Vencido: fora do prazo. Pendente: nunca emitiu." data-tip-es="Conforme: credencial vigente. Vence pronto: vencimiento en hasta 30 días. Vencido: fuera de plazo. Pendiente: nunca emitida.">i</button></div></th>
+              <th><div class="th-inner"><span data-pt="Validade" data-es="Validez">Validade</span></div></th>
+              <th><div class="th-inner"><span data-pt="Ação requerida" data-es="Acción requerida">Ação requerida</span></div></th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td><span style="font-weight:600;">Ana Beatriz Costa</span></td>
-              <td><span style="font-weight:500;">Gerente de Operações</span><br><span class="td-muted">Operações</span></td>
-              <td class="td-muted">NR-10 — Reciclagem</td>
+              <td><span style="font-weight:500;"><span data-pt="Gerente de Operações" data-es="Gerente de Operaciones">Gerente de Operações</span></span><br><span class="td-muted"><span data-pt="Operações" data-es="Operaciones">Operações</span></span></td>
+              <td class="td-muted"><span data-pt="NR-10 — Reciclagem" data-es="NR-10 — Reciclaje">NR-10 — Reciclagem</span></td>
               <td><span class="badge badge-conforme">Conforme</span></td>
               <td class="td-muted">15/03/2027</td>
               <td class="td-muted">—</td>
             </tr>
             <tr>
               <td><span style="font-weight:600;">Bruno Henrique Silva</span></td>
-              <td><span style="font-weight:500;">Analista Pleno de Dados</span><br><span class="td-muted">Tecnologia</span></td>
-              <td class="td-muted">LGPD para Áreas de Negócio</td>
-              <td><span class="badge badge-vence">Vence em 18 dias</span></td>
+              <td><span style="font-weight:500;"><span data-pt="Analista Pleno de Dados" data-es="Analista Semi-Sénior de Datos">Analista Pleno de Dados</span></span><br><span class="td-muted"><span data-pt="Tecnologia" data-es="Tecnología">Tecnologia</span></span></td>
+              <td class="td-muted"><span data-pt="LGPD para Áreas de Negócio" data-es="LGPD para Áreas de Negocio">LGPD para Áreas de Negócio</span></td>
+              <td><span class="badge badge-vence"><span data-pt="Vence em 18 dias" data-es="Vence en 18 días">Vence em 18 dias</span></span></td>
               <td class="td-muted">17/05/2026</td>
-              <td><span style="font-weight:600; color:var(--amber);">Reciclagem agendada</span></td>
+              <td><span style="font-weight:600; color:var(--amber);"><span data-pt="Reciclagem agendada" data-es="Reciclaje agendado">Reciclagem agendada</span></span></td>
             </tr>
             <tr>
               <td><span style="font-weight:600;">Camila Fernandes Rocha</span></td>
-              <td><span style="font-weight:500;">Especialista em CX</span><br><span class="td-muted">Comercial</span></td>
-              <td class="td-muted">Compliance Antissuborno</td>
+              <td><span style="font-weight:500;"><span data-pt="Especialista em CX" data-es="Especialista en CX">Especialista em CX</span></span><br><span class="td-muted">Comercial</span></td>
+              <td class="td-muted"><span data-pt="Compliance Antissuborno" data-es="Cumplimiento Antisoborno">Compliance Antissuborno</span></td>
               <td><span class="badge badge-conforme">Conforme</span></td>
               <td class="td-muted">22/11/2026</td>
               <td class="td-muted">—</td>
             </tr>
             <tr>
               <td><span style="font-weight:600;">Diogo Antunes Lima</span></td>
-              <td><span style="font-weight:500;">Coordenador Financeiro</span><br><span class="td-muted">Finanças</span></td>
-              <td class="td-muted">LGPD para Áreas de Negócio</td>
+              <td><span style="font-weight:500;"><span data-pt="Coordenador Financeiro" data-es="Coordinador Financiero">Coordenador Financeiro</span></span><br><span class="td-muted"><span data-pt="Finanças" data-es="Finanzas">Finanças</span></span></td>
+              <td class="td-muted"><span data-pt="LGPD para Áreas de Negócio" data-es="LGPD para Áreas de Negocio">LGPD para Áreas de Negócio</span></td>
               <td><span class="badge badge-conforme">Conforme</span></td>
               <td class="td-muted">08/02/2027</td>
               <td class="td-muted">—</td>
             </tr>
             <tr>
               <td><span style="font-weight:600;">Eduardo Vasconcelos</span></td>
-              <td><span style="font-weight:500;">Eletricista de Manutenção</span><br><span class="td-muted">Operações</span></td>
-              <td class="td-muted">NR-10 — Reciclagem</td>
-              <td><span class="badge badge-vencido">Vencido há 12 dias</span></td>
+              <td><span style="font-weight:500;"><span data-pt="Eletricista de Manutenção" data-es="Electricista de Mantenimiento">Eletricista de Manutenção</span></span><br><span class="td-muted"><span data-pt="Operações" data-es="Operaciones">Operações</span></span></td>
+              <td class="td-muted"><span data-pt="NR-10 — Reciclagem" data-es="NR-10 — Reciclaje">NR-10 — Reciclagem</span></td>
+              <td><span class="badge badge-vencido"><span data-pt="Vencido há 12 dias" data-es="Vencido hace 12 días">Vencido há 12 dias</span></span></td>
               <td class="td-muted">17/04/2026</td>
-              <td><span style="font-weight:600; color:var(--red);">Bloqueio operacional</span></td>
+              <td><span style="font-weight:600; color:var(--red);"><span data-pt="Bloqueio operacional" data-es="Bloqueo operacional">Bloqueio operacional</span></span></td>
             </tr>
             <tr>
               <td><span style="font-weight:600;">Fernanda Toledo</span></td>
               <td><span style="font-weight:500;">Gerente Comercial</span><br><span class="td-muted">Comercial</span></td>
-              <td class="td-muted">Compliance Antissuborno</td>
-              <td><span class="badge badge-vence">Vence em 26 dias</span></td>
+              <td class="td-muted"><span data-pt="Compliance Antissuborno" data-es="Cumplimiento Antisoborno">Compliance Antissuborno</span></td>
+              <td><span class="badge badge-vence"><span data-pt="Vence em 26 dias" data-es="Vence en 26 días">Vence em 26 dias</span></span></td>
               <td class="td-muted">25/05/2026</td>
-              <td><span style="font-weight:600; color:var(--amber);">Notificar gestor</span></td>
+              <td><span style="font-weight:600; color:var(--amber);"><span data-pt="Notificar gestor" data-es="Notificar al gestor">Notificar gestor</span></span></td>
             </tr>
             <tr>
               <td><span style="font-weight:600;">Gustavo Pires Almeida</span></td>
-              <td><span style="font-weight:500;">Trainee de Operações</span><br><span class="td-muted">Operações</span></td>
+              <td><span style="font-weight:500;"><span data-pt="Trainee de Operações" data-es="Trainee de Operaciones">Trainee de Operações</span></span><br><span class="td-muted"><span data-pt="Operações" data-es="Operaciones">Operações</span></span></td>
               <td class="td-muted">NR-10 — Inicial</td>
-              <td><span class="badge badge-pendente">Pendente</span></td>
+              <td><span class="badge badge-pendente"><span data-pt="Pendente" data-es="Pendiente">Pendente</span></span></td>
               <td class="td-muted">—</td>
-              <td><span style="font-weight:600; color:var(--ink-muted);">Inscrever na próxima turma</span></td>
+              <td><span style="font-weight:600; color:var(--ink-muted);"><span data-pt="Inscrever na próxima turma" data-es="Inscribir en el próximo grupo">Inscrever na próxima turma</span></span></td>
             </tr>
           </tbody>
         </table>
@@ -703,17 +718,17 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
         <thead>
           <tr>
             <th>Área</th>
-            <th>População obrigada</th>
+            <th><span data-pt="População obrigada" data-es="Población obligada">População obrigada</span></th>
             <th>Conformes</th>
-            <th>A vencer (30d)</th>
+            <th><span data-pt="A vencer (30d)" data-es="Por vencer (30d)">A vencer (30d)</span></th>
             <th>Vencidos</th>
-            <th>Pendentes</th>
-            <th>Status</th>
+            <th><span data-pt="Pendentes" data-es="Pendientes">Pendentes</span></th>
+            <th><span data-pt="Status" data-es="Estado">Status</span></th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><span style="font-weight:600;">Operações</span></td>
+            <td><span style="font-weight:600;"><span data-pt="Operações" data-es="Operaciones">Operações</span></span></td>
             <td class="td-muted">186</td>
             <td><span style="font-weight:700; color:var(--green-dark);">168</span></td>
             <td><span style="font-weight:700; color:var(--amber);">11</span></td>
@@ -731,7 +746,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
             <td><span class="cov-cell"><span class="cov-dot green"></span> 98%</span></td>
           </tr>
           <tr>
-            <td><span style="font-weight:600;">Tecnologia</span></td>
+            <td><span style="font-weight:600;"><span data-pt="Tecnologia" data-es="Tecnología">Tecnologia</span></span></td>
             <td class="td-muted">78</td>
             <td><span style="font-weight:700; color:var(--green-dark);">76</span></td>
             <td><span style="font-weight:700; color:var(--amber);">3</span></td>
@@ -740,7 +755,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
             <td><span class="cov-cell"><span class="cov-dot green"></span> 97%</span></td>
           </tr>
           <tr>
-            <td><span style="font-weight:600;">Finanças</span></td>
+            <td><span style="font-weight:600;"><span data-pt="Finanças" data-es="Finanzas">Finanças</span></span></td>
             <td class="td-muted">42</td>
             <td><span style="font-weight:700; color:var(--green-dark);">42</span></td>
             <td><span style="font-weight:700; color:var(--amber);">2</span></td>
@@ -749,7 +764,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
             <td><span class="cov-cell"><span class="cov-dot green"></span> 100%</span></td>
           </tr>
           <tr>
-            <td><span style="font-weight:600;">Pessoas & Cultura</span></td>
+            <td><span style="font-weight:600;"><span data-pt="Pessoas &amp; Cultura" data-es="Personas &amp; Cultura">Pessoas & Cultura</span></span></td>
             <td class="td-muted">30</td>
             <td><span style="font-weight:700; color:var(--green-dark);">26</span></td>
             <td><span style="font-weight:700; color:var(--amber);">0</span></td>
@@ -1055,5 +1070,28 @@ document.addEventListener('mouseout', (e) => {
 // initial render — gráficos inicializam ao trocar de aba via setZone()
 // (a aba inicial é "overview", que não tem gráficos)
 </script>
+
+<script>
+let currentLang = 'pt';
+function setLang(lang) {
+  if (lang === currentLang) return;
+  currentLang = lang;
+  document.documentElement.lang = (lang === 'pt') ? 'pt-BR' : 'es';
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+  document.querySelectorAll('[data-pt][data-es]').forEach(el => {
+    el.innerHTML = (lang === 'pt') ? el.dataset.pt : el.dataset.es;
+  });
+  document.querySelectorAll('[data-tip-pt][data-tip-es]').forEach(el => {
+    el.setAttribute('data-tip', (lang === 'pt') ? el.dataset.tipPt : el.dataset.tipEs);
+  });
+  document.querySelectorAll('[data-ph-pt][data-ph-es]').forEach(el => {
+    el.setAttribute('placeholder', (lang === 'pt') ? el.dataset.phPt : el.dataset.phEs);
+  });
+  document.querySelectorAll('option[data-opt-pt][data-opt-es]').forEach(el => {
+    el.textContent = (lang === 'pt') ? el.dataset.optPt : el.dataset.optEs;
+  });
+}
+</script>
+
 </body>
 </html>
