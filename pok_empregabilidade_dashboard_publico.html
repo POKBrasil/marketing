@@ -144,13 +144,37 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
 
 @media (max-width: 900px) {
   .hero { padding: 36px 24px 28px; }
-  .filters-bar { padding: 12px 24px; }
+  .filters-bar { padding: 12px 24px; flex-wrap: wrap; gap: 8px; }
   .content { padding: 28px 16px 48px; }
   .kpi-grid { grid-template-columns: 1fr 1fr; }
   .cal-months { grid-template-columns: 1fr; }
   .cal-box { min-width: unset; }
+  .funnel-steps { overflow-x: auto; padding-bottom: 8px; -webkit-overflow-scrolling: touch; }
 }
-@media (max-width: 600px) { .kpi-grid { grid-template-columns: 1fr; } }
+
+@media (max-width: 600px) {
+  .hero { padding: 28px 16px 24px; }
+  .hero-title { font-size: 28px; }
+  .hero-subtitle { font-size: 12px; }
+  .filters-bar { padding: 10px 16px; flex-direction: column; align-items: stretch; gap: 8px; }
+  .filter-select { width: 100%; }
+  .date-btn { width: 100%; justify-content: flex-start; }
+  #lang-toggle { position: fixed; top: 12px; right: 12px; z-index: 999; }
+  .kpi-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .kpi-card { padding: 16px; }
+  .kpi-value { font-size: 28px; }
+  .funnel-card { padding: 20px 16px; }
+  .funnel-steps { display: flex; flex-direction: row; overflow-x: auto; gap: 6px; padding-bottom: 12px; -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory; }
+  .funnel-step { scroll-snap-align: start; min-width: 90px; flex-shrink: 0; }
+  .funnel-box { width: 72px; height: 72px; font-size: 22px; }
+  .funnel-arrow { font-size: 12px; margin: 0 2px; }
+  .chart-card { padding: 20px 16px; }
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .table-toolbar { flex-wrap: wrap; gap: 8px; }
+  .section-label { padding: 0 16px; }
+  .content { padding: 20px 12px 48px; }
+  .drawer { width: 100vw; }
+}
 /* ─── DRAWER ─────────────────────────────────────────────────────────────── */
 .drawer-overlay { position: fixed; inset: 0; z-index: 300; background: rgba(30,18,48,0.45); opacity: 0; pointer-events: none; transition: opacity 0.25s; }
 .drawer-overlay.open { opacity: 1; pointer-events: all; }

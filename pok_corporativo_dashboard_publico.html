@@ -85,6 +85,7 @@ body { font-family: 'Poppins', sans-serif; background: var(--purple-faint); colo
 /* OVERVIEW KPIs (zone 0) */
 .overview-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-bottom: 32px; }
 .overview-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 22px 24px; position: relative; overflow: hidden; }
+.overview-card .info-btn.overview-info { position: absolute; top: 14px; right: 14px; z-index: 2; }
 .overview-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; }
 .overview-card.dev::before { background: var(--gold); }
 .overview-card.com::before { background: var(--green); }
@@ -110,6 +111,7 @@ body { font-family: 'Poppins', sans-serif; background: var(--purple-faint); colo
 
 /* KPIs */
 .kpi-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-bottom: 24px; }
+.kpi-grid.kpi-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .kpi-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 20px 22px; position: relative; }
 .kpi-card.highlight-dev { border-left: 4px solid var(--gold); }
 .kpi-card.highlight-com { border-left: 4px solid var(--green); }
@@ -220,7 +222,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
 .vision-card-dev .vision-card-pill-dot { background: var(--gold); }
 .vision-card-com .vision-card-pill-dot { background: var(--green); }
 .vision-card-title { font-size: 18px; font-weight: 800; color: var(--ink); line-height: 1.3; letter-spacing: -0.01em; margin-bottom: 12px; }
-.vision-card-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.55; margin-bottom: 18px; }
+.vision-card-desc { font-size: 13px; color: var(--ink); line-height: 1.55; margin-bottom: 18px; }
 .vision-card-list { list-style: none; padding: 0; margin: 0 0 18px 0; }
 .vision-card-list li { font-size: 12px; color: var(--ink); padding: 7px 0 7px 22px; position: relative; line-height: 1.4; border-top: 1px solid var(--purple-faint); }
 .vision-card-list li:first-child { border-top: 1px solid var(--border); }
@@ -431,23 +433,27 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
     <div class="overview-grid">
       <div class="overview-card dev">
         <div class="overview-card-label"><span class="dot gold"></span> <span data-pt="Desenvolvimento" data-es="Desarrollo">Desenvolvimento</span></div>
-        <div class="overview-card-value">68%</div>
+        <div class="overview-card-value">54%</div>
         <div class="overview-card-sub"><span data-pt="internalizaram habilidades do programa" data-es="internalizaron habilidades del programa">internalizaram habilidades do programa</span></div>
+        <button class="info-btn overview-info" data-tip="Entre os portadores que compartilharam a credencial no LinkedIn, % que adicionou ao perfil pelo menos uma das habilidades declaradas pelo programa POK." data-tip-pt="Entre os portadores que compartilharam a credencial no LinkedIn, % que adicionou ao perfil pelo menos uma das habilidades declaradas pelo programa POK." data-tip-es="Entre los portadores que compartieron la credencial en LinkedIn, % que añadió al perfil al menos una de las habilidades declaradas por el programa POK.">i</button>
       </div>
       <div class="overview-card dev">
         <div class="overview-card-label"><span class="dot gold"></span> <span data-pt="Mobilidade" data-es="Movilidad">Mobilidade</span></div>
-        <div class="overview-card-value">47</div>
-        <div class="overview-card-sub"><span data-pt="movimentos internos pós-credencial" data-es="movimientos internos post-credencial">movimentos internos pós-credencial</span></div>
+        <div class="overview-card-value">38</div>
+        <div class="overview-card-sub"><span data-pt="eventos de mobilidade interna" data-es="eventos de movilidad interna">eventos de mobilidade interna</span></div>
+        <button class="info-btn overview-info" data-tip="Quantas mudanças de cargo dentro da mesma empresa foram registradas no LinkedIn dos colaboradores compartilhadores. O mesmo colaborador pode contribuir com mais de um evento." data-tip-pt="Quantas mudanças de cargo dentro da mesma empresa foram registradas no LinkedIn dos colaboradores compartilhadores. O mesmo colaborador pode contribuir com mais de um evento." data-tip-es="Cuántos cambios de cargo dentro de la misma empresa fueron registrados en LinkedIn de los colaboradores que compartieron. El mismo colaborador puede contribuir con más de un evento.">i</button>
       </div>
       <div class="overview-card com">
         <div class="overview-card-label"><span class="dot green"></span> <span data-pt="Credenciais ativas" data-es="Credenciales activas">Credenciais ativas</span></div>
         <div class="overview-card-value">382</div>
         <div class="overview-card-sub"><span data-pt="credenciais vigentes em blockchain" data-es="credenciales vigentes en blockchain">credenciais vigentes em blockchain</span></div>
+        <button class="info-btn overview-info" data-tip="Total de credenciais POK do programa corporativo dentro do prazo de validade." data-tip-pt="Total de credenciais POK do programa corporativo dentro do prazo de validade." data-tip-es="Total de credenciales POK del programa corporativo dentro del plazo de validez.">i</button>
       </div>
       <div class="overview-card com">
         <div class="overview-card-label"><span class="dot green"></span> <span data-pt="Retenção" data-es="Retención">Retenção</span></div>
         <div class="overview-card-value">91%</div>
         <div class="overview-card-sub"><span data-pt="12 meses pós-credencial" data-es="12 meses post-credencial">12 meses pós-credencial</span></div>
+        <button class="info-btn overview-info" data-tip="% de colaboradores que continuam na mesma empresa 12 meses após compartilharem a credencial no LinkedIn." data-tip-pt="% de colaboradores que continuam na mesma empresa 12 meses após compartilharem a credencial no LinkedIn." data-tip-es="% de colaboradores que continúan en la misma empresa 12 meses después de compartir la credencial en LinkedIn.">i</button>
       </div>
     </div>
 
@@ -462,7 +468,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
         <h3 class="vision-card-title"><span data-pt="Quem está crescendo, em que ritmo, com qual evidência" data-es="Quién está creciendo, a qué ritmo, con qué evidencia">Quem está crescendo, em que ritmo, com qual evidência</span></h3>
         <p class="vision-card-desc"><span data-pt="A partir do compartilhamento da credencial no LinkedIn, acompanha a internalização das habilidades ensinadas, mobilidade interna detectada via mudança de cargo dentro da mesma empresa, e retenção dos talentos certificados." data-es="A partir del compartir de la credencial en LinkedIn, acompaña la internalización de las habilidades enseñadas, movilidad interna detectada vía cambio de cargo dentro de la misma empresa, y retención de los talentos certificados.">A partir do compartilhamento da credencial no LinkedIn, acompanha a internalização das habilidades ensinadas, mobilidade interna detectada via mudança de cargo dentro da mesma empresa, e retenção dos talentos certificados.</span></p>
         <ul class="vision-card-list">
-          <li><span data-pt="Funil de desenvolvimento em 6 etapas" data-es="Embudo de desarrollo en 6 etapas">Funil de desenvolvimento em 6 etapas</span></li>
+          <li><span data-pt="Funil completo: da credencial à evidência de desenvolvimento" data-es="Embudo completo: de la credencial a la evidencia de desarrollo">Funil completo: da credencial à evidência de desenvolvimento</span></li>
           <li><span data-pt="Taxa de internalização de habilidades" data-es="Tasa de internalización de habilidades">Taxa de internalização de habilidades</span></li>
           <li><span data-pt="Mobilidade interna e retenção pós-credencial" data-es="Movilidad interna y retención post-credencial">Mobilidade interna e retenção pós-credencial</span></li>
           <li><span data-pt="Tabela individual de portadores" data-es="Tabla individual de portadores">Tabela individual de portadores</span></li>
@@ -481,7 +487,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
         <h3 class="vision-card-title"><span data-pt="A empresa está em ordem, com prova auditável" data-es="La empresa está en orden, con prueba auditable">A empresa está em ordem, com prova auditável</span></h3>
         <p class="vision-card-desc"><span data-pt="Monitora vencimentos próximos, garante a integridade auditável das credenciais em blockchain e mostra o ciclo de vida completo de cada certificação no programa corporativo." data-es="Monitorea vencimientos próximos, garantiza la integridad auditable de las credenciales en blockchain y muestra el ciclo de vida completo de cada certificación en el programa corporativo.">Monitora vencimentos próximos, garante a integridade auditável das credenciais em blockchain e mostra o ciclo de vida completo de cada certificação no programa corporativo.</span></p>
         <ul class="vision-card-list">
-          <li><span data-pt="Ciclo de vida da credencial em 5 etapas" data-es="Ciclo de vida de la credencial en 5 etapas">Ciclo de vida da credencial em 5 etapas</span></li>
+          <li><span data-pt="Ciclo de vida completo da credencial" data-es="Ciclo de vida completo de la credencial">Ciclo de vida completo da credencial</span></li>
           <li><span data-pt="Alertas de vencimentos próximos" data-es="Alertas de vencimientos próximos">Alertas de vencimentos próximos</span></li>
           <li><span data-pt="Linha do tempo de vencimentos por norma" data-es="Línea de tiempo de vencimientos por norma">Linha do tempo de vencimentos por norma</span></li>
           <li><span data-pt="Auditabilidade blockchain (100%)" data-es="Auditabilidad blockchain (100%)">Auditabilidade blockchain (100%)</span></li>
@@ -511,7 +517,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
     <div class="section-label"><span class="accent gold"></span> <span data-pt="Funil de desenvolvimento" data-es="Embudo de desarrollo">Funil de desenvolvimento</span></div>
     <div class="funnel-card">
       <h3><span data-pt="Da credencial à evidência de desenvolvimento" data-es="De la credencial a la evidencia de desarrollo">Da credencial à evidência de desenvolvimento</span></h3>
-      <p><span data-pt="A leitura do desenvolvimento começa quando o portador compartilha a credencial no LinkedIn — esse é o gatilho que conecta a credencial POK ao perfil profissional do colaborador. Todas as etapas seguintes são lidas do perfil público." data-es="La lectura del desarrollo comienza cuando el portador comparte la credencial en LinkedIn — ese es el detonante que conecta la credencial POK al perfil profesional del colaborador. Todas las etapas siguientes se leen del perfil público.">A leitura do desenvolvimento começa quando o portador compartilha a credencial no LinkedIn — esse é o gatilho que conecta a credencial POK ao perfil profissional do colaborador. Todas as etapas seguintes são lidas do perfil público.</span></p>
+      <p><span data-pt="Cada etapa mostra quantos portadores de certificados avançaram no processo — do compartilhamento inicial até a mudança de carreira detectada no perfil." data-es="Cada etapa muestra cuántos portadores de certificados avanzaron en el proceso — desde el compartir inicial hasta el cambio de carrera detectado en el perfil.">Cada etapa mostra quantos portadores de certificados avançaram no processo — do compartilhamento inicial até a mudança de carreira detectada no perfil.</span></p>
       <div class="funnel-steps">
         <div class="funnel-step"><div class="funnel-bar" style="background:#3a1878;">312</div><div class="funnel-step-label"><span data-pt="Credenciais&lt;br&gt;emitidas" data-es="Credenciales&lt;br&gt;emitidas">Credenciais<br>emitidas</span></div><div class="funnel-step-pct">100%</div></div>
         <div class="funnel-arrow">›</div>
@@ -521,45 +527,40 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
         <div class="funnel-arrow">›</div>
         <div class="funnel-step"><div class="funnel-bar" style="background:#C8A04C;">169</div><div class="funnel-step-label"><span data-pt="Habilidades do programa&lt;br&gt;declaradas" data-es="Habilidades del programa&lt;br&gt;declaradas">Habilidades do programa<br>declaradas</span></div><div class="funnel-step-pct">54%</div></div>
         <div class="funnel-arrow">›</div>
-        <div class="funnel-step"><div class="funnel-bar" style="background:#8C6E27;">38</div><div class="funnel-step-label"><span data-pt="Movimento&lt;br&gt;interno" data-es="Movimiento&lt;br&gt;interno">Movimento<br>interno</span></div><div class="funnel-step-pct">12%</div></div>
+        <div class="funnel-step"><div class="funnel-bar" style="background:#8C6E27;">28</div><div class="funnel-step-label"><span data-pt="Tiveram mobilidade&lt;br&gt;interna" data-es="Tuvieron movilidad&lt;br&gt;interna">Tiveram mobilidade<br>interna</span></div><div class="funnel-step-pct">9%</div></div>
         <div class="funnel-arrow">›</div>
-        <div class="funnel-step"><div class="funnel-bar" style="background:#1D9E75;">226</div><div class="funnel-step-label"><span data-pt="Retidos&lt;br&gt;(12 meses)" data-es="Retenidos&lt;br&gt;(12 meses)">Retidos<br>(12 meses)</span></div><div class="funnel-step-pct">91%</div></div>
+        <div class="funnel-step"><div class="funnel-bar" style="background:#1D9E75;">226</div><div class="funnel-step-label"><span data-pt="Continuam&lt;br&gt;na empresa" data-es="Continúan&lt;br&gt;en la empresa">Continuam<br>na empresa</span></div><div class="funnel-step-pct">91%</div></div>
       </div>
     </div>
 
     <!-- KPIs -->
     <div class="section-label"><span class="accent gold"></span> <span data-pt="Métricas-chave de desenvolvimento" data-es="Métricas clave de desarrollo">Métricas-chave de desenvolvimento</span></div>
     <p style="font-size:11px; color:var(--ink-muted); margin:-8px 0 14px 0; line-height:1.5; padding:8px 14px; background:var(--purple-faint); border-left:3px solid var(--purple-light); border-radius:4px;"><span data-pt="Métricas calculadas sobre os portadores que compartilharam a credencial no LinkedIn — único caminho pelo qual a POK conecta a credencial ao perfil profissional do colaborador." data-es="Métricas calculadas sobre los portadores que compartieron la credencial en LinkedIn — único camino por el cual POK conecta la credencial al perfil profesional del colaborador.">Métricas calculadas sobre os portadores que compartilharam a credencial no LinkedIn — único caminho pelo qual a POK conecta a credencial ao perfil profissional do colaborador.</span></p>
-    <div class="kpi-grid">
+    <div class="kpi-grid kpi-grid-3">
       <div class="kpi-card highlight-dev">
         <div class="kpi-value gold">54%</div>
         <div class="kpi-label"><span data-pt="Taxa de internalização de habilidades" data-es="Tasa de internalización de habilidades">Taxa de internalização de habilidades</span></div>
-        <button class="info-btn" data-tip="Entre os portadores que compartilharam a credencial, % que adicionou ao perfil pelo menos uma das habilidades declaradas pelo programa POK. O matching é feito por nome de habilidade entre o cadastro do programa e o campo skills[] do LinkedIn." data-tip-pt="Entre os portadores que compartilharam a credencial, % que adicionou ao perfil pelo menos uma das habilidades declaradas pelo programa POK. O matching é feito por nome de habilidade entre o cadastro do programa e o campo skills[] do LinkedIn." data-tip-es="Entre los portadores que compartieron la credencial, % que añadió al perfil al menos una de las habilidades declaradas por el programa POK. El matching se hace por nombre de habilidad entre el registro del programa y el campo skills[] de LinkedIn.">i</button>
-      </div>
-      <div class="kpi-card highlight-dev">
-        <div class="kpi-value gold"><span data-pt="42 dias" data-es="42 días">42 dias</span></div>
-        <div class="kpi-label"><span data-pt="Tempo médio até primeira evidência" data-es="Tiempo medio hasta primera evidencia">Tempo médio até primeira evidência</span></div>
-        <button class="info-btn" data-tip="Dias entre o compartilhamento da credencial e a primeira evidência de desenvolvimento detectada no perfil (habilidade declarada ou mudança de cargo). Calculado apenas para portadores compartilhadores." data-tip-pt="Dias entre o compartilhamento da credencial e a primeira evidência de desenvolvimento detectada no perfil (habilidade declarada ou mudança de cargo). Calculado apenas para portadores compartilhadores." data-tip-es="Días entre el compartir de la credencial y la primera evidencia de desarrollo detectada en el perfil (habilidad declarada o cambio de cargo). Calculado solo para portadores que compartieron.">i</button>
+        <button class="info-btn" data-tip="Entre os colaboradores que compartilharam a credencial, % que passou a listar no perfil do LinkedIn pelo menos uma das habilidades ensinadas pelo programa POK." data-tip-pt="Entre os colaboradores que compartilharam a credencial, % que passou a listar no perfil do LinkedIn pelo menos uma das habilidades ensinadas pelo programa POK." data-tip-es="Entre los colaboradores que compartieron la credencial, % que pasó a listar en el perfil de LinkedIn al menos una de las habilidades enseñadas por el programa POK.">i</button>
       </div>
       <div class="kpi-card highlight-dev">
         <div class="kpi-value gold">38</div>
-        <div class="kpi-label"><span data-pt="Movimentos internos detectados" data-es="Movimientos internos detectados">Movimentos internos detectados</span></div>
-        <button class="info-btn" data-tip="Mudanças de cargo dentro da mesma empresa (mesmo companyId, position diferente) registradas no LinkedIn após o compartilhamento da credencial. Só é possível detectar para portadores compartilhadores." data-tip-pt="Mudanças de cargo dentro da mesma empresa (mesmo companyId, position diferente) registradas no LinkedIn após o compartilhamento da credencial. Só é possível detectar para portadores compartilhadores." data-tip-es="Cambios de cargo dentro de la misma empresa (mismo companyId, position diferente) registrados en LinkedIn después del compartir de la credencial. Solo es posible detectar para portadores que compartieron.">i</button>
+        <div class="kpi-label"><span data-pt="Eventos de mobilidade interna" data-es="Eventos de movilidad interna">Eventos de mobilidade interna</span></div>
+        <button class="info-btn" data-tip="Quantas mudanças de cargo dentro da mesma empresa foram registradas no LinkedIn dos colaboradores compartilhadores. O mesmo colaborador pode contribuir com mais de um evento." data-tip-pt="Quantas mudanças de cargo dentro da mesma empresa foram registradas no LinkedIn dos colaboradores compartilhadores. O mesmo colaborador pode contribuir com mais de um evento." data-tip-es="Cuántos cambios de cargo dentro de la misma empresa fueron registrados en LinkedIn de los colaboradores que compartieron. El mismo colaborador puede contribuir con más de un evento.">i</button>
       </div>
       <div class="kpi-card highlight-dev">
         <div class="kpi-value gold">91%</div>
-        <div class="kpi-label"><span data-pt="Retenção pós-credencial (12m)" data-es="Retención post-credencial (12m)">Retenção pós-credencial (12m)</span></div>
-        <button class="info-btn" data-tip="% de portadores compartilhadores que continuam na mesma empresa 12 meses após o compartilhamento. Detectado pela permanência do mesmo companyId no LinkedIn." data-tip-pt="% de portadores compartilhadores que continuam na mesma empresa 12 meses após o compartilhamento. Detectado pela permanência do mesmo companyId no LinkedIn." data-tip-es="% de portadores que compartieron y continúan en la misma empresa 12 meses después del compartir. Detectado por la permanencia del mismo companyId en LinkedIn.">i</button>
+        <div class="kpi-label"><span data-pt="Taxa de retenção pós-credencial" data-es="Tasa de retención post-credencial">Taxa de retenção pós-credencial</span></div>
+        <button class="info-btn" data-tip="% de colaboradores que continuam na mesma empresa após o compartilhamento da credencial. Quem mudou de empresa no LinkedIn é contabilizado como saída." data-tip-pt="% de colaboradores que continuam na mesma empresa após o compartilhamento da credencial. Quem mudou de empresa no LinkedIn é contabilizado como saída." data-tip-es="% de colaboradores que continúan en la misma empresa después del compartir de la credencial. Quien cambió de empresa en LinkedIn se contabiliza como salida.">i</button>
       </div>
     </div>
 
     <!-- Chart antes/depois -->
-    <div class="section-label"><span class="accent gold"></span> <span data-pt="Evolução de skills declaradas" data-es="Evolución de habilidades declaradas">Evolução de skills declaradas</span></div>
+    <div class="section-label"><span class="accent gold"></span> <span data-pt="Trajetória de carreira após o compartilhamento" data-es="Trayectoria de carrera después del compartir">Trajetória de carreira após o compartilhamento</span></div>
     <div class="chart-card">
       <div class="chart-card-header">
         <div>
-          <h3><span data-pt="Trajetória agregada — habilidades relevantes no perfil" data-es="Trayectoria agregada — habilidades relevantes en el perfil">Trajetória agregada — habilidades relevantes no perfil</span></h3>
-          <p><span data-pt="Média de habilidades (entre as ensinadas pelo programa) declaradas no perfil do LinkedIn dos portadores compartilhadores. À esquerda do marco: leitura histórica antes do compartilhamento. À direita: evolução após o compartilhamento da credencial." data-es="Media de habilidades (entre las enseñadas por el programa) declaradas en el perfil de LinkedIn de los portadores que compartieron. A la izquierda del hito: lectura histórica antes del compartir. A la derecha: evolución después del compartir de la credencial.">Média de habilidades (entre as ensinadas pelo programa) declaradas no perfil do LinkedIn dos portadores compartilhadores. À esquerda do marco: leitura histórica antes do compartilhamento. À direita: evolução após o compartilhamento da credencial.</span></p>
+          <h3><span data-pt="Trajetória agregada — eventos acumulados" data-es="Trayectoria agregada — eventos acumulados">Trajetória agregada — eventos acumulados</span></h3>
+          <p><span data-pt="Média de eventos acumulados pelos portadores de acordo com o filtro selecionado — cada novo vínculo profissional registrado no LinkedIn (mudança de cargo na mesma empresa ou mudança de empresa) conta como um evento. À esquerda do marco: dados históricos anteriores ao compartilhamento da credencial. À direita: evolução registrada após o compartilhamento, com leituras bimestrais." data-es="Promedio de eventos acumulados por los portadores de acuerdo con el filtro seleccionado — cada nuevo vínculo profesional registrado en LinkedIn (cambio de cargo en la misma empresa o cambio de empresa) cuenta como un evento. A la izquierda del hito: datos históricos anteriores al compartir de la credencial. A la derecha: evolución registrada después del compartir, con lecturas bimestrales.">Média de eventos acumulados pelos portadores de acordo com o filtro selecionado — cada novo vínculo profissional registrado no LinkedIn (mudança de cargo na mesma empresa ou mudança de empresa) conta como um evento. À esquerda do marco: dados históricos anteriores ao compartilhamento da credencial. À direita: evolução registrada após o compartilhamento, com leituras bimestrais.</span></p>
         </div>
       </div>
       <div class="chart-zone-labels">
@@ -572,7 +573,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
       </div>
       <div style="display:flex; align-items:center; justify-content:center; gap:6px; margin-top:14px; font-size:11px; color:var(--ink-faint);">
         <div style="width:24px; height:2px; background:var(--gold); border-radius:1px;"></div>
-        <span data-pt="Média de habilidades do programa declaradas no perfil" data-es="Media de habilidades del programa declaradas en el perfil">Média de habilidades do programa declaradas no perfil</span>
+        <span data-pt="Nº médio de eventos acumulados" data-es="Nº medio de eventos acumulados">Nº médio de eventos acumulados</span>
         <div style="width:1px; height:12px; background:var(--border); margin:0 8px;"></div>
         <div style="width:2px; height:16px; background:var(--ink); border-radius:1px; opacity:0.3;"></div>
         <span data-pt="Marco do compartilhamento" data-es="Hito del compartir">Marco do compartilhamento</span>
@@ -583,91 +584,74 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
     <div class="section-label"><span class="accent gold"></span> <span data-pt="Portadores individuais" data-es="Portadores individuales">Portadores individuais</span></div>
     <div class="table-card">
       <div class="table-toolbar">
-        <input type="text" placeholder="Buscar colaborador, área ou programa..." data-ph-pt="Buscar colaborador, área ou programa..." data-ph-es="Buscar colaborador, área o programa..." />
+        <input type="text" placeholder="Buscar colaborador ou programa..." data-ph-pt="Buscar colaborador ou programa..." data-ph-es="Buscar colaborador o programa..." />
         <select>
-          <option value="" data-opt-pt="Todos os impactos" data-opt-es="Todos los impactos">Todos os impactos</option>
-          <option data-opt-pt="Promoção interna" data-opt-es="Promoción interna">Promoção interna</option>
-          <option data-opt-pt="Movimento lateral" data-opt-es="Movimiento lateral">Movimento lateral</option>
-          <option data-opt-pt="Habilidade internalizada" data-opt-es="Habilidad internalizada">Habilidade internalizada</option>
-          <option data-opt-pt="Sem impacto ainda" data-opt-es="Sin impacto todavía">Sem impacto ainda</option>
+          <option value="" data-opt-pt="Todos os eventos" data-opt-es="Todos los eventos">Todos os eventos</option>
+          <option data-opt-pt="Mobilidade interna" data-opt-es="Movilidad interna">Mobilidade interna</option>
+          <option data-opt-pt="Saída da empresa" data-opt-es="Salida de la empresa">Saída da empresa</option>
+          <option data-opt-pt="Sem evento detectado" data-opt-es="Sin evento detectado">Sem evento detectado</option>
         </select>
       </div>
       <div style="overflow-x:auto;">
         <table>
           <thead>
             <tr>
-              <th><div class="th-inner">Colaborador <button class="info-btn" data-tip="Nome do colaborador (anonimizável conforme política da empresa)." data-tip-pt="Nome do colaborador (anonimizável conforme política da empresa)." data-tip-es="Nombre del colaborador (anonimizable según política de la empresa).">i</button></div></th>
-              <th><div class="th-inner">Cargo · Área <button class="info-btn" data-tip="Cargo e área atuais, lidos do campo experience[] do LinkedIn." data-tip-pt="Cargo e área atuais, lidos do campo experience[] do LinkedIn." data-tip-es="Cargo y área actuales, leídos del campo experience[] de LinkedIn.">i</button></div></th>
-              <th><div class="th-inner">Programa <button class="info-btn" data-tip="Credencial POK recebida." data-tip-pt="Credencial POK recebida." data-tip-es="Credencial POK recibida.">i</button></div></th>
-              <th><div class="th-inner"><span data-pt="Habilidades internalizadas" data-es="Habilidades internalizadas">Habilidades internalizadas</span> <button class="info-btn" data-tip="Quantas das habilidades declaradas pelo programa POK foram adicionadas ao perfil do LinkedIn pelo colaborador. Lido a partir do compartilhamento da credencial." data-tip-pt="Quantas das habilidades declaradas pelo programa POK foram adicionadas ao perfil do LinkedIn pelo colaborador. Lido a partir do compartilhamento da credencial." data-tip-es="Cuántas de las habilidades declaradas por el programa POK fueron añadidas al perfil de LinkedIn por el colaborador. Leído a partir del compartir de la credencial.">i</button></div></th>
-              <th><div class="th-inner"><span data-pt="Movimento detectado" data-es="Movimiento detectado">Movimento detectado</span> <button class="info-btn" data-tip="Mudança de cargo dentro da mesma empresa (mesmo companyId, position diferente no LinkedIn) registrada após o compartilhamento da credencial." data-tip-pt="Mudança de cargo dentro da mesma empresa (mesmo companyId, position diferente no LinkedIn) registrada após o compartilhamento da credencial." data-tip-es="Cambio de cargo dentro de la misma empresa (mismo companyId, position diferente en LinkedIn) registrado después del compartir de la credencial.">i</button></div></th>
-              <th><div class="th-inner"><span data-pt="Tempo até evidência" data-es="Tiempo hasta evidencia">Tempo até evidência</span> <button class="info-btn" data-tip="Dias entre o compartilhamento da credencial no LinkedIn e a primeira evidência de desenvolvimento detectada (habilidade declarada ou mudança de cargo)." data-tip-pt="Dias entre o compartilhamento da credencial no LinkedIn e a primeira evidência de desenvolvimento detectada (habilidade declarada ou mudança de cargo)." data-tip-es="Días entre el compartir de la credencial en LinkedIn y la primera evidencia de desarrollo detectada (habilidad declarada o cambio de cargo).">i</button></div></th>
-              <th><div class="th-inner"><span data-pt="Tempo de casa" data-es="Antigüedad">Tempo de casa</span> <button class="info-btn" data-tip="Tempo total na empresa, calculado pelo startDate da experiência atual." data-tip-pt="Tempo total na empresa, calculado pelo startDate da experiência atual." data-tip-es="Tiempo total en la empresa, calculado por el startDate de la experiencia actual.">i</button></div></th>
+              <th><div class="th-inner"><span data-pt="Colaborador" data-es="Colaborador">Colaborador</span></div></th>
+              <th><div class="th-inner"><span data-pt="Cargo atual" data-es="Cargo actual">Cargo atual</span> <button class="info-btn" data-tip="Cargo atual do colaborador, lido do perfil do LinkedIn na última leitura bimestral." data-tip-pt="Cargo atual do colaborador, lido do perfil do LinkedIn na última leitura bimestral." data-tip-es="Cargo actual del colaborador, leído del perfil de LinkedIn en la última lectura bimestral.">i</button></div></th>
+              <th><div class="th-inner"><span data-pt="Programa" data-es="Programa">Programa</span></div></th>
+              <th><div class="th-inner"><span data-pt="Eventos detectados" data-es="Eventos detectados">Eventos detectados</span> <button class="info-btn" data-tip="Quantidade de mudanças de vínculo profissional registradas no LinkedIn desde o compartilhamento da credencial. Cada novo cargo na mesma empresa ou em outra empresa conta como um evento." data-tip-pt="Quantidade de mudanças de vínculo profissional registradas no LinkedIn desde o compartilhamento da credencial. Cada novo cargo na mesma empresa ou em outra empresa conta como um evento." data-tip-es="Cantidad de cambios de vínculo profesional registrados en LinkedIn desde el compartir de la credencial. Cada nuevo cargo en la misma empresa o en otra empresa cuenta como un evento.">i</button></div></th>
+              <th><div class="th-inner"><span data-pt="Último evento" data-es="Último evento">Último evento</span> <button class="info-btn" data-tip="Tipo do evento mais recente detectado: mobilidade interna (mudou de cargo na mesma empresa) ou saída da empresa (mudou para outra empresa)." data-tip-pt="Tipo do evento mais recente detectado: mobilidade interna (mudou de cargo na mesma empresa) ou saída da empresa (mudou para outra empresa)." data-tip-es="Tipo del evento más reciente detectado: movilidad interna (cambió de cargo en la misma empresa) o salida de la empresa (cambió a otra empresa).">i</button></div></th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td><span style="font-weight:600;">Ana Beatriz Costa</span></td>
-              <td><span style="font-weight:500;"><span data-pt="Gerente de Operações" data-es="Gerente de Operaciones">Gerente de Operações</span></span><br><span class="td-muted"><span data-pt="Operações" data-es="Operaciones">Operações</span></span></td>
+              <td><span data-pt="Gerente de Operações" data-es="Gerente de Operaciones">Gerente de Operações</span></td>
               <td class="td-muted">Executive Program - T15</td>
-              <td><span class="skill-progress">5/6 <span class="skill-progress-bar"><span class="skill-progress-fill" style="width:83%;"></span></span></span></td>
-              <td><span class="badge badge-promo-int"><span data-pt="Promoção interna" data-es="Promoción interna">Promoção interna</span></span></td>
-              <td><span style="font-weight:700;">38</span> <span class="td-muted"><span data-pt="dias" data-es="días">dias</span></span></td>
-              <td class="td-muted"><span data-pt="4 anos" data-es="4 años">4 anos</span></td>
+              <td><span style="font-weight:700;">2</span></td>
+              <td><span class="badge badge-promo-int"><span data-pt="Mobilidade interna" data-es="Movilidad interna">Mobilidade interna</span></span></td>
             </tr>
             <tr>
               <td><span style="font-weight:600;">Bruno Henrique Silva</span></td>
-              <td><span style="font-weight:500;"><span data-pt="Analista Pleno de Dados" data-es="Analista Semi-Sénior de Datos">Analista Pleno de Dados</span></span><br><span class="td-muted"><span data-pt="Tecnologia" data-es="Tecnología">Tecnologia</span></span></td>
+              <td><span data-pt="Analista Pleno de Dados" data-es="Analista Semi-Sénior de Datos">Analista Pleno de Dados</span></td>
               <td class="td-muted">AI Bootcamp 2025</td>
-              <td><span class="skill-progress">4/5 <span class="skill-progress-bar"><span class="skill-progress-fill" style="width:80%;"></span></span></span></td>
-              <td><span class="badge badge-mov-lat"><span data-pt="Movimento lateral" data-es="Movimiento lateral">Movimento lateral</span></span></td>
-              <td><span style="font-weight:700;">61</span> <span class="td-muted"><span data-pt="dias" data-es="días">dias</span></span></td>
-              <td class="td-muted"><span data-pt="2 anos" data-es="2 años">2 anos</span></td>
+              <td><span style="font-weight:700;">1</span></td>
+              <td><span class="badge badge-promo-int"><span data-pt="Mobilidade interna" data-es="Movilidad interna">Mobilidade interna</span></span></td>
             </tr>
             <tr>
               <td><span style="font-weight:600;">Camila Fernandes Rocha</span></td>
-              <td><span style="font-weight:500;"><span data-pt="Especialista em CX" data-es="Especialista en CX">Especialista em CX</span></span><br><span class="td-muted">Comercial</span></td>
+              <td><span data-pt="Especialista em CX" data-es="Especialista en CX">Especialista em CX</span></td>
               <td class="td-muted">Executive Program - T15</td>
-              <td><span class="skill-progress">6/6 <span class="skill-progress-bar"><span class="skill-progress-fill" style="width:100%;"></span></span></span></td>
-              <td><span class="badge badge-skill-up"><span data-pt="Habilidade internalizada" data-es="Habilidad internalizada">Habilidade internalizada</span></span></td>
-              <td><span style="font-weight:700;">22</span> <span class="td-muted"><span data-pt="dias" data-es="días">dias</span></span></td>
-              <td class="td-muted"><span data-pt="6 anos" data-es="6 años">6 anos</span></td>
+              <td><span style="font-weight:700;">0</span></td>
+              <td><span class="badge badge-none"><span data-pt="Sem evento detectado" data-es="Sin evento detectado">Sem evento detectado</span></span></td>
             </tr>
             <tr>
               <td><span style="font-weight:600;">Diogo Antunes Lima</span></td>
-              <td><span style="font-weight:500;"><span data-pt="Coordenador Financeiro" data-es="Coordinador Financiero">Coordenador Financeiro</span></span><br><span class="td-muted"><span data-pt="Finanças" data-es="Finanzas">Finanças</span></span></td>
+              <td><span data-pt="Coordenador Financeiro" data-es="Coordinador Financiero">Coordenador Financeiro</span></td>
               <td class="td-muted">Missão IA</td>
-              <td><span class="skill-progress">3/4 <span class="skill-progress-bar"><span class="skill-progress-fill" style="width:75%;"></span></span></span></td>
-              <td><span class="badge badge-skill-up"><span data-pt="Habilidade internalizada" data-es="Habilidad internalizada">Habilidade internalizada</span></span></td>
-              <td><span style="font-weight:700;">54</span> <span class="td-muted"><span data-pt="dias" data-es="días">dias</span></span></td>
-              <td class="td-muted"><span data-pt="3 anos" data-es="3 años">3 anos</span></td>
+              <td><span style="font-weight:700;">1</span></td>
+              <td><span class="badge badge-mov-lat"><span data-pt="Saída da empresa" data-es="Salida de la empresa">Saída da empresa</span></span></td>
             </tr>
             <tr>
               <td><span style="font-weight:600;">Elaine Pereira Santos</span></td>
-              <td><span style="font-weight:500;"><span data-pt="Engenheira de Processos" data-es="Ingeniera de Procesos">Engenheira de Processos</span></span><br><span class="td-muted"><span data-pt="Operações" data-es="Operaciones">Operações</span></span></td>
+              <td><span data-pt="Engenheira de Processos" data-es="Ingeniera de Procesos">Engenheira de Processos</span></td>
               <td class="td-muted">AI Bootcamp 2025</td>
-              <td><span class="skill-progress">2/5 <span class="skill-progress-bar"><span class="skill-progress-fill" style="width:40%;"></span></span></span></td>
-              <td><span class="badge badge-none"><span data-pt="Sem impacto ainda" data-es="Sin impacto todavía">Sem impacto ainda</span></span></td>
-              <td class="td-muted">—</td>
-              <td class="td-muted">8 meses</td>
+              <td><span style="font-weight:700;">0</span></td>
+              <td><span class="badge badge-none"><span data-pt="Sem evento detectado" data-es="Sin evento detectado">Sem evento detectado</span></span></td>
             </tr>
             <tr>
               <td><span style="font-weight:600;">Felipe Ramos Oliveira</span></td>
-              <td><span style="font-weight:500;">Tech Lead</span><br><span class="td-muted"><span data-pt="Tecnologia" data-es="Tecnología">Tecnologia</span></span></td>
+              <td>Tech Lead</td>
               <td class="td-muted">AI Bootcamp 2025</td>
-              <td><span class="skill-progress">5/6 <span class="skill-progress-bar"><span class="skill-progress-fill" style="width:83%;"></span></span></span></td>
-              <td><span class="badge badge-promo-int"><span data-pt="Promoção interna" data-es="Promoción interna">Promoção interna</span></span></td>
-              <td><span style="font-weight:700;">29</span> <span class="td-muted"><span data-pt="dias" data-es="días">dias</span></span></td>
-              <td class="td-muted"><span data-pt="5 anos" data-es="5 años">5 anos</span></td>
+              <td><span style="font-weight:700;">3</span></td>
+              <td><span class="badge badge-promo-int"><span data-pt="Mobilidade interna" data-es="Movilidad interna">Mobilidade interna</span></span></td>
             </tr>
             <tr>
               <td><span style="font-weight:600;">Gabriela Mendes Souza</span></td>
-              <td><span style="font-weight:500;"><span data-pt="Analista Sênior de RH" data-es="Analista Sénior de RR.HH.">Analista Sênior de RH</span></span><br><span class="td-muted"><span data-pt="Pessoas &amp; Cultura" data-es="Personas &amp; Cultura">Pessoas & Cultura</span></span></td>
+              <td><span data-pt="Analista Sênior de RH" data-es="Analista Sénior de RR.HH.">Analista Sênior de RH</span></td>
               <td class="td-muted">Missão IA</td>
-              <td><span class="skill-progress">4/6 <span class="skill-progress-bar"><span class="skill-progress-fill" style="width:67%;"></span></span></span></td>
-              <td><span class="badge badge-mov-lat"><span data-pt="Movimento lateral" data-es="Movimiento lateral">Movimento lateral</span></span></td>
-              <td><span style="font-weight:700;">47</span> <span class="td-muted"><span data-pt="dias" data-es="días">dias</span></span></td>
-              <td class="td-muted"><span data-pt="2 anos" data-es="2 años">2 anos</span></td>
+              <td><span style="font-weight:700;">1</span></td>
+              <td><span class="badge badge-promo-int"><span data-pt="Mobilidade interna" data-es="Movilidad interna">Mobilidade interna</span></span></td>
             </tr>
           </tbody>
         </table>
@@ -684,7 +668,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
     <div class="zone-header com">
       <div class="zone-header-pill"><span class="dot green"></span> <span data-pt="Zona de conformidade" data-es="Zona de conformidad">Zona de conformidade</span></div>
       <h2><span data-pt="Credenciais auditáveis, vigência sob controle" data-es="Credenciales auditables, vigencia bajo control">Credenciais auditáveis, vigência sob controle</span></h2>
-      <p><span data-pt="Cada credencial POK é registrada em blockchain com data de emissão, validade e prova criptográfica de integridade. Esta visão mostra o ciclo de vida das credenciais ativas, vencimentos próximos e a auditabilidade do conjunto — gerada exclusivamente com dados nativos da POK." data-es="Cada credencial POK se registra en blockchain con fecha de emisión, validez y prueba criptográfica de integridad. Esta visión muestra el ciclo de vida de las credenciales activas, vencimientos próximos y la auditabilidad del conjunto — generada exclusivamente con datos nativos de POK.">Cada credencial POK é registrada em blockchain com data de emissão, validade e prova criptográfica de integridade. Esta visão mostra o ciclo de vida das credenciais ativas, vencimentos próximos e a auditabilidade do conjunto — gerada exclusivamente com dados nativos da POK.</span></p>
+      <p><span data-pt="Cada credencial POK é registrada em blockchain com data de emissão, validade e prova criptográfica de integridade. Esta visão mostra o ciclo de vida das credenciais ativas, vencimentos próximos e a auditabilidade do conjunto." data-es="Cada credencial POK se registra en blockchain con fecha de emisión, validez y prueba criptográfica de integridad. Esta visión muestra el ciclo de vida de las credenciales activas, vencimientos próximos y la auditabilidad del conjunto.">Cada credencial POK é registrada em blockchain com data de emissão, validade e prova criptográfica de integridade. Esta visão mostra o ciclo de vida das credenciais ativas, vencimentos próximos e a auditabilidade do conjunto.</span></p>
     </div>
 
     <!-- Alert banner -->
@@ -701,7 +685,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
     <div class="section-label"><span class="accent green"></span> <span data-pt="Ciclo de vida da credencial" data-es="Ciclo de vida de la credencial">Ciclo de vida da credencial</span></div>
     <div class="funnel-card">
       <h3><span data-pt="Da inscrição à credencial vigente" data-es="De la inscripción a la credencial vigente">Da inscrição à credencial vigente</span></h3>
-      <p><span data-pt="Acompanhe o avanço dos colaboradores inscritos em programas POK até a emissão e a vigência da credencial. Todas as etapas são registradas nativamente pela POK." data-es="Acompañe el avance de los colaboradores inscritos en programas POK hasta la emisión y la vigencia de la credencial. Todas las etapas se registran nativamente por POK.">Acompanhe o avanço dos colaboradores inscritos em programas POK até a emissão e a vigência da credencial. Todas as etapas são registradas nativamente pela POK.</span></p>
+      <p><span data-pt="Acompanhe o avanço dos colaboradores inscritos em programas POK até a emissão e a vigência da credencial." data-es="Acompañe el avance de los colaboradores inscritos en programas POK hasta la emisión y la vigencia de la credencial.">Acompanhe o avanço dos colaboradores inscritos em programas POK até a emissão e a vigência da credencial.</span></p>
       <div class="funnel-steps">
         <div class="funnel-step"><div class="funnel-bar" style="background:#0f6e56;">428</div><div class="funnel-step-label"><span data-pt="Inscritos<br>no programa" data-es="Inscritos<br>en el programa">Inscritos<br>no programa</span></div><div class="funnel-step-pct">100%</div></div>
         <div class="funnel-arrow">›</div>
@@ -736,7 +720,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
       <div class="kpi-card highlight-com">
         <div class="kpi-value green">100%</div>
         <div class="kpi-label"><span data-pt="Auditabilidade blockchain" data-es="Auditabilidad blockchain">Auditabilidade blockchain</span></div>
-        <button class="info-btn" data-tip="% de credenciais com prova de integridade verificável em blockchain. Crítico para auditorias regulatórias." data-tip-pt="% de credenciais com prova de integridade verificável em blockchain. Crítico para auditorias regulatórias." data-tip-es="% de credenciales con prueba de integridad verificable en blockchain. Crítico para auditorías regulatorias.">i</button>
+        <button class="info-btn" data-tip="% de credenciais auditáveis em blockchain." data-tip-pt="% de credenciais auditáveis em blockchain." data-tip-es="% de credenciales auditables en blockchain.">i</button>
       </div>
     </div>
 
@@ -780,7 +764,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
               <th><div class="th-inner"><span data-pt="Status" data-es="Estado">Status</span> <button class="info-btn" data-tip="Conforme: credencial vigente. Vence em breve: vencimento em até 30 dias. Vencido: fora do prazo." data-tip-pt="Conforme: credencial vigente. Vence em breve: vencimento em até 30 dias. Vencido: fora do prazo." data-tip-es="Conforme: credencial vigente. Vence pronto: vencimiento en hasta 30 días. Vencido: fuera de plazo.">i</button></div></th>
               <th><div class="th-inner"><span data-pt="Emitida em" data-es="Emitida el">Emitida em</span></div></th>
               <th><div class="th-inner"><span data-pt="Validade" data-es="Validez">Validade</span></div></th>
-              <th><div class="th-inner"><span data-pt="Prova blockchain" data-es="Prueba blockchain">Prova blockchain</span> <button class="info-btn" data-tip="Hash criptográfico que comprova a integridade da credencial em blockchain. Clique para verificar." data-tip-pt="Hash criptográfico que comprova a integridade da credencial em blockchain. Clique para verificar." data-tip-es="Hash criptográfico que comprueba la integridad de la credencial en blockchain. Clic para verificar.">i</button></div></th>
+              <th><div class="th-inner"><span data-pt="Prova blockchain" data-es="Prueba blockchain">Prova blockchain</span> <button class="info-btn" data-tip="Prova auditável da credencial em blockchain. Clique para verificar." data-tip-pt="Prova auditável da credencial em blockchain. Clique para verificar." data-tip-es="Prueba auditable de la credencial en blockchain. Clic para verificar.">i</button></div></th>
             </tr>
           </thead>
           <tbody>
@@ -888,9 +872,11 @@ function initDevChart() {
   if (!canvas) return;
   if (devChartInstance) devChartInstance.destroy();
 
-  const past = [1.2, 1.4, 1.6, 1.8, 2.0, 2.2];
-  const share = 2.4;
-  const future = [3.1, 3.6, 4.0, 4.3, 4.5, 4.6];
+  // Cada ponto representa o número médio de eventos acumulados (mudanças de cargo
+  // ou de empresa registradas no LinkedIn) por portador, em cada bimestre.
+  const past = [0.4, 0.5, 0.6, 0.7, 0.8, 0.9];
+  const share = 1.0;
+  const future = [1.3, 1.6, 1.9, 2.1, 2.3, 2.4];
   const values = [...past, share, ...future];
 
   const pointBg = allLabels.map((_, i) => {
@@ -911,7 +897,7 @@ function initDevChart() {
     data: {
       labels: allLabels,
       datasets: [{
-        label: 'Skills do programa declaradas no perfil',
+        label: 'Nº médio de eventos acumulados',
         data: values,
         borderColor: grad,
         borderWidth: 2.5,
@@ -933,7 +919,12 @@ function initDevChart() {
         tooltip: {
           callbacks: {
             title: ctx => ctx[0].label,
-            label: ctx => 'Skills declaradas: ' + ctx.parsed.y
+            label: ctx => {
+              const v = ctx.parsed.y;
+              const labelPt = v === 1 ? '1 evento' : v + ' eventos';
+              const labelEs = v === 1 ? '1 evento' : v + ' eventos';
+              return currentLang === 'es' ? labelEs : labelPt;
+            }
           },
           bodyFont: { family: 'Poppins', size: 12 },
           titleFont: { family: 'Poppins', size: 12, weight: '600' }
@@ -955,9 +946,9 @@ function initDevChart() {
         },
         y: {
           min: 0,
-          max: 6,
-          title: { display: true, text: 'Skills declaradas', font: { size: 11, family: 'Poppins' }, color: '#A899C2' },
-          ticks: { font: { size: 11, family: 'Poppins' }, color: '#A899C2', stepSize: 1 },
+          max: 3,
+          title: { display: true, text: currentLang === 'es' ? 'Eventos acumulados' : 'Eventos acumulados', font: { size: 11, family: 'Poppins' }, color: '#A899C2' },
+          ticks: { font: { size: 11, family: 'Poppins' }, color: '#A899C2', stepSize: 0.5 },
           grid: { color: 'rgba(216,206,240,0.4)' }
         }
       }
