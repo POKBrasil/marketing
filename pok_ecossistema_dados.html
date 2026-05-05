@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>POK · Sistema de captura de dados via micro-credenciais</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple: #5123a4;
+  --purple-dark: #2d1659;
+  --purple-light: #e4dcf7;
+  --purple-faint: #f3eff9;
+  --white: #ffffff;
+  --ink: #1E1230;
+  --ink-muted: #5E4E7A;
+  --ink-faint: #A899C2;
+  --border: #e4dcf7;
+  --green: #1D9E75;
+  --green-light: #E2F4EB;
+  --green-dark: #0f6e56;
+  --blue: #3B82F6;
+  --blue-light: #DBEAFE;
+  --blue-dark: #1E40AF;
+  --radius-lg: 20px;
+  --radius-md: 12px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Poppins', sans-serif; background: var(--purple-faint); color: var(--ink); min-height: 100vh; }
+
+/* ─── HERO ──────────────────────────────────────────────────────────────── */
+.hero { background: var(--purple-dark); padding: 64px 64px 96px; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; top: -120px; right: -120px; width: 420px; height: 420px; border-radius: 50%; background: rgba(123,79,207,0.25); pointer-events: none; }
+.hero::after { content: ''; position: absolute; bottom: -150px; left: 18%; width: 300px; height: 300px; border-radius: 50%; background: rgba(255,255,255,0.04); pointer-events: none; }
+.hero-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
+.hero-logo { margin-bottom: 32px; }
+.hero-logo svg { height: 36px; width: auto; display: block; }
+.hero-eyebrow-wrap { margin-bottom: 18px; }
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; background: rgba(228,220,247,0.18); border: 1px solid rgba(228,220,247,0.3); border-radius: 99px; padding: 6px 16px; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple-light); white-space: nowrap; max-width: 100%; }
+.hero-eyebrow > span:first-child { width: 6px; height: 6px; border-radius: 50%; background: var(--purple-light); display: inline-block; flex-shrink: 0; }
+.hero-title { font-size: clamp(28px, 4.5vw, 52px); font-weight: 900; line-height: 1.08; color: #fff; letter-spacing: -0.025em; margin-bottom: 18px; max-width: 920px; }
+.hero-title .accent { color: var(--purple-light); }
+.hero-subtitle { font-size: clamp(14px, 1.5vw, 17px); color: rgba(255,255,255,0.85); line-height: 1.65; max-width: 720px; font-weight: 400; }
+
+/* ─── LANG TOGGLE ───────────────────────────────────────────────────────── */
+.lang-toggle { position: absolute; top: 24px; right: 32px; z-index: 5; display: inline-flex; gap: 2px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 99px; padding: 3px; }
+.lang-btn { font-family: 'Poppins', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.05em; padding: 6px 12px; border-radius: 99px; background: transparent; color: rgba(255,255,255,0.65); border: none; cursor: pointer; transition: all 0.18s; min-width: 36px; }
+.lang-btn.active { background: var(--white); color: var(--purple-dark); }
+
+/* ─── CONTENT ───────────────────────────────────────────────────────────── */
+.content { max-width: 1200px; margin: -64px auto 0; padding: 0 32px 64px; position: relative; z-index: 3; }
+.section-label { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); }
+.section-label .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--purple); }
+.section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+/* ─── INTRO BLOCK ───────────────────────────────────────────────────────── */
+.intro-block { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 44px 56px; margin-bottom: 48px; box-shadow: 0 12px 40px rgba(81,35,164,0.06); }
+.intro-block h2 { font-size: clamp(20px, 2vw, 26px); font-weight: 800; color: var(--ink); margin-bottom: 18px; line-height: 1.25; letter-spacing: -0.01em; }
+.intro-block p { font-size: 15px; color: var(--ink-muted); line-height: 1.75; margin-bottom: 14px; }
+.intro-block p:last-child { margin-bottom: 0; }
+.intro-block strong { color: var(--ink); font-weight: 700; }
+
+/* ─── MARKETS ───────────────────────────────────────────────────────────── */
+.markets { margin-bottom: 64px; }
+.markets-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.market-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 38px 36px; position: relative; overflow: hidden; transition: transform 0.18s, box-shadow 0.18s; cursor: pointer; text-decoration: none; color: inherit; display: flex; flex-direction: column; }
+.market-card::before { content: ''; position: absolute; left: 0; top: 0; right: 0; height: 4px; }
+.market-card.superior::before { background: linear-gradient(90deg, var(--purple) 0%, #8b5cf6 100%); }
+.market-card.corporativo::before { background: linear-gradient(90deg, var(--blue-dark) 0%, var(--blue) 100%); }
+.market-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(81,35,164,0.12); }
+.market-card.superior:hover { border-color: var(--purple); }
+.market-card.corporativo:hover { border-color: var(--blue); }
+
+.market-card-icon { width: 64px; height: 64px; border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
+.market-card.superior .market-card-icon { background: var(--purple-faint); color: var(--purple); border: 1px solid var(--purple-light); }
+.market-card.corporativo .market-card-icon { background: var(--blue-light); color: var(--blue-dark); border: 1px solid #BFDBFE; }
+.market-card-icon svg { width: 32px; height: 32px; }
+
+.market-card-pill { display: inline-flex; align-items: center; gap: 7px; border-radius: 99px; padding: 5px 12px; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; align-self: flex-start; }
+.market-card.superior .market-card-pill { background: var(--purple-faint); color: var(--purple); border: 1px solid var(--purple-light); }
+.market-card.corporativo .market-card-pill { background: var(--blue-light); color: var(--blue-dark); border: 1px solid #BFDBFE; }
+.market-card-pill .dot { width: 6px; height: 6px; border-radius: 50%; }
+.market-card.superior .market-card-pill .dot { background: var(--purple); }
+.market-card.corporativo .market-card-pill .dot { background: var(--blue); }
+
+.market-card h3 { font-size: 24px; font-weight: 800; color: var(--ink); margin-bottom: 12px; line-height: 1.2; letter-spacing: -0.01em; }
+.market-card-desc { font-size: 14px; color: var(--ink-muted); line-height: 1.65; margin-bottom: 22px; }
+.market-card-features { list-style: none; padding: 0; margin: 0 0 28px; }
+.market-card-features li { font-size: 13px; color: var(--ink); padding: 8px 0; padding-left: 24px; position: relative; line-height: 1.5; border-bottom: 1px solid var(--border); }
+.market-card-features li:last-child { border-bottom: none; }
+.market-card-features li::before { content: ''; position: absolute; left: 0; top: 14px; width: 14px; height: 2px; border-radius: 2px; }
+.market-card.superior .market-card-features li::before { background: var(--purple); }
+.market-card.corporativo .market-card-features li::before { background: var(--blue); }
+
+.market-card-cta { font-family: 'Poppins', sans-serif; display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; border-radius: 99px; font-size: 13px; font-weight: 700; letter-spacing: 0.02em; border: none; cursor: pointer; transition: all 0.18s; align-self: flex-start; margin-top: auto; }
+.market-card.superior .market-card-cta { background: var(--purple); color: #fff; }
+.market-card.superior .market-card-cta:hover { background: var(--purple-dark); }
+.market-card.corporativo .market-card-cta { background: var(--blue-dark); color: #fff; }
+.market-card.corporativo .market-card-cta:hover { background: #1538a0; }
+.market-card-cta svg { width: 14px; height: 14px; transition: transform 0.18s; }
+.market-card:hover .market-card-cta svg { transform: translateX(3px); }
+
+/* ─── FOOTER ────────────────────────────────────────────────────────────── */
+.site-footer { text-align: center; padding: 40px 32px 56px; border-top: 1px solid var(--border); margin-top: 32px; }
+.footer-logo { display: inline-flex; align-items: center; margin-bottom: 12px; }
+.footer-logo svg { height: 32px; width: auto; display: block; }
+.footer-logo svg path { fill: var(--purple); }
+.site-footer p { font-size: 12px; color: var(--ink-faint); line-height: 1.6; }
+.site-footer a { color: var(--purple); text-decoration: none; font-weight: 600; }
+.site-footer a:hover { text-decoration: underline; }
+
+/* ─── RESPONSIVE ────────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .hero { padding: 56px 40px 84px; }
+  .content { padding: 0 24px 48px; margin-top: -56px; }
+  .intro-block { padding: 36px 36px; }
+}
+@media (max-width: 720px) {
+  .hero { padding: 64px 24px 72px; }
+  .hero-logo { margin-bottom: 24px; }
+  .hero-logo svg { height: 28px; }
+  .content { padding: 0 16px 40px; margin-top: -48px; }
+  .intro-block { padding: 28px 22px; }
+  .markets-grid { grid-template-columns: 1fr; }
+  .market-card { padding: 30px 24px; }
+  .lang-toggle { top: 16px; right: 16px; }
+  .market-card h3 { font-size: 20px; }
+  .footer-logo svg { height: 26px; }
+  .hero-eyebrow { font-size: 10px; padding: 5px 12px; letter-spacing: 0.1em; }
+}
+
+@media (max-width: 420px) {
+  .hero-eyebrow { white-space: normal; line-height: 1.4; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="lang-toggle">
+    <button class="lang-btn active" id="btn-pt" onclick="setLang('pt')">PT</button>
+    <button class="lang-btn" id="btn-es" onclick="setLang('es')">ES</button>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 197.3" aria-label="POK"><path d="M131.4,27.2c0-5.4-4.4-9.9-9.9-9.9H5.9c-3.3,0-5.9,2.6-5.9,5.9v115.6c0,5.5,4.4,9.9,9.9,9.9s9.9-4.4,9.9-9.9V42.3c0-2.9,2.3-5.2,5.2-5.2h96.6c5.3,0,9.8-4.4,9.8-9.9ZM164.8,60.6c-5.4,0-9.9,4.4-9.9,9.9v96.6c0,2.9-2.3,5.2-5.2,5.2H53.1c-5.4,0-9.9,4.4-9.9,9.9s4.4,9.9,9.9,9.9h115.6c3.3,0,5.9-2.6,5.9-5.9v-115.7c0-5.5-4.4-9.9-9.8-9.9ZM103.7,76l-23.9,35.8c-.9,1.4-2.8,1.6-4,.4l-9.9-9.9c-3.5-3.5-9.1-3.5-12.5,0-3.5,3.5-3.5,9.1,0,12.5l20.1,20.1c3.8,3.8,10.1,3.2,13.1-1.3l31.9-47.8c2.7-4.1,1.6-9.6-2.5-12.3-4.1-2.6-9.6-1.5-12.3,2.5ZM329.1,49.1c-7.4-4.8-15.9-7.2-25.5-7.2-6,0-11.9,1.2-17.5,3.5-5.5,2.3-10.1,5.3-14,9-1.1,1-2,2.1-2.9,3.2l-.2-13.9h-24.7v153.6h25.3v-58.3c.5.5.9,1,1.4,1.5,4,4,8.8,7.2,14.6,9.7,5.9,2.5,12,3.7,18.3,3.7,9.5,0,17.9-2.4,25.3-7.2,7.5-4.9,13.4-11.6,17.7-19.9,4.2-8.5,6.4-18.2,6.4-29s-2.2-20.4-6.6-28.8c-4.1-8.4-10-15.1-17.6-19.9ZM325.2,115.3c-2.6,5.1-6.2,9-10.7,11.9s-9.7,4.3-15.4,4.3c-6,0-11.3-1.4-15.8-4.3-4.5-2.9-8.1-6.9-10.7-11.9-2.6-5.1-3.9-10.9-3.9-17.5s1.3-12.4,3.9-17.5,6.2-9,10.7-11.9,9.8-4.3,15.8-4.3,11.1,1.5,15.6,4.5c4.5,2.9,8,6.9,10.5,11.9,2.6,4.9,3.9,10.7,3.9,17.3s-1.3,12.5-3.9,17.5ZM449.9,48.9c-8.5-4.9-18.1-7.4-28.8-7.4s-20.5,2.5-29,7.4c-8.5,4.8-15.2,11.4-20.1,19.9-4.8,8.5-7.2,18.2-7.2,29s2.4,20.5,7.2,29c4.9,8.5,11.6,15.2,20.1,20.1,8.5,4.8,18.2,7.2,29,7.2s20.3-2.4,28.8-7.2c8.5-4.9,15.1-11.6,19.9-20.1,4.9-8.5,7.4-18.2,7.4-29s-2.5-20.5-7.4-29c-4.7-8.4-11.4-15.1-19.9-19.9ZM447.9,115.3c-2.6,5.1-6.2,9.1-10.9,12.1-4.7,2.9-9.9,4.3-15.8,4.3s-11.2-1.4-16-4.3c-4.7-3-8.3-7.1-10.9-12.1-2.6-5.2-3.9-11-3.9-17.5s1.3-12.2,3.9-17.3c2.6-5.2,6.2-9.3,10.9-12.1,4.8-3,10.1-4.5,16-4.5s11.2,1.4,15.8,4.3c4.7,2.9,8.3,6.9,10.9,12.1,2.7,5.1,4,10.9,3.9,17.5.1,6.5-1.2,12.3-3.9,17.5ZM548.8,91.2l50.6-47.5h-33.5l-45,45V0h-25.1v152.1h25.1v-34.6l10.9-10.2,37,44.9h31.2l-51.2-61Z" fill="#ffffff"/></svg>
+    </div>
+    <div class="hero-eyebrow-wrap"><div class="hero-eyebrow"><span></span> <span data-pt="Sistema de captura de dados" data-es="Sistema de captura de datos">Sistema de captura de dados</span></div></div>
+    <h1 class="hero-title"><span data-pt="Cada certificado emitido é um dado vivo sobre a trajetória profissional" data-es="Cada certificado emitido es un dato vivo sobre la trayectoria profesional">Cada certificado emitido é um dado vivo sobre a trajetória profissional</span></h1>
+    <p class="hero-subtitle"><span data-pt="A POK transforma micro-credenciais em fonte estruturada de dados sobre formação, empregabilidade e desenvolvimento. Cada credencial emitida em blockchain conecta o aprendizado real à evolução do perfil profissional, gerando leituras objetivas que vão muito além do diploma." data-es="POK transforma micro-credenciales en fuente estructurada de datos sobre formación, empleabilidad y desarrollo. Cada credencial emitida en blockchain conecta el aprendizaje real a la evolución del perfil profesional, generando lecturas objetivas que van mucho más allá del diploma.">A POK transforma micro-credenciais em fonte estruturada de dados sobre formação, empregabilidade e desenvolvimento. Cada credencial emitida em blockchain conecta o aprendizado real à evolução do perfil profissional, gerando leituras objetivas que vão muito além do diploma.</span></p>
+  </div>
+</header>
+
+<main class="content">
+
+  <!-- INTRO BLOCK -->
+  <div class="intro-block">
+    <h2><span data-pt="Micro-credenciais como fonte de dados" data-es="Micro-credenciales como fuente de datos">Micro-credenciais como fonte de dados</span></h2>
+    <p><span data-pt="A POK opera no ponto de encontro entre formação e mercado. Cada certificado emitido carrega metadados estruturados — programa, habilidades reconhecidas, validade, prova criptográfica em blockchain — que permanecem auditáveis e verificáveis indefinidamente." data-es="POK opera en el punto de encuentro entre formación y mercado. Cada certificado emitido lleva metadatos estructurados — programa, habilidades reconocidas, validez, prueba criptográfica en blockchain — que permanecen auditables y verificables indefinidamente.">A POK opera no ponto de encontro entre formação e mercado. Cada certificado emitido carrega metadados estruturados — programa, habilidades reconhecidas, validade, prova criptográfica em blockchain — que permanecem auditáveis e verificáveis indefinidamente.</span></p>
+    <p><span data-pt="Quando o portador compartilha a credencial no LinkedIn, abre-se a leitura contínua do perfil profissional: a POK passa a observar como aquela formação se traduz em empregabilidade, mobilidade interna, internalização de habilidades e retenção. O resultado é um sistema vivo de evidências sobre o impacto real do que foi ensinado." data-es="Cuando el portador comparte la credencial en LinkedIn, se abre la lectura continua del perfil profesional: POK pasa a observar cómo esa formación se traduce en empleabilidad, movilidad interna, internalización de habilidades y retención. El resultado es un sistema vivo de evidencias sobre el impacto real de lo que fue enseñado.">Quando o portador compartilha a credencial no LinkedIn, abre-se a leitura contínua do perfil profissional: a POK passa a observar como aquela formação se traduz em empregabilidade, mobilidade interna, internalização de habilidades e retenção. O resultado é um sistema vivo de evidências sobre o impacto real do que foi ensinado.</span></p>
+  </div>
+
+
+  <!-- MARKETS -->
+  <div class="markets">
+    <div class="section-label"><span class="dot"></span> <span data-pt="Onde a POK atua" data-es="Dónde actúa POK">Onde a POK atua</span></div>
+    <div class="markets-grid">
+
+      <a href="https://pokbrasil.github.io/marketing/pok_empregabilidade_dashboard_publico.html" class="market-card superior" target="_blank">
+        <div class="market-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        </div>
+        <span class="market-card-pill"><span class="dot"></span> <span data-pt="Educação Superior" data-es="Educación Superior">Educação Superior</span></span>
+        <h3><span data-pt="Empregabilidade de alunos e egressos" data-es="Empleabilidad de estudiantes y egresados">Empregabilidade de alunos e egressos</span></h3>
+        <p class="market-card-desc"><span data-pt="Universidades e instituições de ensino acompanham a trajetória profissional de alunos e egressos — empregos conquistados, promoções, evolução de carreira — transformando o histórico de formação em prova viva do valor do diploma." data-es="Universidades e instituciones de enseñanza acompañan la trayectoria profesional de estudiantes y egresados — empleos conquistados, promociones, evolución de carrera — transformando el histórico de formación en prueba viva del valor del diploma.">Universidades e instituições de ensino acompanham a trajetória profissional de alunos e egressos — empregos conquistados, promoções, evolução de carreira — transformando o histórico de formação em prova viva do valor do diploma.</span></p>
+        <ul class="market-card-features">
+          <li><span data-pt="Funil de empregabilidade dos portadores" data-es="Embudo de empleabilidad de los portadores">Funil de empregabilidade dos portadores</span></li>
+          <li><span data-pt="Trajetória profissional antes e depois do certificado" data-es="Trayectoria profesional antes y después del certificado">Trajetória profissional antes e depois do certificado</span></li>
+          <li><span data-pt="Tabela individual com leitura do LinkedIn" data-es="Tabla individual con lectura de LinkedIn">Tabela individual com leitura do LinkedIn</span></li>
+          <li><span data-pt="Filtros por curso, título e período" data-es="Filtros por curso, título y período">Filtros por curso, título e período</span></li>
+        </ul>
+        <button class="market-card-cta">
+          <span data-pt="Ver dashboard" data-es="Ver dashboard">Ver dashboard</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </a>
+
+      <a href="https://pokbrasil.github.io/marketing/pok_corporativo_dashboard_publico.html" class="market-card corporativo" target="_blank">
+        <div class="market-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="9" y1="7" x2="11" y2="7"/><line x1="13" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="11" y2="11"/><line x1="13" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="11" y2="15"/><line x1="13" y1="15" x2="15" y2="15"/></svg>
+        </div>
+        <span class="market-card-pill"><span class="dot"></span> <span data-pt="Educação Corporativa" data-es="Educación Corporativa">Educação Corporativa</span></span>
+        <h3><span data-pt="Capital humano e compliance" data-es="Capital humano y compliance">Capital humano e compliance</span></h3>
+        <p class="market-card-desc"><span data-pt="Empresas medem o impacto real dos programas de formação corporativa: internalização de habilidades, mobilidade interna, retenção de talentos certificados e a auditabilidade das credenciais regulatórias em blockchain." data-es="Empresas miden el impacto real de los programas de formación corporativa: internalización de habilidades, movilidad interna, retención de talentos certificados y la auditabilidad de las credenciales regulatorias en blockchain.">Empresas medem o impacto real dos programas de formação corporativa: internalização de habilidades, mobilidade interna, retenção de talentos certificados e a auditabilidade das credenciais regulatórias em blockchain.</span></p>
+        <ul class="market-card-features">
+          <li><span data-pt="Desenvolvimento humano: internalização e mobilidade" data-es="Desarrollo humano: internalización y movilidad">Desenvolvimento humano: internalização e mobilidade</span></li>
+          <li><span data-pt="Compliance: vigência e categorias regulatórias" data-es="Compliance: vigencia y categorías regulatorias">Compliance: vigência e categorias regulatórias</span></li>
+          <li><span data-pt="Auditabilidade blockchain das credenciais" data-es="Auditabilidad blockchain de las credenciales">Auditabilidade blockchain das credenciais</span></li>
+          <li><span data-pt="Tabela individual de portadores e drawer detalhado" data-es="Tabla individual de portadores y panel detallado">Tabela individual de portadores e drawer detalhado</span></li>
+        </ul>
+        <button class="market-card-cta">
+          <span data-pt="Ver dashboard" data-es="Ver dashboard">Ver dashboard</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </a>
+
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-logo">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 197.3" aria-label="POK"><path d="M131.4,27.2c0-5.4-4.4-9.9-9.9-9.9H5.9c-3.3,0-5.9,2.6-5.9,5.9v115.6c0,5.5,4.4,9.9,9.9,9.9s9.9-4.4,9.9-9.9V42.3c0-2.9,2.3-5.2,5.2-5.2h96.6c5.3,0,9.8-4.4,9.8-9.9ZM164.8,60.6c-5.4,0-9.9,4.4-9.9,9.9v96.6c0,2.9-2.3,5.2-5.2,5.2H53.1c-5.4,0-9.9,4.4-9.9,9.9s4.4,9.9,9.9,9.9h115.6c3.3,0,5.9-2.6,5.9-5.9v-115.7c0-5.5-4.4-9.9-9.8-9.9ZM103.7,76l-23.9,35.8c-.9,1.4-2.8,1.6-4,.4l-9.9-9.9c-3.5-3.5-9.1-3.5-12.5,0-3.5,3.5-3.5,9.1,0,12.5l20.1,20.1c3.8,3.8,10.1,3.2,13.1-1.3l31.9-47.8c2.7-4.1,1.6-9.6-2.5-12.3-4.1-2.6-9.6-1.5-12.3,2.5ZM329.1,49.1c-7.4-4.8-15.9-7.2-25.5-7.2-6,0-11.9,1.2-17.5,3.5-5.5,2.3-10.1,5.3-14,9-1.1,1-2,2.1-2.9,3.2l-.2-13.9h-24.7v153.6h25.3v-58.3c.5.5.9,1,1.4,1.5,4,4,8.8,7.2,14.6,9.7,5.9,2.5,12,3.7,18.3,3.7,9.5,0,17.9-2.4,25.3-7.2,7.5-4.9,13.4-11.6,17.7-19.9,4.2-8.5,6.4-18.2,6.4-29s-2.2-20.4-6.6-28.8c-4.1-8.4-10-15.1-17.6-19.9ZM325.2,115.3c-2.6,5.1-6.2,9-10.7,11.9s-9.7,4.3-15.4,4.3c-6,0-11.3-1.4-15.8-4.3-4.5-2.9-8.1-6.9-10.7-11.9-2.6-5.1-3.9-10.9-3.9-17.5s1.3-12.4,3.9-17.5,6.2-9,10.7-11.9,9.8-4.3,15.8-4.3,11.1,1.5,15.6,4.5c4.5,2.9,8,6.9,10.5,11.9,2.6,4.9,3.9,10.7,3.9,17.3s-1.3,12.5-3.9,17.5ZM449.9,48.9c-8.5-4.9-18.1-7.4-28.8-7.4s-20.5,2.5-29,7.4c-8.5,4.8-15.2,11.4-20.1,19.9-4.8,8.5-7.2,18.2-7.2,29s2.4,20.5,7.2,29c4.9,8.5,11.6,15.2,20.1,20.1,8.5,4.8,18.2,7.2,29,7.2s20.3-2.4,28.8-7.2c8.5-4.9,15.1-11.6,19.9-20.1,4.9-8.5,7.4-18.2,7.4-29s-2.5-20.5-7.4-29c-4.7-8.4-11.4-15.1-19.9-19.9ZM447.9,115.3c-2.6,5.1-6.2,9.1-10.9,12.1-4.7,2.9-9.9,4.3-15.8,4.3s-11.2-1.4-16-4.3c-4.7-3-8.3-7.1-10.9-12.1-2.6-5.2-3.9-11-3.9-17.5s1.3-12.2,3.9-17.3c2.6-5.2,6.2-9.3,10.9-12.1,4.8-3,10.1-4.5,16-4.5s11.2,1.4,15.8,4.3c4.7,2.9,8.3,6.9,10.9,12.1,2.7,5.1,4,10.9,3.9,17.5.1,6.5-1.2,12.3-3.9,17.5ZM548.8,91.2l50.6-47.5h-33.5l-45,45V0h-25.1v152.1h25.1v-34.6l10.9-10.2,37,44.9h31.2l-51.2-61Z"/></svg>
+  </div>
+  <p><span data-pt="Sistema de captura de dados via micro-credenciais" data-es="Sistema de captura de datos vía micro-credenciales">Sistema de captura de dados via micro-credenciais</span> · <a href="mailto:contato@pok.com.br">contato@pok.com.br</a></p>
+</footer>
+
+<script>
+let currentLang = 'pt';
+function setLang(lang) {
+  currentLang = lang;
+  document.documentElement.lang = lang === 'es' ? 'es' : 'pt-BR';
+  document.querySelectorAll('[data-pt]').forEach(el => {
+    el.textContent = lang === 'es' ? el.dataset.es : el.dataset.pt;
+  });
+  document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
+  document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+}
+</script>
+
+</body>
+</html>
