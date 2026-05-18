@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POK Brasil — Newsletter · Em 26 de maio começa a fiscalização da NR-1 atualizada</title>
+<meta name="description" content="Por que cumprir a norma é metade do trabalho — e provar que cumpriu é a outra metade.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pok-purple: #5123a4;
+    --pok-purple-deep: #3d1a7a;
+    --pok-lavender: #e4dcf7;
+    --pok-lavender-soft: #f4f0fc;
+    --ink: #1a1626;
+    --ink-soft: #3d3852;
+    --ink-mute: #6b6680;
+    --rule: #e6e4ed;
+    --bg: #fbfaff;
+    --white: #ffffff;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Poppins', 'Carlito', Arial, sans-serif;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--ink);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 32px 80px;
+    background: var(--white);
+  }
+
+  /* ───────── Topbar ───────── */
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 36px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .brand-mark {
+    width: 36px;
+    height: 36px;
+    background: var(--pok-purple);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+  }
+  .brand-name {
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--ink);
+  }
+  .brand-sub {
+    font-size: 12px;
+    color: var(--ink-mute);
+    font-weight: 400;
+  }
+  .topbar-meta {
+    font-size: 12px;
+    color: var(--ink-mute);
+    text-align: right;
+    line-height: 1.4;
+  }
+
+  /* ───────── Hero ───────── */
+  .hero-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    margin-bottom: 36px;
+  }
+
+  h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 24px;
+  }
+
+  .byline {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .byline-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--pok-lavender);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--pok-purple);
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .byline-text {
+    display: flex;
+    flex-direction: column;
+  }
+  .byline-name {
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--ink);
+  }
+  .byline-role {
+    font-size: 13px;
+    color: var(--ink-mute);
+  }
+  .date {
+    font-size: 13px;
+    color: var(--ink-mute);
+    margin-bottom: 36px;
+  }
+
+  /* ───────── Body ───────── */
+  p {
+    margin-bottom: 22px;
+    color: var(--ink-soft);
+  }
+  p strong, p b {
+    color: var(--ink);
+    font-weight: 600;
+  }
+  a {
+    color: var(--pok-purple);
+    text-decoration: none;
+    border-bottom: 1px solid var(--pok-lavender);
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+  a:hover {
+    color: var(--pok-purple-deep);
+    border-bottom-color: var(--pok-purple);
+  }
+
+  h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--ink);
+    margin-top: 42px;
+    margin-bottom: 18px;
+    letter-spacing: -0.01em;
+  }
+
+  .secondary-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    margin: 32px 0;
+  }
+
+  .figure-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    margin: 36px 0;
+  }
+
+  /* ───────── Inline CTA ───────── */
+  .inline-cta {
+    display: inline-block;
+    margin-top: 8px;
+    color: var(--pok-purple);
+    font-weight: 600;
+    border-bottom: 1px solid var(--pok-purple);
+  }
+
+  /* ───────── Footer ───────── */
+  .footer {
+    margin-top: 64px;
+    padding-top: 32px;
+    border-top: 1px solid var(--rule);
+    text-align: left;
+  }
+  .footer-signature {
+    font-size: 15px;
+    color: var(--ink);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .footer-contact {
+    font-size: 13px;
+    color: var(--ink-mute);
+  }
+  .footer-contact a {
+    color: var(--ink-mute);
+    border-bottom: 1px dotted var(--ink-mute);
+  }
+  .footer-contact a:hover {
+    color: var(--pok-purple);
+    border-bottom-color: var(--pok-purple);
+  }
+  .footer-brand {
+    margin-top: 24px;
+    font-size: 11px;
+    color: var(--ink-mute);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* ───────── Mobile ───────── */
+  @media (max-width: 640px) {
+    .container { padding: 28px 20px 60px; }
+    h1 { font-size: 28px; }
+    h2 { font-size: 19px; margin-top: 32px; }
+    body { font-size: 16px; }
+    .topbar { flex-direction: column; gap: 16px; align-items: flex-start; }
+    .topbar-meta { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ───────── TOPBAR ───────── -->
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">pok</div>
+      <div>
+        <div class="brand-name">POK Brasil</div>
+        <div class="brand-sub">Newsletter · Educação Corporativa</div>
+      </div>
+    </div>
+    <div class="topbar-meta">
+      Edição especial<br>
+      Maio de 2026
+    </div>
+  </header>
+
+  <!-- ───────── HERO IMAGE ───────── -->
+  <img src="https://pokbrasil.github.io/content/Mai26_pok_news1_A.jpg" alt="NR-1 atualizada — fiscalização punitiva a partir de 26 de maio de 2026" class="hero-image">
+
+  <!-- ───────── TITLE ───────── -->
+  <h1>Em 26 de maio começa a fiscalização da NR-1 atualizada: por que cumprir a norma é metade do trabalho — e provar que cumpriu é a outra metade</h1>
+
+  <!-- ───────── BYLINE + DATE ───────── -->
+  <div class="byline">
+    <div class="byline-avatar">CF</div>
+    <div class="byline-text">
+      <div class="byline-name">Carolina Ferrés</div>
+      <div class="byline-role">Partner POK (Proof of Knowledge) · Founder The Blue City</div>
+    </div>
+  </div>
+  <div class="date">18 de maio de 2026</div>
+
+  <!-- ───────── LEAD ───────── -->
+  <p>Toda empresa brasileira convive, hoje, com pessoas afastadas por ansiedade, depressão ou esgotamento. Em 2024, mais de <strong>440 mil trabalhadores</strong> foram afastados pelo INSS por causas associadas à saúde mental — número que representa a segunda maior origem de afastamento no país, atrás apenas das doenças da coluna. Por anos, isso foi tratado como pauta de gestão de pessoas, resolvida com palestras pontuais, programas de bem-estar e comunicados internos. <strong>A partir de 26 de maio de 2026, deixa de ser apenas isso.</strong> A versão atualizada da <a href="https://www.gov.br/trabalho-e-emprego/pt-br" target="_blank" rel="noopener">Norma Regulamentadora nº 1 (NR-1)</a> entra em fase de fiscalização punitiva, e o que estava no campo da iniciativa voluntária passa a ser obrigação formal, <strong>documentada e auditável</strong>, de toda empresa com empregados regidos pela CLT.</p>
+
+  <!-- ───────── SECONDARY IMAGE ───────── -->
+  <img src="https://pokbrasil.github.io/content/Mai26_pok_news1_B.jpg" alt="Liderança e escuta — gestão de riscos psicossociais no ambiente de trabalho" class="secondary-image">
+
+  <!-- ───────── SECTION 1 ───────── -->
+  <h2>O que muda objetivamente</h2>
+  <p>A nova redação do capítulo 1.5 da NR-1 — promovida pela <a href="https://www.gov.br/trabalho-e-emprego/pt-br" target="_blank" rel="noopener">Portaria MTE nº 1.419/2024</a> e com vigência confirmada pela <a href="https://www.gov.br/trabalho-e-emprego/pt-br" target="_blank" rel="noopener">Portaria MTE nº 765/2025</a> — inclui obrigatoriamente os <strong>fatores de risco psicossociais relacionados ao trabalho</strong> no Programa de Gerenciamento de Riscos (PGR). Assédio, sobrecarga, metas excessivas, jornadas prolongadas, ausência de pausas, conflitos interpessoais e fatores ligados à organização do trabalho passam a ser equiparados, em termos de obrigação documental, aos riscos físicos, químicos e biológicos. Encerra-se nessa data o período educativo de um ano. A Comissão Tripartite Paritária Permanente (CTPP) reafirmou em março a manutenção integral do prazo — não haverá nova prorrogação. A partir de 26 de maio, auditores-fiscais passam a poder autuar, multar e, em casos graves, determinar interdições.</p>
+
+  <!-- ───────── SECTION 2 ───────── -->
+  <h2>O que pesou na decisão de não adiar</h2>
+  <p>Entre 2019 e 2024, segundo a Fundacentro, os benefícios previdenciários por transtornos mentais cresceram <strong>104%</strong>. No Judiciário trabalhista, riscos psicossociais já motivaram mais de <strong>5 mil ações</strong> desde 2014, com valores em discussão que somam aproximadamente <strong>R$ 2,2 bilhões</strong>. A tendência é de aceleração: análises de jurisprudência recente apontam ampliação do entendimento de que a obrigação patronal de garantir ambiente seguro abrange condições psicológicas, não apenas físicas. Mais sintomático: apenas 2% dos casos de adoecimento mental hoje têm o <strong>nexo causal com o trabalho</strong> formalmente reconhecido — número que tende a subir com a nova exigência de gestão documentada.</p>
+
+  <!-- ───────── STATS BLOCK ───────── -->
+  <img src="https://pokbrasil.github.io/content/Mai26_pok_news1_C.png" alt="+104% crescimento de afastamentos por transtornos mentais (2019–2024) · 440 mil trabalhadores afastados por causas psicossociais em 2024 · R$ 2,2 bi em ações trabalhistas desde 2014 · 26.05.2026 início da fiscalização punitiva" class="figure-image">
+
+  <!-- ───────── SECTION 3 ───────── -->
+  <h2>O que sua empresa precisa ter pronto até 26 de maio</h2>
+  <p>A documentação mínima exigida em fiscalização inclui PGR revisado e datado, com inventário específico de riscos psicossociais; plano de ação documentado com responsáveis e prazos; registros de monitoramento contínuo (canais de escuta, indicadores de absenteísmo, rotatividade, horas extras); e <strong>capacitação formal de lideranças e equipes</strong>. Esse último item é o que tem recebido menos atenção e tende a se tornar o mais sensível na fiscalização. O Guia de Informações sobre Fatores de Riscos Psicossociais, publicado pelo Ministério do Trabalho, deixou claro que ações pontuais — palestras de Setembro Amarelo, comunicados internos, treinamentos sem registro estruturado — não constituem evidência de gestão. O que o auditor-fiscal espera ver é o <strong>rastro documental</strong> completo: quem foi treinado, em quê, quando, por quanto tempo, com qual conteúdo, com qual avaliação de aproveitamento.</p>
+
+  <!-- ───────── SECTION 4 ───────── -->
+  <h2>O ponto cego: a fragilidade da prova de treinamento</h2>
+  <p>A maior parte das empresas que iniciaram adequação à nova NR-1 está concentrada em revisar o PGR e contratar conteúdos de capacitação. Poucas organizaram, em paralelo, a <strong>infraestrutura de prova documental</strong> desses treinamentos. Certificados em PDF emitidos por LMS internos, planilhas de presença e listas em papel são frágeis em três frentes: não são verificáveis por terceiros (auditor, perito, juiz), não têm rastreabilidade individual robusta — vínculo seguro entre o registro e a pessoa que efetivamente concluiu o treinamento — e podem ser questionados quanto à integridade da data e do conteúdo registrado. Em um cenário de fiscalização punitiva ativa e contencioso trabalhista crescente, a qualidade da prova vira variável decisiva, tanto para evitar autuação quanto para sustentar defesa em eventual ação por adoecimento ocupacional.</p>
+
+  <!-- ───────── SECTION 5 — POK ───────── -->
+  <h2>Como a POK opera nesse cenário</h2>
+  <p>A <a href="https://pok.tech" target="_blank" rel="noopener"><strong>POK</strong></a> é a infraestrutura B2B de <strong>credenciais verificáveis em blockchain</strong> que empresas brasileiras vêm adotando para emitir registros de conclusão de treinamentos com rastreabilidade auditável. Cada credencial emitida pela plataforma carrega vínculo criptográfico com a pessoa treinada, data certificada, descrição do conteúdo cursado e validação pública por terceiros — sem depender de banco de dados privado da empresa emissora. Para treinamentos exigidos pela NR-1 atualizada (gestão de riscos psicossociais para lideranças, capacitação de equipes em prevenção de assédio, formação da CIPA), isso significa prova de diligência documentada, verificável e juridicamente robusta, integrável ao PGR como evidência de plano de ação executado.</p>
+
+  <p><a href="https://pokbrasil.github.io/marketing/pok_corporativo_dashboard_publico.html" target="_blank" rel="noopener" class="inline-cta">→ Ver demonstração pública do dashboard POK Corporativo</a></p>
+
+  <!-- ───────── PARTNERSHIP BLOCK ───────── -->
+  <img src="https://pokbrasil.github.io/content/Mai26_pok_news1_D.png" alt="Anúncio — Parceria POK × Eduvem une conteúdo de treinamento e credencial verificável" class="figure-image">
+  <p>A POK e a <a href="https://eduvem.com" target="_blank" rel="noopener"><strong>Eduvem</strong></a> — primeira plataforma LMS-IA do mundo com cinco certificações ISO internacionais, e referência no Brasil em educação corporativa — estabeleceram parceria estratégica para unir, em uma única jornada, <strong>conteúdo de treinamento e credenciamento verificável</strong>.</p>
+  <p>Na prática, isso significa que empresas que utilizam a Eduvem para treinar suas equipes em temas exigidos pela nova NR-1 — prevenção de assédio, gestão de carga de trabalho, comunicação não violenta, formação de lideranças, programas de prevenção em saúde mental — passam a poder emitir, ao final de cada trilha, <strong>credenciais POK</strong> com prova auditável de conclusão. A integração resolve, em uma só camada, dois lados da exigência regulatória: a entrega do treinamento e a prova documental de que ele aconteceu.</p>
+  <p>Mais detalhes operacionais sobre a parceria serão compartilhados nas próximas semanas.</p>
+
+  <!-- ───────── FINAL SECTION ───────── -->
+  <h2>Próximo passo para empresas que precisam estruturar essa camada</h2>
+  <p>Empresas que estão concluindo a adequação à NR-1 atualizada e desejam organizar a camada de credenciamento dos treinamentos com prova verificável podem <a href="https://pokbrasil.github.io/marketing/pok_corporativo_dashboard_publico.html" target="_blank" rel="noopener"><strong>explorar a demonstração pública do dashboard POK Corporativo</strong></a> — que mostra a gestão regulatória de NRs, linha do tempo de vencimentos, auditabilidade blockchain das credenciais e também a leitura de impacto em retenção e mobilidade interna dos colaboradores certificados. Para entender como integrar a plataforma POK aos LMSs e trilhas formativas já contratadas (incluindo Eduvem) e ao modelo de emissão de credenciais por colaborador, o contato direto está no rodapé desta edição.</p>
+
+  <!-- ───────── FOOTER ───────── -->
+  <div class="footer">
+    <div class="footer-signature">Carolina Ferrés</div>
+    <div class="footer-contact">
+      <a href="mailto:carolina@pok.tech">carolina@pok.tech</a> · <a href="https://pok.tech" target="_blank" rel="noopener">pok.tech</a>
+    </div>
+    <div class="footer-brand">POK · Proof of Knowledge</div>
+  </div>
+
+</div>
+
+</body>
+</html>
