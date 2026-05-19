@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kit de Marketing · POK + Plataforma A · Trilhas Formativas</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --purple: #5123a4;
+    --purple-dark: #3a1878;
+    --purple-light: #e4dcf7;
+    --purple-faint: #F3EFF9;
+    --ink: #1E1230;
+    --ink-muted: #5E4E7A;
+    --ink-faint: #A899C2;
+    --border: #D8CEF0;
+    --white: #fff;
+    --radius-lg: 20px;
+    --gold: #f1ce0a;
+    --gold-dark: #b89c00;
+    --gold-light: #fdf7c3;
+    --gold-ink: #5a4900;
+    /* Plataforma A brand */
+    --plat-red: #E63946;
+    --plat-ink: #111111;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Poppins', sans-serif; background: var(--purple-faint); color: var(--ink); min-height: 100vh; }
+
+  /* HERO */
+  .hero { background: var(--purple-dark); padding: 52px 64px 44px; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -80px; right: -80px; width: 380px; height: 380px; border-radius: 50%; background: rgba(123,79,207,0.25); pointer-events: none; }
+  .hero::after { content: ''; position: absolute; bottom: -100px; left: 20%; width: 280px; height: 280px; border-radius: 50%; background: rgba(255,255,255,0.04); pointer-events: none; }
+  .hero-inner { max-width: 900px; position: relative; z-index: 1; }
+  .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; background: rgba(228,220,247,0.15); border: 1px solid rgba(228,220,247,0.2); border-radius: 99px; padding: 5px 14px; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple-light); margin-bottom: 16px; }
+  .hero-eyebrow span { width: 6px; height: 6px; border-radius: 50%; background: #a78bf0; display: inline-block; }
+  .hero-title { font-size: clamp(22px, 3.2vw, 38px); font-weight: 900; line-height: 1.15; color: #fff; letter-spacing: -0.02em; }
+  .hero-title em { color: var(--purple-light); font-style: normal; }
+
+  /* INTRO */
+  .intro-strip { background: var(--white); border-bottom: 1px solid var(--border); padding: 28px 64px; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+  .intro-text h2 { font-size: 18px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+  .intro-text p { font-size: 14px; color: var(--ink-muted); line-height: 1.5; }
+  .intro-logos { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
+  .intro-logo-pok { background: var(--purple); color: #fff; font-size: 14px; font-weight: 800; padding: 8px 18px; border-radius: 10px; display: flex; align-items: center; gap: 7px; }
+  .intro-logo-pok svg { width: 16px; height: 16px; }
+  .intro-plus { font-size: 18px; color: var(--ink-faint); font-weight: 300; }
+  /* Logo Plataforma A — padrão da marca: roxo + texto branco + "+" sobrescrito */
+  .intro-logo-plat { background: var(--purple); color: #fff; font-size: 15px; font-weight: 800; padding: 8px 18px; border-radius: 10px; letter-spacing: -0.015em; display: inline-flex; align-items: baseline; }
+  .intro-logo-plat sup { font-size: 0.55em; font-weight: 700; margin-left: 1px; top: -0.5em; position: relative; }
+
+  /* CONTENT */
+  .content { max-width: 1120px; margin: 0 auto; padding: 48px 32px 72px; }
+
+  /* SECTION HEADER */
+  .section-header { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; margin-top: 52px; }
+  .section-header:first-child { margin-top: 0; }
+  .section-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+  .section-icon.virtual { background: var(--purple-light); }
+  .section-title-block h2 { font-size: 22px; font-weight: 800; color: var(--ink); }
+  .section-title-block p { font-size: 13px; color: var(--ink-muted); margin-top: 2px; }
+
+  /* Grid 3 colunas */
+  .kit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+  /* Card */
+  .mat-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; transition: transform 0.18s ease, box-shadow 0.18s ease; display: flex; flex-direction: column; }
+  .mat-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(81,35,164,0.12); }
+
+  /* Box de imagem */
+  .img-wrap { width: 100%; height: 400px; background: var(--purple-faint); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--border); padding: 16px; }
+  .img-wrap img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
+
+  /* Card info */
+  .mat-card-info { padding: 16px 18px 20px; flex: 1; }
+  .mat-card-tag { display: inline-block; align-self: flex-start; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 10px; border-radius: 99px; margin-bottom: 8px; }
+  .tag-virtual { background: var(--purple-light); color: var(--purple); }
+  .mat-card-name { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 5px; }
+  .mat-card-desc { font-size: 12px; color: var(--ink-muted); line-height: 1.55; }
+
+  /* FOOTER */
+  .pres-footer { text-align: center; padding: 40px 32px 52px; border-top: 1px solid var(--border); margin-top: 56px; }
+  .pres-footer .logo-area { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 10px; }
+  .footer-logo-icon { width: 30px; height: 30px; border: 2px solid var(--purple); border-radius: 7px; display: flex; align-items: center; justify-content: center; }
+  .footer-logo-text { font-size: 20px; font-weight: 800; color: var(--purple); }
+  .pres-footer p { font-size: 13px; color: var(--ink-faint); }
+  .pres-footer a { color: var(--purple); text-decoration: none; font-weight: 600; }
+
+  .gold-bar { height: 4px; background: linear-gradient(90deg, var(--gold) 0%, rgba(241,206,10,0.3) 100%); }
+
+  .card-link-btn { display: inline-block; margin-top: 10px; font-size: 11px; font-weight: 600; color: var(--purple); text-decoration: none; border: 1px solid var(--border); border-radius: 6px; padding: 4px 12px; transition: background 0.15s; }
+  .card-link-btn:hover { background: var(--purple-light); }
+  .card-btn-group { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .card-btn-group .card-link-btn { margin-top: 0; }
+  .card-download-btn { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 600; color: var(--purple); background: transparent; text-decoration: none; border: 1px solid var(--border); border-radius: 6px; padding: 4px 12px; transition: background 0.15s; }
+  .card-download-btn:hover { background: var(--purple-light); }
+  .card-download-btn svg { width: 11px; height: 11px; }
+
+  /* Card horizontal — ecossistema POK + HiGen */
+  .mat-card-horizontal { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; display: grid; grid-template-columns: 360px 1fr; margin-top: 24px; transition: transform 0.18s ease, box-shadow 0.18s ease; }
+  .mat-card-horizontal:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(81,35,164,0.12); }
+  .mat-card-horizontal .img-wrap { height: 100%; min-height: 280px; border-bottom: none; border-right: 1px solid var(--border); }
+  .mat-card-horizontal .mat-card-info { padding: 32px 36px; display: flex; flex-direction: column; justify-content: center; }
+  .mat-card-horizontal .mat-card-name { font-size: 22px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
+  .mat-card-horizontal .mat-card-desc { font-size: 14px; line-height: 1.6; }
+  .mat-card-horizontal .ecosystem-logos { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 14px; font-size: 12px; font-weight: 700; }
+  .mat-card-horizontal .ecosystem-logos .pok-chip { background: var(--purple); color: #fff; padding: 4px 12px; border-radius: 6px; letter-spacing: -0.01em; }
+  .mat-card-horizontal .ecosystem-logos .higen-chip { background: #0d3b66; color: #fff; padding: 4px 12px; border-radius: 6px; letter-spacing: -0.01em; }
+  .mat-card-horizontal .ecosystem-logos .plus { color: var(--ink-faint); font-weight: 400; font-size: 14px; }
+
+  @media (max-width: 800px) {
+    .mat-card-horizontal { grid-template-columns: 1fr; }
+    .mat-card-horizontal .img-wrap { border-right: none; border-bottom: 1px solid var(--border); min-height: 220px; }
+    .mat-card-horizontal .mat-card-info { padding: 24px; }
+  }
+
+  @media (max-width: 800px) {
+    .kit-grid { grid-template-columns: 1fr 1fr; }
+    .hero { padding: 36px 24px 32px; }
+    .intro-strip { padding: 24px; }
+    .content { padding: 32px 16px 56px; }
+  }
+  @media (max-width: 500px) {
+    .kit-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow"><span></span> POK + Plataforma A · Kit de Marketing</div>
+    <h1 class="hero-title">Materiais campanha<br><em>Programa POK de Trilhas Formativas<br>Micro-Certificadas por Competências<br>e Campanha de Egressos</em></h1>
+  </div>
+</header>
+
+<div class="intro-strip">
+  <div class="intro-text">
+    <h2>Kit Marketing · POK + Plataforma A</h2>
+    <p>Materiais de campanha do Programa POK de Trilhas Formativas Micro-Certificadas por Competências e da Campanha de Egressos e Empregabilidade</p>
+  </div>
+  <div class="intro-logos">
+  </div>
+</div>
+
+<div class="gold-bar"></div>
+
+<main class="content">
+
+  <!-- KIT VIRTUAL -->
+  <div class="section-header">
+    <div class="section-icon virtual">💻</div>
+    <div class="section-title-block">
+      <h2>Kit Virtual</h2>
+      <p>Peças digitais para uso em canais online — redes sociais, e-mail e web</p>
+    </div>
+  </div>
+
+  <div class="kit-grid">
+
+    <!-- ====== CAMPANHA POK EGRESSOS E EMPREGABILIDADE ====== -->
+
+    <div class="mat-card">
+      <div class="img-wrap">
+        <img src="https://pokbrasil.github.io/content/post_linkedin_campanha_pok_plataformaa.png" alt="Flyer Digital / Post LinkedIn — Campanha POK Egressos e Empregabilidade">
+      </div>
+      <div class="mat-card-info">
+        <span class="mat-card-tag tag-virtual">Virtual</span>
+        <div class="mat-card-name">Campanha POK Egressos e Empregabilidade • Flyer Digital / Post LinkedIn</div>
+        <div class="card-btn-group">
+          <a href="https://pokbrasil.github.io/marketing/pok_campanha_egressos_semesp_workalove.html" target="_blank" class="card-link-btn">Acessar →</a>
+          <a href="https://pokbrasil.github.io/content/post_linkedin_campanha_pok_plataformaa.png" download target="_blank" class="card-download-btn">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 2v8m0 0l-3-3m3 3l3-3M3 13h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Baixar imagem
+          </a>
+        </div>
+        <div class="mat-card-desc">Peça vertical da Campanha POK Egressos e Empregabilidade para compartilhamento no LinkedIn, WhatsApp, Instagram e demais canais digitais. Já inclui a parceria com a Plataforma A.</div>
+      </div>
+    </div>
+
+    <div class="mat-card">
+      <div class="img-wrap">
+        <img src="https://pokbrasil.github.io/content/post_linkedin_egressos_sinaes_plataforma_a.png" alt="Flyer Digital / Post LinkedIn — Campanha POK Egressos e Empregabilidade (SINAES)">
+      </div>
+      <div class="mat-card-info">
+        <span class="mat-card-tag tag-virtual">Virtual</span>
+        <div class="mat-card-name">Campanha POK Egressos e Empregabilidade • Flyer Digital / Post LinkedIn</div>
+        <div class="card-btn-group">
+          <a href="https://pokbrasil.github.io/marketing/pok_campanha_egressos_semesp_workalove.html" target="_blank" class="card-link-btn">Acessar →</a>
+          <a href="https://pokbrasil.github.io/content/post_linkedin_egressos_sinaes_plataforma_a.png" download target="_blank" class="card-download-btn">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 2v8m0 0l-3-3m3 3l3-3M3 13h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Baixar imagem
+          </a>
+        </div>
+        <div class="mat-card-desc">Peça vertical da Campanha POK Egressos e Empregabilidade abordando o SINAES e a empregabilidade dos egressos. Já inclui a parceria com a Plataforma A.</div>
+      </div>
+    </div>
+
+    <div class="mat-card">
+      <div class="img-wrap">
+        <img src="https://pokbrasil.github.io/content/Newsletter2.png" alt="Campanha POK Egressos e Empregabilidade • Newsletter">
+      </div>
+      <div class="mat-card-info">
+        <span class="mat-card-tag tag-virtual">Virtual</span>
+        <div class="mat-card-name">Campanha POK Egressos e Empregabilidade • Newsletter</div>
+        <a href="https://pokbrasil.github.io/marketing/2005-newsletter-pok-egressos-empregabilidade.html" target="_blank" class="card-link-btn">Acessar →</a>
+        <div class="mat-card-desc">Newsletter editorial sobre a Campanha POK Egressos e Empregabilidade. Já inclui a parceria com a Plataforma A. Publicamos em LinkedIn e via e-mail para a base.</div>
+      </div>
+    </div>
+
+    <div class="mat-card">
+      <div class="img-wrap">
+        <img src="https://pokbrasil.github.io/content/lp_campanha_egresso.png" alt="Campanha POK Egressos e Empregabilidade • Landing Page">
+      </div>
+      <div class="mat-card-info">
+        <span class="mat-card-tag tag-virtual">Virtual</span>
+        <div class="mat-card-name">Campanha POK Egressos e Empregabilidade • Landing Page</div>
+        <a href="https://pokbrasil.github.io/marketing/pok_campanha_egressos_semesp_workalove.html" target="_blank" class="card-link-btn">Acessar →</a>
+        <div class="mat-card-desc">Página dedicada à Campanha POK Egressos e Empregabilidade com dados de impacto, formulário de adesão e apresentação do programa. Já inclui a parceria com a Plataforma A.</div>
+      </div>
+    </div>
+
+    <!-- ====== PROGRAMA POK DE TRILHAS FORMATIVAS ====== -->
+
+    <div class="mat-card">
+      <div class="img-wrap">
+        <img src="https://pokbrasil.github.io/content/pok_linkedin_trilhas_formativas_plataforma_a.png" alt="Flyer Digital / Post LinkedIn — Programa POK de Trilhas Formativas">
+      </div>
+      <div class="mat-card-info">
+        <span class="mat-card-tag tag-virtual">Virtual</span>
+        <div class="mat-card-name">Programa de Trilhas Formativas • Flyer Digital / Post LinkedIn</div>
+        <div class="card-btn-group">
+          <a href="https://pok672.ac-page.com/programa-pok-de-trilhas-formativas-microcertificadas" target="_blank" class="card-link-btn">Acessar →</a>
+          <a href="https://pokbrasil.github.io/content/pok_linkedin_trilhas_formativas_plataforma_a.png" download target="_blank" class="card-download-btn">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 2v8m0 0l-3-3m3 3l3-3M3 13h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Baixar imagem
+          </a>
+        </div>
+        <div class="mat-card-desc">Peça vertical de divulgação do Programa POK de Trilhas Formativas Micro-Certificadas para compartilhamento no LinkedIn, WhatsApp, Instagram e demais canais digitais. Já inclui a parceria com a Plataforma A.</div>
+      </div>
+    </div>
+
+    <div class="mat-card">
+      <div class="img-wrap">
+        <img src="https://pokbrasil.github.io/content/Mai19_pok_news2_flyer_plataformaa.png" alt="Flyer Digital / Post LinkedIn — Programa POK de Trilhas Formativas (DCNs por competências)">
+      </div>
+      <div class="mat-card-info">
+        <span class="mat-card-tag tag-virtual">Virtual</span>
+        <div class="mat-card-name">Programa de Trilhas Formativas • Flyer Digital / Post LinkedIn</div>
+        <div class="card-btn-group">
+          <a href="https://pok672.ac-page.com/programa-pok-de-trilhas-formativas-microcertificadas" target="_blank" class="card-link-btn">Acessar →</a>
+          <a href="https://pokbrasil.github.io/content/Mai19_pok_news2_flyer_plataformaa.png" download target="_blank" class="card-download-btn">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 2v8m0 0l-3-3m3 3l3-3M3 13h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Baixar imagem
+          </a>
+        </div>
+        <div class="mat-card-desc">Peça editorial sobre as DCNs por competências e a nova linguagem regulatória do ensino superior. Já inclui a parceria com a Plataforma A.</div>
+      </div>
+    </div>
+
+    <div class="mat-card">
+      <div class="img-wrap">
+        <img src="https://pokbrasil.github.io/content/Newsletter1.png" alt="Programa de Trilhas Formativas • Newsletter">
+      </div>
+      <div class="mat-card-info">
+        <span class="mat-card-tag tag-virtual">Virtual</span>
+        <div class="mat-card-name">Programa de Trilhas Formativas • Newsletter</div>
+        <a href="https://pokbrasil.github.io/marketing/1905-newsletter-pok-competencias.html" target="_blank" class="card-link-btn">Acessar →</a>
+        <div class="mat-card-desc">Newsletter editorial sobre as DCNs por competências, microcredenciais e o Programa POK de Trilhas Formativas. Já inclui a parceria com a Plataforma A. Publicamos em LinkedIn e via e-mail para a base.</div>
+      </div>
+    </div>
+
+    <div class="mat-card">
+      <div class="img-wrap">
+        <img src="https://pokbrasil.github.io/content/lp_pok_plataformaa.png" alt="Programa de Trilhas Formativas • Landing Page">
+      </div>
+      <div class="mat-card-info">
+        <span class="mat-card-tag tag-virtual">Virtual</span>
+        <div class="mat-card-name">Programa de Trilhas Formativas • Landing Page</div>
+        <a href="https://pok672.ac-page.com/programa-pok-de-trilhas-formativas-microcertificadas" target="_blank" class="card-link-btn">Acessar →</a>
+        <div class="mat-card-desc">Página de inscrição com formulário, vídeo de apresentação e dados de impacto do programa. Já inclui a parceria com a Plataforma A.</div>
+      </div>
+    </div>
+
+    <!-- ====== GERAL ====== -->
+
+    <div class="mat-card">
+      <div class="img-wrap">
+        <img src="gogo.gif" alt="Pílulas dos Vídeos POK">
+      </div>
+      <div class="mat-card-info">
+        <span class="mat-card-tag tag-virtual">Virtual</span>
+        <div class="mat-card-name">Pílulas dos Vídeos</div>
+        <a href="https://youtu.be/H8uvKa_Aylw?si=J8LO1VoCAciJhZBY" target="_blank" class="card-link-btn">Acessar →</a>
+        <div class="mat-card-desc">Clipes curtos extraídos do curso para uso em redes sociais e campanhas de engajamento. Incluir menção à parceria com a Plataforma A (fala).</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Card horizontal: Ecossistema POK + HiGen -->
+  <div class="mat-card-horizontal">
+    <div class="img-wrap">
+      <img src="gogo.gif" alt="Flyer Ecossistema de Empregabilidade POK + HiGen">
+    </div>
+    <div class="mat-card-info">
+      <span class="mat-card-tag tag-virtual">Virtual · Ecossistema</span>
+      <div class="ecosystem-logos">
+        <span class="pok-chip">pok</span>
+        <span class="plus">×</span>
+        <span class="higen-chip">HiGen</span>
+      </div>
+      <div class="mat-card-name">Ecossistema de Empregabilidade POK + HiGen</div>
+      <div class="mat-card-desc">Material institucional apresentando o ecossistema integrado de empregabilidade: trilhas formativas micro-certificadas da POK conectadas à plataforma de matching de talentos e oportunidades da HiGen. Demonstra a jornada completa do egresso — da formação à colocação profissional — para instituições parceiras e empresas contratantes.</div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="pres-footer">
+  <div class="logo-area">
+    <div class="footer-logo-icon">
+      <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1" y="1" width="16" height="16" rx="3" stroke="#5123a4" stroke-width="2"/>
+        <polyline points="4,9 7.5,13 14,5" stroke="#5123a4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <span class="footer-logo-text">pok</span>
+  </div>
+  <p>Muito mais que certificados digitais · <a href="https://pok.tech" target="_blank">pok.tech</a></p>
+</footer>
+
+</body>
+</html>
