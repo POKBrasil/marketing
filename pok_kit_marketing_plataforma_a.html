@@ -4,6 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kit de Marketing · POK + Plataforma A · Trilhas Formativas</title>
+
+<!-- Open Graph / WhatsApp / LinkedIn — preview em texto (sem imagem) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kit de Marketing · POK + Plataforma A">
+<meta property="og:description" content="Materiais de campanha do Programa POK de Trilhas Formativas Micro-Certificadas por Competências e da Campanha de Egressos e Empregabilidade.">
+<meta property="og:site_name" content="POK">
+<meta property="og:locale" content="pt_BR">
+
+<!-- Twitter Card (mesmo conteúdo, summary sem imagem) -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Kit de Marketing · POK + Plataforma A">
+<meta name="twitter:description" content="Materiais de campanha do Programa POK de Trilhas Formativas Micro-Certificadas por Competências e da Campanha de Egressos e Empregabilidade.">
+
+<!-- Meta description para SEO/preview genérico -->
+<meta name="description" content="Materiais de campanha do Programa POK de Trilhas Formativas Micro-Certificadas por Competências e da Campanha de Egressos e Empregabilidade.">
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -69,7 +85,7 @@
   .mat-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(81,35,164,0.12); }
 
   /* Box de imagem */
-  .img-wrap { width: 100%; height: 400px; background: var(--purple-faint); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--border); padding: 16px; }
+  .img-wrap { width: 100%; aspect-ratio: 4 / 5; background: var(--purple-faint); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--border); padding: 16px; overflow: hidden; }
   .img-wrap img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
 
   /* Card info */
@@ -97,7 +113,68 @@
   .card-download-btn:hover { background: var(--purple-light); }
   .card-download-btn svg { width: 11px; height: 11px; }
 
-  /* Card horizontal — ecossistema POK + HiGen */
+  /* Ecosystem box — gradient roxo→rosa translúcido */
+  .ecosystem-box {
+    background: linear-gradient(180deg, rgba(94, 45, 168, 0.55) 0%, rgba(160, 79, 160, 0.45) 45%, rgba(215, 122, 160, 0.40) 75%, rgba(232, 157, 157, 0.40) 100%);
+    border: none;
+    border-radius: 24px;
+    padding: 36px 32px;
+    margin-top: 52px;
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 20px;
+    align-items: center;
+    box-shadow: 0 8px 24px rgba(81, 35, 164, 0.10);
+  }
+  .ecosystem-box::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.10);
+    pointer-events: none;
+  }
+  .ecosystem-box-header {
+    position: relative;
+    z-index: 1;
+  }
+  .ecosystem-box-title {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--ink);
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+  }
+  .ecosystem-box-intro {
+    font-size: 14px;
+    color: var(--ink-muted);
+    line-height: 1.65;
+  }
+  .ecosystem-box .kit-grid {
+    position: relative;
+    z-index: 1;
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  @media (max-width: 800px) {
+    .ecosystem-box {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    .ecosystem-box .kit-grid {
+      max-width: 360px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  /* Card horizontal — mantido para compatibilidade, sem uso atual */
   .mat-card-horizontal { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; display: grid; grid-template-columns: 360px 1fr; margin-top: 24px; transition: transform 0.18s ease, box-shadow 0.18s ease; }
   .mat-card-horizontal:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(81,35,164,0.12); }
   .mat-card-horizontal .img-wrap { height: 100%; min-height: 280px; border-bottom: none; border-right: 1px solid var(--border); }
@@ -123,6 +200,17 @@
   }
   @media (max-width: 500px) {
     .kit-grid { grid-template-columns: 1fr; }
+    .hero { padding: 32px 20px 28px; }
+    .hero-title { font-size: 22px; }
+    .intro-strip { padding: 20px; }
+    .intro-text h2 { font-size: 16px; }
+    .intro-text p { font-size: 13px; }
+    .content { padding: 28px 14px 48px; }
+    .img-wrap { aspect-ratio: 1 / 1; }
+    .ecosystem-box { padding: 28px 20px; }
+    .ecosystem-box-title { font-size: 22px; }
+    .section-header { margin-top: 40px; }
+    .section-title-block h2 { font-size: 19px; }
   }
 </style>
 </head>
@@ -221,6 +309,18 @@
       </div>
     </div>
 
+    <div class="mat-card">
+      <div class="img-wrap">
+        <img src="https://pokbrasil.github.io/content/VideoCampanha.jpg" alt="Campanha POK Egressos e Empregabilidade • Vídeo">
+      </div>
+      <div class="mat-card-info">
+        <span class="mat-card-tag tag-virtual">Virtual</span>
+        <div class="mat-card-name">Campanha POK Egressos e Empregabilidade • Vídeo</div>
+        <a href="https://youtu.be/xVvKN_Qusm4?si=Yu0BIpkhWo2NXRo-" target="_blank" class="card-link-btn">Acessar →</a>
+        <div class="mat-card-desc">Vídeo institucional da Campanha POK Egressos e Empregabilidade para uso em redes sociais e canais digitais. Já inclui a parceria com a Plataforma A.</div>
+      </div>
+    </div>
+
     <!-- ====== PROGRAMA POK DE TRILHAS FORMATIVAS ====== -->
 
     <div class="mat-card">
@@ -283,38 +383,29 @@
       </div>
     </div>
 
-    <!-- ====== GERAL ====== -->
-
-    <div class="mat-card">
-      <div class="img-wrap">
-        <img src="gogo.gif" alt="Pílulas dos Vídeos POK">
-      </div>
-      <div class="mat-card-info">
-        <span class="mat-card-tag tag-virtual">Virtual</span>
-        <div class="mat-card-name">Pílulas dos Vídeos</div>
-        <a href="https://youtu.be/H8uvKa_Aylw?si=J8LO1VoCAciJhZBY" target="_blank" class="card-link-btn">Acessar →</a>
-        <div class="mat-card-desc">Clipes curtos extraídos do curso para uso em redes sociais e campanhas de engajamento. Incluir menção à parceria com a Plataforma A (fala).</div>
-      </div>
-    </div>
-
   </div>
 
-  <!-- Card horizontal: Ecossistema POK + HiGen -->
-  <div class="mat-card-horizontal">
-    <div class="img-wrap">
-      <img src="gogo.gif" alt="Flyer Ecossistema de Empregabilidade POK + HiGen">
-    </div>
-    <div class="mat-card-info">
-      <span class="mat-card-tag tag-virtual">Virtual · Ecossistema</span>
-      <div class="ecosystem-logos">
-        <span class="pok-chip">pok</span>
-        <span class="plus">×</span>
-        <span class="higen-chip">HiGen</span>
+  <!-- Box: Ecossistema de Empregabilidade -->
+  <section class="ecosystem-box">
+    <div class="kit-grid">
+      <div class="mat-card">
+        <div class="img-wrap">
+          <img src="https://pokbrasil.github.io/content/post_linkedin_pok_higen.png" alt="POK + HiGen • Apresentação">
+        </div>
+        <div class="mat-card-info">
+          <span class="mat-card-tag tag-virtual">Virtual</span>
+          <div class="mat-card-name">POK + HiGen • Apresentação</div>
+          <a href="https://pokbrasil.github.io/marketing/pok_higen_apresentacao.html" target="_blank" class="card-link-btn">Acessar →</a>
+          <div class="mat-card-desc">Apresentação institucional da parceria POK + HiGen — trilhas formativas micro-certificadas conectadas à plataforma de matching de talentos e vagas, completando a jornada do egresso da formação à empregabilidade.</div>
+        </div>
       </div>
-      <div class="mat-card-name">Ecossistema de Empregabilidade POK + HiGen</div>
-      <div class="mat-card-desc">Material institucional apresentando o ecossistema integrado de empregabilidade: trilhas formativas micro-certificadas da POK conectadas à plataforma de matching de talentos e oportunidades da HiGen. Demonstra a jornada completa do egresso — da formação à colocação profissional — para instituições parceiras e empresas contratantes.</div>
     </div>
-  </div>
+
+    <div class="ecosystem-box-header">
+      <h2 class="ecosystem-box-title">Ecossistema de Empregabilidade</h2>
+      <p class="ecosystem-box-intro">A POK conecta-se a parceiros estratégicos para entregar uma jornada completa ao egresso — da formação certificada à colocação profissional. Apresentamos abaixo o material institucional da parceria com a HiGen, plataforma de matching de talentos e oportunidades.</p>
+    </div>
+  </section>
 
 </main>
 
