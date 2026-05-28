@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parceria POK e Serasa · os dois lados da mesa</title>
+<meta name="description" content="Dois fluxos complementares: dados Serasa enriquecendo os dashboards de empregabilidade POK, e credenciais POK enriquecendo a Serasa Pass como uma nova camada de competências verificadas.">
+
+<!-- Open Graph (LinkedIn, WhatsApp, Facebook) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pokbrasil.github.io/marketing/parceria_pok_serasa.html">
+<meta property="og:title" content="Parceria POK e Serasa · os dois lados da mesa">
+<meta property="og:description" content="Dois fluxos complementares: dados Serasa enriquecendo os dashboards de empregabilidade POK, e credenciais POK enriquecendo a Serasa Pass como uma nova camada de competências verificadas.">
+<meta property="og:image" content="https://pokbrasil.github.io/content/parceria_pok_serasa_og.png">
+<meta property="og:image:secure_url" content="https://pokbrasil.github.io/content/parceria_pok_serasa_og.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Parceria POK × Serasa — Dois fluxos complementares">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="POK">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Parceria POK e Serasa · os dois lados da mesa">
+<meta name="twitter:description" content="Dois fluxos complementares — Serasa enriquece POK, POK enriquece Serasa Pass.">
+<meta name="twitter:image" content="https://pokbrasil.github.io/content/parceria_pok_serasa_og.png">
+<meta name="twitter:image:alt" content="Parceria POK × Serasa — Dois fluxos complementares">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --purple: #5123a4;
+    --purple-dark: #3a1878;
+    --purple-light: #e4dcf7;
+    --purple-faint: #F3EFF9;
+    --ink: #1E1230;
+    --ink-muted: #5E4E7A;
+    --ink-faint: #A899C2;
+    --border: #D8CEF0;
+    --white: #fff;
+    --radius-lg: 20px;
+    --gold: #f1ce0a;
+    --gold-dark: #b89c00;
+    --gold-light: #fdf7c3;
+    --gold-ink: #5a4900;
+
+    --edu-bg: #EEEDFE;
+    --edu-border: #AFA9EC;
+    --edu-text: #3C3489;
+    --edu-accent: #5123a4;
+
+    --corp-bg: #DBEAFE;
+    --corp-border: #BFDBFE;
+    --corp-text: #1E40AF;
+    --corp-accent: #3B82F6;
+
+    --serasa-bg: #E1F5EE;
+    --serasa-border: #5DCAA5;
+    --serasa-text: #085041;
+
+    --new-bg: #FDF7C3;
+    --new-border: #E5C806;
+    --new-text: #5A4900;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Poppins', sans-serif; background: var(--purple-faint); color: var(--ink); min-height: 100vh; }
+
+  .hero { background: var(--purple-dark); padding: 52px 64px 44px; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -80px; right: -80px; width: 380px; height: 380px; border-radius: 50%; background: rgba(123,79,207,0.25); pointer-events: none; }
+  .hero::after { content: ''; position: absolute; bottom: -100px; left: 20%; width: 280px; height: 280px; border-radius: 50%; background: rgba(255,255,255,0.04); pointer-events: none; }
+  .hero-inner { max-width: 960px; position: relative; z-index: 1; }
+  .hero-logo { margin-bottom: 28px; }
+  .hero-logo svg { height: 40px; width: auto; display: block; }
+  .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; background: rgba(228,220,247,0.15); border: 1px solid rgba(228,220,247,0.2); border-radius: 99px; padding: 5px 14px; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple-light); margin-bottom: 16px; }
+  .hero-eyebrow span { width: 6px; height: 6px; border-radius: 50%; background: #a78bf0; display: inline-block; }
+  .hero-title { font-size: clamp(28px, 5vw, 56px); font-weight: 900; line-height: 1.1; color: #fff; letter-spacing: -0.025em; margin-bottom: 14px; }
+  .hero-title em { color: var(--purple-light); font-style: normal; }
+  .hero-sub { font-size: 14px; color: rgba(228,220,247,0.75); line-height: 1.6; max-width: 640px; }
+
+  .gold-bar { height: 4px; background: linear-gradient(90deg, var(--gold) 0%, rgba(241,206,10,0.3) 100%); }
+
+  .intro-strip { background: var(--white); border-bottom: 1px solid var(--border); padding: 22px 64px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .intro-text h2 { font-size: 17px; font-weight: 700; color: var(--ink); margin-bottom: 3px; }
+  .intro-text p { font-size: 13px; color: var(--ink-muted); line-height: 1.5; }
+  .intro-logos { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+  .intro-logo-pok { background: var(--purple); color: #fff; font-size: 14px; font-weight: 800; padding: 8px 18px; border-radius: 10px; display: flex; align-items: center; gap: 7px; text-decoration: none; }
+  .intro-logo-pok svg { width: 16px; height: 16px; }
+  .intro-plus { font-size: 18px; color: var(--ink-faint); font-weight: 300; }
+  .intro-logo-serasa { background: #f5f5f5; border: 1px solid var(--border); color: var(--ink); font-size: 13px; font-weight: 700; padding: 8px 18px; border-radius: 10px; text-decoration: none; display: flex; align-items: center; }
+
+  .summary-strip { background: var(--purple-faint); border-bottom: 1px solid var(--border); padding: 28px 64px; }
+  .summary-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-faint); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .summary-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .summary-box { background: linear-gradient(135deg, var(--purple-dark) 0%, #1a0b3d 100%); border: 1px solid rgba(228,220,247,0.12); border-radius: 16px; padding: 28px 32px; border-left: 4px solid var(--gold); position: relative; overflow: hidden; }
+  .summary-box::before { content: ''; position: absolute; top: -60px; right: -60px; width: 200px; height: 200px; border-radius: 50%; background: rgba(123,79,207,0.18); pointer-events: none; }
+  .summary-box::after { content: ''; position: absolute; bottom: -80px; left: 40%; width: 180px; height: 180px; border-radius: 50%; background: rgba(241,206,10,0.05); pointer-events: none; }
+  .summary-box > * { position: relative; z-index: 1; }
+  .summary-box p { font-size: 14px; color: rgba(228,220,247,0.82); line-height: 1.8; }
+  .summary-box strong { color: #fff; font-weight: 600; }
+  .research-highlight { background: rgba(241,206,10,0.12); border: 1px solid rgba(241,206,10,0.3); border-radius: 8px; padding: 12px 16px; margin-top: 16px; font-size: 13px; color: rgba(255,255,255,0.92); display: flex; align-items: flex-start; gap: 10px; line-height: 1.65; }
+  .research-highlight .icon { font-size: 16px; flex-shrink: 0; margin-top: 2px; }
+  .research-highlight strong { font-weight: 700; color: var(--gold); }
+
+  .legend-strip { background: var(--white); border-bottom: 1px solid var(--border); padding: 14px 64px; display: flex; align-items: center; gap: 6px 20px; flex-wrap: wrap; }
+  .legend-title { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-faint); margin-right: 4px; white-space: nowrap; }
+  .legend-pill { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 99px; white-space: nowrap; }
+  .pill-edu    { background: var(--edu-bg); color: var(--edu-text); border: 1px solid var(--edu-border); }
+  .pill-corp   { background: var(--corp-bg); color: var(--corp-text); border: 1px solid var(--corp-border); }
+  .pill-serasa { background: var(--serasa-bg); color: var(--serasa-text); border: 1px solid var(--serasa-border); }
+  .pill-new    { background: var(--new-bg); color: var(--new-text); border: 1px solid var(--new-border); }
+
+  .content { max-width: 1100px; margin: 0 auto; padding: 48px 32px 80px; }
+
+  .section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; margin-top: 52px; }
+  .section-header:first-child { margin-top: 0; }
+  .section-icon { width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+  .icon-edu  { background: var(--edu-bg); }
+  .icon-corp { background: var(--corp-bg); }
+  .icon-syn  { background: var(--purple-light); }
+  .section-title-block h2 { font-size: 20px; font-weight: 800; color: var(--ink); }
+  .section-title-block p { font-size: 13px; color: var(--ink-muted); margin-top: 2px; }
+
+  .dashboard-context { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; margin-bottom: 20px; display: flex; gap: 14px; align-items: flex-start; }
+  .dashboard-context-icon { font-size: 18px; flex-shrink: 0; margin-top: 2px; opacity: 0.7; }
+  .dashboard-context-body { font-size: 13px; color: var(--ink-muted); line-height: 1.7; }
+  .dashboard-context-body strong { color: var(--ink); font-weight: 600; }
+  .dashboard-context-link { display: inline-block; font-size: 12px; font-weight: 600; color: var(--purple); text-decoration: none; margin-top: 6px; }
+  .dashboard-context-link:hover { text-decoration: underline; }
+
+  .subsection-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-faint); margin: 22px 0 12px; display: flex; align-items: center; gap: 8px; }
+  .subsection-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  .cards-list { display: flex; flex-direction: column; gap: 12px; }
+
+  .metric-card { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 16px 20px 18px; display: flex; gap: 14px; align-items: flex-start; transition: border-color 0.15s; }
+  .metric-card:hover { border-color: var(--purple-light); }
+  .metric-card-icon { width: 36px; height: 36px; border-radius: 9px; background: var(--purple-faint); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+  .metric-card-body { flex: 1; }
+  .metric-card-name { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 4px; line-height: 1.3; }
+  .metric-card-desc { font-size: 12.5px; color: var(--ink-muted); line-height: 1.6; }
+  .metric-card-source { font-size: 11px; font-weight: 600; color: var(--serasa-text); margin-top: 8px; display: inline-flex; align-items: center; gap: 5px; }
+  .metric-card-source::before { content: '✦'; font-size: 10px; }
+
+  .origin-badge { display: inline-flex; align-items: center; font-size: 9.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; padding: 3px 9px; border-radius: 99px; white-space: nowrap; margin-bottom: 8px; }
+  .badge-edu    { background: var(--edu-bg); color: var(--edu-text); border: 1px solid var(--edu-border); }
+  .badge-corp   { background: var(--corp-bg); color: var(--corp-text); border: 1px solid var(--corp-border); }
+  .badge-serasa { background: var(--serasa-bg); color: var(--serasa-text); border: 1px solid var(--serasa-border); }
+
+  .lgpd-box { background: var(--white); border: 1px solid var(--border); border-left: 4px solid var(--purple); border-radius: 16px; padding: 20px 24px; margin-top: 48px; display: flex; gap: 16px; }
+  .lgpd-icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
+  .lgpd-body h3 { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+  .lgpd-body p { font-size: 13px; color: var(--ink-muted); line-height: 1.7; }
+  .lgpd-body p + p { margin-top: 8px; }
+  .lgpd-body strong { color: var(--ink); font-weight: 600; }
+
+  .pres-footer { text-align: center; padding: 40px 32px 52px; border-top: 1px solid var(--border); margin-top: 56px; }
+  .pres-footer .logo-area { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 10px; }
+  .footer-logo-icon { width: 30px; height: 30px; border: 2px solid var(--purple); border-radius: 7px; display: flex; align-items: center; justify-content: center; }
+  .footer-logo-text { font-size: 20px; font-weight: 800; color: var(--purple); }
+  .pres-footer p { font-size: 13px; color: var(--ink-faint); }
+  .pres-footer a { color: var(--purple); text-decoration: none; font-weight: 600; }
+
+  .kit-divider { border: none; border-top: 1px solid var(--border); margin: 40px 0 0; }
+
+  /* ─── CAMPAIGN STRIP ─── */
+  .campaign-strip { background: var(--white); border-bottom: 1px solid var(--border); padding: 32px 64px; }
+  .campaign-card { background: linear-gradient(135deg, var(--purple) 0%, var(--purple-dark) 100%); border-radius: 18px; padding: 32px 36px; position: relative; overflow: hidden; }
+  .campaign-card::before { content: ''; position: absolute; top: -60px; right: -60px; width: 240px; height: 240px; border-radius: 50%; background: rgba(255,255,255,0.05); pointer-events: none; }
+  .campaign-card::after { content: ''; position: absolute; bottom: -80px; left: 30%; width: 200px; height: 200px; border-radius: 50%; background: rgba(241,206,10,0.08); pointer-events: none; }
+  .campaign-inner { position: relative; z-index: 1; }
+  .campaign-eyebrow { display: inline-flex; align-items: center; gap: 8px; background: rgba(241,206,10,0.15); border: 1px solid rgba(241,206,10,0.3); border-radius: 99px; padding: 5px 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+  .campaign-eyebrow span { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); display: inline-block; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+  .campaign-card h2 { font-size: clamp(20px, 2.2vw, 26px); font-weight: 800; color: #fff; line-height: 1.2; letter-spacing: -0.015em; margin-bottom: 12px; }
+  .campaign-card .campaign-desc { font-size: 14px; color: rgba(255,255,255,0.82); line-height: 1.7; margin-bottom: 24px; max-width: 760px; }
+  .campaign-card .campaign-desc strong { color: #fff; font-weight: 600; }
+
+  .campaign-numbers { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 22px; }
+  .cn { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 14px 16px; }
+  .cn-value { font-size: 18px; font-weight: 800; color: #fff; line-height: 1.1; letter-spacing: -0.01em; margin-bottom: 4px; }
+  .cn-label { font-size: 11px; font-weight: 500; color: rgba(228,220,247,0.7); line-height: 1.35; }
+
+  .campaign-opportunity { background: rgba(241,206,10,0.12); border: 1px solid rgba(241,206,10,0.3); border-radius: 12px; padding: 16px 20px; display: flex; gap: 14px; align-items: flex-start; }
+  .campaign-opportunity .op-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .campaign-opportunity .op-body { font-size: 13px; color: rgba(255,255,255,0.88); line-height: 1.65; }
+  .campaign-opportunity .op-body strong { color: var(--gold); font-weight: 700; display: block; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 5px; }
+
+  .campaign-cta { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; padding: 12px 22px; border-radius: 99px; background: var(--gold); color: var(--purple-dark); border: 1px solid var(--gold); margin-top: 22px; text-decoration: none; transition: all 0.18s; letter-spacing: 0.01em; align-self: flex-start; }
+  .campaign-cta:hover { background: #fde968; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(241,206,10,0.3); }
+  .campaign-cta svg { width: 14px; height: 14px; }
+
+  .syn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
+  .syn-col { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 18px 20px; position: relative; overflow: hidden; }
+  .syn-col::before { content: ''; position: absolute; left: 0; top: 0; right: 0; height: 3px; }
+  .syn-col-edu::before  { background: linear-gradient(90deg, var(--edu-accent) 0%, #8b5cf6 100%); }
+  .syn-col-corp::before { background: linear-gradient(90deg, var(--corp-text) 0%, var(--corp-accent) 100%); }
+  .syn-col h4 { font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; padding-top: 4px; }
+  .syn-col ul { list-style: none; padding: 0; }
+  .syn-col li { font-size: 12.5px; color: var(--ink-muted); line-height: 1.55; padding: 7px 0 7px 18px; position: relative; border-bottom: 1px dashed var(--border); }
+  .syn-col li:last-child { border-bottom: none; }
+  .syn-col-edu  li::before { content: '→'; position: absolute; left: 0; top: 7px; color: var(--edu-accent); font-weight: 700; font-size: 12px; }
+  .syn-col-corp li::before { content: '→'; position: absolute; left: 0; top: 7px; color: var(--corp-text); font-weight: 700; font-size: 12px; }
+
+  /* ─── MARKET CARDS (públicos POK) ─── */
+  .markets-strip { background: var(--white); border-bottom: 1px solid var(--border); padding: 32px 64px; }
+  .markets-strip-serasa { background: var(--purple-faint); }
+  .markets-intro { margin-bottom: 22px; max-width: 920px; }
+  .markets-intro-desc { font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .markets-intro-desc strong { color: var(--ink); font-weight: 600; }
+
+  .section-heading { font-size: clamp(20px, 2.4vw, 26px); font-weight: 800; color: var(--ink); margin-bottom: 14px; letter-spacing: -0.015em; line-height: 1.2; display: flex; align-items: center; gap: 12px; }
+  .section-heading-bar { display: inline-block; width: 5px; height: 28px; border-radius: 3px; flex-shrink: 0; }
+  .section-heading-pok    .section-heading-bar { background: var(--purple); }
+  .section-heading-serasa .section-heading-bar { background: var(--serasa-border); }
+  .section-heading-mark { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 8px; background: var(--serasa-bg); color: var(--serasa-text); border: 1px solid var(--serasa-border); font-size: 14px; flex-shrink: 0; }
+
+  .market-card.with-serasa { cursor: default; }
+  .market-card.with-serasa:hover { transform: none; box-shadow: 0 1px 3px rgba(81,35,164,0.04); }
+  .market-card.with-serasa.superior:hover { border-color: var(--border); }
+  .market-card.with-serasa.corporativo:hover { border-color: var(--border); }
+
+  .serasa-badge { position: absolute; top: 16px; right: 16px; background: var(--serasa-bg); color: var(--serasa-text); border: 1px solid var(--serasa-border); font-size: 9.5px; font-weight: 700; padding: 3px 10px; border-radius: 99px; letter-spacing: 0.08em; text-transform: uppercase; display: inline-flex; align-items: center; gap: 5px; z-index: 2; }
+  .serasa-badge::before { content: '✦'; font-size: 10px; }
+
+  .market-card-cta-static { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; padding: 9px 16px; border-radius: 99px; align-self: flex-start; margin-top: auto; background: var(--serasa-bg); color: var(--serasa-text); border: 1px solid var(--serasa-border); }
+  .market-card-cta-static::before { content: '✦'; font-size: 11px; }
+
+  /* Lista de leituras dentro dos cards Serasa */
+  .leituras-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); margin: 14px 0 10px; display: flex; align-items: center; gap: 8px; }
+  .leituras-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .leituras-label .count { background: var(--purple-faint); color: var(--ink-muted); font-size: 10px; padding: 2px 8px; border-radius: 99px; letter-spacing: 0.05em; }
+
+  .leituras-list { display: flex; flex-direction: column; gap: 10px; }
+  .leitura-item { padding: 12px 14px 14px; background: var(--purple-faint); border-radius: 10px; border-left: 3px solid var(--purple); }
+  .market-card.corporativo .leitura-item { background: rgba(219,234,254,0.35); border-left-color: var(--corp-accent); }
+  .market-card.superior .leitura-item { background: rgba(238,237,254,0.5); border-left-color: var(--edu-accent); }
+  .leitura-title { font-size: 12.5px; font-weight: 700; color: var(--ink); margin-bottom: 4px; line-height: 1.35; display: flex; align-items: baseline; gap: 8px; }
+  .leitura-title .num { font-size: 10px; font-weight: 800; color: var(--ink-faint); font-variant-numeric: tabular-nums; }
+  .market-card.superior .leitura-title .num { color: var(--edu-accent); }
+  .market-card.corporativo .leitura-title .num { color: var(--corp-text); }
+  .leitura-desc { font-size: 11.5px; color: var(--ink-muted); line-height: 1.6; }
+  .leitura-source { font-size: 10px; font-weight: 600; color: var(--serasa-text); margin-top: 6px; display: inline-flex; align-items: center; gap: 5px; }
+  .leitura-source::before { content: '✦'; font-size: 9px; }
+  .markets-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .market-card { background: var(--white); border: 1px solid var(--border); border-radius: 18px; padding: 28px 28px 26px; position: relative; overflow: hidden; transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s; text-decoration: none; color: inherit; display: flex; flex-direction: column; }
+  .market-card::before { content: ''; position: absolute; left: 0; top: 0; right: 0; height: 3px; }
+  .market-card.superior::before { background: linear-gradient(90deg, var(--edu-accent) 0%, #8b5cf6 100%); }
+  .market-card.corporativo::before { background: linear-gradient(90deg, var(--corp-text) 0%, var(--corp-accent) 100%); }
+  .market-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(81,35,164,0.10); }
+  .market-card.superior:hover { border-color: var(--edu-accent); }
+  .market-card.corporativo:hover { border-color: var(--corp-accent); }
+  .market-card-icon-wrap { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+  .market-card.superior .market-card-icon-wrap { background: var(--edu-bg); color: var(--edu-accent); border: 1px solid var(--edu-border); }
+  .market-card.corporativo .market-card-icon-wrap { background: var(--corp-bg); color: var(--corp-text); border: 1px solid var(--corp-border); }
+  .market-card-icon-wrap svg { width: 24px; height: 24px; }
+  .market-card-pill { display: inline-flex; align-items: center; gap: 6px; border-radius: 99px; padding: 4px 10px; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; align-self: flex-start; }
+  .market-card.superior .market-card-pill { background: var(--edu-bg); color: var(--edu-accent); border: 1px solid var(--edu-border); }
+  .market-card.corporativo .market-card-pill { background: var(--corp-bg); color: var(--corp-text); border: 1px solid var(--corp-border); }
+  .market-card-pill .dot { width: 5px; height: 5px; border-radius: 50%; }
+  .market-card.superior .market-card-pill .dot { background: var(--edu-accent); }
+  .market-card.corporativo .market-card-pill .dot { background: var(--corp-accent); }
+  .market-card h3 { font-size: 18px; font-weight: 800; color: var(--ink); margin-bottom: 6px; line-height: 1.25; letter-spacing: -0.01em; }
+  .market-card-subtitle { font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 12px; }
+  .market-card.superior .market-card-subtitle { color: var(--edu-accent); }
+  .market-card.corporativo .market-card-subtitle { color: var(--corp-text); }
+  .market-card-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.65; margin-bottom: 16px; }
+  .market-card-features { list-style: none; padding: 0; margin: 0 0 18px; }
+  .market-card-features li { font-size: 12.5px; color: var(--ink-muted); line-height: 1.5; padding: 5px 0 5px 18px; position: relative; }
+  .market-card-features li::before { content: '✓'; position: absolute; left: 0; top: 5px; font-weight: 700; font-size: 11px; }
+  .market-card.superior .market-card-features li::before { color: var(--edu-accent); }
+  .market-card.corporativo .market-card-features li::before { color: var(--corp-accent); }
+  .market-card-cta { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; padding: 9px 16px; border-radius: 99px; align-self: flex-start; margin-top: auto; transition: all 0.18s; }
+  .market-card.superior .market-card-cta { background: var(--edu-bg); color: var(--edu-accent); border: 1px solid var(--edu-border); }
+  .market-card.corporativo .market-card-cta { background: var(--corp-bg); color: var(--corp-text); border: 1px solid var(--corp-border); }
+  .market-card.superior:hover .market-card-cta { background: var(--edu-accent); color: #fff; border-color: var(--edu-accent); }
+  .market-card.corporativo:hover .market-card-cta { background: var(--corp-text); color: #fff; border-color: var(--corp-text); }
+  .market-card-cta svg { width: 14px; height: 14px; }
+
+  /* ─── TABS NAV ─── */
+  .tabs-nav { background: var(--white); border-bottom: 1px solid var(--border); padding: 0 64px; display: flex; gap: 4px; position: sticky; top: 0; z-index: 10; box-shadow: 0 2px 8px rgba(81,35,164,0.04); }
+  .tab-button { font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 700; color: var(--ink-faint); background: transparent; border: none; border-bottom: 3px solid transparent; padding: 18px 22px 15px; cursor: pointer; display: flex; align-items: center; gap: 9px; transition: all 0.18s; letter-spacing: 0.01em; }
+  .tab-button .tab-arrow { font-size: 14px; opacity: 0.6; transition: opacity 0.18s; }
+  .tab-button:hover:not(.active) { color: var(--ink); background: var(--purple-faint); }
+  .tab-button.active { color: var(--purple); border-bottom-color: var(--purple); }
+  .tab-button.active .tab-arrow { opacity: 1; color: var(--purple); }
+  .tab-button .tab-side { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 8px; border-radius: 99px; background: var(--purple-faint); color: var(--ink-muted); }
+  .tab-button.active .tab-side { background: var(--purple-light); color: var(--purple); }
+
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* ─── POK→SERASA TAB ─── */
+  .ps-intro-strip { background: var(--white); border-bottom: 1px solid var(--border); padding: 28px 64px; }
+  .ps-intro-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 24px 28px; border-left: 4px solid var(--gold); }
+  .ps-intro-card p { font-size: 14px; color: var(--ink-muted); line-height: 1.8; }
+  .ps-intro-card p + p { margin-top: 10px; }
+  .ps-intro-card strong { color: var(--ink); font-weight: 600; }
+
+  .ps-vector-card { background: var(--white); border: 1px solid var(--border); border-radius: 18px; padding: 24px 28px 26px; margin-bottom: 16px; position: relative; overflow: hidden; }
+  .ps-vector-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: linear-gradient(180deg, var(--purple) 0%, #8b5cf6 100%); }
+  .ps-vector-header { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 14px; }
+  .ps-vector-number { width: 36px; height: 36px; border-radius: 10px; background: var(--purple-faint); color: var(--purple); display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 800; flex-shrink: 0; border: 1px solid var(--purple-light); }
+  .ps-vector-title-block { flex: 1; }
+  .ps-vector-title { font-size: 16px; font-weight: 800; color: var(--ink); line-height: 1.3; letter-spacing: -0.01em; }
+  .ps-vector-body { font-size: 13.5px; color: var(--ink-muted); line-height: 1.75; }
+  .ps-vector-body strong { color: var(--ink); font-weight: 600; }
+  .ps-vector-body p + p { margin-top: 10px; }
+
+  .ps-layers { background: var(--white); border: 1px solid var(--border); border-radius: 18px; padding: 24px 28px; margin-top: 28px; }
+  .ps-layers-title { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 18px; display: flex; align-items: center; gap: 10px; }
+  .ps-layers-title .num { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); }
+  .ps-layers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .ps-layer { background: var(--purple-faint); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; position: relative; }
+  .ps-layer.new { background: linear-gradient(135deg, var(--purple) 0%, var(--purple-dark) 100%); border-color: var(--purple); }
+  .ps-layer-icon { font-size: 18px; margin-bottom: 8px; }
+  .ps-layer-label { font-size: 9.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 4px; }
+  .ps-layer.new .ps-layer-label { color: var(--gold); }
+  .ps-layer-name { font-size: 13px; font-weight: 700; color: var(--ink); line-height: 1.3; }
+  .ps-layer.new .ps-layer-name { color: #fff; }
+  .ps-layer-desc { font-size: 11px; color: var(--ink-muted); margin-top: 4px; line-height: 1.5; }
+  .ps-layer.new .ps-layer-desc { color: rgba(255,255,255,0.75); }
+
+  .ps-intro-link { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: var(--purple); text-decoration: none; margin-top: 12px; }
+  .ps-intro-link:hover { text-decoration: underline; }
+
+  /* ─── RESPONSIVO ─── */
+
+  /* Tablet (até 1024px) — ajustes de padding lateral */
+  @media (max-width: 1024px) {
+    .hero { padding: 44px 40px 38px; }
+    .summary-strip { padding: 26px 40px; }
+    .markets-strip { padding: 28px 40px; }
+    .campaign-strip { padding: 28px 40px; }
+    .ps-intro-strip { padding: 26px 40px; }
+    .tabs-nav { padding: 0 40px; }
+    .content { padding: 40px 28px 70px; }
+    .markets-grid { gap: 14px; }
+    .market-card { padding: 22px 22px 22px; }
+  }
+
+  /* Mobile (até 768px) — layouts compactos */
+  @media (max-width: 768px) {
+    .hero { padding: 32px 20px 28px; }
+    .hero-eyebrow { font-size: 10px; padding: 4px 12px; }
+    .hero-title { margin-bottom: 12px; }
+    .hero-sub { font-size: 13px; line-height: 1.55; }
+
+    .summary-strip { padding: 22px 20px; }
+    .summary-box { padding: 22px 22px; }
+    .summary-box p { font-size: 13px; line-height: 1.7; }
+
+    .tabs-nav { padding: 0 12px; gap: 0; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+    .tabs-nav::-webkit-scrollbar { display: none; }
+    .tab-button { padding: 14px 14px 11px; font-size: 12px; white-space: nowrap; gap: 6px; }
+
+    .markets-strip { padding: 22px 20px; }
+    .markets-intro { margin-bottom: 18px; }
+    .markets-intro-desc { font-size: 13px; line-height: 1.65; }
+    .section-heading { font-size: 19px; gap: 10px; margin-bottom: 12px; }
+    .section-heading-bar { width: 4px; height: 22px; }
+    .section-heading-mark { width: 24px; height: 24px; font-size: 12px; }
+    .markets-grid { grid-template-columns: 1fr; gap: 14px; }
+    .market-card { padding: 20px 20px 22px; }
+    .market-card h3 { font-size: 17px; }
+    .market-card-desc { font-size: 12.5px; }
+    .market-card-features li { font-size: 12px; }
+
+    .serasa-badge { top: 12px; right: 12px; font-size: 9px; padding: 2px 8px; }
+    .leitura-item { padding: 11px 12px 12px; }
+    .leitura-title { font-size: 12px; }
+    .leitura-desc { font-size: 11px; }
+    .leitura-source { font-size: 9.5px; }
+
+    .campaign-strip { padding: 22px 20px; }
+    .campaign-card { padding: 24px 22px; }
+    .campaign-card h2 { font-size: 20px; }
+    .campaign-card .campaign-desc { font-size: 13px; }
+    .campaign-numbers { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .cn { padding: 12px 14px; }
+    .cn-value { font-size: 16px; }
+    .cn-label { font-size: 10.5px; }
+    .campaign-opportunity { padding: 14px 16px; }
+    .campaign-opportunity .op-body { font-size: 12px; }
+    .campaign-cta { font-size: 12px; padding: 11px 20px; }
+
+    .lgpd-box { flex-direction: column; gap: 12px; padding: 20px 22px; margin-top: 32px; }
+    .lgpd-icon { font-size: 22px; }
+    .lgpd-body h3 { font-size: 14px; }
+    .lgpd-body p { font-size: 12.5px; line-height: 1.65; }
+
+    .ps-intro-strip { padding: 22px 20px; }
+    .ps-intro-card { padding: 22px 22px; }
+    .ps-intro-card p { font-size: 13px; line-height: 1.7; }
+    .ps-layers-grid { grid-template-columns: 1fr; gap: 10px; }
+    .ps-layer { padding: 14px 16px; }
+
+    .content { padding: 32px 20px 56px; }
+    .section-header { gap: 12px; margin-top: 36px; }
+    .section-icon { width: 36px; height: 36px; font-size: 17px; border-radius: 10px; }
+    .section-title-block h2 { font-size: 18px; }
+    .section-title-block p { font-size: 12px; }
+
+    .ps-vector-card { padding: 20px 22px 22px; margin-bottom: 14px; }
+    .ps-vector-header { gap: 12px; margin-bottom: 12px; }
+    .ps-vector-number { width: 32px; height: 32px; font-size: 14px; border-radius: 9px; }
+    .ps-vector-title { font-size: 15px; }
+    .ps-vector-body { font-size: 12.5px; line-height: 1.7; }
+
+    .ps-layers { padding: 20px 22px; }
+    .ps-layers-title { font-size: 13px; }
+  }
+
+  /* Mobile pequeno (até 480px) — ajustes finos */
+  @media (max-width: 480px) {
+    .hero { padding: 28px 16px 24px; }
+    .hero-eyebrow { font-size: 9.5px; letter-spacing: 0.1em; }
+
+    .summary-strip { padding: 20px 16px; }
+    .summary-box { padding: 20px 18px; border-left-width: 3px; }
+    .summary-box p { font-size: 12.5px; }
+
+    .tabs-nav { padding: 0 8px; }
+    .tab-button { padding: 12px 10px 10px; font-size: 11px; }
+
+    .markets-strip { padding: 20px 16px; }
+    .market-card { padding: 18px 16px 20px; }
+    .market-card h3 { font-size: 16px; }
+
+    .campaign-strip { padding: 20px 16px; }
+    .campaign-card { padding: 22px 18px; border-radius: 14px; }
+    .campaign-card h2 { font-size: 18px; }
+    .campaign-numbers { grid-template-columns: 1fr; }
+
+    .ps-intro-strip { padding: 20px 16px; }
+    .ps-intro-card { padding: 20px 18px; }
+    .content { padding: 28px 16px 48px; }
+    .ps-vector-card { padding: 18px 18px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 197.3" aria-label="POK">
+        <path fill="#ffffff" d="M131.4,27.2c0-5.4-4.4-9.9-9.9-9.9H5.9c-3.3,0-5.9,2.6-5.9,5.9v115.6c0,5.5,4.4,9.9,9.9,9.9s9.9-4.4,9.9-9.9V42.3c0-2.9,2.3-5.2,5.2-5.2h96.6c5.3,0,9.8-4.4,9.8-9.9ZM164.8,60.6c-5.4,0-9.9,4.4-9.9,9.9v96.6c0,2.9-2.3,5.2-5.2,5.2H53.1c-5.4,0-9.9,4.4-9.9,9.9s4.4,9.9,9.9,9.9h115.6c3.3,0,5.9-2.6,5.9-5.9v-115.7c0-5.5-4.4-9.9-9.8-9.9ZM103.7,76l-23.9,35.8c-.9,1.4-2.8,1.6-4,.4l-9.9-9.9c-3.5-3.5-9.1-3.5-12.5,0-3.5,3.5-3.5,9.1,0,12.5l20.1,20.1c3.8,3.8,10.1,3.2,13.1-1.3l31.9-47.8c2.7-4.1,1.6-9.6-2.5-12.3-4.1-2.6-9.6-1.5-12.3,2.5ZM329.1,49.1c-7.4-4.8-15.9-7.2-25.5-7.2-6,0-11.9,1.2-17.5,3.5-5.5,2.3-10.1,5.3-14,9-1.1,1-2,2.1-2.9,3.2l-.2-13.9h-24.7v153.6h25.3v-58.3c.5.5.9,1,1.4,1.5,4,4,8.8,7.2,14.6,9.7,5.9,2.5,12,3.7,18.3,3.7,9.5,0,17.9-2.4,25.3-7.2,7.5-4.9,13.4-11.6,17.7-19.9,4.2-8.5,6.4-18.2,6.4-29s-2.2-20.4-6.6-28.8c-4.1-8.4-10-15.1-17.6-19.9ZM325.2,115.3c-2.6,5.1-6.2,9-10.7,11.9s-9.7,4.3-15.4,4.3c-6,0-11.3-1.4-15.8-4.3-4.5-2.9-8.1-6.9-10.7-11.9-2.6-5.1-3.9-10.9-3.9-17.5s1.3-12.4,3.9-17.5,6.2-9,10.7-11.9,9.8-4.3,15.8-4.3,11.1,1.5,15.6,4.5c4.5,2.9,8,6.9,10.5,11.9,2.6,4.9,3.9,10.7,3.9,17.3s-1.3,12.5-3.9,17.5ZM449.9,48.9c-8.5-4.9-18.1-7.4-28.8-7.4s-20.5,2.5-29,7.4c-8.5,4.8-15.2,11.4-20.1,19.9-4.8,8.5-7.2,18.2-7.2,29s2.4,20.5,7.2,29c4.9,8.5,11.6,15.2,20.1,20.1,8.5,4.8,18.2,7.2,29,7.2s20.3-2.4,28.8-7.2c8.5-4.9,15.1-11.6,19.9-20.1,4.9-8.5,7.4-18.2,7.4-29s-2.5-20.5-7.4-29c-4.7-8.4-11.4-15.1-19.9-19.9ZM447.9,115.3c-2.6,5.1-6.2,9.1-10.9,12.1-4.7,2.9-9.9,4.3-15.8,4.3s-11.2-1.4-16-4.3c-4.7-3-8.3-7.1-10.9-12.1-2.6-5.2-3.9-11-3.9-17.5s1.3-12.2,3.9-17.3c2.6-5.2,6.2-9.3,10.9-12.1,4.8-3,10.1-4.5,16-4.5s11.2,1.4,15.8,4.3c4.7,2.9,8.3,6.9,10.9,12.1,2.7,5.1,4,10.9,3.9,17.5.1,6.5-1.2,12.3-3.9,17.5ZM548.8,91.2l50.6-47.5h-33.5l-45,45V0h-25.1v152.1h25.1v-34.6l10.9-10.2,37,44.9h31.2l-51.2-61Z"/>
+      </svg>
+    </div>
+    <h1 class="hero-title">Parceria POK e Serasa:<br>os <em>dois lados</em> da mesa</h1>
+    <p class="hero-sub">Mapeamento dos dois fluxos da parceria – dados Serasa enriquecendo os dashboards de empregabilidade POK, e credenciais POK enriquecendo a Serasa Pass como camada de competências verificadas.</p>
+  </div>
+</header>
+
+<div class="gold-bar"></div>
+
+<div class="summary-strip">
+  <div class="summary-label">Contexto da parceria</div>
+  <div class="summary-box">
+    <p>A POK e a Serasa Experian têm naturezas complementares. A <strong>POK</strong> opera infraestrutura de credenciais educacionais e profissionais em blockchain, atuando em dois eixos – Educacional (universidades, faculdades, escolas técnicas) e Corporativo (empresas, RH, programas de desenvolvimento humano). A <strong>Serasa Experian</strong>, através da Serasa Pass, opera a maior carteira de identidade digital e pagamento do Brasil, com 98 milhões de usuários no aplicativo Serasa.</p>
+  </div>
+</div>
+
+<!-- TABS NAVIGATION -->
+<nav class="tabs-nav">
+  <button type="button" class="tab-button active" data-tab="serasa-pok" onclick="switchTab('serasa-pok')">
+    <span>Serasa</span>
+    <span class="tab-arrow">→</span>
+    <span>POK</span>
+  </button>
+  <button type="button" class="tab-button" data-tab="pok-serasa" onclick="switchTab('pok-serasa')">
+    <span>POK</span>
+    <span class="tab-arrow">→</span>
+    <span>Serasa</span>
+  </button>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- ABA 1 · SERASA → POK                                             -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div id="serasa-pok" class="tab-content active">
+
+<div class="markets-strip">
+  <div class="markets-intro">
+    <h2 class="section-heading section-heading-pok">
+      <span class="section-heading-bar"></span>
+      A POK hoje
+    </h2>
+    <p class="markets-intro-desc">A POK atende dois públicos complementares com a mesma infraestrutura de certificação em blockchain. Para <strong>instituições de ensino e empresas</strong>, possibilita a emissão e a gestão de credenciais digitais – certificados, microcertificações por competências e comprovantes regulatórios. Em paralelo, a POK captura dados de diferentes naturezas sobre o <strong>beneficiário</strong> – o portador do certificado – hoje através das informações declaradas por ele no LinkedIn, e devolve essas leituras às instituições e empresas em dois dashboards públicos de empregabilidade e desenvolvimento humano.</p>
+  </div>
+  <div class="markets-grid">
+
+    <a href="https://pokbrasil.github.io/marketing/pok_empregabilidade_dashboard_publico.html" target="_blank" class="market-card superior">
+      <div class="market-card-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+      </div>
+      <span class="market-card-pill"><span class="dot"></span> Educacional</span>
+      <h3>Empregabilidade de alunos e egressos</h3>
+      <div class="market-card-subtitle">Universidades, faculdades e escolas técnicas</div>
+      <p class="market-card-desc">Instituições de ensino oferecem aos próprios alunos credenciais POK em blockchain – verificáveis publicamente, portáveis e ligadas ao LinkedIn. Em paralelo, a POK gera evidências de empregabilidade que valorizam o diploma perante MEC, mercado e candidatos.</p>
+      <ul class="market-card-features">
+        <li>Certificação digital em blockchain integrada ao ecossistema da instituição</li>
+        <li>Trilhas formativas com microcredenciais por competências</li>
+        <li>Evidência viva para indicadores MEC e ranking institucional</li>
+      </ul>
+      <span class="market-card-cta">
+        Ver dashboard empregabilidade
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </span>
+    </a>
+
+    <a href="https://pokbrasil.github.io/marketing/pok_corporativo_dashboard_publico.html" target="_blank" class="market-card corporativo">
+      <div class="market-card-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="9" y1="7" x2="11" y2="7"/><line x1="13" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="11" y2="11"/><line x1="13" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="11" y2="15"/><line x1="13" y1="15" x2="15" y2="15"/></svg>
+      </div>
+      <span class="market-card-pill"><span class="dot"></span> Corporativo</span>
+      <h3>Capital humano, compliance e ESG</h3>
+      <div class="market-card-subtitle">Empresas, RH e programas de desenvolvimento humano</div>
+      <p class="market-card-desc">Empresas medem o impacto real dos seus programas de formação: internalização de habilidades, mobilidade interna, retenção e auditabilidade regulatória. Conecta-se diretamente ao pilar Social do ESG e aos programas de sustentabilidade corporativa.</p>
+      <ul class="market-card-features">
+        <li>Desenvolvimento humano: internalização e mobilidade</li>
+        <li>Compliance: vigência e categorias regulatórias auditáveis</li>
+        <li>Diferencial competitivo na atração e retenção de talentos</li>
+      </ul>
+      <span class="market-card-cta">
+        Ver dashboard desenvolvimento humano
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </span>
+    </a>
+
+  </div>
+</div>
+
+<div class="markets-strip markets-strip-serasa">
+  <div class="markets-intro">
+    <h2 class="section-heading section-heading-serasa">
+      <span class="section-heading-bar"></span>
+      <span class="section-heading-mark">✦</span>
+      A POK com o Serasa
+    </h2>
+    <p class="markets-intro-desc">A integração com dados acessíveis via CPF na base Serasa Experian adiciona uma <strong>fonte primária de leitura</strong> sobre o beneficiário – vínculo formal, renda, identidade verificada e trajetória de mercado – que complementa as informações declaradas no LinkedIn e amplia significativamente a profundidade dos dashboards de cada eixo.</p>
+  </div>
+  <div class="markets-grid">
+
+    <div class="market-card superior with-serasa">
+      <div class="serasa-badge">Serasa Experian</div>
+      <div class="market-card-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+      </div>
+      <span class="market-card-pill"><span class="dot"></span> Eixo Educacional</span>
+      <h3>Empregabilidade lida via vínculo formal</h3>
+      <div class="market-card-subtitle">Dados de mercado de trabalho via CPF</div>
+      <p class="market-card-desc">Leitura primária da trajetória profissional do aluno ou egresso pós-credencial – sem depender de compartilhamento em rede social. Compõe leitura mais completa em conjunto com os dados já capturados via LinkedIn.</p>
+
+      <div class="leituras-label">Leituras novas possíveis <span class="count">9</span></div>
+      <div class="leituras-list">
+
+        <div class="leitura-item">
+          <div class="leitura-title"><span class="num">01</span> Saída do desemprego pós-credencial</div>
+          <div class="leitura-desc">Alunos ou egressos que estavam sem vínculo formal no momento da emissão da credencial e passaram a ter vínculo CLT ativo nos meses seguintes.</div>
+          <div class="leitura-source">Vínculo CLT ativo · base de empregabilidade Serasa</div>
+        </div>
+
+        <div class="leitura-item">
+          <div class="leitura-title"><span class="num">02</span> Variação de renda antes e depois da credencial</div>
+          <div class="leitura-desc">Faixa de renda estimada do aluno ou egresso comparada nos períodos pré e pós-emissão. Quantifica o impacto financeiro real das trilhas formativas, não só o declarado.</div>
+          <div class="leitura-source">Renda estimada · modelo proprietário Serasa</div>
+        </div>
+
+        <div class="leitura-item">
+          <div class="leitura-title"><span class="num">03</span> Setores de absorção dos portadores</div>
+          <div class="leitura-desc">Mapeamento agregado dos setores econômicos (via CNAE do empregador) que mais absorvem alunos e egressos de cada trilha formativa. Revela aderência entre formação e mercado.</div>
+          <div class="leitura-source">CNAE do empregador · dados cadastrais Serasa</div>
+        </div>
+
+        <div class="leitura-item">
+          <div class="leitura-title"><span class="num">04</span> Tempo médio até primeira contratação</div>
+          <div class="leitura-desc">Para alunos ou egressos sem vínculo no momento da emissão, mede em quantos dias houve registro de novo vínculo formal. Métrica clássica de empregabilidade hoje impossível de medir.</div>
+          <div class="leitura-source">Janela temporal entre emissão e vínculo · base Serasa</div>
+        </div>
+
+        <div class="leitura-item">
+          <div class="leitura-title"><span class="num">05</span> Trajetória ascendente de empregador</div>
+          <div class="leitura-desc">Portadores que migraram de empregadores menores para empresas de maior porte (de PME para grandes corporações). Indica aumento de competitividade no mercado.</div>
+          <div class="leitura-source">Porte do empregador · dados cadastrais CNPJ Serasa</div>
+        </div>
+
+        <div class="leitura-item">
+          <div class="leitura-title"><span class="num">06</span> Empreendedorismo pós-credencial</div>
+          <div class="leitura-desc">Portadores que abriram MEI ou se tornaram sócios de empresa após receberem a credencial. Hoje invisível para o dashboard. Especialmente relevante para trilhas com vocação empreendedora.</div>
+          <div class="leitura-source">Vínculos societários · base CPF–CNPJ Serasa</div>
+        </div>
+
+        <div class="leitura-item">
+          <div class="leitura-title"><span class="num">07</span> Mobilidade geográfica vinculada a mudança de emprego</div>
+          <div class="leitura-desc">Portadores que mudaram de município ou estado e simultaneamente trocaram de empregador – sinal forte de mobilidade profissional ascendente.</div>
+          <div class="leitura-source">Endereço atualizado + CNPJ empregador · base Serasa</div>
+        </div>
+
+        <div class="leitura-item">
+          <div class="leitura-title"><span class="num">08</span> Estabilidade financeira como dimensão de bem-estar</div>
+          <div class="leitura-desc">Indicadores agregados de estabilidade financeira da base de portadores pós-credencial – saída de negativação, evolução de score, regularidade de pagamentos.</div>
+          <div class="leitura-source">Score e atributos financeiros · base Serasa</div>
+        </div>
+
+        <div class="leitura-item">
+          <div class="leitura-title"><span class="num">09</span> Grupo de controle estatístico</div>
+          <div class="leitura-desc">Comparação agregada da trajetória dos portadores POK com a de indivíduos de perfil sociodemográfico equivalente que não passaram pelas trilhas formativas. Diferencial mensurável da credencial.</div>
+          <div class="leitura-source">Base agregada anonimizada · Serasa Experian</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="market-card corporativo with-serasa">
+      <div class="serasa-badge">Serasa Experian</div>
+      <div class="market-card-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="9" y1="7" x2="11" y2="7"/><line x1="13" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="11" y2="11"/><line x1="13" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="11" y2="15"/><line x1="13" y1="15" x2="15" y2="15"/></svg>
+      </div>
+      <span class="market-card-pill"><span class="dot"></span> Eixo Corporativo</span>
+      <h3>Capital humano lido via identidade e vínculo</h3>
+      <div class="market-card-subtitle">Dados de identidade, retenção e mercado via CPF</div>
+      <p class="market-card-desc">Validação de identidade na emissão da credencial, confirmação de retenção via vínculo formal, sinais antecipados de turnover e comparação com pares do setor.</p>
+
+      <div class="leituras-label">Leituras novas possíveis <span class="count">8</span></div>
+      <div class="leituras-list">
+
+        <div class="leitura-item">
+          <div class="leitura-title"><span class="num">01</span> Identidade verificada na emissão da credencial</div>
+          <div class="leitura-desc">Validação de que o colaborador que recebeu a credencial é a pessoa cadastrada – via camada antifraude ClearSale. Crítico para credenciais regulatórias como NR-10, NR-33, NR-35.</div>
+          <div class="leitura-source">Validação antifraude ClearSale · Serasa Experian</div>
+        </div>
+
+        <div class="leitura-item">
+          <div class="leitura-title"><span class="num">02</span> Retenção confirmada por vínculo formal</div>
+          <div class="leitura-desc">Confirmação independente de que o colaborador continua vinculado à empresa via leitura do CNPJ empregador na base Serasa. Passa a ter confirmação primária via vínculo formal.</div>
+          <div class="leitura-source">CNPJ empregador atual · base Serasa</div>
+        </div>
+
+        <div class="leitura-item">
+          <div class="leitura-title"><span class="num">03</span> Sinais antecipados de risco de turnover</div>
+          <div class="leitura-desc">Aumento atípico de consultas ao CPF do colaborador (sinal de avaliação para crédito ou contratação por terceiros) e variações de score correlacionadas. Permite agir antes da saída.</div>
+          <div class="leitura-source">Volume de consultas + score · base Serasa</div>
+        </div>
+
+        <div class="leitura-item">
+          <div class="leitura-title"><span class="num">04</span> Saúde financeira agregada da equipe certificada</div>
+          <div class="leitura-desc">Percentual de colaboradores em regularidade, faixa média de score, presença de inadimplência ativa. Insumo direto para programas de wellbeing e educação financeira corporativa.</div>
+          <div class="leitura-source">Score e atributos comportamentais · base Serasa</div>
+        </div>
+
+        <div class="leitura-item">
+          <div class="leitura-title"><span class="num">05</span> Atratividade externa dos colaboradores certificados</div>
+          <div class="leitura-desc">Volume agregado de consultas externas aos CPFs dos colaboradores certificados POK comparado a não certificados. Quanto maior a procura, mais o mercado valoriza o perfil.</div>
+          <div class="leitura-source">Volume de consultas externas · base Serasa</div>
+        </div>
+
+        <div class="leitura-item">
+          <div class="leitura-title"><span class="num">06</span> Benchmark setorial agregado</div>
+          <div class="leitura-desc">Comparação dos indicadores da empresa com a média do setor (mesmo CNAE) na base Serasa. Mostra como a empresa se posiciona contra pares, não só olhando para si.</div>
+          <div class="leitura-source">Base agregada setorial · Serasa Experian</div>
+        </div>
+
+        <div class="leitura-item">
+          <div class="leitura-title"><span class="num">07</span> Saída detectada precocemente</div>
+          <div class="leitura-desc">Identificação da mudança de CNPJ empregador do colaborador certificado, com latência menor do que a atualização em rede social. Permite ao RH antecipar offboarding e gestão de credenciais.</div>
+          <div class="leitura-source">CNPJ empregador · base Serasa</div>
+        </div>
+
+        <div class="leitura-item">
+          <div class="leitura-title"><span class="num">08</span> Trajetória pós-saída dos ex-colaboradores certificados</div>
+          <div class="leitura-desc">Para onde foram os colaboradores certificados que saíram – porte do novo empregador, variação de renda no destino. Argumento poderoso de marca empregadora.</div>
+          <div class="leitura-source">Trajetória pós-vínculo · base Serasa</div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="campaign-strip">
+  <div class="campaign-card">
+    <div class="campaign-inner">
+      <div class="campaign-eyebrow"><span></span> Campanha em andamento</div>
+      <h2>POK Egressos e Empregabilidade 2026</h2>
+      <p class="campaign-desc">A POK está em execução de uma <strong>campanha nacional de pesquisa de empregabilidade</strong> junto a instituições de ensino superior. A pesquisa acompanha a trajetória profissional de aproximadamente <strong>30 mil egressos</strong>, e seus resultados serão apresentados no <strong>FNESP – Fórum Nacional do Ensino Superior Particular, em setembro de 2026</strong>.</p>
+
+      <div class="campaign-numbers">
+        <div class="cn">
+          <div class="cn-value">~30 mil</div>
+          <div class="cn-label">egressos acompanhados na pesquisa</div>
+        </div>
+        <div class="cn">
+          <div class="cn-value">FNESP · Set 2026</div>
+          <div class="cn-label">apresentação dos resultados</div>
+        </div>
+      </div>
+
+      <div class="campaign-opportunity">
+        <span class="op-icon">✨</span>
+        <div class="op-body">
+          <strong>A oportunidade Serasa</strong>
+          A inclusão de dados acessíveis via CPF na base Serasa Experian permitiria à POK enriquecer esta pesquisa nacional ainda antes de sua apresentação no FNESP – agregando às leituras hoje obtidas por compartilhamento em rede social as leituras descritas a seguir, com peso estatístico e profundidade significativamente superiores. A base de 30 mil egressos é também o terreno ideal para um primeiro estudo conjunto POK × Serasa em escala.
+        </div>
+      </div>
+
+      <a href="https://pokbrasil.github.io/marketing/pok_campanha_egressos.html" target="_blank" class="campaign-cta">
+        Conheça a campanha
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<main class="content">
+
+  <!-- LGPD -->
+  <div class="lgpd-box">
+    <div class="lgpd-icon">⚖️</div>
+    <div class="lgpd-body">
+      <h3>LGPD e consentimento do titular</h3>
+      <p>Todos os dados atrelados ao CPF de uma pessoa física são <strong>dados pessoais</strong> sob a LGPD. Para que qualquer das leituras acima seja realizada em nome do portador da credencial POK, é obrigatório o <strong>consentimento explícito, informado e específico</strong> do titular – com finalidade declarada, janela temporal definida e direito de revogação a qualquer momento.</p>
+      <p>O fluxo de consentimento pode ser embutido no momento em que o portador <strong>recebe ou compartilha a credencial</strong>, tornando o processo transparente. As leituras destinadas a instituições e empresas são entregues em formato <strong>agregado e anonimizado</strong>, exceto quando a relação contratual entre o portador e a empresa (vínculo CLT) habilita visualização individual sob base legal própria.</p>
+    </div>
+  </div>
+
+</main>
+
+</div>
+<!-- /ABA 1 -->
+
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- ABA 2 · POK → SERASA                                             -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div id="pok-serasa" class="tab-content">
+
+<div class="ps-intro-strip">
+  <div class="summary-label">A POK na Serasa Pass</div>
+  <div class="ps-intro-card">
+    <p>A <strong>Serasa Pass</strong> nasceu como carteira digital de identidade e pagamento, e em pouco tempo se posicionou como infraestrutura crítica do consumidor brasileiro online – 98 milhões de usuários no app Serasa, autenticação em segundos, redução drástica de fraude. Mas todas as carteiras digitais (incluindo Apple Wallet, Google Wallet e Gov.br) compartilham um limite estrutural: respondem <strong>"quem é a pessoa"</strong> e <strong>"se ela pode pagar"</strong>, mas não <strong>"o que ela sabe fazer"</strong>.</p>
+    <p>É aqui que a POK contribui. As credenciais POK em blockchain – certificados, certificações regulatórias, microcredenciais por competência – podem se tornar uma <strong>terceira camada nativa da Serasa Pass</strong>, transformando-a de carteira de identidade e pagamento em carteira de identidade, pagamento e <strong>competências verificadas</strong>.</p>
+    <p>Os três vetores a seguir mapeiam como essa contribuição se materializa em produto.</p>
+  </div>
+</div>
+
+<main class="content">
+
+  <!-- A NOVA CAMADA -->
+  <div class="ps-layers">
+    <div class="ps-layers-title">
+      <span class="num">A Serasa Pass com POK</span>
+      A arquitetura da carteira passa a ter três camadas
+    </div>
+    <div class="ps-layers-grid">
+      <div class="ps-layer">
+        <div class="ps-layer-icon">🪪</div>
+        <div class="ps-layer-label">Camada existente</div>
+        <div class="ps-layer-name">Identidade</div>
+        <div class="ps-layer-desc">Quem é a pessoa – documentos, CPF, biometria, dados cadastrais</div>
+      </div>
+      <div class="ps-layer">
+        <div class="ps-layer-icon">💳</div>
+        <div class="ps-layer-label">Camada existente</div>
+        <div class="ps-layer-name">Pagamento</div>
+        <div class="ps-layer-desc">Se a pessoa pode pagar – cartões, score, comportamento financeiro</div>
+      </div>
+      <div class="ps-layer new">
+        <div class="ps-layer-icon">🎓</div>
+        <div class="ps-layer-label">Camada nova · POK</div>
+        <div class="ps-layer-name">Competências</div>
+        <div class="ps-layer-desc">O que a pessoa sabe fazer – credenciais educacionais e profissionais verificáveis em blockchain</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VETOR 1 -->
+  <div class="section-header" style="margin-top: 44px;">
+    <div class="section-icon icon-syn">✦</div>
+    <div class="section-title-block">
+      <h2>Os três vetores de contribuição POK → Serasa Pass</h2>
+      <p>Três vetores complementares de contribuição da POK para a Serasa Pass, do ativo na carteira ao reconhecimento internacional</p>
+    </div>
+  </div>
+
+  <div class="ps-vector-card">
+    <div class="ps-vector-header">
+      <div class="ps-vector-number">1</div>
+      <div class="ps-vector-title-block">
+        <div class="ps-vector-title">Credenciais POK como ativo nativo da Serasa Pass</div>      </div>
+    </div>
+    <div class="ps-vector-body">
+      <p>Cada credencial POK emitida em blockchain – certificado de conclusão, certificação regulatória NR, microcredencial por competência – passa a ser armazenada como ativo nativo da Serasa Pass, ao lado de identidade e dados de pagamento. <strong>Dentro do app Serasa</strong>, o usuário visualiza e gerencia suas credenciais, autoriza compartilhamentos e revoga consentimentos com a mesma fluidez com que hoje gerencia documentos e cartões.</p>
+      <p>Para a Serasa Pass, é uma <strong>terceira camada do produto</strong> que diferencia a carteira de qualquer concorrente nacional ou internacional. Para o usuário, é uma carteira única que carrega identidade, pagamento e trajetória profissional – todos verificáveis publicamente sem dependência de plataforma.</p>
+    </div>
+  </div>
+
+  <div class="ps-vector-card">
+    <div class="ps-vector-header">
+      <div class="ps-vector-number">2</div>
+      <div class="ps-vector-title-block">
+        <div class="ps-vector-title">Trilhas Formativas POK como conteúdo nativo do app Serasa</div>      </div>
+    </div>
+    <div class="ps-vector-body">
+      <p>A POK passa a oferecer trilhas formativas – empregabilidade, qualificação técnica, educação financeira aplicada, compliance regulatório – <strong>dentro do app onde 98 milhões de brasileiros já estão</strong>. A Serasa Pass autentica o usuário, processa pagamento quando aplicável, e armazena automaticamente a credencial conquistada num único fluxo.</p>
+      <p>Para o usuário, é aprendizagem reconhecida sem mudar de app, com a credencial já entrando na carteira ao final. Para a Serasa, é uma nova categoria de conteúdo que amplia tempo de uso, reposiciona o app de "lugar onde se consulta score" para "lugar onde se constrói trajetória", e abre nova frente de receita (cursos pagos, modelo freemium, parcerias com IES dentro do app).</p>
+    </div>
+  </div>
+
+  <div class="ps-vector-card">
+    <div class="ps-vector-header">
+      <div class="ps-vector-number">3</div>
+      <div class="ps-vector-title-block">
+        <div class="ps-vector-title">Padrão internacional de credenciais verificáveis sem custo de infraestrutura</div>      </div>
+    </div>
+    <div class="ps-vector-body">
+      <p>A POK opera com padrões abertos reconhecidos internacionalmente – <strong>W3C Verifiable Credentials</strong> e <strong>Open Badges 3.0</strong> – adotados por instituições educacionais, governos e empregadores em mais de 70 países. Ao integrar com a POK, a Serasa Pass se posiciona como carteira digital <strong>globalmente compatível</strong>, capaz de receber, validar e apresentar credenciais emitidas por qualquer entidade que adote esses padrões.</p>
+      <p>Para a Serasa Pass, é diferenciação estratégica frente a carteiras locais (Gov.br) e captura de uma camada de infraestrutura que carteiras internacionais (Apple Wallet, Google Wallet) ainda não consolidaram para credenciais educacionais. E tudo isso sem precisar construir a infraestrutura técnica internamente – a POK já chegou.</p>
+    </div>
+  </div>
+
+</main>
+
+</div>
+<!-- /ABA 2 -->
+
+
+<footer class="pres-footer">
+  <div class="logo-area">
+    <div class="footer-logo-icon">
+      <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1" y="1" width="16" height="16" rx="3" stroke="#5123a4" stroke-width="2"/>
+        <polyline points="4,9 7.5,13 14,5" stroke="#5123a4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <span class="footer-logo-text">pok</span>
+  </div>
+  <p>Muito mais que certificados digitais · <a href="https://pok.tech" target="_blank">pok.tech</a></p>
+</footer>
+
+<script>
+function switchTab(tabId) {
+  document.querySelectorAll('.tab-button').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.tab === tabId);
+  });
+  document.querySelectorAll('.tab-content').forEach(content => {
+    content.classList.toggle('active', content.id === tabId);
+  });
+  const nav = document.querySelector('.tabs-nav');
+  if (nav) {
+    const rect = nav.getBoundingClientRect();
+    if (rect.top < 0) {
+      window.scrollTo({ top: window.pageYOffset + rect.top, behavior: 'smooth' });
+    }
+  }
+}
+</script>
+
+</body>
+</html>
