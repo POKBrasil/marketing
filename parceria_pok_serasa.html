@@ -34,7 +34,7 @@
     --purple-light: #e4dcf7;
     --purple-faint: #F3EFF9;
     --ink: #1E1230;
-    --ink-muted: #5E4E7A;
+    --ink-muted: #1E1230;
     --ink-faint: #A899C2;
     --border: #D8CEF0;
     --white: #fff;
@@ -242,6 +242,20 @@
   .leitura-desc { font-size: 11.5px; color: var(--ink-muted); line-height: 1.6; }
   .leitura-source { font-size: 10px; font-weight: 600; color: var(--serasa-text); margin-top: 6px; display: inline-flex; align-items: center; gap: 5px; }
   .leitura-source::before { content: '✦'; font-size: 9px; }
+
+  /* Badges de status nas leituras (real / personalização / estudo conjunto) */
+  .leitura-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; margin-bottom: 4px; }
+  .leitura-header .leitura-title { margin-bottom: 0; flex: 1; }
+  .leitura-status { font-size: 9px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 9px; border-radius: 99px; white-space: nowrap; flex-shrink: 0; display: inline-flex; align-items: center; gap: 4px; line-height: 1.2; }
+  .status-real    { background: var(--serasa-bg); color: var(--serasa-text); border: 1px solid var(--serasa-border); }
+  .status-perso   { background: #fdf7c3; color: #5a4900; border: 1px solid #e5c806; }
+  .status-estudo  { background: var(--purple-faint); color: var(--purple); border: 1px solid var(--purple-light); }
+
+  /* Nota de leitura agregada / LGPD */
+  .lgpd-note { background: var(--purple-faint); border: 1px solid var(--border); border-left: 3px solid var(--purple); border-radius: 10px; padding: 12px 14px; display: flex; gap: 11px; align-items: flex-start; margin: 0 0 16px; }
+  .lgpd-note-icon { color: var(--purple); flex-shrink: 0; margin-top: 1px; }
+  .lgpd-note-text { font-size: 12px; color: var(--ink-muted); line-height: 1.6; }
+  .lgpd-note-text strong { color: var(--ink); font-weight: 700; }
   .markets-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
   .market-card { background: var(--white); border: 1px solid var(--border); border-radius: 18px; padding: 28px 28px 26px; position: relative; overflow: hidden; transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s; text-decoration: none; color: inherit; display: flex; flex-direction: column; }
   .market-card::before { content: ''; position: absolute; left: 0; top: 0; right: 0; height: 3px; }
@@ -539,7 +553,7 @@
       <span class="section-heading-mark">✦</span>
       A POK com o Serasa
     </h2>
-    <p class="markets-intro-desc">A integração com dados acessíveis via CPF na base Serasa Experian adiciona uma <strong>fonte primária de leitura</strong> sobre o beneficiário – vínculo formal, renda, identidade verificada e trajetória de mercado – que complementa as informações declaradas no LinkedIn e amplia significativamente a profundidade dos dashboards de cada eixo.</p>
+    <p class="markets-intro-desc">A integração com dados acessíveis via <strong>CPF</strong> na base Serasa Experian adiciona uma fonte primária de leitura sobre o beneficiário – vínculo formal, renda, identidade verificada e trajetória de mercado – que complementa as informações declaradas no LinkedIn e amplia significativamente a profundidade dos dashboards de cada eixo.</p>
   </div>
   <div class="markets-grid">
 
@@ -553,61 +567,99 @@
       <div class="market-card-subtitle">Dados de mercado de trabalho via CPF</div>
       <p class="market-card-desc">Leitura primária da trajetória profissional do aluno ou egresso pós-credencial – sem depender de compartilhamento em rede social. Compõe leitura mais completa em conjunto com os dados já capturados via LinkedIn.</p>
 
+      <div class="lgpd-note">
+        <svg class="lgpd-note-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="9" cy="7" r="3"/>
+          <circle cx="17" cy="7" r="3"/>
+          <circle cx="13" cy="16" r="3"/>
+        </svg>
+        <div class="lgpd-note-text">
+          <strong>Leitura sempre agregada, nunca individual.</strong> A POK mede empregabilidade por curso ou trilha formativa – os dados são consolidados em formato estatístico anonimizado, sem rastreio de pessoas. Compatível com a LGPD por design.
+        </div>
+      </div>
+
       <div class="leituras-label">Leituras novas possíveis <span class="count">9</span></div>
       <div class="leituras-list">
 
         <div class="leitura-item">
-          <div class="leitura-title"><span class="num">01</span> Saída do desemprego pós-credencial</div>
-          <div class="leitura-desc">Alunos ou egressos que estavam sem vínculo formal no momento da emissão da credencial e passaram a ter vínculo CLT ativo nos meses seguintes.</div>
-          <div class="leitura-source">Vínculo CLT ativo · base de empregabilidade Serasa</div>
+          <div class="leitura-header">
+            <div class="leitura-title"><span class="num">01</span> Empreendedorismo pós-credencial</div>
+            <span class="leitura-status status-real">✓ Real</span>
+          </div>
+          <div class="leitura-desc">Portadores que abriram MEI ou se tornaram sócios de empresa após receberem a credencial – identificados via cruzamento CPF × CNPJ. Especialmente relevante para trilhas com vocação empreendedora.</div>
+          <div class="leitura-source">Participação societária · produto Serasa Experian</div>
         </div>
 
         <div class="leitura-item">
-          <div class="leitura-title"><span class="num">02</span> Variação de renda antes e depois da credencial</div>
-          <div class="leitura-desc">Faixa de renda estimada do aluno ou egresso comparada nos períodos pré e pós-emissão. Quantifica o impacto financeiro real das trilhas formativas, não só o declarado.</div>
-          <div class="leitura-source">Renda estimada · modelo proprietário Serasa</div>
+          <div class="leitura-header">
+            <div class="leitura-title"><span class="num">02</span> Estabilidade financeira como dimensão de bem-estar</div>
+            <span class="leitura-status status-real">✓ Real</span>
+          </div>
+          <div class="leitura-desc">Indicadores agregados de estabilidade financeira da base de portadores pós-credencial – saída de negativação, evolução de score, regularidade de pagamentos. Compõe leitura de empregabilidade com dimensão de qualidade de vida financeira.</div>
+          <div class="leitura-source">Score, atributos financeiros e negativação · produtos core Serasa Experian</div>
         </div>
 
         <div class="leitura-item">
-          <div class="leitura-title"><span class="num">03</span> Setores de absorção dos portadores</div>
-          <div class="leitura-desc">Mapeamento agregado dos setores econômicos (via CNAE do empregador) que mais absorvem alunos e egressos de cada trilha formativa. Revela aderência entre formação e mercado.</div>
-          <div class="leitura-source">CNAE do empregador · dados cadastrais Serasa</div>
+          <div class="leitura-header">
+            <div class="leitura-title"><span class="num">03</span> Variação de renda antes e depois da credencial</div>
+            <span class="leitura-status status-real">✓ Real</span>
+          </div>
+          <div class="leitura-desc">Faixa de renda estimada do aluno ou egresso comparada nos períodos pré e pós-emissão. A Serasa comercializa o Renda 4.0, modelo proprietário de estimativa de renda mensal – a leitura longitudinal pré/pós é estruturada como consolidação sobre esse atributo.</div>
+          <div class="leitura-source">Renda 4.0 · produto Serasa Experian</div>
         </div>
 
         <div class="leitura-item">
-          <div class="leitura-title"><span class="num">04</span> Tempo médio até primeira contratação</div>
-          <div class="leitura-desc">Para alunos ou egressos sem vínculo no momento da emissão, mede em quantos dias houve registro de novo vínculo formal. Métrica clássica de empregabilidade hoje impossível de medir.</div>
-          <div class="leitura-source">Janela temporal entre emissão e vínculo · base Serasa</div>
+          <div class="leitura-header">
+            <div class="leitura-title"><span class="num">04</span> Mobilidade geográfica pós-credencial</div>
+            <span class="leitura-status status-real">✓ Real</span>
+          </div>
+          <div class="leitura-desc">Mudança de município ou estado capturada via endereço atualizado na base Serasa, frequentemente associada a oportunidades profissionais ascendentes. Ganha mais potência quando cruzada com outras leituras (renda, ocupação).</div>
+          <div class="leitura-source">Endereço atualizado · dados cadastrais Serasa Experian</div>
         </div>
 
         <div class="leitura-item">
-          <div class="leitura-title"><span class="num">05</span> Trajetória ascendente de empregador</div>
-          <div class="leitura-desc">Portadores que migraram de empregadores menores para empresas de maior porte (de PME para grandes corporações). Indica aumento de competitividade no mercado.</div>
-          <div class="leitura-source">Porte do empregador · dados cadastrais CNPJ Serasa</div>
+          <div class="leitura-header">
+            <div class="leitura-title"><span class="num">05</span> Tipo de fonte de renda dos portadores</div>
+            <span class="leitura-status status-perso">⚠ Personalização</span>
+          </div>
+          <div class="leitura-desc">Indicação qualitativa das principais fontes de renda dos portadores via Origem de Renda 4.0 (CLT, autônomo, MEI, aposentadoria, etc.). Mostra de forma agregada como cada trilha formativa se conecta com diferentes tipos de inserção produtiva.</div>
+          <div class="leitura-source">Origem de Renda 4.0 · produto Serasa Experian</div>
         </div>
 
         <div class="leitura-item">
-          <div class="leitura-title"><span class="num">06</span> Empreendedorismo pós-credencial</div>
-          <div class="leitura-desc">Portadores que abriram MEI ou se tornaram sócios de empresa após receberem a credencial. Hoje invisível para o dashboard. Especialmente relevante para trilhas com vocação empreendedora.</div>
-          <div class="leitura-source">Vínculos societários · base CPF–CNPJ Serasa</div>
+          <div class="leitura-header">
+            <div class="leitura-title"><span class="num">06</span> Saída do desemprego pós-credencial</div>
+            <span class="leitura-status status-perso">⚠ Personalização</span>
+          </div>
+          <div class="leitura-desc">A Serasa opera dados de vínculo formal via Dataprev/eSocial dentro do escopo de seus produtos de Crédito do Trabalhador (SalaryFits/Mova). A leitura "alunos ou egressos que passaram a ter vínculo CLT ativo após a credencial" exige acordo específico de uso desses dados para fins de pesquisa educacional.</div>
+          <div class="leitura-source">Vínculo formal via Dataprev/eSocial · operado pela SalaryFits (Serasa Experian)</div>
         </div>
 
         <div class="leitura-item">
-          <div class="leitura-title"><span class="num">07</span> Mobilidade geográfica vinculada a mudança de emprego</div>
-          <div class="leitura-desc">Portadores que mudaram de município ou estado e simultaneamente trocaram de empregador – sinal forte de mobilidade profissional ascendente.</div>
-          <div class="leitura-source">Endereço atualizado + CNPJ empregador · base Serasa</div>
+          <div class="leitura-header">
+            <div class="leitura-title"><span class="num">07</span> Tempo médio até primeira contratação</div>
+            <span class="leitura-status status-estudo">🔬 Estudo conjunto</span>
+          </div>
+          <div class="leitura-desc">Para alunos ou egressos sem vínculo formal no momento da emissão, mede a janela temporal até registro de novo vínculo. Métrica clássica de empregabilidade, viável a partir dos mesmos dados de vínculo formal – estruturação como estudo conjunto POK × Serasa.</div>
+          <div class="leitura-source">Estudo conjunto sobre base de vínculo formal · Serasa Experian</div>
         </div>
 
         <div class="leitura-item">
-          <div class="leitura-title"><span class="num">08</span> Estabilidade financeira como dimensão de bem-estar</div>
-          <div class="leitura-desc">Indicadores agregados de estabilidade financeira da base de portadores pós-credencial – saída de negativação, evolução de score, regularidade de pagamentos.</div>
-          <div class="leitura-source">Score e atributos financeiros · base Serasa</div>
+          <div class="leitura-header">
+            <div class="leitura-title"><span class="num">08</span> Trajetória ascendente de empregador</div>
+            <span class="leitura-status status-estudo">🔬 Estudo conjunto</span>
+          </div>
+          <div class="leitura-desc">Portadores que migraram de empregadores menores para empresas de maior porte (de PME para grandes corporações) – identificável combinando vínculo formal histórico com dados cadastrais CNPJ. Requer customização para entregar a série histórica.</div>
+          <div class="leitura-source">Estudo conjunto · CNPJ + vínculo formal · Serasa Experian</div>
         </div>
 
         <div class="leitura-item">
-          <div class="leitura-title"><span class="num">09</span> Grupo de controle estatístico</div>
-          <div class="leitura-desc">Comparação agregada da trajetória dos portadores POK com a de indivíduos de perfil sociodemográfico equivalente que não passaram pelas trilhas formativas. Diferencial mensurável da credencial.</div>
-          <div class="leitura-source">Base agregada anonimizada · Serasa Experian</div>
+          <div class="leitura-header">
+            <div class="leitura-title"><span class="num">09</span> Grupo de controle estatístico</div>
+            <span class="leitura-status status-estudo">🔬 Estudo conjunto</span>
+          </div>
+          <div class="leitura-desc">Comparação agregada da trajetória dos portadores POK com a de indivíduos de perfil sociodemográfico equivalente que não passaram pelas trilhas formativas. Permite à instituição afirmar com base estatística que a credencial gerou diferencial mensurável – escopo natural de um estudo conjunto sobre a base agregada Serasa.</div>
+          <div class="leitura-source">Estudo conjunto sobre base agregada anonimizada · Serasa Experian</div>
         </div>
 
       </div>
@@ -623,57 +675,91 @@
       <div class="market-card-subtitle">Dados de identidade, retenção e mercado via CPF</div>
       <p class="market-card-desc">Validação de identidade na emissão da credencial, confirmação de retenção via vínculo formal, sinais antecipados de turnover e comparação com pares do setor.</p>
 
+      <div class="lgpd-note">
+        <svg class="lgpd-note-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="9" cy="7" r="3"/>
+          <circle cx="17" cy="7" r="3"/>
+          <circle cx="13" cy="16" r="3"/>
+        </svg>
+        <div class="lgpd-note-text">
+          <strong>Leitura sempre agregada, nunca individual.</strong> A POK consolida os dados por grupo certificado (por trilha, por área, por unidade) – sem expor performance individual no dashboard. Compatível com a LGPD por design.
+        </div>
+      </div>
+
       <div class="leituras-label">Leituras novas possíveis <span class="count">8</span></div>
       <div class="leituras-list">
 
         <div class="leitura-item">
-          <div class="leitura-title"><span class="num">01</span> Identidade verificada na emissão da credencial</div>
-          <div class="leitura-desc">Validação de que o colaborador que recebeu a credencial é a pessoa cadastrada – via camada antifraude ClearSale. Crítico para credenciais regulatórias como NR-10, NR-33, NR-35.</div>
-          <div class="leitura-source">Validação antifraude ClearSale · Serasa Experian</div>
+          <div class="leitura-header">
+            <div class="leitura-title"><span class="num">01</span> Identidade verificada na emissão da credencial</div>
+            <span class="leitura-status status-real">✓ Real</span>
+          </div>
+          <div class="leitura-desc">Validação de identidade do colaborador no momento da emissão via camada antifraude ClearSale, adquirida pela Serasa em 2025. Inclui biometria facial, validação documental e análise de dispositivo – em conformidade com requisitos regulatórios para credenciais NR (NR-10, NR-33, NR-35).</div>
+          <div class="leitura-source">ClearSale · solução antifraude da Serasa Experian</div>
         </div>
 
         <div class="leitura-item">
-          <div class="leitura-title"><span class="num">02</span> Retenção confirmada por vínculo formal</div>
-          <div class="leitura-desc">Confirmação independente de que o colaborador continua vinculado à empresa via leitura do CNPJ empregador na base Serasa. Passa a ter confirmação primária via vínculo formal.</div>
-          <div class="leitura-source">CNPJ empregador atual · base Serasa</div>
+          <div class="leitura-header">
+            <div class="leitura-title"><span class="num">02</span> Retenção confirmada por vínculo formal</div>
+            <span class="leitura-status status-perso">⚠ Personalização</span>
+          </div>
+          <div class="leitura-desc">A Serasa opera dados de vínculo CLT via Dataprev/eSocial (dentro do produto Crédito do Trabalhador, via SalaryFits/Mova). Confirmar que o colaborador certificado segue vinculado ao CNPJ da empresa é leitura tecnicamente viável a partir desses dados, com acordo específico de uso.</div>
+          <div class="leitura-source">Vínculo formal via Dataprev/eSocial · operado pela SalaryFits (Serasa Experian)</div>
         </div>
 
         <div class="leitura-item">
-          <div class="leitura-title"><span class="num">03</span> Sinais antecipados de risco de turnover</div>
-          <div class="leitura-desc">Aumento atípico de consultas ao CPF do colaborador (sinal de avaliação para crédito ou contratação por terceiros) e variações de score correlacionadas. Permite agir antes da saída.</div>
-          <div class="leitura-source">Volume de consultas + score · base Serasa</div>
+          <div class="leitura-header">
+            <div class="leitura-title"><span class="num">03</span> Saída detectada precocemente</div>
+            <span class="leitura-status status-perso">⚠ Personalização</span>
+          </div>
+          <div class="leitura-desc">Mesmo conjunto de dados da leitura anterior – mudança de CNPJ empregador identificável via Dataprev/eSocial com latência menor do que atualização em rede social. Permite ao RH antecipar offboarding e gestão de credenciais ativas.</div>
+          <div class="leitura-source">Vínculo formal via Dataprev/eSocial · operado pela SalaryFits (Serasa Experian)</div>
         </div>
 
         <div class="leitura-item">
-          <div class="leitura-title"><span class="num">04</span> Saúde financeira agregada da equipe certificada</div>
-          <div class="leitura-desc">Percentual de colaboradores em regularidade, faixa média de score, presença de inadimplência ativa. Insumo direto para programas de wellbeing e educação financeira corporativa.</div>
-          <div class="leitura-source">Score e atributos comportamentais · base Serasa</div>
+          <div class="leitura-header">
+            <div class="leitura-title"><span class="num">04</span> Saúde financeira agregada da equipe certificada</div>
+            <span class="leitura-status status-perso">⚠ Personalização</span>
+          </div>
+          <div class="leitura-desc">Score, atributos comportamentais, presença de inadimplência e comprometimento de renda são produtos core da Serasa. A entrega agregada por equipe certificada (% de colaboradores em regularidade, faixa média de score) é estruturação específica sobre esses atributos – insumo para programas de wellbeing e educação financeira corporativa.</div>
+          <div class="leitura-source">Score e atributos financeiros · produtos core Serasa Experian</div>
         </div>
 
         <div class="leitura-item">
-          <div class="leitura-title"><span class="num">05</span> Atratividade externa dos colaboradores certificados</div>
-          <div class="leitura-desc">Volume agregado de consultas externas aos CPFs dos colaboradores certificados POK comparado a não certificados. Quanto maior a procura, mais o mercado valoriza o perfil.</div>
-          <div class="leitura-source">Volume de consultas externas · base Serasa</div>
+          <div class="leitura-header">
+            <div class="leitura-title"><span class="num">05</span> Benchmark setorial agregado</div>
+            <span class="leitura-status status-perso">⚠ Personalização</span>
+          </div>
+          <div class="leitura-desc">A Serasa Experian produz indicadores econômicos setoriais reconhecidos (inadimplência, demanda por crédito, comportamento financeiro por macro segmento) e opera o Índice de Relacionamento de Mercado. O benchmark "empresa X vs média setorial CNAE Y" é customização sobre esses indicadores existentes.</div>
+          <div class="leitura-source">Indicadores setoriais + Índice de Relacionamento de Mercado · Serasa Experian</div>
         </div>
 
         <div class="leitura-item">
-          <div class="leitura-title"><span class="num">06</span> Benchmark setorial agregado</div>
-          <div class="leitura-desc">Comparação dos indicadores da empresa com a média do setor (mesmo CNAE) na base Serasa. Mostra como a empresa se posiciona contra pares, não só olhando para si.</div>
-          <div class="leitura-source">Base agregada setorial · Serasa Experian</div>
+          <div class="leitura-header">
+            <div class="leitura-title"><span class="num">06</span> Sinais antecipados de risco de turnover</div>
+            <span class="leitura-status status-estudo">🔬 Estudo conjunto</span>
+          </div>
+          <div class="leitura-desc">Combinação de aumento de consultas externas ao CPF do colaborador (indicativo de avaliação por terceiros) com variações de score. Cada dado existe individualmente na base Serasa, mas o cruzamento específico para predizer turnover não é produto comercial – estruturação como estudo conjunto.</div>
+          <div class="leitura-source">Estudo conjunto · volume de consultas + score · Serasa Experian</div>
         </div>
 
         <div class="leitura-item">
-          <div class="leitura-title"><span class="num">07</span> Saída detectada precocemente</div>
-          <div class="leitura-desc">Identificação da mudança de CNPJ empregador do colaborador certificado, com latência menor do que a atualização em rede social. Permite ao RH antecipar offboarding e gestão de credenciais.</div>
-          <div class="leitura-source">CNPJ empregador · base Serasa</div>
+          <div class="leitura-header">
+            <div class="leitura-title"><span class="num">07</span> Atratividade externa dos colaboradores certificados</div>
+            <span class="leitura-status status-estudo">🔬 Estudo conjunto</span>
+          </div>
+          <div class="leitura-desc">Volume agregado de consultas externas aos CPFs dos colaboradores certificados, comparado a não-certificados. O dado bruto existe na base Serasa (consultas são registradas), mas a entrega agregada para uma empresa-empregadora exige estruturação específica que respeite LGPD e acordo de uso.</div>
+          <div class="leitura-source">Estudo conjunto · volume de consultas externas · Serasa Experian</div>
         </div>
 
         <div class="leitura-item">
-          <div class="leitura-title"><span class="num">08</span> Trajetória pós-saída dos ex-colaboradores certificados</div>
-          <div class="leitura-desc">Para onde foram os colaboradores certificados que saíram – porte do novo empregador, variação de renda no destino. Argumento poderoso de marca empregadora.</div>
-          <div class="leitura-source">Trajetória pós-vínculo · base Serasa</div>
+          <div class="leitura-header">
+            <div class="leitura-title"><span class="num">08</span> Trajetória pós-saída dos ex-colaboradores certificados</div>
+            <span class="leitura-status status-estudo">🔬 Estudo conjunto</span>
+          </div>
+          <div class="leitura-desc">Para onde foram os colaboradores certificados que saíram – porte do novo empregador, variação de renda no destino. Combinação de vínculo formal + cadastro CNPJ + Renda 4.0 da base Serasa, estruturada como estudo longitudinal específico.</div>
+          <div class="leitura-source">Estudo conjunto · vínculo formal + CNPJ + Renda 4.0 · Serasa Experian</div>
         </div>
-
       </div>
     </div>
 
