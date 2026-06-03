@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>POK × Semesp – Proposta de Parceria | Certificadora Oficial 2026</title>
-<meta name="description" content="POK Certificadora Oficial Semesp – Micro-credenciais em blockchain para todo o ecossistema Semesp. Proposta de Parceria 2026.">
+<meta name="description" content="POK Certificadora Oficial Semesp – Microcredenciais em blockchain para todo o ecossistema Semesp. Proposta de Parceria 2026.">
 
 <!-- Open Graph / Facebook / LinkedIn / WhatsApp -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="POK Certificadora Oficial Semesp">
-<meta property="og:description" content="Micro-credenciais em blockchain para todo o ecossistema Semesp. Proposta de Parceria 2026.">
+<meta property="og:description" content="Microcredenciais em blockchain para todo o ecossistema Semesp. Proposta de Parceria 2026.">
 <meta property="og:image" content="https://pokbrasil.github.io/content/pok_semesp_og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -18,7 +18,7 @@
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="POK Certificadora Oficial Semesp">
-<meta name="twitter:description" content="Micro-credenciais em blockchain para todo o ecossistema Semesp. Proposta de Parceria 2026.">
+<meta name="twitter:description" content="Microcredenciais em blockchain para todo o ecossistema Semesp. Proposta de Parceria 2026.">
 <meta name="twitter:image" content="https://pokbrasil.github.io/content/pok_semesp_og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -2375,7 +2375,7 @@
 
   /* Regras de impressão: gera um PDF limpo da proposta */
   @media print {
-    @page { size: A4 landscape; margin: 10mm 12mm; }
+    @page { size: A4 portrait; margin: 12mm 14mm; }
     .no-print, .sidebar, .menu-toggle, footer { display: none !important; }
     .main { margin-left: 0 !important; }
     html, body { background: #ffffff !important; color: #1a1033 !important; }
@@ -2386,7 +2386,24 @@
       max-width: 100% !important;
     }
     .micro-section { padding: 0.8rem 0 1.2rem !important; }
-    .micro-section .micro-content { padding: 0 !important; }
+    .micro-content { padding: 0 !important; }
+
+    /* Cada seção começa em uma página nova */
+    section[id] {
+      page-break-before: always;
+      break-before: page;
+    }
+    /* A primeira seção (hero) não precisa quebrar antes */
+    .hero {
+      page-break-before: avoid !important;
+      break-before: avoid !important;
+    }
+
+    /* Subseções relevantes do FNESP também começam em nova página */
+    #fnesp-cowork, #fnesp-painel, #fnesp-empregabilidade, #fnesp-site {
+      page-break-before: always;
+      break-before: page;
+    }
 
     .hero {
       background: #ffffff !important;
@@ -2428,9 +2445,43 @@
 
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; height: auto !important; }
-    /* Containers de imagem não esticam */
-    .home-selo-grid > div { height: auto !important; align-items: flex-start !important; }
-    .home-selo-grid img { object-fit: contain !important; height: auto !important; max-height: 320px; }
+
+    /* Bloco home + selo: manter duas colunas, imagens enquadradas */
+    .home-selo-grid {
+      display: grid !important;
+      grid-template-columns: 1.6fr 1fr !important;
+      gap: 1rem !important;
+    }
+    .home-selo-grid > div {
+      padding: 0.6rem !important;
+      box-shadow: none !important;
+    }
+    .home-selo-grid img {
+      width: 100% !important;
+      height: auto !important;
+      max-height: 240px !important;
+      object-fit: contain !important;
+      display: block !important;
+    }
+    /* Card do selo: layout vertical compacto, sem esticar */
+    .home-selo-grid > div:last-child {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 0.5rem !important;
+    }
+    .home-selo-grid > div:last-child img {
+      max-width: 140px !important;
+      max-height: 140px !important;
+    }
+
+    /* Bloco Experiência do usuário: imagem em altura controlada */
+    section img[alt*="Experiência"], section img[alt*="experiencia"] {
+      max-height: 200px !important;
+      width: auto !important;
+      margin: 0 auto !important;
+    }
   }
 </style>
 </head>
@@ -2461,6 +2512,7 @@
     <li><a href="#uc"><span class="nav-number">04</span>Universidade Corporativa</a></li>
     <li><a href="#fnesp" class="nav-strong"><span class="nav-number">05</span>FNESP</a></li>
     <li class="nav-sub"><a href="#fnesp-cowork"><span class="nav-number"></span>Espaço Coworking</a></li>
+    <li class="nav-sub"><a href="#fnesp-painel"><span class="nav-number"></span>Painel sobre Microcredenciais</a></li>
     <li class="nav-sub nav-gold"><a href="#fnesp-empregabilidade"><span class="nav-number"></span>Apresentação Pesquisa de Egressos e Empregabilidade</a></li>
     <li class="nav-sub"><a href="#fnesp-site"><span class="nav-number"></span>Site FNESP</a></li>
   </ul>
@@ -2481,7 +2533,7 @@
       <span class="hero-eyebrow">Proposta de Parceria · 2026</span>
       <h1>POK Certificadora Oficial <br><span style="color: #ffffff;">POK</span> × <span style="color: #ffffff; font-weight: 800; letter-spacing: 0.01em;">SEMESP</span></h1>
       <p class="hero-subtitle">
-        O objetivo da parceria é criar uma experiência real de uso de micro-credenciais e certificados POK através das experiências e jornadas de aprendizado do Semesp – transformando cada evento, curso e programa em prova verificável de participação e competência.
+        O objetivo da parceria é criar uma experiência real de uso de microcredenciais e certificados POK através das experiências e jornadas de aprendizado do Semesp – transformando cada evento, curso e programa em prova verificável de participação e competência.
       </p>
 
       <div class="hero-scope-grid">
@@ -2652,6 +2704,43 @@
     <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.5rem;">
       <a href="https://pokbrasil.github.io/content/pok_logo_png.zip" download class="campaign-button">Baixar logo POK · PNG</a>
       <a href="https://pokbrasil.github.io/content/pok_logo_svg.zip" download class="campaign-button secondary">Baixar logo POK · SVG</a>
+    </div>
+
+    <!-- Subseção: Painel sobre Microcredenciais -->
+    <div class="section-header" style="margin-top: 3.5rem; margin-bottom: 1rem; scroll-margin-top: 2rem;" id="fnesp-painel">
+      <span class="section-eyebrow semesp">Painel sobre Microcredenciais</span>
+    </div>
+    <p class="section-intro">Participação em painel no FNESP com o tema <strong>microcredenciais no Brasil e no mundo</strong>. A POK irá ao palco com casos de uso reais em LATAM e nos Estados Unidos — mostrando como a credencial em blockchain já está sendo emitida e adotada em diferentes ecossistemas educacionais e corporativos fora do Brasil.</p>
+
+    <div class="empreg-flow flow-4" style="margin-top: 2rem;">
+      <div class="empreg-card">
+        <div class="empreg-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20"/><path d="M12 2a15 15 0 0 0 0 20"/></svg>
+        </div>
+        <h4 class="empreg-title">Brasil</h4>
+        <p>O ecossistema POK no país, com universidades, eventos do Semesp e empresas emitindo credenciais em blockchain em escala.</p>
+      </div>
+      <div class="empreg-card">
+        <div class="empreg-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h4 class="empreg-title">LATAM</h4>
+        <p>Casos de uso na América Latina, mostrando como a credencial verificável atravessa fronteiras institucionais e geográficas.</p>
+      </div>
+      <div class="empreg-card">
+        <div class="empreg-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h20"/><path d="M12 2v20"/><circle cx="12" cy="12" r="10"/></svg>
+        </div>
+        <h4 class="empreg-title">Estados Unidos</h4>
+        <p>Casos de uso nos EUA — referência global em microcredenciais e em adoção institucional de credenciais em blockchain.</p>
+      </div>
+      <div class="empreg-card empreg-card-gold">
+        <div class="empreg-icon" style="background: linear-gradient(135deg, #b89c00 0%, #f1ce0a 100%);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9v.01"/><path d="M9 12v.01"/><path d="M9 15v.01"/><path d="M9 18v.01"/></svg>
+        </div>
+        <h4 class="empreg-title">Painel no FNESP</h4>
+        <p>A POK leva esses casos para o palco do FNESP, posicionando o Semesp ao lado da conversa global sobre microcredenciais.</p>
+      </div>
     </div>
 
     <!-- Subseção: Apresentação Pesquisa de Egressos e Empregabilidade -->
@@ -2886,7 +2975,7 @@
         </div>
         <div class="payment-block">
           <h4>FNESP + Semesp</h4>
-          <p><span class="data-line">Parcelado</span><strong>6× de R$ 14.167</strong></p>
+          <p><span class="data-line">Parcelado</span><strong>3× de R$ 28.333</strong></p>
         </div>
       </div>
     </div>
