@@ -113,22 +113,22 @@
   }
 
   .header-title {
-    font-size: clamp(18px, 3.5vw, 32px);
+    font-size: clamp(20px, 4.2vw, 40px);
     font-weight: 800;
-    line-height: 1.2;
+    line-height: 1.15;
     letter-spacing: -0.02em;
     color: #fff;
-    max-width: 700px;
+    white-space: nowrap;
   }
   .header-title .gold { color: var(--gold); }
 
   .header-sub {
-    font-size: 14px;
-    color: rgba(255,255,255,0.55);
-    margin-top: 8px;
-    font-weight: 300;
-    max-width: 600px;
+    font-size: clamp(12.5px, 1.35vw, 15.5px);
+    color: #ffffff;
+    margin-top: 10px;
+    font-weight: 400;
     line-height: 1.6;
+    white-space: nowrap;
   }
 
   .header-pills {
@@ -472,6 +472,147 @@
     transition: background 0.15s;
   }
   .elegib-btn:hover { background: #3a1878; }
+
+  /* Variante com as cores do box de período (fundo roxo, texto branco, botão dourado) */
+  .elegib-bar.is-accent {
+    background: var(--accent);
+    border: none;
+    border-left: none;
+  }
+  .elegib-bar.is-accent .elegib-label { color: var(--gold); }
+  .elegib-bar.is-accent .elegib-title { color: #fff; }
+  .elegib-bar.is-accent .elegib-desc { color: rgba(255,255,255,0.72); }
+  .elegib-bar.is-accent .elegib-desc strong { color: #fff; }
+  .elegib-bar.is-accent .elegib-btn {
+    background: var(--gold);
+    color: var(--gold-ink);
+  }
+  .elegib-bar.is-accent .elegib-btn:hover { background: var(--gold-dark); color: #fff; }
+
+  /* ── SEÇÃO CONTATO — idêntica ao proof of attendance TOTVS ─ */
+  .contact-section {
+    background: linear-gradient(135deg, #5123a4 0%, #3a1878 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+    padding: 36px 44px;
+    border-radius: 20px;
+  }
+  .contact-section::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(228, 220, 247, 0.12) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .contact-section::after {
+    content: '';
+    position: absolute;
+    bottom: -120px;
+    left: -120px;
+    width: 360px;
+    height: 360px;
+    background: radial-gradient(circle, rgba(255, 198, 41, 0.06) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .contact-content {
+    position: relative;
+    z-index: 2;
+  }
+  .contact-section .section-eyebrow {
+    background: rgba(228, 220, 247, 0.15);
+    color: #e4dcf7;
+    padding: 0.4rem 0.85rem;
+    border-radius: 100px;
+    display: inline-block;
+    border: none;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .contact-title {
+    font-size: clamp(1.5rem, 2.4vw, 1.9rem);
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 6px;
+    margin-top: 0;
+  }
+  .contato-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 36px;
+    align-items: center;
+    margin-top: 0;
+    max-width: 760px;
+  }
+  .contato-qr {
+    background: white;
+    padding: 16px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+  }
+  .contato-qr img {
+    width: 132px;
+    height: 132px;
+    display: block;
+    border-radius: 8px;
+  }
+  .contato-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .contato-cargo {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #e4dcf7;
+    margin-bottom: 2px;
+  }
+  .contato-info h3 {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.1;
+    color: white;
+    letter-spacing: -1px;
+    margin-bottom: 4px;
+  }
+  .contato-email {
+    font-size: 18px;
+    color: #e4dcf7;
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(228, 220, 247, 0.4);
+    align-self: flex-start;
+    transition: all 0.2s ease;
+    padding-bottom: 2px;
+  }
+  .contato-email:hover {
+    color: #f1ce0a;
+    border-bottom-color: #f1ce0a;
+  }
+  @media (max-width: 700px) {
+    .contato-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+      max-width: 100%;
+    }
+    .contato-info h3 { font-size: 24px; }
+    .contato-qr img { width: 132px; height: 132px; }
+    .contact-section { padding: 32px 22px; }
+  }
+
   /* ── PERÍODO DESTAQUE ───────────────────────────────────── */
   .periodo-bar {
     background: var(--accent);
@@ -515,6 +656,22 @@
     font-size: 14px;
     font-weight: 600;
   }
+  .periodo-extra {
+    flex-basis: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 4px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.18);
+    flex-wrap: wrap;
+  }
+  .periodo-extra-icon { font-size: 20px; flex-shrink: 0; }
+  .periodo-extra-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+  }
 
   /* ── FOOTER ─────────────────────────────────────────────── */
   .page-footer {
@@ -526,9 +683,14 @@
   }
   .page-footer strong { color: rgba(255,255,255,0.8); }
 
+  @media (max-width: 900px) {
+    .header-sub { white-space: normal; max-width: 560px; }
+  }
+
   @media (max-width: 600px) {
     .content { padding: 1.5rem 1.25rem 3rem; }
     .page-header { padding: 1.75rem 1.25rem 1.5rem; }
+    .header-title { white-space: normal; }
     .parceiros-strip {
       padding: 0.9rem 1.25rem;
       gap: 8px 10px;
@@ -563,7 +725,7 @@
     </a>
   </div>
   <div class="header-badge">🎓 POK Empregabilidade 2026</div>
-  <h1 class="header-title">Campanha POK <span class="gold">Egressos e Empregabilidade</span></h1>
+  <h1 class="header-title">Campanha POK <span class="gold">Egressos</span> e <span class="gold">Empregabilidade</span></h1>
   <p class="header-sub">Uma iniciativa inédita da POK em parceria com 20 universidades selecionadas, para reconectar egressos ao valor da sua formação.</p>
   <div class="header-pills">
     <div class="pill">
@@ -619,26 +781,31 @@
   <div class="periodo-bar">
     <div class="icon">📅</div>
     <div class="periodo-content">
-      <h3>Período de execução da campanha</h3>
-      <p>Os créditos devem ser utilizados dentro da janela de vigência abaixo.</p>
+      <h3>Período de estruturação da campanha</h3>
+      <p>Janela para estruturar e executar a campanha junto à universidade.</p>
     </div>
     <div class="periodo-dates">
       <span class="date-chip">1º de Maio</span>
       <span class="date-arrow">→</span>
       <span class="date-chip">30 de Junho</span>
     </div>
+    <div class="periodo-extra">
+      <span class="periodo-extra-icon">🎓</span>
+      <span class="periodo-extra-label">Envio da certificação</span>
+      <span class="date-chip">1ª semana de agosto</span>
+    </div>
   </div>
 
 
-  <!-- ELEGIBILIDADE -->
+  <!-- PASSO A PASSO DA CAMPANHA -->
   <div class="elegib-bar">
-    <div class="elegib-icon">🎓</div>
+    <div class="elegib-icon">🗺️</div>
     <div class="elegib-content">
-      <div class="elegib-label">Requisito de participação</div>
-      <div class="elegib-title">Para participar da campanha, a universidade precisa estar inscrita no Programa POK de Trilhas Formativas Micro-Certificadas por Competências</div>
-      <div class="elegib-desc">A participação no programa é condição de elegibilidade para a campanha. Ao menos um funcionário da instituição deve estar ativo no programa. Ainda não está inscrito? <strong>Inscreva-se agora e garanta sua vaga na campanha.</strong></div>
+      <div class="elegib-label">Como executar</div>
+      <div class="elegib-title">Conheça o passo a passo da campanha</div>
+      <div class="elegib-desc">Veja o guia completo com todas as etapas de execução da campanha de egressos na sua instituição — da seleção do público à ativação dos certificados no mercado de trabalho.</div>
     </div>
-    <a href="https://pok672.ac-page.com/programa-pok-de-trilhas-formativas-microcertificadas?test=true" target="_blank" class="elegib-btn">Inscrever-se no Programa →</a>
+    <a href="https://pokbrasil.github.io/empregabilidade/pok_ies_campanha_egresso.html" target="_blank" rel="noopener" class="elegib-btn">Ver o passo a passo →</a>
   </div>
 
   <!-- COMO FUNCIONA -->
@@ -751,6 +918,37 @@
         </div>
       </div>
 
+    </div>
+  </section>
+
+  <!-- DASHBOARD DE EMPREGABILIDADE -->
+  <div class="elegib-bar is-accent">
+    <div class="elegib-icon">📊</div>
+    <div class="elegib-content">
+      <div class="elegib-label">Inteligência de dados</div>
+      <div class="elegib-title">Conheça o dashboard de empregabilidade da POK</div>
+      <div class="elegib-desc">Veja como a POK transforma os certificados compartilhados pelos egressos em dados reais de empregabilidade — funil de engajamento, indicadores e trajetória profissional ao longo do tempo.</div>
+    </div>
+    <a href="https://pokbrasil.github.io/marketing/pok_empregabilidade_dashboard_publico.html" target="_blank" rel="noopener" class="elegib-btn">Ver o dashboard →</a>
+  </div>
+
+  <!-- SEÇÃO CONTATO -->
+  <section>
+    <div class="contact-section">
+          <div class="contact-content">
+            <div class="contato-grid">
+              <div class="contato-qr">
+                <img src="data:image/png;base64,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" alt="QR Code de contato — Carolina Ferrés">
+              </div>
+
+              <div class="contato-info">
+                <h2 class="contact-title">Participe da campanha!</h2>
+                <div class="contato-cargo">Contato POK</div>
+                <h3>Carolina Ferrés</h3>
+                <a href="mailto:carolina@pok.tech" class="contato-email">carolina@pok.tech</a>
+              </div>
+            </div>
+          </div>
     </div>
   </section>
 
