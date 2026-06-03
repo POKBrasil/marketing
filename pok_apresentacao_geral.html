@@ -4,19 +4,19 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>POK · A camada de inteligência sobre formação</title>
-<meta name="description" content="A POK atua em dois eixos complementares — Educacional e Corporativo — e transforma cada certificado emitido em dado vivo sobre empregabilidade, desenvolvimento humano e compliance.">
+<meta name="description" content="A POK atua em dois eixos complementares – Educacional e Corporativo – e transforma cada certificado emitido em dado vivo sobre empregabilidade, desenvolvimento humano e compliance.">
 
 <!-- Open Graph (LinkedIn, WhatsApp, Facebook) -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://pokbrasil.github.io/marketing/pok_apresentacao_geral.html">
 <meta property="og:title" content="POK · A camada de inteligência sobre formação">
-<meta property="og:description" content="Dois eixos, uma só infraestrutura — Educacional e Corporativa. Cada certificado emitido vira dado vivo sobre empregabilidade, desenvolvimento humano e compliance.">
+<meta property="og:description" content="Dois eixos, uma só infraestrutura – Educacional e Corporativa. Cada certificado emitido vira dado vivo sobre empregabilidade, desenvolvimento humano e compliance.">
 <meta property="og:image" content="https://pokbrasil.github.io/content/pok_og_image.png">
 <meta property="og:image:secure_url" content="https://pokbrasil.github.io/content/pok_og_image.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="2400">
 <meta property="og:image:height" content="1260">
-<meta property="og:image:alt" content="POK — A camada de inteligência sobre formação. Apresentação institucional.">
+<meta property="og:image:alt" content="POK – A camada de inteligência sobre formação. Apresentação institucional.">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:locale:alternate" content="es_ES">
 <meta property="og:locale:alternate" content="en_US">
@@ -25,9 +25,9 @@
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="POK · A camada de inteligência sobre formação">
-<meta name="twitter:description" content="Dois eixos, uma só infraestrutura — Educacional e Corporativa.">
+<meta name="twitter:description" content="Dois eixos, uma só infraestrutura – Educacional e Corporativa.">
 <meta name="twitter:image" content="https://pokbrasil.github.io/content/pok_og_image.png">
-<meta name="twitter:image:alt" content="POK — A camada de inteligência sobre formação.">
+<meta name="twitter:image:alt" content="POK – A camada de inteligência sobre formação.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,9 +39,9 @@
   --purple-light: #e4dcf7;
   --purple-faint: #f3eff9;
   --white: #ffffff;
-  --ink: #1E1230;
-  --ink-muted: #5E4E7A;
-  --ink-faint: #A899C2;
+  --ink: #000;
+  --ink-muted: #000;
+  --ink-faint: #000;
   --border: #e4dcf7;
   --green: #1D9E75;
   --green-light: #E2F4EB;
@@ -82,17 +82,17 @@ body { font-family: 'Poppins', sans-serif; background: var(--purple-faint); colo
 /* ─── INTRO BLOCK ───────────────────────────────────────────────────────── */
 .intro-block { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 44px 56px; margin-bottom: 48px; box-shadow: 0 12px 40px rgba(81,35,164,0.06); }
 .intro-block h2 { font-size: clamp(20px, 2vw, 26px); font-weight: 800; color: var(--ink); margin-bottom: 18px; line-height: 1.25; letter-spacing: -0.01em; }
-.intro-block p { font-size: 15px; color: var(--ink-muted); line-height: 1.75; margin-bottom: 14px; }
+.intro-block p { font-size: 13px; color: #000; line-height: 1.75; margin-bottom: 14px; }
 .intro-block p:last-child { margin-bottom: 0; }
-.intro-block strong { color: var(--ink); font-weight: 700; }
+.intro-block strong { color: #000; font-weight: 700; }
 
 /* ─── MARKETS ───────────────────────────────────────────────────────────── */
 .markets { margin-bottom: 56px; }
 .markets-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
-.market-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 38px 36px; position: relative; overflow: hidden; transition: transform 0.18s, box-shadow 0.18s; cursor: pointer; text-decoration: none; color: inherit; display: flex; flex-direction: column; }
+.market-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 38px 36px; position: relative; overflow: hidden; transition: transform 0.18s, box-shadow 0.18s; cursor: default; text-decoration: none; color: inherit; display: flex; flex-direction: column; -webkit-user-select: text; user-select: text; }
 .market-card::before { content: ''; position: absolute; left: 0; top: 0; right: 0; height: 4px; }
 .market-card.superior::before { background: linear-gradient(90deg, var(--purple) 0%, #8b5cf6 100%); }
-.market-card.corporativo::before { background: linear-gradient(90deg, var(--blue-dark) 0%, var(--blue) 100%); }
+.market-card.corporativo::before { background: linear-gradient(90deg, var(--blue) 0%, var(--green) 100%); }
 .market-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(81,35,164,0.12); }
 .market-card.superior:hover { border-color: var(--purple); }
 .market-card.corporativo:hover { border-color: var(--blue); }
@@ -109,25 +109,40 @@ body { font-family: 'Poppins', sans-serif; background: var(--purple-faint); colo
 .market-card.superior .market-card-pill .dot { background: var(--purple); }
 .market-card.corporativo .market-card-pill .dot { background: var(--blue); }
 
-.market-card h3 { font-size: 22px; font-weight: 800; color: var(--ink); margin-bottom: 8px; line-height: 1.2; letter-spacing: -0.01em; }
-.market-card-subtitle { font-size: 11px; font-weight: 700; color: var(--ink-faint); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 14px; }
+.market-card-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.market-card-pills .market-card-pill { margin-bottom: 0; }
+.market-card.corporativo .market-card-pill.pill-capital { background: var(--blue-light); color: var(--blue-dark); border: 1px solid #BFDBFE; }
+.market-card.corporativo .market-card-pill.pill-capital .dot { background: var(--blue); }
+.market-card.corporativo .market-card-pill.pill-compliance { background: var(--green-light); color: var(--green-dark); border: 1px solid #c5e4d6; }
+.market-card.corporativo .market-card-pill.pill-compliance .dot { background: var(--green); }
+
+.market-card h3 { font-size: 18px; font-weight: 800; color: #000; margin-bottom: 8px; line-height: 1.25; letter-spacing: -0.01em; }
+.market-card-subtitle { font-size: 11px; font-weight: 700; color: #000; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 14px; }
 .market-card.superior .market-card-subtitle { color: var(--purple); }
 .market-card.corporativo .market-card-subtitle { color: var(--blue-dark); }
-.market-card-desc { font-size: 14px; color: var(--ink-muted); line-height: 1.65; margin-bottom: 22px; }
+.market-card-desc { font-size: 13px; color: #000; line-height: 1.65; margin-bottom: 22px; }
 .market-card-features { list-style: none; padding: 0; margin: 0 0 28px; }
-.market-card-features li { font-size: 13px; color: var(--ink); padding: 8px 0; padding-left: 24px; position: relative; line-height: 1.5; border-bottom: 1px solid var(--border); }
+.market-card-features li { font-size: 12.5px; color: #000; padding: 8px 0; padding-left: 24px; position: relative; line-height: 1.5; border-bottom: 1px solid var(--border); }
 .market-card-features li:last-child { border-bottom: none; }
 .market-card-features li::before { content: ''; position: absolute; left: 6px; top: 16px; width: 6px; height: 6px; border-radius: 50%; }
 .market-card.superior .market-card-features li::before { background: var(--purple); }
 .market-card.corporativo .market-card-features li::before { background: var(--blue); }
+.market-card.corporativo .market-card-features li.feat-compliance::before { background: var(--green); }
 
-.market-card-cta { font-family: 'Poppins', sans-serif; display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; border-radius: 99px; font-size: 13px; font-weight: 700; letter-spacing: 0.02em; border: none; cursor: pointer; transition: all 0.18s; align-self: flex-start; margin-top: auto; }
+.market-card-cta { font-family: 'Poppins', sans-serif; display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; border-radius: 10px; font-size: 13px; font-weight: 700; letter-spacing: 0.02em; border: none; cursor: pointer; transition: all 0.18s; align-self: flex-start; margin-top: auto; text-decoration: none; }
 .market-card.superior .market-card-cta { background: #f1ce0a; color: var(--ink); }
 .market-card.superior .market-card-cta:hover { background: #d9b800; }
 .market-card.corporativo .market-card-cta { background: var(--blue-dark); color: #fff; }
 .market-card.corporativo .market-card-cta:hover { background: #1538a0; }
 .market-card-cta svg { width: 14px; height: 14px; transition: transform 0.18s; }
 .market-card:hover .market-card-cta svg { transform: translateX(3px); }
+
+.cert-cta-wrap { display: flex; justify-content: center; margin-top: 28px; }
+.cert-cta { display: inline-flex; align-items: center; gap: 11px; background: var(--purple); color: #fff; padding: 14px 28px; border-radius: 10px; font-size: 14px; font-weight: 700; letter-spacing: 0.01em; text-decoration: none; transition: transform 0.18s, box-shadow 0.18s, background 0.18s; }
+.cert-cta:hover { background: var(--purple-dark); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(81,35,164,0.25); }
+.cert-cta svg:first-child { width: 18px; height: 18px; }
+.cert-cta svg:last-child { width: 15px; height: 15px; transition: transform 0.18s; }
+.cert-cta:hover svg:last-child { transform: translateX(3px); }
 
 
 /* ─── REVENUE BANNER ────────────────────────────────────────────────────── */
@@ -187,7 +202,7 @@ body { font-family: 'Poppins', sans-serif; background: var(--purple-faint); colo
   .markets-grid { grid-template-columns: 1fr; }
   .market-card { padding: 30px 24px; }
   .lang-toggle { top: 16px; right: 16px; }
-  .market-card h3 { font-size: 20px; }
+  .market-card h3 { font-size: 18px; }
   .footer-logo svg { height: 26px; }
   .hero-eyebrow { font-size: 10px; padding: 5px 12px; letter-spacing: 0.1em; }
   .nr1-card { padding: 32px 24px; }
@@ -212,7 +227,7 @@ body { font-family: 'Poppins', sans-serif; background: var(--purple-faint); colo
   .content { padding: 0 12px 36px; }
   .intro-block { padding: 24px 18px; }
   .intro-block h2 { font-size: 18px; }
-  .intro-block p { font-size: 14px; }
+  .intro-block p { font-size: 12.5px; }
   .market-card { padding: 24px 18px; }
   .market-card-icon { width: 52px; height: 52px; border-radius: 12px; margin-bottom: 14px; }
   .market-card-icon svg { width: 26px; height: 26px; }
@@ -243,7 +258,7 @@ body { font-family: 'Poppins', sans-serif; background: var(--purple-faint); colo
     </div>
     <div class="hero-eyebrow-wrap"><div class="hero-eyebrow"><span></span> <span data-pt="Apresentação institucional" data-es="Presentación institucional" data-en="Institutional overview">Apresentação institucional</span></div></div>
     <h1 class="hero-title"><span data-pt="A camada de inteligência sobre formação: Educacional e Corporativa" data-es="La capa de inteligencia sobre formación: Educacional y Corporativa" data-en="The intelligence layer for education and training: Educational and Corporate">A camada de inteligência sobre formação: Educacional e Corporativa</span></h1>
-    <p class="hero-subtitle"><span data-pt="A POK atua em dois eixos complementares — Educacional e Corporativo — e transforma cada certificado emitido em dado vivo sobre empregabilidade, desenvolvimento humano e compliance. Uma camada de inteligência sobre formação que se conecta ao ecossistema da sua instituição ou empresa, sem competir com produtos existentes." data-es="POK actúa en dos ejes complementarios — Educacional y Corporativo — y transforma cada certificado emitido en dato vivo sobre empleabilidad, desarrollo humano y compliance. Una capa de inteligencia sobre formación que se conecta al ecosistema de su institución o empresa, sin competir con productos existentes." data-en="POK operates on two complementary tracks — Educational and Corporate — turning every credential issued into live data on employability, human development, and compliance. An intelligence layer for education and training that plugs into your institution or company's ecosystem, without competing with existing products.">A POK atua em dois eixos complementares — Educacional e Corporativo — e transforma cada certificado emitido em dado vivo sobre empregabilidade, desenvolvimento humano e compliance. Uma camada de inteligência sobre formação que se conecta ao ecossistema da sua instituição ou empresa, sem competir com produtos existentes.</span></p>
+    <p class="hero-subtitle"><span data-pt="A POK atua em dois eixos complementares – Educacional e Corporativo – e transforma cada certificado emitido em dado vivo sobre empregabilidade, desenvolvimento humano e compliance. Uma camada de inteligência sobre formação que se conecta ao ecossistema da sua instituição ou empresa, sem competir com produtos existentes." data-es="POK actúa en dos ejes complementarios – Educacional y Corporativo – y transforma cada certificado emitido en dato vivo sobre empleabilidad, desarrollo humano y compliance. Una capa de inteligencia sobre formación que se conecta al ecosistema de su institución o empresa, sin competir con productos existentes." data-en="POK operates on two complementary tracks – Educational and Corporate – turning every credential issued into live data on employability, human development, and compliance. An intelligence layer for education and training that plugs into your institution or company's ecosystem, without competing with existing products.">A POK atua em dois eixos complementares – Educacional e Corporativo – e transforma cada certificado emitido em dado vivo sobre empregabilidade, desenvolvimento humano e compliance. Uma camada de inteligência sobre formação que se conecta ao ecossistema da sua instituição ou empresa, sem competir com produtos existentes.</span></p>
   </div>
 </header>
 
@@ -252,8 +267,8 @@ body { font-family: 'Poppins', sans-serif; background: var(--purple-faint); colo
   <!-- INTRO -->
   <div class="intro-block">
     <h2><span data-pt="Dois eixos de atuação, uma só infraestrutura" data-es="Dos ejes de actuación, una sola infraestructura" data-en="Two tracks, one infrastructure">Dois eixos de atuação, uma só infraestrutura</span></h2>
-    <p><span data-pt="No <strong>eixo Educacional</strong>, a POK transforma cada diploma e cada conclusão de trilha em dado vivo sobre a empregabilidade dos alunos e egressos — credencial em blockchain ligada ao LinkedIn, com leitura contínua de empregos conquistados, promoções e mobilidade profissional. Vira evidência objetiva do valor da formação para o aluno, para o MEC e para o ranking institucional." data-es="En el <strong>eje Educacional</strong>, POK transforma cada diploma y cada conclusión de itinerario en dato vivo sobre la empleabilidad de los alumnos y egresados — credencial en blockchain conectada a LinkedIn, con lectura continua de empleos conquistados, promociones y movilidad profesional. Se vuelve evidencia objetiva del valor de la formación para el alumno, para el MEC y para el ranking institucional." data-en="On the <strong>Educational track</strong>, POK turns every diploma and completed learning path into live data on student and alumni employability — a blockchain credential linked to LinkedIn that continuously tracks jobs landed, promotions and career mobility. Objective evidence of the value of education for the student, for accreditation bodies and for institutional rankings.">No <strong>eixo Educacional</strong>, a POK transforma cada diploma e cada conclusão de trilha em dado vivo sobre a empregabilidade dos alunos e egressos — credencial em blockchain ligada ao LinkedIn, com leitura contínua de empregos conquistados, promoções e mobilidade profissional. Vira evidência objetiva do valor da formação para o aluno, para o MEC e para o ranking institucional.</span></p>
-    <p><span data-pt="No <strong>eixo Corporativo</strong>, a mesma infraestrutura mede o impacto real da formação dentro das empresas: internalização de habilidades, mobilidade interna, retenção pós-credencial e auditabilidade dos programas regulatórios. É o mesmo produto rodando em dois lados do mercado — atendendo desde universidades até grandes empregadores." data-es="En el <strong>eje Corporativo</strong>, la misma infraestructura mide el impacto real de la formación dentro de las empresas: internalización de habilidades, movilidad interna, retención post-credencial y auditabilidad de los programas regulatorios. Es el mismo producto operando en dos lados del mercado — atendiendo desde universidades hasta grandes empleadores." data-en="On the <strong>Corporate track</strong>, the same infrastructure measures the real impact of training inside companies: skill internalization, internal mobility, post-credential retention and auditability of regulatory programs. The same product running on both sides of the market — from universities to large employers.">No <strong>eixo Corporativo</strong>, a mesma infraestrutura mede o impacto real da formação dentro das empresas: internalização de habilidades, mobilidade interna, retenção pós-credencial e auditabilidade dos programas regulatórios. É o mesmo produto rodando em dois lados do mercado — atendendo desde universidades até grandes empregadores.</span></p>
+    <p><span data-pt="No <strong>eixo Educacional</strong>, a POK transforma cada diploma e cada conclusão de trilha em dado vivo sobre a empregabilidade dos alunos e egressos – credencial em blockchain ligada ao LinkedIn, com leitura contínua de empregos conquistados, promoções e mobilidade profissional. Vira evidência objetiva do valor da formação para o aluno, para o MEC e para o ranking institucional." data-es="En el <strong>eje Educacional</strong>, POK transforma cada diploma y cada conclusión de itinerario en dato vivo sobre la empleabilidad de los alumnos y egresados – credencial en blockchain conectada a LinkedIn, con lectura continua de empleos conquistados, promociones y movilidad profesional. Se vuelve evidencia objetiva del valor de la formación para el alumno, para el MEC y para el ranking institucional." data-en="On the <strong>Educational track</strong>, POK turns every diploma and completed learning path into live data on student and alumni employability – a blockchain credential linked to LinkedIn that continuously tracks jobs landed, promotions and career mobility. Objective evidence of the value of education for the student, for accreditation bodies and for institutional rankings.">No <strong>eixo Educacional</strong>, a POK transforma cada diploma e cada conclusão de trilha em dado vivo sobre a empregabilidade dos alunos e egressos – credencial em blockchain ligada ao LinkedIn, com leitura contínua de empregos conquistados, promoções e mobilidade profissional. Vira evidência objetiva do valor da formação para o aluno, para o MEC e para o ranking institucional.</span></p>
+    <p><span data-pt="No <strong>eixo Corporativo</strong>, a mesma infraestrutura mede o impacto real da formação dentro das empresas: internalização de habilidades, mobilidade interna, retenção pós-credencial e auditabilidade dos programas regulatórios. É o mesmo produto rodando em dois lados do mercado – atendendo desde universidades até grandes empregadores." data-es="En el <strong>eje Corporativo</strong>, la misma infraestructura mide el impacto real de la formación dentro de las empresas: internalización de habilidades, movilidad interna, retención post-credencial y auditabilidad de los programas regulatorios. Es el mismo producto operando en dos lados del mercado – atendiendo desde universidades hasta grandes empleadores." data-en="On the <strong>Corporate track</strong>, the same infrastructure measures the real impact of training inside companies: skill internalization, internal mobility, post-credential retention and auditability of regulatory programs. The same product running on both sides of the market – from universities to large employers.">No <strong>eixo Corporativo</strong>, a mesma infraestrutura mede o impacto real da formação dentro das empresas: internalização de habilidades, mobilidade interna, retenção pós-credencial e auditabilidade dos programas regulatórios. É o mesmo produto rodando em dois lados do mercado – atendendo desde universidades até grandes empregadores.</span></p>
   </div>
 
   <!-- DOIS ENCAIXES -->
@@ -261,59 +276,57 @@ body { font-family: 'Poppins', sans-serif; background: var(--purple-faint); colo
     <div class="section-label"><span class="dot"></span> <span data-pt="Os dois eixos" data-es="Los dos ejes" data-en="The two tracks">Os dois eixos</span></div>
     <div class="markets-grid">
 
-      <a href="https://pokbrasil.github.io/marketing/pok_empregabilidade_dashboard_publico.html" class="market-card superior" target="_blank">
+      <div class="market-card superior">
         <div class="market-card-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
         </div>
         <span class="market-card-pill"><span class="dot"></span> <span data-pt="Educacional" data-es="Educacional" data-en="Educational">Educacional</span></span>
         <h3><span data-pt="Empregabilidade de alunos e egressos" data-es="Empleabilidad de estudiantes y egresados" data-en="Student and alumni employability">Empregabilidade de alunos e egressos</span></h3>
         <div class="market-card-subtitle"><span data-pt="Universidades, faculdades e escolas técnicas" data-es="Universidades, facultades y escuelas técnicas" data-en="Universities, colleges and vocational schools">Universidades, faculdades e escolas técnicas</span></div>
-        <p class="market-card-desc"><span data-pt="Instituições de ensino passam a oferecer aos próprios alunos certificados POK em blockchain — verificáveis publicamente, portáveis e ligados ao LinkedIn. A POK, em paralelo, gera evidências de empregabilidade que valorizam o diploma perante MEC, mercado e candidatos." data-es="Instituciones de enseñanza pasan a ofrecer a sus propios alumnos certificados POK en blockchain — verificables públicamente, portables y vinculados a LinkedIn. POK, en paralelo, genera evidencias de empleabilidad que valorizan el diploma ante el MEC, el mercado y los candidatos." data-en="Educational institutions offer their own students POK blockchain credentials — publicly verifiable, portable and linked to LinkedIn. In parallel, POK generates employability evidence that strengthens the diploma's value with accreditation bodies, the job market and prospective students.">Instituições de ensino passam a oferecer aos próprios alunos certificados POK em blockchain — verificáveis publicamente, portáveis e ligados ao LinkedIn. A POK, em paralelo, gera evidências de empregabilidade que valorizam o diploma perante MEC, mercado e candidatos.</span></p>
+        <p class="market-card-desc"><span data-pt="Instituições de ensino passam a oferecer aos próprios alunos certificados, microcredenciais e trilhas formativas micro-certificadas em blockchain – verificáveis publicamente, portáveis e ligados ao LinkedIn. A POK, em paralelo, levanta dados de empregabilidade dos cursos através da certificação, gerando evidências que valorizam a formação perante MEC, mercado e candidatos." data-es="Instituciones de enseñanza pasan a ofrecer a sus propios alumnos certificados, microcredenciales e itinerarios formativos micro-certificados en blockchain – verificables públicamente, portables y vinculados a LinkedIn. POK, en paralelo, recopila datos de empleabilidad de los cursos a partir de la certificación, generando evidencias que valorizan la formación ante el MEC, el mercado y los candidatos." data-en="Educational institutions offer their own students certificates, micro-credentials and micro-certified learning paths on blockchain – publicly verifiable, portable and linked to LinkedIn. In parallel, POK gathers course-level employability data from the credentials issued, generating evidence that strengthens the value of the training with accreditation bodies, the job market and prospective students.">Instituições de ensino passam a oferecer aos próprios alunos certificados, microcredenciais e trilhas formativas micro-certificadas em blockchain – verificáveis publicamente, portáveis e ligados ao LinkedIn. A POK, em paralelo, levanta dados de empregabilidade dos cursos através da certificação, gerando evidências que valorizam a formação perante MEC, mercado e candidatos.</span></p>
         <ul class="market-card-features">
           <li><span data-pt="Certificação digital em blockchain integrada ao seu ecossistema" data-es="Certificación digital en blockchain integrada a su ecosistema" data-en="Blockchain digital certification integrated into your ecosystem">Certificação digital em blockchain integrada ao seu ecossistema</span></li>
-          <li><span data-pt="Trilhas formativas com micro-credenciais por competências durante e após o curso" data-es="Itinerarios formativos con micro-credenciales por competencias durante y después del curso" data-en="Learning paths with competency-based micro-credentials during and after the course">Trilhas formativas com micro-credenciais por competências durante e após o curso</span></li>
-          <li><span data-pt="Reconhecimento formal do desenvolvimento entregue" data-es="Reconocimiento formal del desarrollo entregado" data-en="Formal recognition of the development delivered">Reconhecimento formal do desenvolvimento entregue</span></li>
+          <li><span data-pt="Microcredenciais e trilhas formativas micro-certificadas por competências" data-es="Microcredenciales e itinerarios formativos micro-certificados por competencias" data-en="Micro-credentials and micro-certified learning paths by competency">Microcredenciais e trilhas formativas micro-certificadas por competências</span></li>
+          <li><span data-pt="Dados de empregabilidade dos cursos levantados através da certificação" data-es="Datos de empleabilidad de los cursos recopilados a partir de la certificación" data-en="Course-level employability data gathered from issued credentials">Dados de empregabilidade dos cursos levantados através da certificação</span></li>
           <li><span data-pt="Evidência viva para indicadores MEC e ranking institucional" data-es="Evidencia viva para indicadores MEC y ranking institucional" data-en="Live evidence for accreditation indicators and institutional rankings">Evidência viva para indicadores MEC e ranking institucional</span></li>
         </ul>
-        <button class="market-card-cta">
-          <span data-pt="Ver dashboard empregabilidade" data-es="Ver dashboard empleabilidad" data-en="See employability dashboard">Ver dashboard empregabilidade</span>
+        <a class="market-card-cta" href="https://pokbrasil.github.io/marketing/pok_empregabilidade_dashboard_publico.html" target="_blank">
+          <span data-pt="Ver métricas de empregabilidade" data-es="Ver métricas de empleabilidad" data-en="See employability metrics">Ver métricas de empregabilidade</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </button>
-      </a>
+        </a>
+      </div>
 
-      <a href="https://pokbrasil.github.io/marketing/pok_corporativo_dashboard_publico.html" class="market-card corporativo" target="_blank">
+      <div class="market-card corporativo">
         <div class="market-card-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="9" y1="7" x2="11" y2="7"/><line x1="13" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="11" y2="11"/><line x1="13" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="11" y2="15"/><line x1="13" y1="15" x2="15" y2="15"/></svg>
         </div>
-        <span class="market-card-pill"><span class="dot"></span> <span data-pt="Corporativo" data-es="Corporativo" data-en="Corporate">Corporativo</span></span>
+        <div class="market-card-pills">
+          <span class="market-card-pill pill-capital"><span class="dot"></span> <span data-pt="Capital humano" data-es="Capital humano" data-en="Human capital">Capital humano</span></span>
+          <span class="market-card-pill pill-compliance"><span class="dot"></span> <span data-pt="Compliance" data-es="Compliance" data-en="Compliance">Compliance</span></span>
+        </div>
         <h3><span data-pt="Capital humano, compliance e ESG" data-es="Capital humano, compliance y ESG" data-en="Human capital, compliance and ESG">Capital humano, compliance e ESG</span></h3>
         <div class="market-card-subtitle"><span data-pt="Empresas, RH e programas de desenvolvimento humano" data-es="Empresas, RR.HH. y programas de desarrollo humano" data-en="Companies, HR and human development programs">Empresas, RH e programas de desenvolvimento humano</span></div>
-        <p class="market-card-desc"><span data-pt="Empresas passam a medir o impacto real dos seus programas de formação: internalização de habilidades, mobilidade interna, retenção e auditabilidade regulatória. Conecta-se diretamente ao pilar Social do ESG e aos programas de sustentabilidade corporativa." data-es="Empresas pasan a medir el impacto real de sus programas de formación: internalización de habilidades, movilidad interna, retención y auditabilidad regulatoria. Se conecta directamente al pilar Social del ESG y a los programas de sostenibilidad corporativa." data-en="Companies start measuring the real impact of their training programs: skill internalization, internal mobility, retention and regulatory auditability. Connects directly to the Social pillar of ESG and to corporate sustainability programs.">Empresas passam a medir o impacto real dos seus programas de formação: internalização de habilidades, mobilidade interna, retenção e auditabilidade regulatória. Conecta-se diretamente ao pilar Social do ESG e aos programas de sustentabilidade corporativa.</span></p>
+        <p class="market-card-desc"><span data-pt="Empresas passam a oferecer aos colaboradores certificados, microcredenciais e trilhas formativas micro-certificadas em blockchain. Através da certificação, a POK mede o impacto real da formação: internalização de habilidades, mobilidade interna, retenção e auditabilidade regulatória – conectando-se diretamente ao pilar Social do ESG e aos programas de sustentabilidade corporativa." data-es="Empresas pasan a ofrecer a sus colaboradores certificados, microcredenciales e itinerarios formativos micro-certificados en blockchain. A partir de la certificación, POK mide el impacto real de la formación: internalización de habilidades, movilidad interna, retención y auditabilidad regulatoria – conectándose directamente al pilar Social del ESG y a los programas de sostenibilidad corporativa." data-en="Companies start offering employees certificates, micro-credentials and micro-certified learning paths on blockchain. From the credentials issued, POK measures the real impact of training: skill internalization, internal mobility, retention and regulatory auditability – connecting directly to the Social pillar of ESG and to corporate sustainability programs.">Empresas passam a oferecer aos colaboradores certificados, microcredenciais e trilhas formativas micro-certificadas em blockchain. Através da certificação, a POK mede o impacto real da formação: internalização de habilidades, mobilidade interna, retenção e auditabilidade regulatória – conectando-se diretamente ao pilar Social do ESG e aos programas de sustentabilidade corporativa.</span></p>
         <ul class="market-card-features">
-          <li><span data-pt="Desenvolvimento humano: internalização e mobilidade" data-es="Desarrollo humano: internalización y movilidad" data-en="Human development: internalization and mobility">Desenvolvimento humano: internalização e mobilidade</span></li>
-          <li><span data-pt="Compliance: vigência e categorias regulatórias auditáveis" data-es="Compliance: vigencia y categorías regulatorias auditables" data-en="Compliance: auditable validity periods and regulatory categories">Compliance: vigência e categorias regulatórias auditáveis</span></li>
-          <li><span data-pt="Trilhas formativas com micro-credenciais por competências para jornada e engajamento do colaborador" data-es="Itinerarios formativos con micro-credenciales por competencias para jornada y engagement del colaborador" data-en="Competency-based learning paths with micro-credentials for employee journey and engagement">Trilhas formativas com micro-credenciais por competências para jornada e engajamento do colaborador</span></li>
-          <li><span data-pt="Diferencial competitivo na atração e retenção de talentos" data-es="Diferencial competitivo en la atracción y retención de talentos" data-en="Competitive edge in talent attraction and retention">Diferencial competitivo na atração e retenção de talentos</span></li>
+          <li><span data-pt="Certificação digital em blockchain integrada ao seu ecossistema" data-es="Certificación digital en blockchain integrada a su ecosistema" data-en="Blockchain digital certification integrated into your ecosystem">Certificação digital em blockchain integrada ao seu ecossistema</span></li>
+          <li><span data-pt="Microcredenciais e trilhas formativas micro-certificadas por competências" data-es="Microcredenciales e itinerarios formativos micro-certificados por competencias" data-en="Micro-credentials and micro-certified learning paths by competency">Microcredenciais e trilhas formativas micro-certificadas por competências</span></li>
+          <li><span data-pt="Dados de desenvolvimento humano e mobilidade interna levantados através da certificação" data-es="Datos de desarrollo humano y movilidad interna recopilados a partir de la certificación" data-en="Human development and internal mobility data gathered from issued credentials">Dados de desenvolvimento humano e mobilidade interna levantados através da certificação</span></li>
+          <li class="feat-compliance"><span data-pt="Compliance: vigência e categorias regulatórias auditáveis" data-es="Compliance: vigencia y categorías regulatorias auditables" data-en="Compliance: auditable validity periods and regulatory categories">Compliance: vigência e categorias regulatórias auditáveis</span></li>
         </ul>
-        <button class="market-card-cta">
-          <span data-pt="Ver dashboard desenvolvimento humano" data-es="Ver dashboard desarrollo humano" data-en="See human development dashboard">Ver dashboard desenvolvimento humano</span>
+        <a class="market-card-cta" href="https://pokbrasil.github.io/marketing/pok_corporativo_dashboard_publico.html" target="_blank">
+          <span data-pt="Ver métricas corporativas" data-es="Ver métricas corporativas" data-en="See corporate metrics">Ver métricas corporativas</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </button>
-      </a>
+        </a>
+      </div>
 
     </div>
-  </div>
 
-  <!-- GESTÃO DE NRs / OPORTUNIDADE REGULATÓRIA -->
-  <div class="nr1">
-    <div class="nr1-card">
-      <div class="nr1-eyebrow"><span class="dot"></span> <span data-pt="Gestão de NRs · Compliance regulatório" data-es="Gestión de NRs · Compliance regulatorio" data-en="Regulatory training management · Compliance">Gestão de NRs · Compliance regulatório</span></div>
-      <h2 class="nr1-title"><span data-pt="Gestão de NRs: do PDF frágil à credencial verificável" data-es="Gestión de NRs: del PDF frágil a la credencial verificable" data-en="Regulatory training: from fragile PDFs to verifiable credentials">Gestão de NRs: do PDF frágil à credencial verificável</span></h2>
-      <div class="nr1-content">
-        <p><span data-pt="Toda Norma Regulamentadora exige comprovante de capacitação — NR-10 (eletricidade), NR-12 (máquinas), NR-33 (espaço confinado), NR-35 (altura), e dezenas de outras. Hoje, a maioria desses comprovantes é emitida em <strong>PDF</strong> — frágil juridicamente, falsificável e não rastreável. A POK substitui o PDF por credenciais em blockchain, verificáveis publicamente, com prova auditável de que o treinamento aconteceu de verdade." data-es="Toda Norma Regulatoria exige comprobante de capacitación — NR-10 (electricidad), NR-12 (máquinas), NR-33 (espacio confinado), NR-35 (altura), y decenas de otras. Hoy, la mayoría de esos comprobantes se emiten en <strong>PDF</strong> — frágil jurídicamente, falsificable y no rastreable. POK sustituye el PDF por credenciales en blockchain, verificables públicamente, con prueba auditable de que la capacitación realmente ocurrió." data-en="Every Brazilian Regulatory Norm (NR) requires proof of training — NR-10 (electricity), NR-12 (machinery), NR-33 (confined spaces), NR-35 (working at heights), and dozens more. Today, most of these certificates are issued as <strong>PDFs</strong> — legally fragile, forgeable and untraceable. POK replaces PDFs with blockchain credentials, publicly verifiable, with auditable proof that training actually took place.">Toda Norma Regulamentadora exige comprovante de capacitação — NR-10 (eletricidade), NR-12 (máquinas), NR-33 (espaço confinado), NR-35 (altura), e dezenas de outras. Hoje, a maioria desses comprovantes é emitida em <strong>PDF</strong> — frágil juridicamente, falsificável e não rastreável. A POK substitui o PDF por credenciais em blockchain, verificáveis publicamente, com prova auditável de que o treinamento aconteceu de verdade.</span></p>
-        <p><span data-pt="A partir de <span class=&quot;date-highlight&quot;>26 de maio de 2026</span>, a <strong>NR-1 atualizada</strong> entra em vigor plena, com PGR (Programa de Gerenciamento de Riscos) ampliado para incluir riscos psicossociais. Toda empresa empregadora no Brasil precisa se adequar — e o mercado de treinamentos NR vai aquecer simultaneamente em volume, auditoria e diferenciação comercial entre prestadores." data-es="A partir del <span class=&quot;date-highlight&quot;>26 de mayo de 2026</span>, la <strong>NR-1 actualizada</strong> entra en vigor pleno, con PGR (Programa de Gestión de Riesgos) ampliado para incluir riesgos psicosociales. Toda empresa empleadora en Brasil debe adecuarse — y el mercado de capacitaciones NR se calentará simultáneamente en volumen, auditoría y diferenciación comercial entre prestadores." data-en="Starting <span class=&quot;date-highlight&quot;>May 26, 2026</span>, the <strong>updated NR-1</strong> takes full effect in Brazil, with the Risk Management Program (PGR) expanded to include psychosocial risks. Every employer in the country must comply — and the NR training market will heat up simultaneously in volume, auditing and commercial differentiation among providers.">A partir de <span class="date-highlight">26 de maio de 2026</span>, a <strong>NR-1 atualizada</strong> entra em vigor plena, com PGR (Programa de Gerenciamento de Riscos) ampliado para incluir riscos psicossociais. Toda empresa empregadora no Brasil precisa se adequar — e o mercado de treinamentos NR vai aquecer simultaneamente em volume, auditoria e diferenciação comercial entre prestadores.</span></p>
-
-      </div>
+    <div class="cert-cta-wrap">
+      <a class="cert-cta" href="https://certificates.the-world-university.com/c/5b7dd714-80e5-4c21-8beb-13130c3d0478" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="8" r="5"/><path d="M8.5 12.5 7 21l5-2.5L17 21l-1.5-8.5"/></svg>
+        <span data-pt="Conheça o certificado POK" data-es="Conozca el certificado POK" data-en="See a POK certificate">Conheça o certificado POK</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
     </div>
   </div>
 
@@ -321,10 +334,10 @@ body { font-family: 'Poppins', sans-serif; background: var(--purple-faint); colo
   <div class="cta-final">
     <div class="cta-final-inner">
       <h2><span data-pt="Quer conhecer a POK mais a fundo?" data-es="¿Quiere conocer POK con más profundidad?" data-en="Want to dive deeper into POK?">Quer conhecer a POK mais a fundo?</span></h2>
-      <p><span data-pt="Estamos disponíveis para apresentar como a POK se encaixa no seu contexto — seja uma instituição de ensino, uma empresa ou um programa específico de capital humano e compliance." data-es="Estamos disponibles para presentar cómo POK se adapta a su contexto — sea una institución de enseñanza, una empresa o un programa específico de capital humano y compliance." data-en="We're available to walk you through how POK fits your context — whether you're an educational institution, a company or a specific human capital and compliance program.">Estamos disponíveis para apresentar como a POK se encaixa no seu contexto — seja uma instituição de ensino, uma empresa ou um programa específico de capital humano e compliance.</span></p>
+      <p><span data-pt="Estamos disponíveis para apresentar como a POK se encaixa no seu contexto – seja uma instituição de ensino, uma empresa ou um programa específico de capital humano e compliance." data-es="Estamos disponibles para presentar cómo POK se adapta a su contexto – sea una institución de enseñanza, una empresa o un programa específico de capital humano y compliance." data-en="We're available to walk you through how POK fits your context – whether you're an educational institution, a company or a specific human capital and compliance program.">Estamos disponíveis para apresentar como a POK se encaixa no seu contexto – seja uma instituição de ensino, uma empresa ou um programa específico de capital humano e compliance.</span></p>
       <div class="cta-contact-card">
         <div class="cta-contact-qr">
-          <img src="data:image/png;base64,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" alt="QR Code de contato — Carolina Ferrés">
+          <img src="data:image/png;base64,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" alt="QR Code de contato – Carolina Ferrés">
         </div>
         <div class="cta-contact-info">
           <div class="cta-contact-label"><span data-pt="Contato POK" data-es="Contacto POK" data-en="POK contact">Contato POK</span></div>
