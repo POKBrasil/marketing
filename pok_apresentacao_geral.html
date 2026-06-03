@@ -138,6 +138,20 @@ body { font-family: 'Poppins', sans-serif; background: var(--purple-faint); colo
 .market-card:hover .market-card-cta svg { transform: translateX(3px); }
 
 .cert-cta-wrap { display: flex; justify-content: center; margin-top: 28px; }
+
+.leituras-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 22px; }
+.leitura-box { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 26px 30px; position: relative; overflow: hidden; }
+.leitura-box::before { content: ''; position: absolute; left: 0; top: 0; right: 0; height: 4px; }
+.leitura-hoje::before { background: linear-gradient(90deg, var(--purple) 0%, #8b5cf6 100%); }
+.leitura-serasa::before { background: linear-gradient(90deg, #5DCAA5 0%, #1D9E75 100%); }
+.leitura-tag { display: inline-flex; align-items: center; gap: 7px; border-radius: 99px; padding: 4px 11px; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
+.leitura-hoje .leitura-tag { background: var(--purple-faint); color: var(--purple); border: 1px solid var(--purple-light); }
+.leitura-serasa .leitura-tag { background: #E1F5EE; color: #085041; border: 1px solid #5DCAA5; }
+.leitura-tag .dot { width: 6px; height: 6px; border-radius: 50%; }
+.leitura-hoje .leitura-tag .dot { background: var(--purple); }
+.leitura-serasa .leitura-tag .dot { background: #1D9E75; }
+.leitura-box h4 { font-size: 15px; font-weight: 800; color: #000; margin-bottom: 8px; line-height: 1.3; letter-spacing: -0.01em; }
+.leitura-box p { font-size: 12.5px; color: #000; line-height: 1.65; }
 .cert-cta { display: inline-flex; align-items: center; gap: 11px; background: var(--purple); color: #fff; padding: 14px 28px; border-radius: 10px; font-size: 14px; font-weight: 700; letter-spacing: 0.01em; text-decoration: none; transition: transform 0.18s, box-shadow 0.18s, background 0.18s; }
 .cert-cta:hover { background: var(--purple-dark); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(81,35,164,0.25); }
 .cert-cta svg:first-child { width: 18px; height: 18px; }
@@ -200,6 +214,7 @@ body { font-family: 'Poppins', sans-serif; background: var(--purple-faint); colo
   .content { padding: 0 16px 40px; margin-top: -48px; }
   .intro-block { padding: 28px 22px; }
   .markets-grid { grid-template-columns: 1fr; }
+  .leituras-grid { grid-template-columns: 1fr; gap: 14px; }
   .market-card { padding: 30px 24px; }
   .lang-toggle { top: 16px; right: 16px; }
   .market-card h3 { font-size: 18px; }
@@ -321,6 +336,19 @@ body { font-family: 'Poppins', sans-serif; background: var(--purple-faint); colo
 
     </div>
 
+    <div class="leituras-grid">
+      <div class="leitura-box leitura-hoje">
+        <span class="leitura-tag"><span class="dot"></span> <span data-pt="Hoje · Leitura via LinkedIn" data-es="Hoy · Lectura vía LinkedIn" data-en="Today · LinkedIn-based reading">Hoje · Leitura via LinkedIn</span></span>
+        <h4><span data-pt="Métricas levantadas através da certificação" data-es="Métricas obtenidas a partir de la certificación" data-en="Metrics gathered from the credentials issued">Métricas levantadas através da certificação</span></h4>
+        <p><span data-pt="Os dois dashboards acima leem informações públicas do LinkedIn a partir do momento em que o portador compartilha o certificado – empregos conquistados, promoções e mobilidade profissional." data-es="Los dos dashboards anteriores leen información pública de LinkedIn a partir del momento en que el portador comparte el certificado – empleos conquistados, promociones y movilidad profesional." data-en="The two dashboards above read public LinkedIn information from the moment the holder shares the credential – jobs landed, promotions and career mobility.">Os dois dashboards acima leem informações públicas do LinkedIn a partir do momento em que o portador compartilha o certificado – empregos conquistados, promoções e mobilidade profissional.</span></p>
+      </div>
+      <div class="leitura-box leitura-serasa">
+        <span class="leitura-tag"><span class="dot"></span> <span data-pt="Em breve · Parceria Serasa Experian" data-es="Próximamente · Alianza Serasa Experian" data-en="Coming soon · Serasa Experian partnership">Em breve · Parceria Serasa Experian</span></span>
+        <h4><span data-pt="Leitura por CPF, sem depender do compartilhamento" data-es="Lectura por CPF, sin depender de compartir en LinkedIn" data-en="CPF-based reading, independent of LinkedIn sharing">Leitura por CPF, sem depender do compartilhamento</span></h4>
+        <p><span data-pt="O CPF gravado no certificado permitirá uma segunda fonte de leitura – vínculo formal, renda estimada e trajetória de mercado via base Serasa Experian –, sempre em formato agregado e anonimizado." data-es="El CPF registrado en el certificado permitirá una segunda fuente de lectura – vínculo formal, renta estimada y trayectoria de mercado vía base Serasa Experian –, siempre en formato agregado y anonimizado." data-en="The CPF (Brazilian taxpayer ID) recorded in the credential will enable a second reading source – formal employment, estimated income and market trajectory via the Serasa Experian database –, always aggregated and anonymized.">O CPF gravado no certificado permitirá uma segunda fonte de leitura – vínculo formal, renda estimada e trajetória de mercado via base Serasa Experian –, sempre em formato agregado e anonimizado.</span></p>
+      </div>
+    </div>
+
     <div class="cert-cta-wrap">
       <a class="cert-cta" href="https://certificates.the-world-university.com/c/5b7dd714-80e5-4c21-8beb-13130c3d0478" target="_blank">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="8" r="5"/><path d="M8.5 12.5 7 21l5-2.5L17 21l-1.5-8.5"/></svg>
@@ -354,7 +382,7 @@ body { font-family: 'Poppins', sans-serif; background: var(--purple-faint); colo
   <div class="footer-logo">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 197.3" aria-label="POK"><path d="M131.4,27.2c0-5.4-4.4-9.9-9.9-9.9H5.9c-3.3,0-5.9,2.6-5.9,5.9v115.6c0,5.5,4.4,9.9,9.9,9.9s9.9-4.4,9.9-9.9V42.3c0-2.9,2.3-5.2,5.2-5.2h96.6c5.3,0,9.8-4.4,9.8-9.9ZM164.8,60.6c-5.4,0-9.9,4.4-9.9,9.9v96.6c0,2.9-2.3,5.2-5.2,5.2H53.1c-5.4,0-9.9,4.4-9.9,9.9s4.4,9.9,9.9,9.9h115.6c3.3,0,5.9-2.6,5.9-5.9v-115.7c0-5.5-4.4-9.9-9.8-9.9ZM103.7,76l-23.9,35.8c-.9,1.4-2.8,1.6-4,.4l-9.9-9.9c-3.5-3.5-9.1-3.5-12.5,0-3.5,3.5-3.5,9.1,0,12.5l20.1,20.1c3.8,3.8,10.1,3.2,13.1-1.3l31.9-47.8c2.7-4.1,1.6-9.6-2.5-12.3-4.1-2.6-9.6-1.5-12.3,2.5ZM329.1,49.1c-7.4-4.8-15.9-7.2-25.5-7.2-6,0-11.9,1.2-17.5,3.5-5.5,2.3-10.1,5.3-14,9-1.1,1-2,2.1-2.9,3.2l-.2-13.9h-24.7v153.6h25.3v-58.3c.5.5.9,1,1.4,1.5,4,4,8.8,7.2,14.6,9.7,5.9,2.5,12,3.7,18.3,3.7,9.5,0,17.9-2.4,25.3-7.2,7.5-4.9,13.4-11.6,17.7-19.9,4.2-8.5,6.4-18.2,6.4-29s-2.2-20.4-6.6-28.8c-4.1-8.4-10-15.1-17.6-19.9ZM325.2,115.3c-2.6,5.1-6.2,9-10.7,11.9s-9.7,4.3-15.4,4.3c-6,0-11.3-1.4-15.8-4.3-4.5-2.9-8.1-6.9-10.7-11.9-2.6-5.1-3.9-10.9-3.9-17.5s1.3-12.4,3.9-17.5,6.2-9,10.7-11.9,9.8-4.3,15.8-4.3,11.1,1.5,15.6,4.5c4.5,2.9,8,6.9,10.5,11.9,2.6,4.9,3.9,10.7,3.9,17.3s-1.3,12.5-3.9,17.5ZM449.9,48.9c-8.5-4.9-18.1-7.4-28.8-7.4s-20.5,2.5-29,7.4c-8.5,4.8-15.2,11.4-20.1,19.9-4.8,8.5-7.2,18.2-7.2,29s2.4,20.5,7.2,29c4.9,8.5,11.6,15.2,20.1,20.1,8.5,4.8,18.2,7.2,29,7.2s20.3-2.4,28.8-7.2c8.5-4.9,15.1-11.6,19.9-20.1,4.9-8.5,7.4-18.2,7.4-29s-2.5-20.5-7.4-29c-4.7-8.4-11.4-15.1-19.9-19.9ZM447.9,115.3c-2.6,5.1-6.2,9.1-10.9,12.1-4.7,2.9-9.9,4.3-15.8,4.3s-11.2-1.4-16-4.3c-4.7-3-8.3-7.1-10.9-12.1-2.6-5.2-3.9-11-3.9-17.5s1.3-12.2,3.9-17.3c2.6-5.2,6.2-9.3,10.9-12.1,4.8-3,10.1-4.5,16-4.5s11.2,1.4,15.8,4.3c4.7,2.9,8.3,6.9,10.9,12.1,2.7,5.1,4,10.9,3.9,17.5.1,6.5-1.2,12.3-3.9,17.5ZM548.8,91.2l50.6-47.5h-33.5l-45,45V0h-25.1v152.1h25.1v-34.6l10.9-10.2,37,44.9h31.2l-51.2-61Z"/></svg>
   </div>
-  <p><span data-pt="© POK Tecnologia · Todos os direitos reservados" data-es="© POK Tecnología · Todos los derechos reservados" data-en="© POK Tecnologia · All rights reserved">© POK Tecnologia · Todos os direitos reservados</span></p>
+  <p><span data-pt="Muito mais que certificados digitais" data-es="Mucho más que certificados digitales" data-en="Much more than digital certificates">Muito mais que certificados digitais</span> · <a href="https://pok.tech" target="_blank" style="color:var(--purple);font-weight:600;text-decoration:none;">pok.tech</a></p>
 </footer>
 
 <script>
