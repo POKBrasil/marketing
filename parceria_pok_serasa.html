@@ -33,9 +33,9 @@
     --purple-dark: #3a1878;
     --purple-light: #e4dcf7;
     --purple-faint: #F3EFF9;
-    --ink: #1E1230;
-    --ink-muted: #1E1230;
-    --ink-faint: #A899C2;
+    --ink: #000;
+    --ink-muted: #000;
+    --ink-faint: #000;
     --border: #D8CEF0;
     --white: #fff;
     --radius-lg: 20px;
@@ -186,7 +186,7 @@
   .campaign-opportunity .op-body { font-size: 13px; color: rgba(255,255,255,0.88); line-height: 1.65; }
   .campaign-opportunity .op-body strong { color: var(--gold); font-weight: 700; display: block; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 5px; }
 
-  .campaign-cta { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; padding: 12px 22px; border-radius: 99px; background: var(--gold); color: var(--purple-dark); border: 1px solid var(--gold); margin-top: 22px; text-decoration: none; transition: all 0.18s; letter-spacing: 0.01em; align-self: flex-start; }
+  .campaign-cta { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; padding: 12px 22px; border-radius: 10px; background: var(--gold); color: var(--purple-dark); border: 1px solid var(--gold); margin-top: 22px; text-decoration: none; transition: all 0.18s; letter-spacing: 0.01em; align-self: flex-start; }
   .campaign-cta:hover { background: #fde968; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(241,206,10,0.3); }
   .campaign-cta svg { width: 14px; height: 14px; }
 
@@ -223,7 +223,7 @@
   .serasa-badge { position: absolute; top: 16px; right: 16px; background: var(--serasa-bg); color: var(--serasa-text); border: 1px solid var(--serasa-border); font-size: 9.5px; font-weight: 700; padding: 3px 10px; border-radius: 99px; letter-spacing: 0.08em; text-transform: uppercase; display: inline-flex; align-items: center; gap: 5px; z-index: 2; }
   .serasa-badge::before { content: '✦'; font-size: 10px; }
 
-  .market-card-cta-static { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; padding: 9px 16px; border-radius: 99px; align-self: flex-start; margin-top: auto; background: var(--serasa-bg); color: var(--serasa-text); border: 1px solid var(--serasa-border); }
+  .market-card-cta-static { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; padding: 9px 16px; border-radius: 10px; align-self: flex-start; margin-top: auto; background: var(--serasa-bg); color: var(--serasa-text); border: 1px solid var(--serasa-border); }
   .market-card-cta-static::before { content: '✦'; font-size: 11px; }
 
   /* Lista de leituras dentro dos cards Serasa */
@@ -284,12 +284,83 @@
   .market-card-features li::before { content: '✓'; position: absolute; left: 0; top: 5px; font-weight: 700; font-size: 11px; }
   .market-card.superior .market-card-features li::before { color: var(--edu-accent); }
   .market-card.corporativo .market-card-features li::before { color: var(--corp-accent); }
-  .market-card-cta { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; padding: 9px 16px; border-radius: 99px; align-self: flex-start; margin-top: auto; transition: all 0.18s; }
+  .market-card-cta { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; padding: 9px 16px; border-radius: 10px; align-self: flex-start; margin-top: auto; transition: all 0.18s; }
   .market-card.superior .market-card-cta { background: var(--edu-bg); color: var(--edu-accent); border: 1px solid var(--edu-border); }
   .market-card.corporativo .market-card-cta { background: var(--corp-bg); color: var(--corp-text); border: 1px solid var(--corp-border); }
   .market-card.superior:hover .market-card-cta { background: var(--edu-accent); color: #fff; border-color: var(--edu-accent); }
   .market-card.corporativo:hover .market-card-cta { background: var(--corp-text); color: #fff; border-color: var(--corp-text); }
   .market-card-cta svg { width: 14px; height: 14px; }
+
+  /* ─── EIXOS CANÔNICOS — visual idêntico ao da apresentação geral ─── */
+  .eixos-canonicos .market-card { padding: 38px 36px; border-radius: 20px; border-color: #e4dcf7; cursor: default; -webkit-user-select: text; user-select: text; }
+  .eixos-canonicos .market-card-cta { text-decoration: none; }
+  .eixos-canonicos .market-card::before { height: 4px; }
+  .eixos-canonicos .market-card.superior::before { background: linear-gradient(90deg, var(--purple) 0%, #8b5cf6 100%); }
+  .eixos-canonicos .market-card.corporativo::before { background: linear-gradient(90deg, var(--corp-accent) 0%, #1D9E75 100%); }
+  .eixos-canonicos .market-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(81,35,164,0.12); }
+  .eixos-canonicos .market-card.superior:hover { border-color: var(--purple); }
+  .eixos-canonicos .market-card.corporativo:hover { border-color: var(--corp-accent); }
+
+  .eixos-canonicos .market-card-icon { width: 64px; height: 64px; border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
+  .eixos-canonicos .market-card.superior .market-card-icon { background: var(--purple-faint); color: var(--purple); border: 1px solid var(--purple-light); }
+  .eixos-canonicos .market-card.corporativo .market-card-icon { background: var(--corp-bg); color: var(--corp-text); border: 1px solid #BFDBFE; }
+  .eixos-canonicos .market-card-icon svg { width: 32px; height: 32px; }
+
+  .eixos-canonicos .market-card-pill { gap: 7px; padding: 5px 12px; font-size: 10px; letter-spacing: 0.12em; margin-bottom: 14px; }
+  .eixos-canonicos .market-card.superior .market-card-pill { background: var(--purple-faint); color: var(--purple); border: 1px solid var(--purple-light); }
+  .eixos-canonicos .market-card.corporativo .market-card-pill { background: var(--corp-bg); color: var(--corp-text); border: 1px solid #BFDBFE; }
+  .eixos-canonicos .market-card-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+  .eixos-canonicos .market-card-pills .market-card-pill { margin-bottom: 0; }
+  .eixos-canonicos .market-card.corporativo .market-card-pill.pill-capital { background: var(--corp-bg); color: var(--corp-text); border: 1px solid #BFDBFE; }
+  .eixos-canonicos .market-card.corporativo .market-card-pill.pill-capital .dot { background: var(--corp-accent); }
+  .eixos-canonicos .market-card.corporativo .market-card-pill.pill-compliance { background: #E2F4EB; color: #0f6e56; border: 1px solid #c5e4d6; }
+  .eixos-canonicos .market-card.corporativo .market-card-pill.pill-compliance .dot { background: #1D9E75; }
+  .eixos-canonicos .market-card-pill .dot { width: 6px; height: 6px; }
+  .eixos-canonicos .market-card.superior .market-card-pill .dot { background: var(--purple); }
+  .eixos-canonicos .market-card.corporativo .market-card-pill .dot { background: var(--corp-accent); }
+
+  .eixos-canonicos .market-card h3 { font-size: 18px; color: #000; margin-bottom: 8px; line-height: 1.25; }
+  .eixos-canonicos .market-card-subtitle { font-size: 11px; color: #000; letter-spacing: 0.05em; margin-bottom: 14px; }
+  .eixos-canonicos .market-card.superior .market-card-subtitle { color: var(--purple); }
+  .eixos-canonicos .market-card.corporativo .market-card-subtitle { color: var(--corp-text); }
+  .eixos-canonicos .market-card-desc { font-size: 13px; color: #000; line-height: 1.65; margin-bottom: 22px; }
+
+  .eixos-canonicos .market-card-features { margin: 0 0 28px; }
+  .eixos-canonicos .market-card-features li { font-size: 12.5px; color: #000; padding: 8px 0 8px 24px; line-height: 1.5; border-bottom: 1px solid #e4dcf7; }
+  .eixos-canonicos .market-card-features li:last-child { border-bottom: none; }
+  .eixos-canonicos .market-card-features li::before { content: ''; position: absolute; left: 6px; top: 16px; width: 6px; height: 6px; border-radius: 50%; }
+  .eixos-canonicos .market-card.superior .market-card-features li::before { background: var(--purple); }
+  .eixos-canonicos .market-card.corporativo .market-card-features li::before { background: var(--corp-accent); }
+  .eixos-canonicos .market-card.corporativo .market-card-features li.feat-compliance::before { background: #1D9E75; }
+
+  .eixos-canonicos .market-card-cta { padding: 12px 22px; font-size: 13px; }
+  .eixos-canonicos .market-card.superior .market-card-cta { background: var(--gold); color: var(--ink); border: none; }
+  .eixos-canonicos .market-card.superior:hover .market-card-cta,
+  .eixos-canonicos .market-card.superior .market-card-cta:hover { background: #d9b800; color: var(--ink); border: none; }
+  .eixos-canonicos .market-card.corporativo .market-card-cta { background: var(--corp-text); color: #fff; border: none; }
+  .eixos-canonicos .market-card.corporativo:hover .market-card-cta,
+  .eixos-canonicos .market-card.corporativo .market-card-cta:hover { background: #1538a0; color: #fff; border: none; }
+  .eixos-canonicos .market-card-cta svg { transition: transform 0.18s; }
+  .eixos-canonicos .market-card:hover .market-card-cta svg { transform: translateX(3px); }
+
+  .cert-cta-wrap { display: flex; justify-content: center; margin-top: 24px; }
+  .cert-cta { display: inline-flex; align-items: center; gap: 11px; background: var(--purple); color: #fff; padding: 14px 28px; border-radius: 10px; font-size: 14px; font-weight: 700; letter-spacing: 0.01em; text-decoration: none; transition: transform 0.18s, box-shadow 0.18s, background 0.18s; }
+  .cert-cta:hover { background: var(--purple-dark); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(81,35,164,0.25); }
+  .cert-cta svg:first-child { width: 18px; height: 18px; }
+  .cert-cta svg:last-child { width: 15px; height: 15px; transition: transform 0.18s; }
+  .cert-cta:hover svg:last-child { transform: translateX(3px); }
+
+  @media (max-width: 720px) {
+    .eixos-canonicos .market-card { padding: 30px 24px; }
+    .eixos-canonicos .market-card h3 { font-size: 18px; }
+  }
+  @media (max-width: 380px) {
+    .eixos-canonicos .market-card { padding: 24px 18px; }
+    .eixos-canonicos .market-card-icon { width: 52px; height: 52px; border-radius: 12px; margin-bottom: 14px; }
+    .eixos-canonicos .market-card h3 { font-size: 18px; }
+    .eixos-canonicos .market-card-desc { font-size: 13px; }
+    .eixos-canonicos .market-card-features li { font-size: 12px; padding: 7px 0 7px 22px; }
+  }
 
   /* ─── TABS NAV ─── */
   .tabs-nav { background: var(--white); border-bottom: 1px solid var(--border); padding: 0 64px; display: flex; gap: 4px; position: sticky; top: 0; z-index: 10; box-shadow: 0 2px 8px rgba(81,35,164,0.04); }
@@ -515,46 +586,59 @@
     </h2>
     <p class="markets-intro-desc">A POK atende dois públicos complementares com a mesma infraestrutura de certificação em blockchain. Para <strong>instituições de ensino e empresas</strong>, possibilita a emissão e a gestão de credenciais digitais – certificados, microcertificações por competências e comprovantes regulatórios. Em paralelo, a POK captura dados de diferentes naturezas sobre o <strong>portador</strong> do certificado – hoje através das informações declaradas por ele no LinkedIn, e devolve essas leituras às instituições e empresas em dois dashboards públicos de empregabilidade e desenvolvimento humano.</p>
   </div>
-  <div class="markets-grid">
+  <div class="markets-grid eixos-canonicos">
 
-    <a href="https://pokbrasil.github.io/marketing/pok_empregabilidade_dashboard_publico.html" target="_blank" class="market-card superior">
-      <div class="market-card-icon-wrap">
+    <div class="market-card superior">
+      <div class="market-card-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
       </div>
       <span class="market-card-pill"><span class="dot"></span> Educacional</span>
       <h3>Empregabilidade de alunos e egressos</h3>
       <div class="market-card-subtitle">Universidades, faculdades e escolas técnicas</div>
-      <p class="market-card-desc">Instituições de ensino oferecem aos próprios alunos credenciais POK em blockchain – verificáveis publicamente, portáveis e ligadas ao LinkedIn. Em paralelo, a POK gera evidências de empregabilidade que valorizam o diploma perante MEC, mercado e candidatos.</p>
+      <p class="market-card-desc">Instituições de ensino passam a oferecer aos próprios alunos certificados, microcredenciais e trilhas formativas micro-certificadas em blockchain — verificáveis publicamente, portáveis e ligados ao LinkedIn. A POK, em paralelo, levanta dados de empregabilidade dos cursos através da certificação, gerando evidências que valorizam a formação perante MEC, mercado e candidatos.</p>
       <ul class="market-card-features">
-        <li>Certificação digital em blockchain integrada ao ecossistema da instituição</li>
-        <li>Trilhas formativas com microcredenciais por competências</li>
+        <li>Certificação digital em blockchain integrada ao seu ecossistema</li>
+        <li>Microcredenciais e trilhas formativas micro-certificadas por competências</li>
+        <li>Dados de empregabilidade dos cursos levantados através da certificação</li>
         <li>Evidência viva para indicadores MEC e ranking institucional</li>
       </ul>
-      <span class="market-card-cta">
+      <a class="market-card-cta" href="https://pokbrasil.github.io/marketing/pok_empregabilidade_dashboard_publico.html" target="_blank">
         Ver dashboard empregabilidade
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </span>
-    </a>
+      </a>
+    </div>
 
-    <a href="https://pokbrasil.github.io/marketing/pok_corporativo_dashboard_publico.html" target="_blank" class="market-card corporativo">
-      <div class="market-card-icon-wrap">
+    <div class="market-card corporativo">
+      <div class="market-card-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="9" y1="7" x2="11" y2="7"/><line x1="13" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="11" y2="11"/><line x1="13" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="11" y2="15"/><line x1="13" y1="15" x2="15" y2="15"/></svg>
       </div>
-      <span class="market-card-pill"><span class="dot"></span> Corporativo</span>
+      <div class="market-card-pills">
+        <span class="market-card-pill pill-capital"><span class="dot"></span> Capital humano</span>
+        <span class="market-card-pill pill-compliance"><span class="dot"></span> Compliance</span>
+      </div>
       <h3>Capital humano, compliance e ESG</h3>
       <div class="market-card-subtitle">Empresas, RH e programas de desenvolvimento humano</div>
-      <p class="market-card-desc">Empresas medem o impacto real dos seus programas de formação: internalização de habilidades, mobilidade interna, retenção e auditabilidade regulatória. Conecta-se diretamente ao pilar Social do ESG e aos programas de sustentabilidade corporativa.</p>
+      <p class="market-card-desc">Empresas passam a oferecer aos colaboradores certificados, microcredenciais e trilhas formativas micro-certificadas em blockchain. Através da certificação, a POK mede o impacto real da formação: internalização de habilidades, mobilidade interna, retenção e auditabilidade regulatória — conectando-se diretamente ao pilar Social do ESG e aos programas de sustentabilidade corporativa.</p>
       <ul class="market-card-features">
-        <li>Desenvolvimento humano: internalização e mobilidade</li>
-        <li>Compliance: vigência e categorias regulatórias auditáveis</li>
-        <li>Diferencial competitivo na atração e retenção de talentos</li>
+        <li>Certificação digital em blockchain integrada ao seu ecossistema</li>
+        <li>Microcredenciais e trilhas formativas micro-certificadas por competências</li>
+        <li>Dados de desenvolvimento humano e mobilidade interna levantados através da certificação</li>
+        <li class="feat-compliance">Compliance: vigência e categorias regulatórias auditáveis</li>
       </ul>
-      <span class="market-card-cta">
-        Ver dashboard desenvolvimento humano
+      <a class="market-card-cta" href="https://pokbrasil.github.io/marketing/pok_corporativo_dashboard_publico.html" target="_blank">
+        Ver dashboard corporativo
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </span>
-    </a>
+      </a>
+    </div>
 
+  </div>
+
+  <div class="cert-cta-wrap">
+    <a class="cert-cta" href="https://certificates.the-world-university.com/c/5b7dd714-80e5-4c21-8beb-13130c3d0478" target="_blank">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="8" r="5"/><path d="M8.5 12.5 7 21l5-2.5L17 21l-1.5-8.5"/></svg>
+      Conheça o certificado POK
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
   </div>
 </div>
 
