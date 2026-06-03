@@ -2333,6 +2333,91 @@
     transition: opacity 0.8s ease, transform 0.8s ease;
   }
   .fade-in.visible { opacity: 1; transform: translateY(0); }
+  /* ==================== BOTÃO SALVAR PDF + PRINT ==================== */
+  .save-pdf-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7rem;
+    margin-top: 3rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--pok-border);
+  }
+  .save-pdf-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.9rem 1.7rem;
+    background: var(--pok-purple);
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 0.92rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 6px 18px rgba(81, 35, 164, 0.22);
+  }
+  .save-pdf-button:hover {
+    background: var(--pok-purple-deep);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(81, 35, 164, 0.3);
+  }
+  .save-pdf-button svg {
+    width: 18px;
+    height: 18px;
+  }
+  .save-pdf-hint {
+    font-size: 0.78rem;
+    color: var(--pok-text-muted);
+    margin: 0;
+  }
+
+  /* Regras de impressão: gera um PDF limpo da proposta */
+  @media print {
+    @page { size: A4; margin: 14mm 12mm; }
+    .no-print, .sidebar, .menu-toggle, footer { display: none !important; }
+    .main { margin-left: 0 !important; }
+    html, body { background: #ffffff !important; color: #1a1033 !important; }
+    section {
+      padding: 1.5rem 0 !important;
+      max-width: 100% !important;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    .hero {
+      background: #ffffff !important;
+      color: #1a1033 !important;
+      padding: 1rem 0 2rem !important;
+    }
+    .hero h1, .hero p, .hero .hero-eyebrow,
+    .hero-meta-item .label, .hero-meta-item .value,
+    .hero-scope-title, .hero-scope-text, .hero-scope-num {
+      color: #1a1033 !important;
+    }
+    .hero h1 span { color: var(--pok-purple) !important; }
+    .hero-scope-card {
+      background: #ffffff !important;
+      border: 1px solid #e5e5ec !important;
+    }
+    .cycle-card {
+      background: #ffffff !important;
+      border: 1px solid #e5e5ec !important;
+    }
+    .cycle-card h4, .cycle-card p, .cycle-card .cycle-num {
+      color: #1a1033 !important;
+    }
+    h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+    .section-header, .empreg-card, .evento-card, .empreg-ask,
+    .semesp-defense-grid, .strategic-note, .volume-card,
+    .pok-model-card, .payment-info {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; }
+  }
 </style>
 </head>
 <body>
@@ -2811,6 +2896,18 @@
           <h3>Carolina Ferrés</h3>
           <a href="mailto:carolina@pok.tech" class="contato-email">carolina@pok.tech</a>
         </div>
+      </div>
+
+      <div class="save-pdf-row no-print">
+        <button type="button" class="save-pdf-button" onclick="window.print()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Salvar proposta em PDF
+        </button>
+        <p class="save-pdf-hint">No diálogo de impressão, escolha "Salvar como PDF" como destino.</p>
       </div>
     </div>
   </section>
