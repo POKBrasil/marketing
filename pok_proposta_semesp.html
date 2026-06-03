@@ -2323,7 +2323,6 @@
     .sidebar, .menu-toggle { display: none; }
     .main, footer { margin-left: 0; }
     body { background: white; }
-    section { page-break-inside: avoid; padding: 2rem; }
   }
 
   /* Subtle fade-in on scroll */
@@ -2376,20 +2375,23 @@
 
   /* Regras de impressão: gera um PDF limpo da proposta */
   @media print {
-    @page { size: A4 landscape; margin: 12mm 14mm; }
+    @page { size: A4 landscape; margin: 10mm 12mm; }
     .no-print, .sidebar, .menu-toggle, footer { display: none !important; }
     .main { margin-left: 0 !important; }
     html, body { background: #ffffff !important; color: #1a1033 !important; }
+
+    /* Seções fluem entre páginas; só apertam espaçamento */
     section {
-      padding: 1.5rem 0 !important;
+      padding: 0.8rem 0 1.2rem !important;
       max-width: 100% !important;
-      page-break-inside: avoid;
-      break-inside: avoid;
     }
+    .micro-section { padding: 0.8rem 0 1.2rem !important; }
+    .micro-section .micro-content { padding: 0 !important; }
+
     .hero {
       background: #ffffff !important;
       color: #1a1033 !important;
-      padding: 1rem 0 2rem !important;
+      padding: 0.5rem 0 1.5rem !important;
     }
     .hero h1, .hero p, .hero .hero-eyebrow,
     .hero-meta-item .label, .hero-meta-item .value,
@@ -2408,15 +2410,27 @@
     .cycle-card h4, .cycle-card p, .cycle-card .cycle-num {
       color: #1a1033 !important;
     }
+
+    /* Não separar título do conteúdo seguinte */
     h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
-    .section-header, .empreg-card, .evento-card, .empreg-ask,
-    .semesp-defense-grid, .strategic-note, .volume-card,
-    .pok-model-card, .payment-info {
+
+    /* Proteger apenas unidades pequenas (cards individuais) */
+    .empreg-card, .evento-card, .cycle-card, .opp-item,
+    .empreg-stat, .volume-item, .payment-block, .strategic-note {
       page-break-inside: avoid;
       break-inside: avoid;
     }
+
+    /* Reduzir margens internas grandes que geram espaços vazios */
+    .section-header { margin-bottom: 0.8rem !important; }
+    .empreg-ask, .strategic-note { margin-top: 1rem !important; padding: 1.2rem 1.4rem !important; }
+    .save-pdf-row { display: none !important; }
+
     a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; }
+    img { max-width: 100%; height: auto !important; }
+    /* Containers de imagem não esticam */
+    .home-selo-grid > div { height: auto !important; align-items: flex-start !important; }
+    .home-selo-grid img { object-fit: contain !important; height: auto !important; max-height: 320px; }
   }
 </style>
 </head>
