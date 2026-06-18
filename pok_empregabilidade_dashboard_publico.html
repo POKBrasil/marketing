@@ -4,22 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Empregabilidade · POK</title>
-
-<!-- Open Graph / social preview -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="Trajetórias de Impacto · POK Empregabilidade">
-<meta property="og:description" content="Empregabilidade de alunos e egressos lida do LinkedIn, com certificados verificáveis em blockchain.">
-<meta property="og:image" content="https://pokbrasil.github.io/content/og_pok_empregabilidade.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:url" content="https://pokbrasil.github.io/marketing/pok_empregabilidade_dashboard_publico.html">
-<meta property="og:site_name" content="POK">
-<meta property="og:locale" content="pt_BR">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Trajetórias de Impacto · POK Empregabilidade">
-<meta name="twitter:description" content="Empregabilidade de alunos e egressos lida do LinkedIn, com certificados verificáveis em blockchain.">
-<meta name="twitter:image" content="https://pokbrasil.github.io/content/og_pok_empregabilidade.png">
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <style>
@@ -28,9 +12,9 @@
   --purple-dark: #3a1878;
   --purple-light: #e4dcf7;
   --purple-faint: #F3EFF9;
-  --ink: #000;
-  --ink-muted: #000;
-  --ink-faint: #000;
+  --ink: #1E1230;
+  --ink-muted: #5E4E7A;
+  --ink-faint: #A899C2;
   --border: #D8CEF0;
   --white: #fff;
   --radius-lg: 20px;
@@ -51,12 +35,12 @@ body { font-family: 'Poppins', sans-serif; background: var(--purple-faint); colo
 .hero-title { font-size: clamp(20px, 2.8vw, 32px); font-weight: 900; line-height: 1.15; color: #fff; letter-spacing: -0.02em; margin-bottom: 10px; }
 .hero-subtitle { font-size: 13px; color: #ffffff; line-height: 1.7; max-width: 580px; font-weight: 400; }
 
-.filters-bar { background: var(--white); border-bottom: 1px solid var(--border); padding: 14px 64px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.filter-select { font-family: 'Poppins', sans-serif; font-size: 12px; font-weight: 500; padding: 7px 26px 7px 12px; max-width: 170px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; border: 1.5px solid var(--border); border-radius: 99px; background: var(--white); color: var(--ink); cursor: pointer; outline: none; appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235123a4' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; transition: border-color 0.15s; }
+.filters-bar { background: var(--white); border-bottom: 1px solid var(--border); padding: 14px 64px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.filter-select { font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 500; padding: 8px 32px 8px 14px; border: 1.5px solid var(--border); border-radius: 99px; background: var(--white); color: var(--ink); cursor: pointer; outline: none; appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235123a4' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; transition: border-color 0.15s; }
 .filter-select:hover { border-color: var(--purple); }
-.date-btn { font-family: 'Poppins', sans-serif; font-size: 12px; font-weight: 500; padding: 7px 12px; border: 1.5px solid var(--border); border-radius: 99px; background: var(--white); color: var(--ink); cursor: pointer; display: inline-flex; align-items: center; gap: 6px; transition: border-color 0.15s; }
+.date-btn { font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 500; padding: 8px 16px; border: 1.5px solid var(--border); border-radius: 99px; background: var(--white); color: var(--ink); cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: border-color 0.15s; }
 .date-btn:hover { border-color: var(--purple); }
-.date-btn svg { width: 14px; height: 14px; color: var(--purple); flex-shrink: 0; }
+.date-btn svg { width: 15px; height: 15px; color: var(--purple); flex-shrink: 0; }
 
 .content { max-width: 1120px; margin: 0 auto; padding: 40px 32px 72px; }
 
@@ -268,7 +252,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
     <svg style="height:36px; width:auto; margin-bottom:28px; display:block;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 197.3"><defs><style>.cls-1{fill:#fff;stroke-width:0px;}</style></defs><path class="cls-1" d="M131.4,27.2c0-5.4-4.4-9.9-9.9-9.9H5.9c-3.3,0-5.9,2.6-5.9,5.9v115.6c0,5.5,4.4,9.9,9.9,9.9s9.9-4.4,9.9-9.9V42.3c0-2.9,2.3-5.2,5.2-5.2h96.6c5.3,0,9.8-4.4,9.8-9.9ZM164.8,60.6c-5.4,0-9.9,4.4-9.9,9.9v96.6c0,2.9-2.3,5.2-5.2,5.2H53.1c-5.4,0-9.9,4.4-9.9,9.9s4.4,9.9,9.9,9.9h115.6c3.3,0,5.9-2.6,5.9-5.9v-115.7c0-5.5-4.4-9.9-9.8-9.9ZM103.7,76l-23.9,35.8c-.9,1.4-2.8,1.6-4,.4l-9.9-9.9c-3.5-3.5-9.1-3.5-12.5,0-3.5,3.5-3.5,9.1,0,12.5l20.1,20.1c3.8,3.8,10.1,3.2,13.1-1.3l31.9-47.8c2.7-4.1,1.6-9.6-2.5-12.3-4.1-2.6-9.6-1.5-12.3,2.5ZM329.1,49.1c-7.4-4.8-15.9-7.2-25.5-7.2-6,0-11.9,1.2-17.5,3.5-5.5,2.3-10.1,5.3-14,9-1.1,1-2,2.1-2.9,3.2l-.2-13.9h-24.7v153.6h25.3v-58.3c.5.5.9,1,1.4,1.5,4,4,8.8,7.2,14.6,9.7,5.9,2.5,12,3.7,18.3,3.7,9.5,0,17.9-2.4,25.3-7.2,7.5-4.9,13.4-11.6,17.7-19.9,4.2-8.5,6.4-18.2,6.4-29s-2.2-20.4-6.6-28.8c-4.1-8.4-10-15.1-17.6-19.9ZM325.2,115.3c-2.6,5.1-6.2,9-10.7,11.9s-9.7,4.3-15.4,4.3c-6,0-11.3-1.4-15.8-4.3-4.5-2.9-8.1-6.9-10.7-11.9-2.6-5.1-3.9-10.9-3.9-17.5s1.3-12.4,3.9-17.5,6.2-9,10.7-11.9,9.8-4.3,15.8-4.3,11.1,1.5,15.6,4.5c4.5,2.9,8,6.9,10.5,11.9,2.6,4.9,3.9,10.7,3.9,17.3s-1.3,12.5-3.9,17.5ZM449.9,48.9c-8.5-4.9-18.1-7.4-28.8-7.4s-20.5,2.5-29,7.4c-8.5,4.8-15.2,11.4-20.1,19.9-4.8,8.5-7.2,18.2-7.2,29s2.4,20.5,7.2,29c4.9,8.5,11.6,15.2,20.1,20.1,8.5,4.8,18.2,7.2,29,7.2s20.3-2.4,28.8-7.2c8.5-4.9,15.1-11.6,19.9-20.1,4.9-8.5,7.4-18.2,7.4-29s-2.5-20.5-7.4-29c-4.7-8.4-11.4-15.1-19.9-19.9ZM447.9,115.3c-2.6,5.1-6.2,9.1-10.9,12.1-4.7,2.9-9.9,4.3-15.8,4.3s-11.2-1.4-16-4.3c-4.7-3-8.3-7.1-10.9-12.1-2.6-5.2-3.9-11-3.9-17.5s1.3-12.2,3.9-17.3c2.6-5.2,6.2-9.3,10.9-12.1,4.8-3,10.1-4.5,16-4.5s11.2,1.4,15.8,4.3c4.7,2.9,8.3,6.9,10.9,12.1,2.7,5.1,4,10.9,3.9,17.5.1,6.5-1.2,12.3-3.9,17.5ZM548.8,91.2l50.6-47.5h-33.5l-45,45V0h-25.1v152.1h25.1v-34.6l10.9-10.2,37,44.9h31.2l-51.2-61Z"/></svg>
     <div class="hero-eyebrow" id="t-eyebrow"><span></span> Módulo Ensino Superior · Capital Humano</div>
     <h1 class="hero-title"><span id="t-title">Trajetórias de Impacto</span></h1>
-    <p class="hero-subtitle"><span id="t-subtitle">Quando um portador compartilha seu certificado no LinkedIn, a POK lê o histórico completo do perfil e monitora mudanças de carreira ao longo do tempo – novos empregos, promoções e evolução de habilidades.</span></p>
+    <p class="hero-subtitle"><span id="t-subtitle">Quando um portador compartilha seu certificado no LinkedIn, a POK lê o histórico completo do perfil e monitora mudanças de carreira ao longo do tempo — novos empregos, promoções e evolução de habilidades.</span></p>
   </div>
 </header>
 
@@ -319,7 +303,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
   <div class="section-label"><span id="t-sl1">Funil de engajamento</span></div>
   <div class="funnel-card">
     <h3><span id="t-funnel-title">Do certificado ao impacto real</span></h3>
-    <p><span id="t-funnel-desc">Cada etapa mostra quantos portadores de certificados avançaram no processo – do compartilhamento inicial até a mudança de carreira detectada no perfil.</span></p>
+    <p><span id="t-funnel-desc">Cada etapa mostra quantos portadores de certificados avançaram no processo — do compartilhamento inicial até a mudança de carreira detectada no perfil.</span></p>
     <div class="funnel-steps">
       <div class="funnel-step"><div class="funnel-bar" style="background:#3a1878;">56</div><div class="funnel-step-label"><span id="t-fn1">Compartilhamentos<br>no LinkedIn</span></div><div class="funnel-step-pct">100%</div></div>
       <div class="funnel-arrow">›</div>
@@ -364,8 +348,8 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
   <div class="chart-card">
     <div class="chart-card-header">
       <div>
-        <h3><span id="t-chart-title">Trajetória agregada – impactos acumulados</span></h3>
-        <p id="chartDesc"><span id="t-chart-desc">Média de impactos acumulados pelos portadores de acordo com o filtro selecionado – cada novo vínculo profissional registrado no LinkedIn conta como um impacto. À esquerda do marco: dados históricos anteriores ao compartilhamento do certificado. À direita: evolução registrada após o compartilhamento do certificado.</p>
+        <h3><span id="t-chart-title">Trajetória agregada — impactos acumulados</span></h3>
+        <p id="chartDesc"><span id="t-chart-desc">Média de impactos acumulados pelos portadores de acordo com o filtro selecionado — cada novo vínculo profissional registrado no LinkedIn conta como um impacto. À esquerda do marco: dados históricos anteriores ao compartilhamento do certificado. À direita: evolução registrada após o compartilhamento do certificado.</p>
       </div>
     </div>
 
@@ -648,9 +632,9 @@ function renderTable(data){
     <td class="td-muted">${r.date}</td>
     <td class="td-muted">${r.program}</td>
     <td><span style="font-weight:600;">${r.name}</span></td>
-    <td>${r.cargo?`<span style="font-weight:500;">${r.cargo}</span><br><span class="td-muted">${r.empresa}</span>`:'<span class="td-muted">–</span>'}</td>
+    <td>${r.cargo?`<span style="font-weight:500;">${r.cargo}</span><br><span class="td-muted">${r.empresa}</span>`:'<span class="td-muted">—</span>'}</td>
     <td>${badge(r.impact)}</td>
-    <td>${r.dias?`<span style="font-weight:700;">${r.dias}</span> <span class="td-muted">dias</span>`:'<span class="td-muted">–</span>'}</td>
+    <td>${r.dias?`<span style="font-weight:700;">${r.dias}</span> <span class="td-muted">dias</span>`:'<span class="td-muted">—</span>'}</td>
     <td><div class="social-icons">
       <div class="social-btn ${r.shared?'active':''}" title="${r.shared?'Post compartilhado no LinkedIn':'Sem post detectado'}">
         <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -720,8 +704,8 @@ function openCal(ctx){
   calContext = ctx || 'emissao';
   document.getElementById('calOverlay').classList.add('open');
   const titles = {
-    'emissao': document.getElementById('btn-pt') && document.getElementById('btn-pt').style.background !== 'var(--purple)' ? 'Seleccionar período – Fecha de emisión' : 'Selecionar período – Data de emissão',
-    'compartilhamento': 'Selecionar período – Data de compartilhamento'
+    'emissao': document.getElementById('btn-pt') && document.getElementById('btn-pt').style.background !== 'var(--purple)' ? 'Seleccionar período — Fecha de emisión' : 'Selecionar período — Data de emissão',
+    'compartilhamento': 'Selecionar período — Data de compartilhamento'
   };
   document.querySelector('.cal-top-title').textContent = titles[calContext] || 'Selecionar período';
   renderCal();
@@ -763,7 +747,7 @@ function selectDay(d){
 function applyCal(){
   if(selStart){
     const fmt=d=>d.toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit',year:'2-digit'});
-    const label = selEnd ? fmt(selStart)+' – '+fmt(selEnd) : fmt(selStart);
+    const label = selEnd ? fmt(selStart)+' — '+fmt(selEnd) : fmt(selStart);
     const targetId = calContext === 'compartilhamento' ? 'labelCompartilhamento' : 'labelEmissao';
     document.getElementById(targetId).textContent = label;
   }
@@ -778,7 +762,7 @@ document.getElementById('calOverlay').addEventListener('click',function(e){if(e.
   <div class="drawer-head">
     <div class="drawer-head-top">
       <div>
-        <div class="drawer-name" id="drawerName">–</div>
+        <div class="drawer-name" id="drawerName">—</div>
         <div class="drawer-meta">
           <span class="drawer-meta-item" id="drawerLocation">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -796,9 +780,9 @@ document.getElementById('calOverlay').addEventListener('click',function(e){if(e.
     </div>
     <div class="drawer-cert-badge" id="drawerCertBadge">
       <span class="dot"></span>
-      <span id="drawerCertName">–</span>
+      <span id="drawerCertName">—</span>
       <span style="color:var(--ink-faint); font-weight:400;">· emitido em</span>
-      <span id="drawerCertDate">–</span>
+      <span id="drawerCertDate">—</span>
     </div>
   </div>
 
@@ -810,7 +794,7 @@ document.getElementById('calOverlay').addEventListener('click',function(e){if(e.
       <div style="position:relative; height:160px; margin-bottom:4px;">
         <canvas id="drawerChart"></canvas>
       </div>
-      <p style="font-size:11px; color:var(--ink-faint); line-height:1.5; margin-top:6px;">Impactos acumulados deste portador – antes e após o compartilhamento do certificado. Eixo X: anual antes, bimestral depois.</p>
+      <p style="font-size:11px; color:var(--ink-faint); line-height:1.5; margin-top:6px;">Impactos acumulados deste portador — antes e após o compartilhamento do certificado. Eixo X: anual antes, bimestral depois.</p>
     </div>
 
     <!-- TRAJETÓRIA PROFISSIONAL -->
@@ -822,7 +806,7 @@ document.getElementById('calOverlay').addEventListener('click',function(e){if(e.
         <div class="tl-item">
           <div class="tl-dot before"></div>
           <div class="tl-card">
-            <div class="tl-card-period"><span id="t-tl-before">Antes do certificado</span> · Set 2011 – Abr 2013</div>
+            <div class="tl-card-period"><span id="t-tl-before">Antes do certificado</span> · Set 2011 — Abr 2013</div>
             <div class="tl-card-title">Application Scientist</div>
             <div class="tl-card-sub">Bio-Xin Pvt. Ltd. · Dhaka, Bangladesh</div>
             <span class="tl-card-type type-full">Full-time</span>
@@ -832,7 +816,7 @@ document.getElementById('calOverlay').addEventListener('click',function(e){if(e.
         <div class="tl-item">
           <div class="tl-dot before"></div>
           <div class="tl-card">
-            <div class="tl-card-period">Set 2015 – Nov 2018 · <span class="tl-before-label">Antes do certificado</span></div>
+            <div class="tl-card-period">Set 2015 — Nov 2018 · <span class="tl-before-label">Antes do certificado</span></div>
             <div class="tl-card-title">Certified Pharmacy Technician</div>
             <div class="tl-card-sub">CVS Health · Los Angeles, CA</div>
             <span class="tl-card-type type-part">Part-time</span>
@@ -842,7 +826,7 @@ document.getElementById('calOverlay').addEventListener('click',function(e){if(e.
         <div class="tl-item">
           <div class="tl-dot before"></div>
           <div class="tl-card">
-            <div class="tl-card-period">Nov 2018 – Nov 2022 · <span class="tl-before-label">Antes do certificado</span></div>
+            <div class="tl-card-period">Nov 2018 — Nov 2022 · <span class="tl-before-label">Antes do certificado</span></div>
             <div class="tl-card-title">Intern Pharmacist</div>
             <div class="tl-card-sub">CVS Health · Los Angeles, CA</div>
             <span class="tl-card-type type-intern">Internship</span>
@@ -852,7 +836,7 @@ document.getElementById('calOverlay').addEventListener('click',function(e){if(e.
         <div class="tl-item">
           <div class="tl-dot before"></div>
           <div class="tl-card">
-            <div class="tl-card-period">Nov 2022 – Dez 2023 · <span class="tl-before-label">Antes do certificado</span></div>
+            <div class="tl-card-period">Nov 2022 — Dez 2023 · <span class="tl-before-label">Antes do certificado</span></div>
             <div class="tl-card-title">Support Pharmacist</div>
             <div class="tl-card-sub">CVS Health · Los Angeles, CA</div>
             <span class="tl-card-type type-full">Full-time</span>
@@ -873,7 +857,7 @@ document.getElementById('calOverlay').addEventListener('click',function(e){if(e.
         <div class="tl-item">
           <div class="tl-dot after"></div>
           <div class="tl-card after-cert">
-            <div class="tl-card-period">Jan 2024 – Presente · <span class="tl-after-label">Após o certificado</span></div>
+            <div class="tl-card-period">Jan 2024 — Presente · <span class="tl-after-label">Após o certificado</span></div>
             <div class="tl-card-title">Staff Pharmacist</div>
             <div class="tl-card-sub">CVS Health · Thousand Oaks, CA</div>
             <span class="tl-card-type type-full">Full-time · On-site</span>
@@ -891,7 +875,7 @@ document.getElementById('calOverlay').addEventListener('click',function(e){if(e.
         <div class="edu-body">
           <div class="edu-degree">Doctor of Pharmacy (PharmD)</div>
           <div class="edu-school">Western University of Health Sciences</div>
-          <div class="edu-period">Ago 2018 – Mai 2022</div>
+          <div class="edu-period">Ago 2018 — Mai 2022</div>
         </div>
       </div>
       <div class="edu-item">
@@ -899,7 +883,7 @@ document.getElementById('calOverlay').addEventListener('click',function(e){if(e.
         <div class="edu-body">
           <div class="edu-degree">Master of Science · Biotechnology</div>
           <div class="edu-school">KTH Royal Institute of Technology</div>
-          <div class="edu-period">Ago 2007 – Jan 2011</div>
+          <div class="edu-period">Ago 2007 — Jan 2011</div>
         </div>
       </div>
       <div class="edu-item">
@@ -907,7 +891,7 @@ document.getElementById('calOverlay').addEventListener('click',function(e){if(e.
         <div class="edu-body">
           <div class="edu-degree">Bachelor of Science · Biotechnology and Genetic Engineering</div>
           <div class="edu-school">Khulna University</div>
-          <div class="edu-period">Ago 2001 – Mai 2005</div>
+          <div class="edu-period">Ago 2001 — Mai 2005</div>
         </div>
       </div>
     </div>
@@ -960,7 +944,7 @@ function openDrawer(name, program, date, impact) {
     const allLabels   = [...pastLabels, 'Compartilhamento', ...futureLabels];
     const shareIdx    = pastLabels.length;
 
-    // Example individual data – in production, replace with portador's real data
+    // Example individual data — in production, replace with portador's real data
     const pastData   = [0, 0, 1, 1, 2, 2, 3, 3];
     const shareVal   = 3;
     const futureData = [3, 4, 4, 4, 5, 5];
@@ -1046,7 +1030,7 @@ const translations = {
   pt: {
     'eyebrow': 'Módulo Ensino Superior · Capital Humano',
     'title': 'Empregabilidade',
-    'subtitle': 'Quando um portador compartilha seu certificado no LinkedIn, a POK lê o histórico completo do perfil e monitora mudanças de carreira ao longo do tempo – novos empregos, promoções e evolução de habilidades.',
+    'subtitle': 'Quando um portador compartilha seu certificado no LinkedIn, a POK lê o histórico completo do perfil e monitora mudanças de carreira ao longo do tempo — novos empregos, promoções e evolução de habilidades.',
     'f1': 'Todos os cursos',
     'f2': 'Data de emissão',
     'f3': 'Data de compartilhamento',
@@ -1066,8 +1050,8 @@ const translations = {
     'sl3': 'Evolução do perfil dos portadores de certificados',
     'sl4': 'Portadores individuais',
     'funnel-title': 'Do certificado ao impacto real',
-    'funnel-desc': 'Cada etapa mostra quantos portadores de certificados avançaram no processo – do compartilhamento inicial até a mudança de carreira detectada no perfil.',
-    'chart-desc': 'Média de impactos acumulados pelos portadores de acordo com o filtro selecionado – cada novo vínculo profissional registrado no LinkedIn conta como um impacto. À esquerda do marco: dados históricos anteriores ao compartilhamento do certificado. À direita: evolução registrada após o compartilhamento do certificado.',
+    'funnel-desc': 'Cada etapa mostra quantos portadores de certificados avançaram no processo — do compartilhamento inicial até a mudança de carreira detectada no perfil.',
+    'chart-desc': 'Média de impactos acumulados pelos portadores de acordo com o filtro selecionado — cada novo vínculo profissional registrado no LinkedIn conta como um impacto. À esquerda do marco: dados históricos anteriores ao compartilhamento do certificado. À direita: evolução registrada após o compartilhamento do certificado.',
     'th3': 'Data de compartilhamento',
     'th2': 'Curso',
     'th6': 'Ações',
@@ -1076,15 +1060,15 @@ const translations = {
     'dev-trigger-label': 'Gatilho de coleta',
     'dev-fields-note': 'Os campos descritos nos quadros abaixo foram detalhados conforme o material enviado sobre a captura de dados que a POK realiza no LinkedIn.',
     'dev-identity': 'Identidade do portador',
-    'dev-warn-text': 'A leitura do perfil de um portador <strong style="color:#fff;">não é interrompida quando ele compartilha um novo certificado</strong> – de nenhum curso ou instituição. A leitura continua indefinidamente, de forma bimestral (ou qualquer outro intervalo definido pela POK), a partir do momento em que o primeiro certificado é compartilhado. Cada novo certificado compartilhado cria um novo marco na linha do tempo do portador, mas não encerra a leitura associada aos certificados anteriores. Todos os eventos de carreira detectados após o compartilhamento de um certificado continuam sendo associados a ele.',
+    'dev-warn-text': 'A leitura do perfil de um portador <strong style="color:#fff;">não é interrompida quando ele compartilha um novo certificado</strong> — de nenhum curso ou instituição. A leitura continua indefinidamente, de forma bimestral (ou qualquer outro intervalo definido pela POK), a partir do momento em que o primeiro certificado é compartilhado. Cada novo certificado compartilhado cria um novo marco na linha do tempo do portador, mas não encerra a leitura associada aos certificados anteriores. Todos os eventos de carreira detectados após o compartilhamento de um certificado continuam sendo associados a ele.',
     'dev-future': 'Futuramente, esta análise será complementada com dados de <strong style="color:#fff;">outras bases além do LinkedIn</strong>, lidas a partir do CPF do portador. Por isso, no Brasil, é essencial que todo certificado seja emitido com o número de CPF no campo ID.',
-    'dev-trigger-text': 'A coleta é iniciada quando o portador <strong style="color:#fff;">compartilha o certificado POK no LinkedIn</strong>. Neste momento, a POK identifica o portador e lê o perfil público completo – incluindo todo o histórico retroativo já presente no perfil (Experience, Education, Certifications com suas datas originais). A partir daí, leituras bimestrais automáticas são agendadas e mantidas indefinidamente.',
+    'dev-trigger-text': 'A coleta é iniciada quando o portador <strong style="color:#fff;">compartilha o certificado POK no LinkedIn</strong>. Neste momento, a POK identifica o portador e lê o perfil público completo — incluindo todo o histórico retroativo já presente no perfil (Experience, Education, Certifications com suas datas originais). A partir daí, leituras bimestrais automáticas são agendadas e mantidas indefinidamente.',
     'dev-exp-used': 'Usado em: cargo na tabela · linha do tempo do drawer · detecção de novo emprego e promoção · gráfico de impactos acumulados',
     'dev-edu-used': 'Usado em: seção de formação no drawer · filtro por título',
     'dev-cert-used': 'Usado em: verificação se o certificado POK foi adicionado ao perfil · ícone de post na tabela',
     'dev-skills-used': 'Usado em: chips de habilidades no drawer',
     'dev-identity-used': 'Usado em: cabeçalho do drawer · distribuição geográfica futura',
-    'dev-lang-used': 'Disponível para uso futuro – não utilizado no dashboard atual',
+    'dev-lang-used': 'Disponível para uso futuro — não utilizado no dashboard atual',
     'dn1': 'Título do cargo em cada item da linha do tempo',
     'dn2': 'Nome da empresa em cada item da linha do tempo',
     'dn3': 'Badge de tipo de vínculo (Full-time, Part-time, Internship)',
@@ -1096,66 +1080,66 @@ const translations = {
     'dn9': 'Nome exibido no cabeçalho do drawer',
     'dn10': 'Cidade e país exibidos abaixo do nome',
     'dn11': 'Número de conexões exibido no cabeçalho',
-    'dn-title': '⚙ Orientação ao desenvolvedor – campos LinkedIn utilizados',
+    'dn-title': '⚙ Orientação ao desenvolvedor — campos LinkedIn utilizados',
     'dn-logic-label': 'Lógica antes/após',
     'dn-logic': 'experience[].startDate é comparado com a data de emissão do certificado POK (armazenada na plataforma). Experiências cujo startDate é anterior à emissão são classificadas como "antes"; posteriores como "após". Experiências em andamento (endDate ausente) na data da emissão aparecem como "em curso no momento".',
     'cert-marker': 'Certificado POK emitido',
     'tl-before': 'Antes do certificado',
-    'g-exp1': '<code style="color:#a78bf0;">position</code> – título do cargo (texto livre)',
-    'g-exp2': '<code style="color:#a78bf0;">companyName</code> – nome da empresa',
-    'g-exp3': '<code style="color:#a78bf0;">employmentType</code> – Full-time, Part-time, Internship',
-    'g-exp4': '<code style="color:#a78bf0;">startDate + endDate</code> – período do vínculo',
-    'g-exp5': '<code style="color:#a78bf0;">workplaceType</code> – On-site, Remote, Hybrid',
-    'g-exp6': '<code style="color:#a78bf0;">location</code> – cidade e país do vínculo',
-    'g-edu1': '<code style="color:#a78bf0;">schoolName</code> – nome da instituição',
-    'g-edu2': '<code style="color:#a78bf0;">degree</code> – grau de formação',
-    'g-edu3': '<code style="color:#a78bf0;">fieldOfStudy</code> – área de estudo',
-    'g-edu4': '<code style="color:#a78bf0;">startDate + endDate</code> – período',
-    'g-cert1': '<code style="color:#a78bf0;">title</code> – nome do certificado',
-    'g-cert2': '<code style="color:#a78bf0;">issuedBy</code> – organização emissora',
-    'g-cert3': '<code style="color:#a78bf0;">issuedAt</code> – data de emissão',
-    'g-sk1': '<code style="color:#a78bf0;">name</code> – nome da habilidade',
-    'g-sk2': '<code style="color:#a78bf0;">endorsements</code> – número de endorsements (quando presente)',
-    'g-id1': '<code style="color:#a78bf0;">firstName + lastName</code> – nome completo',
-    'g-id2': '<code style="color:#a78bf0;">location.parsed</code> – cidade e país',
-    'g-id3': '<code style="color:#a78bf0;">connectionsCount</code> – número de conexões',
-    'g-id4': '<code style="color:#a78bf0;">openToWork</code> – booleano: está buscando emprego',
-    'g-id5': '<code style="color:#a78bf0;">verified</code> – conta verificada pelo LinkedIn (não é dado de empregabilidade)',
-    'g-lang1': '<code style="color:#a78bf0;">name</code> – idioma',
-    'g-lang2': '<code style="color:#a78bf0;">proficiency</code> – nível declarado',
+    'g-exp1': '<code style="color:#a78bf0;">position</code> — título do cargo (texto livre)',
+    'g-exp2': '<code style="color:#a78bf0;">companyName</code> — nome da empresa',
+    'g-exp3': '<code style="color:#a78bf0;">employmentType</code> — Full-time, Part-time, Internship',
+    'g-exp4': '<code style="color:#a78bf0;">startDate + endDate</code> — período do vínculo',
+    'g-exp5': '<code style="color:#a78bf0;">workplaceType</code> — On-site, Remote, Hybrid',
+    'g-exp6': '<code style="color:#a78bf0;">location</code> — cidade e país do vínculo',
+    'g-edu1': '<code style="color:#a78bf0;">schoolName</code> — nome da instituição',
+    'g-edu2': '<code style="color:#a78bf0;">degree</code> — grau de formação',
+    'g-edu3': '<code style="color:#a78bf0;">fieldOfStudy</code> — área de estudo',
+    'g-edu4': '<code style="color:#a78bf0;">startDate + endDate</code> — período',
+    'g-cert1': '<code style="color:#a78bf0;">title</code> — nome do certificado',
+    'g-cert2': '<code style="color:#a78bf0;">issuedBy</code> — organização emissora',
+    'g-cert3': '<code style="color:#a78bf0;">issuedAt</code> — data de emissão',
+    'g-sk1': '<code style="color:#a78bf0;">name</code> — nome da habilidade',
+    'g-sk2': '<code style="color:#a78bf0;">endorsements</code> — número de endorsements (quando presente)',
+    'g-id1': '<code style="color:#a78bf0;">firstName + lastName</code> — nome completo',
+    'g-id2': '<code style="color:#a78bf0;">location.parsed</code> — cidade e país',
+    'g-id3': '<code style="color:#a78bf0;">connectionsCount</code> — número de conexões',
+    'g-id4': '<code style="color:#a78bf0;">openToWork</code> — booleano: está buscando emprego',
+    'g-id5': '<code style="color:#a78bf0;">verified</code> — conta verificada pelo LinkedIn (não é dado de empregabilidade)',
+    'g-lang1': '<code style="color:#a78bf0;">name</code> — idioma',
+    'g-lang2': '<code style="color:#a78bf0;">proficiency</code> — nível declarado',
     'cal-title': 'Selecionar período',
     'dn9': 'Nombre mostrado en el encabezado del panel',
     'dn10': 'Ciudad y país mostrados debajo del nombre',
     'dn11': 'Número de conexiones mostrado en el encabezado',
-    'dn-title': '⚙ Orientación al desarrollador – campos de LinkedIn utilizados',
+    'dn-title': '⚙ Orientación al desarrollador — campos de LinkedIn utilizados',
     'dn-logic-label': 'Lógica antes/después',
     'dn-logic': 'experience[].startDate se compara con la fecha de emisión del certificado POK (almacenada en la plataforma). Las experiencias cuyo startDate es anterior a la emisión se clasifican como "antes"; las posteriores como "después". Las experiencias en curso (endDate ausente) en la fecha de emisión aparecen como "en curso en ese momento".',
     'cert-marker': 'Certificado POK emitido',
     'tl-before': 'Antes del certificado',
-    'g-exp1': '<code style="color:#a78bf0;">position</code> – título del cargo (texto libre)',
-    'g-exp2': '<code style="color:#a78bf0;">companyName</code> – nombre de la empresa',
-    'g-exp3': '<code style="color:#a78bf0;">employmentType</code> – Full-time, Part-time, Internship',
-    'g-exp4': '<code style="color:#a78bf0;">startDate + endDate</code> – período del vínculo',
-    'g-exp5': '<code style="color:#a78bf0;">workplaceType</code> – On-site, Remote, Hybrid',
-    'g-exp6': '<code style="color:#a78bf0;">location</code> – ciudad y país del vínculo',
-    'g-edu1': '<code style="color:#a78bf0;">schoolName</code> – nombre de la institución',
-    'g-edu2': '<code style="color:#a78bf0;">degree</code> – grado de formación',
-    'g-edu3': '<code style="color:#a78bf0;">fieldOfStudy</code> – área de estudio',
-    'g-edu4': '<code style="color:#a78bf0;">startDate + endDate</code> – período',
-    'g-cert1': '<code style="color:#a78bf0;">title</code> – nombre del certificado',
-    'g-cert2': '<code style="color:#a78bf0;">issuedBy</code> – organización emisora',
-    'g-cert3': '<code style="color:#a78bf0;">issuedAt</code> – fecha de emisión',
-    'g-sk1': '<code style="color:#a78bf0;">name</code> – nombre de la habilidad',
-    'g-sk2': '<code style="color:#a78bf0;">endorsements</code> – número de endorsements (cuando está presente)',
-    'g-id1': '<code style="color:#a78bf0;">firstName + lastName</code> – nombre completo',
-    'g-id2': '<code style="color:#a78bf0;">location.parsed</code> – ciudad y país',
-    'g-id3': '<code style="color:#a78bf0;">connectionsCount</code> – número de conexiones',
-    'g-id4': '<code style="color:#a78bf0;">openToWork</code> – booleano: está buscando empleo',
-    'g-id5': '<code style="color:#a78bf0;">verified</code> – cuenta verificada por LinkedIn (no es dato de empleabilidad)',
-    'g-lang1': '<code style="color:#a78bf0;">name</code> – idioma',
-    'g-lang2': '<code style="color:#a78bf0;">proficiency</code> – nivel declarado',
+    'g-exp1': '<code style="color:#a78bf0;">position</code> — título del cargo (texto libre)',
+    'g-exp2': '<code style="color:#a78bf0;">companyName</code> — nombre de la empresa',
+    'g-exp3': '<code style="color:#a78bf0;">employmentType</code> — Full-time, Part-time, Internship',
+    'g-exp4': '<code style="color:#a78bf0;">startDate + endDate</code> — período del vínculo',
+    'g-exp5': '<code style="color:#a78bf0;">workplaceType</code> — On-site, Remote, Hybrid',
+    'g-exp6': '<code style="color:#a78bf0;">location</code> — ciudad y país del vínculo',
+    'g-edu1': '<code style="color:#a78bf0;">schoolName</code> — nombre de la institución',
+    'g-edu2': '<code style="color:#a78bf0;">degree</code> — grado de formación',
+    'g-edu3': '<code style="color:#a78bf0;">fieldOfStudy</code> — área de estudio',
+    'g-edu4': '<code style="color:#a78bf0;">startDate + endDate</code> — período',
+    'g-cert1': '<code style="color:#a78bf0;">title</code> — nombre del certificado',
+    'g-cert2': '<code style="color:#a78bf0;">issuedBy</code> — organización emisora',
+    'g-cert3': '<code style="color:#a78bf0;">issuedAt</code> — fecha de emisión',
+    'g-sk1': '<code style="color:#a78bf0;">name</code> — nombre de la habilidad',
+    'g-sk2': '<code style="color:#a78bf0;">endorsements</code> — número de endorsements (cuando está presente)',
+    'g-id1': '<code style="color:#a78bf0;">firstName + lastName</code> — nombre completo',
+    'g-id2': '<code style="color:#a78bf0;">location.parsed</code> — ciudad y país',
+    'g-id3': '<code style="color:#a78bf0;">connectionsCount</code> — número de conexiones',
+    'g-id4': '<code style="color:#a78bf0;">openToWork</code> — booleano: está buscando empleo',
+    'g-id5': '<code style="color:#a78bf0;">verified</code> — cuenta verificada por LinkedIn (no es dato de empleabilidad)',
+    'g-lang1': '<code style="color:#a78bf0;">name</code> — idioma',
+    'g-lang2': '<code style="color:#a78bf0;">proficiency</code> — nivel declarado',
     'cal-title': 'Seleccionar período',
-    'chart-title': 'Trajetória agregada – impactos acumulados',
+    'chart-title': 'Trajetória agregada — impactos acumulados',
     'zone-past': '← Antes do compartilhamento',
     'zone-future': 'Após o compartilhamento →',
     'th1': 'Portador',
@@ -1172,7 +1156,7 @@ const translations = {
   es: {
     'eyebrow': 'Módulo Ensino Superior · Capital Humano',
     'title': 'Empleabilidad',
-    'subtitle': 'Cuando un portador comparte su certificado en LinkedIn, POK lee el historial completo del perfil y monitorea los cambios de carrera a lo largo del tiempo – nuevos empleos, ascensos y evolución de habilidades.',
+    'subtitle': 'Cuando un portador comparte su certificado en LinkedIn, POK lee el historial completo del perfil y monitorea los cambios de carrera a lo largo del tiempo — nuevos empleos, ascensos y evolución de habilidades.',
     'f1': 'Todos los cursos',
     'f2': 'Fecha de emisión',
     'f3': 'Fecha de compartición',
@@ -1192,12 +1176,12 @@ const translations = {
     'sl3': 'Evolución del perfil de los portadores de certificados',
     'sl4': 'Portadores individuales',
     'funnel-title': 'Del certificado al impacto real',
-    'funnel-desc': 'Cada etapa muestra cuántos portadores de certificados avanzaron en el proceso – desde la compartición inicial hasta el cambio de carrera detectado en el perfil.',
-    'chart-desc': 'Promedio de impactos acumulados por los portadores de acuerdo con el filtro seleccionado – cada nuevo vínculo profesional registrado en LinkedIn cuenta como un impacto. A la izquierda del hito: datos históricos anteriores a la compartición del certificado. A la derecha: evolución registrada después de la compartición.',
+    'funnel-desc': 'Cada etapa muestra cuántos portadores de certificados avanzaron en el proceso — desde la compartición inicial hasta el cambio de carrera detectado en el perfil.',
+    'chart-desc': 'Promedio de impactos acumulados por los portadores de acuerdo con el filtro seleccionado — cada nuevo vínculo profesional registrado en LinkedIn cuenta como un impacto. A la izquierda del hito: datos históricos anteriores a la compartición del certificado. A la derecha: evolución registrada después de la compartición.',
     'th3': 'Fecha de compartición',
     'th2': 'Curso',
     'th6': 'Acciones',
-    'chart-title': 'Trayectoria agregada – impactos acumulados',
+    'chart-title': 'Trayectoria agregada — impactos acumulados',
     'zone-past': '← Antes de la compartición',
     'zone-future': 'Después de la compartición →',
     'th1': 'Portador',
@@ -1215,15 +1199,15 @@ const translations = {
     'dev-trigger-label': 'Disparador de recopilación',
     'dev-fields-note': 'Los campos descritos en los cuadros a continuación fueron detallados según el material enviado sobre la captura de datos que POK realiza en LinkedIn.',
     'dev-identity': 'Identidad del portador',
-    'dev-warn-text': 'La lectura del perfil de un portador <strong style="color:#fff;">no se interrumpe cuando comparte un nuevo certificado</strong> – de ningún curso o institución. La lectura continúa indefinidamente, de forma bimestral (o cualquier otro intervalo definido por POK), a partir del momento en que se comparte el primer certificado. Cada nuevo certificado compartido crea un nuevo hito en la línea de tiempo del portador, pero no cierra la lectura asociada a los certificados anteriores. Todos los eventos de carrera detectados después de la compartición de un certificado continúan siendo asociados a él.',
+    'dev-warn-text': 'La lectura del perfil de un portador <strong style="color:#fff;">no se interrumpe cuando comparte un nuevo certificado</strong> — de ningún curso o institución. La lectura continúa indefinidamente, de forma bimestral (o cualquier otro intervalo definido por POK), a partir del momento en que se comparte el primer certificado. Cada nuevo certificado compartido crea un nuevo hito en la línea de tiempo del portador, pero no cierra la lectura asociada a los certificados anteriores. Todos los eventos de carrera detectados después de la compartición de un certificado continúan siendo asociados a él.',
     'dev-future': 'En el futuro, este análisis será complementado con datos de <strong style="color:#fff;">otras bases además de LinkedIn</strong>, leídos a partir del CPF del portador. Por eso, en Brasil, es esencial que todo certificado sea emitido con el número de CPF en el campo ID.',
-    'dev-trigger-text': 'La recopilación se inicia cuando el portador <strong style="color:#fff;">comparte el certificado POK en LinkedIn</strong>. En ese momento, POK identifica al portador y lee el perfil público completo – incluyendo todo el historial retroactivo ya presente en el perfil (Experience, Education, Certifications con sus fechas originales). A partir de ahí, se programan lecturas bimestrales automáticas y se mantienen indefinidamente.',
+    'dev-trigger-text': 'La recopilación se inicia cuando el portador <strong style="color:#fff;">comparte el certificado POK en LinkedIn</strong>. En ese momento, POK identifica al portador y lee el perfil público completo — incluyendo todo el historial retroactivo ya presente en el perfil (Experience, Education, Certifications con sus fechas originales). A partir de ahí, se programan lecturas bimestrales automáticas y se mantienen indefinidamente.',
     'dev-exp-used': 'Usado en: cargo en la tabla · línea de tiempo del panel · detección de nuevo empleo y ascenso · gráfico de impactos acumulados',
     'dev-edu-used': 'Usado en: sección de formación en el panel · filtro por título',
     'dev-cert-used': 'Usado en: verificación si el certificado POK fue agregado al perfil · ícono de publicación en la tabla',
     'dev-skills-used': 'Usado en: chips de habilidades en el panel',
     'dev-identity-used': 'Usado en: encabezado del panel · distribución geográfica futura',
-    'dev-lang-used': 'Disponible para uso futuro – no utilizado en el dashboard actual',
+    'dev-lang-used': 'Disponible para uso futuro — no utilizado en el dashboard actual',
     'dn1': 'Título del cargo en cada ítem de la línea de tiempo',
     'dn2': 'Nombre de la empresa en cada ítem de la línea de tiempo',
     'dn3': 'Badge de tipo de vínculo (Full-time, Part-time, Internship)',
@@ -1235,33 +1219,33 @@ const translations = {
     'dn9': 'Nombre mostrado en el encabezado del panel',
     'dn10': 'Ciudad y país mostrados debajo del nombre',
     'dn11': 'Número de conexiones mostrado en el encabezado',
-    'dn-title': '⚙ Orientación al desarrollador – campos de LinkedIn utilizados',
+    'dn-title': '⚙ Orientación al desarrollador — campos de LinkedIn utilizados',
     'dn-logic-label': 'Lógica antes/después',
     'dn-logic': 'experience[].startDate se compara con la fecha de emisión del certificado POK (almacenada en la plataforma). Las experiencias cuyo startDate es anterior a la emisión se clasifican como "antes"; las posteriores como "después". Las experiencias en curso (endDate ausente) en la fecha de emisión aparecen como "en curso en ese momento".',
     'cert-marker': 'Certificado POK emitido',
     'tl-before': 'Antes del certificado',
-    'g-exp1': '<code style="color:#a78bf0;">position</code> – título del cargo (texto libre)',
-    'g-exp2': '<code style="color:#a78bf0;">companyName</code> – nombre de la empresa',
-    'g-exp3': '<code style="color:#a78bf0;">employmentType</code> – Full-time, Part-time, Internship',
-    'g-exp4': '<code style="color:#a78bf0;">startDate + endDate</code> – período del vínculo',
-    'g-exp5': '<code style="color:#a78bf0;">workplaceType</code> – On-site, Remote, Hybrid',
-    'g-exp6': '<code style="color:#a78bf0;">location</code> – ciudad y país del vínculo',
-    'g-edu1': '<code style="color:#a78bf0;">schoolName</code> – nombre de la institución',
-    'g-edu2': '<code style="color:#a78bf0;">degree</code> – grado de formación',
-    'g-edu3': '<code style="color:#a78bf0;">fieldOfStudy</code> – área de estudio',
-    'g-edu4': '<code style="color:#a78bf0;">startDate + endDate</code> – período',
-    'g-cert1': '<code style="color:#a78bf0;">title</code> – nombre del certificado',
-    'g-cert2': '<code style="color:#a78bf0;">issuedBy</code> – organización emisora',
-    'g-cert3': '<code style="color:#a78bf0;">issuedAt</code> – fecha de emisión',
-    'g-sk1': '<code style="color:#a78bf0;">name</code> – nombre de la habilidad',
-    'g-sk2': '<code style="color:#a78bf0;">endorsements</code> – número de endorsements (cuando está presente)',
-    'g-id1': '<code style="color:#a78bf0;">firstName + lastName</code> – nombre completo',
-    'g-id2': '<code style="color:#a78bf0;">location.parsed</code> – ciudad y país',
-    'g-id3': '<code style="color:#a78bf0;">connectionsCount</code> – número de conexiones',
-    'g-id4': '<code style="color:#a78bf0;">openToWork</code> – booleano: está buscando empleo',
-    'g-id5': '<code style="color:#a78bf0;">verified</code> – cuenta verificada por LinkedIn (no es dato de empleabilidad)',
-    'g-lang1': '<code style="color:#a78bf0;">name</code> – idioma',
-    'g-lang2': '<code style="color:#a78bf0;">proficiency</code> – nivel declarado',
+    'g-exp1': '<code style="color:#a78bf0;">position</code> — título del cargo (texto libre)',
+    'g-exp2': '<code style="color:#a78bf0;">companyName</code> — nombre de la empresa',
+    'g-exp3': '<code style="color:#a78bf0;">employmentType</code> — Full-time, Part-time, Internship',
+    'g-exp4': '<code style="color:#a78bf0;">startDate + endDate</code> — período del vínculo',
+    'g-exp5': '<code style="color:#a78bf0;">workplaceType</code> — On-site, Remote, Hybrid',
+    'g-exp6': '<code style="color:#a78bf0;">location</code> — ciudad y país del vínculo',
+    'g-edu1': '<code style="color:#a78bf0;">schoolName</code> — nombre de la institución',
+    'g-edu2': '<code style="color:#a78bf0;">degree</code> — grado de formación',
+    'g-edu3': '<code style="color:#a78bf0;">fieldOfStudy</code> — área de estudio',
+    'g-edu4': '<code style="color:#a78bf0;">startDate + endDate</code> — período',
+    'g-cert1': '<code style="color:#a78bf0;">title</code> — nombre del certificado',
+    'g-cert2': '<code style="color:#a78bf0;">issuedBy</code> — organización emisora',
+    'g-cert3': '<code style="color:#a78bf0;">issuedAt</code> — fecha de emisión',
+    'g-sk1': '<code style="color:#a78bf0;">name</code> — nombre de la habilidad',
+    'g-sk2': '<code style="color:#a78bf0;">endorsements</code> — número de endorsements (cuando está presente)',
+    'g-id1': '<code style="color:#a78bf0;">firstName + lastName</code> — nombre completo',
+    'g-id2': '<code style="color:#a78bf0;">location.parsed</code> — ciudad y país',
+    'g-id3': '<code style="color:#a78bf0;">connectionsCount</code> — número de conexiones',
+    'g-id4': '<code style="color:#a78bf0;">openToWork</code> — booleano: está buscando empleo',
+    'g-id5': '<code style="color:#a78bf0;">verified</code> — cuenta verificada por LinkedIn (no es dato de empleabilidad)',
+    'g-lang1': '<code style="color:#a78bf0;">name</code> — idioma',
+    'g-lang2': '<code style="color:#a78bf0;">proficiency</code> — nivel declarado',
     'cal-title': 'Seleccionar período',
   }
 };

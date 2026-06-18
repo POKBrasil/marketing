@@ -4,22 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Capital Humano · POK Corporativo</title>
-
-<!-- Open Graph / social preview -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="Capital humano em movimento · POK Corporativo">
-<meta property="og:description" content="Desenvolvimento humano e compliance regulatório, com credenciais auditáveis em blockchain.">
-<meta property="og:image" content="https://pokbrasil.github.io/content/og_pok_corporativo.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:url" content="https://pokbrasil.github.io/marketing/pok_corporativo_dashboard_publico.html">
-<meta property="og:site_name" content="POK">
-<meta property="og:locale" content="pt_BR">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Capital humano em movimento · POK Corporativo">
-<meta name="twitter:description" content="Desenvolvimento humano e compliance regulatório, com credenciais auditáveis em blockchain.">
-<meta name="twitter:image" content="https://pokbrasil.github.io/content/og_pok_corporativo.png">
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <style>
@@ -28,9 +12,9 @@
   --purple-dark: #3a1878;
   --purple-light: #e4dcf7;
   --purple-faint: #F3EFF9;
-  --ink: #000;
-  --ink-muted: #000;
-  --ink-faint: #000;
+  --ink: #1E1230;
+  --ink-muted: #5E4E7A;
+  --ink-faint: #A899C2;
   --border: #D8CEF0;
   --white: #fff;
   --radius-lg: 20px;
@@ -73,12 +57,12 @@ body { font-family: 'Poppins', sans-serif; background: var(--purple-faint); colo
 .zone-tab .dot.all { background: var(--purple-light); }
 
 /* FILTERS */
-.filters-bar { background: var(--white); border-bottom: 1px solid var(--border); padding: 14px 64px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.filter-select { font-family: 'Poppins', sans-serif; font-size: 12px; font-weight: 500; padding: 7px 26px 7px 12px; max-width: 170px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; border: 1.5px solid var(--border); border-radius: 99px; background: var(--white); color: var(--ink); cursor: pointer; outline: none; appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235123a4' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; transition: border-color 0.15s; }
+.filters-bar { background: var(--white); border-bottom: 1px solid var(--border); padding: 14px 64px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.filter-select { font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 500; padding: 8px 32px 8px 14px; border: 1.5px solid var(--border); border-radius: 99px; background: var(--white); color: var(--ink); cursor: pointer; outline: none; appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235123a4' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; transition: border-color 0.15s; }
 .filter-select:hover { border-color: var(--purple); }
-.date-btn { font-family: 'Poppins', sans-serif; font-size: 12px; font-weight: 500; padding: 7px 12px; border: 1.5px solid var(--border); border-radius: 99px; background: var(--white); color: var(--ink); cursor: pointer; display: inline-flex; align-items: center; gap: 6px; transition: border-color 0.15s; }
+.date-btn { font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 500; padding: 8px 16px; border: 1.5px solid var(--border); border-radius: 99px; background: var(--white); color: var(--ink); cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: border-color 0.15s; }
 .date-btn:hover { border-color: var(--purple); }
-.date-btn svg { width: 14px; height: 14px; color: var(--purple); flex-shrink: 0; }
+.date-btn svg { width: 15px; height: 15px; color: var(--purple); flex-shrink: 0; }
 
 .content { max-width: 1120px; margin: 0 auto; padding: 40px 32px 72px; }
 
@@ -90,7 +74,7 @@ body { font-family: 'Poppins', sans-serif; background: var(--purple-faint); colo
 .section-label .accent.green { background: var(--green); }
 .section-label .accent.purple { background: var(--purple); }
 
-/* ZONE HEADERS – visual marker for switching context */
+/* ZONE HEADERS — visual marker for switching context */
 .zone-header { margin-bottom: 28px; padding: 24px 28px; border-radius: var(--radius-lg); position: relative; overflow: hidden; }
 .zone-header.dev { background: linear-gradient(135deg, var(--crimson-light) 0%, #F0F7FF 100%); border: 1px solid #BFDBFE; }
 .zone-header.com { background: linear-gradient(135deg, var(--green-light) 0%, #f4faf7 100%); border: 1px solid #c5e4d6; }
@@ -246,7 +230,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
 .zone-section { display: none; }
 .zone-section.active { display: block; }
 
-/* HRIS CALLOUT – convite para integração que destrava a visão de cobertura */
+/* HRIS CALLOUT — convite para integração que destrava a visão de cobertura */
 .hris-callout { background: linear-gradient(135deg, var(--purple-faint) 0%, #f4faf7 100%); border: 1px dashed var(--border); border-radius: var(--radius-lg); padding: 24px 28px; margin-bottom: 24px; display: flex; align-items: flex-start; gap: 18px; }
 .hris-callout-icon { width: 44px; height: 44px; border-radius: 50%; background: var(--white); border: 2px solid var(--purple); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--purple); }
 .hris-callout-icon svg { width: 22px; height: 22px; }
@@ -256,7 +240,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
 .hris-callout-cta { font-family: 'Poppins', sans-serif; font-size: 12px; font-weight: 700; color: var(--purple); background: var(--white); border: 1.5px solid var(--purple); border-radius: 99px; padding: 8px 18px; cursor: pointer; transition: all 0.18s; }
 .hris-callout-cta:hover { background: var(--purple); color: var(--white); }
 
-/* VISION CARDS – &quot;O que esta visão entrega&quot;: dois cards independentes e clicáveis */
+/* VISION CARDS — &quot;O que esta visão entrega&quot;: dois cards independentes e clicáveis */
 .vision-cards-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
 .vision-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px 28px 24px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; position: relative; overflow: hidden; display: flex; flex-direction: column; }
 .vision-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; }
@@ -280,14 +264,12 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
 .vision-card-dev .vision-card-list li::before { background: var(--gold); }
 .vision-card-com .vision-card-list li::before { background: var(--green); }
 .vision-card-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; padding-top: 14px; border-top: 1px solid var(--border); }
-.vision-card-nr { font-size: 11.5px; color: var(--ink); line-height: 1.55; background: var(--green-light); border: 1px solid #c5e4d6; border-radius: 10px; padding: 10px 12px; margin-bottom: 16px; }
-.vision-card-nr strong { color: var(--green-dark); font-weight: 700; }
 .vision-card-audience { font-size: 10px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-faint); }
 .vision-card-cta { font-size: 12px; font-weight: 700; letter-spacing: 0.02em; }
 .vision-card-dev .vision-card-cta { color: var(--gold-dark); }
 .vision-card-com .vision-card-cta { color: var(--green-dark); }
 
-/* OVERVIEW BLOCKS – dois grupos visualmente separados na Visão Geral */
+/* OVERVIEW BLOCKS — dois grupos visualmente separados na Visão Geral */
 .overview-blocks { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 32px; }
 .overview-block { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; position: relative; overflow: hidden; }
 .overview-block::before { content: ''; position: absolute; left: 0; top: 0; right: 0; height: 4px; }
@@ -335,7 +317,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
   .table-card .table-scroll, .area-table-wrap { overflow-x: auto !important; -webkit-overflow-scrolling: touch; }
   table { min-width: 720px; }
   .area-table-wrap table { min-width: 640px; }
-  /* Filters bar – distribuição mais equilibrada */
+  /* Filters bar — distribuição mais equilibrada */
   .filters-bar > div { flex: 1 1 calc(50% - 8px); min-width: 0; }
   .filters-bar > div .filter-select,
   .filters-bar > div .date-btn { flex: 1; min-width: 0; }
@@ -399,7 +381,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
   .alert-banner-action { align-self: flex-start; }
   .alert-banner-title { font-size: 13px; }
   .alert-banner-desc { font-size: 11px; }
-  /* Section labels – esconder a linha decorativa em mobile, fica feia */
+  /* Section labels — esconder a linha decorativa em mobile, fica feia */
   .section-label::after { display: none; }
   .section-label { margin-bottom: 10px; }
   /* Vision cards em mobile */
@@ -420,7 +402,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
   .chart-card > div:last-child { flex-direction: column !important; gap: 6px !important; align-items: flex-start !important; }
 }
 
-/* Mobile pequeno (até 380px) – iPhone SE etc. */
+/* Mobile pequeno (até 380px) — iPhone SE etc. */
 @media (max-width: 380px) {
   .kpi-grid, .overview-grid { grid-template-columns: 1fr; }
   .overview-block-cards { grid-template-columns: 1fr; }
@@ -663,15 +645,36 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
           <li><span data-pt="Linha do tempo de vencimentos por categoria regulatória" data-es="Línea de tiempo de vencimientos por categoría regulatoria">Linha do tempo de vencimentos por categoria regulatória</span></li>
           <li><span data-pt="Auditabilidade blockchain (100%)" data-es="Auditabilidad blockchain (100%)">Auditabilidade blockchain (100%)</span></li>
         </ul>
-        <div class="vision-card-nr">
-          <span data-pt="<strong>Gestão de NRs:</strong> a POK substitui o PDF frágil por credenciais auditáveis em blockchain, com gestão de validade e renovação – NR-1, NR-10, NR-12, NR-33, NR-35 e outras. A <strong>NR-1 atualizada</strong> entra em vigor pleno em 26 de maio de 2026." data-es="<strong>Gestión de NRs:</strong> POK sustituye el PDF frágil por credenciales auditables en blockchain, con gestión de validez y renovación – NR-1, NR-10, NR-12, NR-33, NR-35 y otras. La <strong>NR-1 actualizada</strong> entra en vigor pleno el 26 de mayo de 2026."><strong>Gestão de NRs:</strong> a POK substitui o PDF frágil por credenciais auditáveis em blockchain, com gestão de validade e renovação – NR-1, NR-10, NR-12, NR-33, NR-35 e outras. A <strong>NR-1 atualizada</strong> entra em vigor pleno em 26 de maio de 2026.</span>
-        </div>
         <div class="vision-card-footer">
           <span class="vision-card-audience"><span data-pt="Para Compliance, Jurídico, Auditoria" data-es="Para Cumplimiento, Legal, Auditoría">Para Compliance, Jurídico, Auditoria</span></span>
           <span class="vision-card-cta"><span data-pt="Ver detalhes" data-es="Ver detalles">Ver detalhes</span> →</span>
         </div>
       </div>
 
+    </div>
+
+    <!-- Callout institucional: Gestão de NRs -->
+    <div class="section-label"><span class="accent green"></span> <span data-pt="Compliance regulatório" data-es="Compliance regulatorio">Compliance regulatório</span></div>
+    <div class="nr-callout">
+      <div class="nr-callout-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11H5a2 2 0 00-2 2v7h18v-7a2 2 0 00-2-2h-4"/><path d="M9 11V7a3 3 0 016 0v4"/><path d="M12 15v2"/></svg>
+      </div>
+      <div class="nr-callout-content">
+        <div class="nr-callout-title"><span data-pt="Gestão de NRs: do PDF frágil à credencial verificável" data-es="Gestión de NRs: del PDF frágil a la credencial verificable">Gestão de NRs: do PDF frágil à credencial verificável</span></div>
+        <div class="nr-callout-desc"><span data-pt="Toda Norma Regulamentadora exige comprovante de capacitação. A POK substitui o PDF tradicional por credenciais em blockchain, com prova auditável de que o treinamento aconteceu, gestão de validade e fluxo de renovação — tudo integrado à categoria regulatória Segurança e Saúde do Trabalho." data-es="Toda Norma Regulatoria exige comprobante de capacitación. POK sustituye el PDF tradicional por credenciales en blockchain, con prueba auditable de que la capacitación ocurrió, gestión de validez y flujo de renovación — todo integrado a la categoría regulatoria Seguridad y Salud Laboral.">Toda Norma Regulamentadora exige comprovante de capacitação. A POK substitui o PDF tradicional por credenciais em blockchain, com prova auditável de que o treinamento aconteceu, gestão de validade e fluxo de renovação — tudo integrado à categoria regulatória Segurança e Saúde do Trabalho.</span></div>
+        <div class="nr-callout-tags">
+          <span class="nr-callout-tag">NR-1</span>
+          <span class="nr-callout-tag">NR-10</span>
+          <span class="nr-callout-tag">NR-12</span>
+          <span class="nr-callout-tag">NR-33</span>
+          <span class="nr-callout-tag">NR-35</span>
+          <span class="nr-callout-tag"><span data-pt="e outras" data-es="y otras">e outras</span></span>
+        </div>
+        <div class="nr-callout-temporal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span><span data-pt="A <strong>NR-1 atualizada</strong> entra em vigor pleno em 26 de maio de 2026, com PGR ampliado para incluir riscos psicossociais — aquecendo a demanda por gestão estruturada de credenciais regulatórias." data-es="La <strong>NR-1 actualizada</strong> entra en vigor pleno el 26 de mayo de 2026, con PGR ampliado para incluir riesgos psicosociales — calentando la demanda por gestión estructurada de credenciales regulatorias.">A <strong>NR-1 atualizada</strong> entra em vigor pleno em 26 de maio de 2026, com PGR ampliado para incluir riscos psicossociais — aquecendo a demanda por gestão estruturada de credenciais regulatórias.</span></span>
+        </div>
+      </div>
     </div>
 
   </section>
@@ -691,7 +694,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
     <div class="section-label"><span class="accent gold"></span> <span data-pt="Funil de desenvolvimento" data-es="Embudo de desarrollo">Funil de desenvolvimento</span></div>
     <div class="funnel-card">
       <h3><span data-pt="Da credencial à evidência de desenvolvimento" data-es="De la credencial a la evidencia de desarrollo">Da credencial à evidência de desenvolvimento</span></h3>
-      <p><span data-pt="Cada etapa mostra quantos portadores de certificados avançaram no processo – do compartilhamento inicial até a mudança de carreira detectada no perfil." data-es="Cada etapa muestra cuántos portadores de certificados avanzaron en el proceso – desde el compartir inicial hasta el cambio de carrera detectado en el perfil.">Cada etapa mostra quantos portadores de certificados avançaram no processo – do compartilhamento inicial até a mudança de carreira detectada no perfil.</span></p>
+      <p><span data-pt="Cada etapa mostra quantos portadores de certificados avançaram no processo — do compartilhamento inicial até a mudança de carreira detectada no perfil." data-es="Cada etapa muestra cuántos portadores de certificados avanzaron en el proceso — desde el compartir inicial hasta el cambio de carrera detectado en el perfil.">Cada etapa mostra quantos portadores de certificados avançaram no processo — do compartilhamento inicial até a mudança de carreira detectada no perfil.</span></p>
       <div class="funnel-steps">
         <div class="funnel-step"><div class="funnel-bar" style="background:#3a1878;">312</div><div class="funnel-step-label"><span data-pt="Credenciais&lt;br&gt;emitidas" data-es="Credenciales&lt;br&gt;emitidas">Credenciais<br>emitidas</span></div><div class="funnel-step-pct">100%</div></div>
         <div class="funnel-arrow">›</div>
@@ -709,7 +712,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
 
     <!-- KPIs -->
     <div class="section-label"><span class="accent gold"></span> <span data-pt="Métricas-chave de desenvolvimento" data-es="Métricas clave de desarrollo">Métricas-chave de desenvolvimento</span></div>
-    <p style="font-size:11px; color:var(--ink-muted); margin:-8px 0 14px 0; line-height:1.5; padding:8px 14px; background:var(--purple-faint); border-left:3px solid var(--purple-light); border-radius:4px;"><span data-pt="Métricas calculadas sobre os portadores que compartilharam a credencial no LinkedIn – único caminho pelo qual a POK conecta a credencial ao perfil profissional do colaborador." data-es="Métricas calculadas sobre los portadores que compartieron la credencial en LinkedIn – único camino por el cual POK conecta la credencial al perfil profesional del colaborador.">Métricas calculadas sobre os portadores que compartilharam a credencial no LinkedIn – único caminho pelo qual a POK conecta a credencial ao perfil profissional do colaborador.</span></p>
+    <p style="font-size:11px; color:var(--ink-muted); margin:-8px 0 14px 0; line-height:1.5; padding:8px 14px; background:var(--purple-faint); border-left:3px solid var(--purple-light); border-radius:4px;"><span data-pt="Métricas calculadas sobre os portadores que compartilharam a credencial no LinkedIn — único caminho pelo qual a POK conecta a credencial ao perfil profissional do colaborador." data-es="Métricas calculadas sobre los portadores que compartieron la credencial en LinkedIn — único camino por el cual POK conecta la credencial al perfil profesional del colaborador.">Métricas calculadas sobre os portadores que compartilharam a credencial no LinkedIn — único caminho pelo qual a POK conecta a credencial ao perfil profissional do colaborador.</span></p>
     <div class="kpi-grid kpi-grid-3">
       <div class="kpi-card highlight-dev">
         <div class="kpi-value gold">54%</div>
@@ -733,8 +736,8 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
     <div class="chart-card">
       <div class="chart-card-header">
         <div>
-          <h3><span data-pt="Trajetória agregada – eventos acumulados" data-es="Trayectoria agregada – eventos acumulados">Trajetória agregada – eventos acumulados</span></h3>
-          <p><span data-pt="Média de eventos acumulados pelos portadores de acordo com o filtro selecionado – cada novo vínculo profissional registrado no LinkedIn (mudança de cargo na mesma empresa ou mudança de empresa) conta como um evento. À esquerda do marco: dados históricos anteriores ao compartilhamento da credencial. À direita: evolução registrada após o compartilhamento, com leituras bimestrais." data-es="Promedio de eventos acumulados por los portadores de acuerdo con el filtro seleccionado – cada nuevo vínculo profesional registrado en LinkedIn (cambio de cargo en la misma empresa o cambio de empresa) cuenta como un evento. A la izquierda del hito: datos históricos anteriores al compartir de la credencial. A la derecha: evolución registrada después del compartir, con lecturas bimestrales.">Média de eventos acumulados pelos portadores de acordo com o filtro selecionado – cada novo vínculo profissional registrado no LinkedIn (mudança de cargo na mesma empresa ou mudança de empresa) conta como um evento. À esquerda do marco: dados históricos anteriores ao compartilhamento da credencial. À direita: evolução registrada após o compartilhamento, com leituras bimestrais.</span></p>
+          <h3><span data-pt="Trajetória agregada — eventos acumulados" data-es="Trayectoria agregada — eventos acumulados">Trajetória agregada — eventos acumulados</span></h3>
+          <p><span data-pt="Média de eventos acumulados pelos portadores de acordo com o filtro selecionado — cada novo vínculo profissional registrado no LinkedIn (mudança de cargo na mesma empresa ou mudança de empresa) conta como um evento. À esquerda do marco: dados históricos anteriores ao compartilhamento da credencial. À direita: evolução registrada após o compartilhamento, com leituras bimestrais." data-es="Promedio de eventos acumulados por los portadores de acuerdo con el filtro seleccionado — cada nuevo vínculo profesional registrado en LinkedIn (cambio de cargo en la misma empresa o cambio de empresa) cuenta como un evento. A la izquierda del hito: datos históricos anteriores al compartir de la credencial. A la derecha: evolución registrada después del compartir, con lecturas bimestrales.">Média de eventos acumulados pelos portadores de acordo com o filtro selecionado — cada novo vínculo profissional registrado no LinkedIn (mudança de cargo na mesma empresa ou mudança de empresa) conta como um evento. À esquerda do marco: dados históricos anteriores ao compartilhamento da credencial. À direita: evolução registrada após o compartilhamento, com leituras bimestrais.</span></p>
         </div>
       </div>
       <div class="chart-zone-labels">
@@ -836,18 +839,18 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
         <div class="audit-callout-value">100%</div>
         <div class="audit-callout-text">
           <div class="audit-callout-title"><span data-pt="Auditabilidade blockchain" data-es="Auditabilidad blockchain">Auditabilidade blockchain</span></div>
-          <div class="audit-callout-desc"><span data-pt="Todas as credenciais POK são registradas em blockchain com prova criptográfica de integridade – verificáveis publicamente, sem dependência da plataforma." data-es="Todas las credenciales POK se registran en blockchain con prueba criptográfica de integridad – verificables públicamente, sin dependencia de la plataforma.">Todas as credenciais POK são registradas em blockchain com prova criptográfica de integridade – verificáveis publicamente, sem dependência da plataforma.</span></div>
+          <div class="audit-callout-desc"><span data-pt="Todas as credenciais POK são registradas em blockchain com prova criptográfica de integridade — verificáveis publicamente, sem dependência da plataforma." data-es="Todas las credenciales POK se registran en blockchain con prueba criptográfica de integridad — verificables públicamente, sin dependencia de la plataforma.">Todas as credenciais POK são registradas em blockchain com prova criptográfica de integridade — verificáveis publicamente, sem dependência da plataforma.</span></div>
         </div>
       </div>
     </div>
 
-    <!-- Gráfico – distribuição de vencimentos nos próximos 12 meses (projeção, não histórico) -->
+    <!-- Gráfico — distribuição de vencimentos nos próximos 12 meses (projeção, não histórico) -->
     <div class="section-label"><span class="accent green"></span> <span data-pt="Linha do tempo de vencimentos" data-es="Línea de tiempo de vencimientos">Linha do tempo de vencimentos</span></div>
     <div class="chart-card">
       <div class="chart-card-header">
         <div>
           <h3><span data-pt="Quando suas credenciais vão vencer" data-es="Cuándo vencerán sus credenciales">Quando suas credenciais vão vencer</span></h3>
-          <p><span data-pt="Distribuição mensal das credenciais vigentes pelo mês de vencimento, agrupadas pela categoria regulatória cadastrada no certificado. Permite antecipar picos de reciclagem e planejar turmas com antecedência." data-es="Distribución mensual de las credenciales vigentes por mes de vencimiento, agrupadas por la categoría regulatoria registrada en el certificado. Permite anticipar picos de reciclaje y planificar grupos con antelación.">Distribuição mensal das credenciais vigentes pelo mês de vencimento, agrupadas pela categoria regulatória cadastrada no certificado. Permite antecipar picos de reciclagem e planejar turmas com antecedência.</span></p>
+          <p><span data-pt="Distribuição mensal das credenciais vigentes pelo mês de vencimento, agrupadas pela categoria regulatória cadastrada no programa POK. Permite antecipar picos de reciclagem e planejar turmas com antecedência." data-es="Distribución mensual de las credenciales vigentes por mes de vencimiento, agrupadas por la categoría regulatoria registrada en el programa POK. Permite anticipar picos de reciclaje y planificar grupos con antelación.">Distribuição mensal das credenciais vigentes pelo mês de vencimento, agrupadas pela categoria regulatória cadastrada no programa POK. Permite antecipar picos de reciclagem e planejar turmas com antecedência.</span></p>
         </div>
       </div>
       <div style="position:relative; width:100%; height:280px;">
@@ -880,7 +883,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
             <tr>
               <th><div class="th-inner"><span data-pt="Colaborador" data-es="Colaborador">Colaborador</span></div></th>
               <th><div class="th-inner"><span data-pt="Programa" data-es="Programa">Programa</span> <button class="info-btn" data-tip="Nome do programa POK que emitiu a credencial." data-tip-pt="Nome do programa POK que emitiu a credencial." data-tip-es="Nombre del programa POK que emitió la credencial.">i</button></div></th>
-              <th><div class="th-inner"><span data-pt="Categoria regulatória" data-es="Categoría regulatoria">Categoria regulatória</span> <button class="info-btn" data-tip="Categoria regulatória cadastrada no certificado. Certificados sem categoria não aparecem aqui." data-tip-pt="Categoria regulatória cadastrada no certificado. Certificados sem categoria não aparecem aqui." data-tip-es="Categoría regulatoria registrada en el certificado. Certificados sin categoría no aparecen aquí.">i</button></div></th>
+              <th><div class="th-inner"><span data-pt="Categoria regulatória" data-es="Categoría regulatoria">Categoria regulatória</span> <button class="info-btn" data-tip="Categoria regulatória cadastrada no programa POK. Programas sem categoria não aparecem aqui." data-tip-pt="Categoria regulatória cadastrada no programa POK. Programas sem categoria não aparecem aqui." data-tip-es="Categoría regulatoria registrada en el programa POK. Programas sin categoría no aparecen aquí.">i</button></div></th>
               <th><div class="th-inner"><span data-pt="Status" data-es="Estado">Status</span> <button class="info-btn" data-tip="Conforme: credencial vigente. Vence em breve: vencimento em até 30 dias. Vencido: fora do prazo." data-tip-pt="Conforme: credencial vigente. Vence em breve: vencimento em até 30 dias. Vencido: fora do prazo." data-tip-es="Conforme: credencial vigente. Vence pronto: vencimiento en hasta 30 días. Vencido: fuera de plazo.">i</button></div></th>
               <th><div class="th-inner"><span data-pt="Emitida em" data-es="Emitida el">Emitida em</span></div></th>
               <th><div class="th-inner"><span data-pt="Validade" data-es="Validez">Validade</span></div></th>
@@ -947,6 +950,17 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
       </div>
     </div>
 
+    <!-- Box informativo: integração com HRIS abre nova camada de visibilidade -->
+    <div class="hris-callout">
+      <div class="hris-callout-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+      </div>
+      <div class="hris-callout-content">
+        <div class="hris-callout-title"><span data-pt="Quer ver cobertura da população obrigada e gaps por área?" data-es="¿Quiere ver cobertura de la población obligada y brechas por área?">Quer ver cobertura da população obrigada e gaps por área?</span></div>
+        <div class="hris-callout-desc"><span data-pt="Conectando o HRIS da sua empresa (SuccessFactors, Workday, TOTVS, Senior, Sankhya e outros), o dashboard passa a mostrar também: cobertura por área, identificação de pendentes, mapas de risco regulatório por departamento e relatórios de auditoria automatizados." data-es="Al conectar el HRIS de su empresa (SuccessFactors, Workday, TOTVS, Senior, Sankhya y otros), el dashboard pasa a mostrar también: cobertura por área, identificación de pendientes, mapas de riesgo regulatorio por departamento e informes de auditoría automatizados.">Conectando o HRIS da sua empresa (SuccessFactors, Workday, TOTVS, Senior, Sankhya e outros), o dashboard passa a mostrar também: cobertura por área, identificação de pendentes, mapas de risco regulatório por departamento e relatórios de auditoria automatizados.</span></div>
+        <button class="hris-callout-cta"><span data-pt="Falar sobre integração HRIS" data-es="Hablar sobre integración HRIS">Falar sobre integração HRIS</span> →</button>
+      </div>
+    </div>
 
     </section>
 
@@ -975,7 +989,7 @@ function setZone(zone) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// ─── DEV CHART (skills internalizadas – antes/depois) ─────────────────────────
+// ─── DEV CHART (skills internalizadas — antes/depois) ─────────────────────────
 const pastLabels = ['-12m', '-10m', '-8m', '-6m', '-4m', '-2m'];
 const futureLabels = ['+2m', '+4m', '+6m', '+8m', '+10m', '+12m'];
 const allLabels = [...pastLabels, 'Credencial', ...futureLabels];
@@ -1240,7 +1254,7 @@ document.addEventListener('mouseout', (e) => {
   garrow.style.display = 'none';
 });
 
-// initial render – gráficos inicializam ao trocar de aba via setZone()
+// initial render — gráficos inicializam ao trocar de aba via setZone()
 // (a aba inicial é "overview", que não tem gráficos)
 </script>
 
@@ -1273,7 +1287,7 @@ function setLang(lang) {
   <div class="drawer-head">
     <div class="drawer-head-top">
       <div>
-        <div class="drawer-name" id="drawerNameCorp">–</div>
+        <div class="drawer-name" id="drawerNameCorp">—</div>
         <div class="drawer-meta">
           <span class="drawer-meta-item">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -1291,9 +1305,9 @@ function setLang(lang) {
     </div>
     <div class="drawer-cert-badge">
       <span class="dot"></span>
-      <span id="drawerCertNameCorp">–</span>
+      <span id="drawerCertNameCorp">—</span>
       <span style="color:var(--ink-faint); font-weight:400;"><span data-pt="· compartilhado em" data-es="· compartido el">· compartilhado em</span></span>
-      <span id="drawerCertDateCorp">–</span>
+      <span id="drawerCertDateCorp">—</span>
     </div>
   </div>
 
@@ -1305,7 +1319,7 @@ function setLang(lang) {
       <div style="position:relative; height:160px; margin-bottom:4px;">
         <canvas id="drawerChartCorp"></canvas>
       </div>
-      <p style="font-size:11px; color:var(--ink-faint); line-height:1.5; margin-top:6px;"><span data-pt="Eventos acumulados deste portador – antes e após o compartilhamento da credencial. Eixo X: anual antes, bimestral depois." data-es="Eventos acumulados de este portador – antes y después del compartir de la credencial. Eje X: anual antes, bimestral después.">Eventos acumulados deste portador – antes e após o compartilhamento da credencial. Eixo X: anual antes, bimestral depois.</span></p>
+      <p style="font-size:11px; color:var(--ink-faint); line-height:1.5; margin-top:6px;"><span data-pt="Eventos acumulados deste portador — antes e após o compartilhamento da credencial. Eixo X: anual antes, bimestral depois." data-es="Eventos acumulados de este portador — antes y después del compartir de la credencial. Eje X: anual antes, bimestral después.">Eventos acumulados deste portador — antes e após o compartilhamento da credencial. Eixo X: anual antes, bimestral depois.</span></p>
     </div>
 
     <!-- TRAJETÓRIA PROFISSIONAL -->
@@ -1315,7 +1329,7 @@ function setLang(lang) {
         <div class="tl-item">
           <div class="tl-dot before"></div>
           <div class="tl-card">
-            <div class="tl-card-period"><span data-pt="Antes do certificado" data-es="Antes del certificado">Antes do certificado</span> · Mar 2018 – Jul 2020</div>
+            <div class="tl-card-period"><span data-pt="Antes do certificado" data-es="Antes del certificado">Antes do certificado</span> · Mar 2018 — Jul 2020</div>
             <div class="tl-card-title">Analista de Operações</div>
             <div class="tl-card-sub">Empresa Alpha · São Paulo, SP</div>
             <span class="tl-card-type type-full">Full-time</span>
@@ -1324,7 +1338,7 @@ function setLang(lang) {
         <div class="tl-item">
           <div class="tl-dot before"></div>
           <div class="tl-card">
-            <div class="tl-card-period">Ago 2020 – Set 2025 · <span data-pt="Antes do certificado" data-es="Antes del certificado">Antes do certificado</span></div>
+            <div class="tl-card-period">Ago 2020 — Set 2025 · <span data-pt="Antes do certificado" data-es="Antes del certificado">Antes do certificado</span></div>
             <div class="tl-card-title">Analista Pleno de Operações</div>
             <div class="tl-card-sub">Empresa Atual · São Paulo, SP</div>
             <span class="tl-card-type type-full">Full-time · On-site</span>
@@ -1341,7 +1355,7 @@ function setLang(lang) {
         <div class="tl-item">
           <div class="tl-dot after"></div>
           <div class="tl-card after-cert">
-            <div class="tl-card-period">Nov 2025 – <span data-pt="Presente" data-es="Presente">Presente</span> · <span data-pt="Após o certificado" data-es="Después del certificado">Após o certificado</span></div>
+            <div class="tl-card-period">Nov 2025 — <span data-pt="Presente" data-es="Presente">Presente</span> · <span data-pt="Após o certificado" data-es="Después del certificado">Após o certificado</span></div>
             <div class="tl-card-title">Coordenador de Operações</div>
             <div class="tl-card-sub">Empresa Atual · São Paulo, SP</div>
             <span class="tl-card-type type-full">Full-time · On-site</span>
@@ -1358,7 +1372,7 @@ function setLang(lang) {
         <div class="edu-body">
           <div class="edu-degree">MBA em Gestão de Projetos</div>
           <div class="edu-school">FGV</div>
-          <div class="edu-period">Jan 2020 – Dez 2021</div>
+          <div class="edu-period">Jan 2020 — Dez 2021</div>
         </div>
       </div>
       <div class="edu-item">
@@ -1366,7 +1380,7 @@ function setLang(lang) {
         <div class="edu-body">
           <div class="edu-degree"><span data-pt="Bacharel em Administração" data-es="Bachiller en Administración">Bacharel em Administração</span></div>
           <div class="edu-school">USP</div>
-          <div class="edu-period">Fev 2014 – Dez 2017</div>
+          <div class="edu-period">Fev 2014 — Dez 2017</div>
         </div>
       </div>
     </div>
@@ -1423,9 +1437,9 @@ function renderTableCorp(data) {
     <td class="td-muted">${r.date}</td>
     <td class="td-muted">${r.program}</td>
     <td><span style="font-weight:600;">${r.name}</span></td>
-    <td>${r.cargo ? `<span style="font-weight:500;">${r.cargo}</span><br><span class="td-muted">${r.empresa}</span>` : '<span class="td-muted">–</span>'}</td>
+    <td>${r.cargo ? `<span style="font-weight:500;">${r.cargo}</span><br><span class="td-muted">${r.empresa}</span>` : '<span class="td-muted">—</span>'}</td>
     <td>${badgeCorp(r.impact)}</td>
-    <td>${r.dias ? `<span style="font-weight:700;">${r.dias}</span> <span class="td-muted">${diasLabel}</span>` : '<span class="td-muted">–</span>'}</td>
+    <td>${r.dias ? `<span style="font-weight:700;">${r.dias}</span> <span class="td-muted">${diasLabel}</span>` : '<span class="td-muted">—</span>'}</td>
     <td><div class="social-icons">
       <div class="social-btn ${r.shared ? 'active' : ''}" title="${r.shared ? 'Post compartilhado no LinkedIn' : 'Sem post detectado'}">
         <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
