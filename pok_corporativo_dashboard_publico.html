@@ -74,7 +74,7 @@ body { font-family: 'Poppins', sans-serif; background: var(--purple-faint); colo
 .section-label .accent.green { background: var(--green); }
 .section-label .accent.purple { background: var(--purple); }
 
-/* ZONE HEADERS — visual marker for switching context */
+/* ZONE HEADERS – visual marker for switching context */
 .zone-header { margin-bottom: 28px; padding: 24px 28px; border-radius: var(--radius-lg); position: relative; overflow: hidden; }
 .zone-header.dev { background: linear-gradient(135deg, var(--crimson-light) 0%, #F0F7FF 100%); border: 1px solid #BFDBFE; }
 .zone-header.com { background: linear-gradient(135deg, var(--green-light) 0%, #f4faf7 100%); border: 1px solid #c5e4d6; }
@@ -230,7 +230,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
 .zone-section { display: none; }
 .zone-section.active { display: block; }
 
-/* HRIS CALLOUT — convite para integração que destrava a visão de cobertura */
+/* HRIS CALLOUT – convite para integração que destrava a visão de cobertura */
 .hris-callout { background: linear-gradient(135deg, var(--purple-faint) 0%, #f4faf7 100%); border: 1px dashed var(--border); border-radius: var(--radius-lg); padding: 24px 28px; margin-bottom: 24px; display: flex; align-items: flex-start; gap: 18px; }
 .hris-callout-icon { width: 44px; height: 44px; border-radius: 50%; background: var(--white); border: 2px solid var(--purple); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--purple); }
 .hris-callout-icon svg { width: 22px; height: 22px; }
@@ -240,7 +240,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
 .hris-callout-cta { font-family: 'Poppins', sans-serif; font-size: 12px; font-weight: 700; color: var(--purple); background: var(--white); border: 1.5px solid var(--purple); border-radius: 99px; padding: 8px 18px; cursor: pointer; transition: all 0.18s; }
 .hris-callout-cta:hover { background: var(--purple); color: var(--white); }
 
-/* VISION CARDS — &quot;O que esta visão entrega&quot;: dois cards independentes e clicáveis */
+/* VISION CARDS – &quot;O que esta visão entrega&quot;: dois cards independentes e clicáveis */
 .vision-cards-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
 .vision-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px 28px 24px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; position: relative; overflow: hidden; display: flex; flex-direction: column; }
 .vision-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; }
@@ -269,7 +269,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
 .vision-card-dev .vision-card-cta { color: var(--gold-dark); }
 .vision-card-com .vision-card-cta { color: var(--green-dark); }
 
-/* OVERVIEW BLOCKS — dois grupos visualmente separados na Visão Geral */
+/* OVERVIEW BLOCKS – dois grupos visualmente separados na Visão Geral */
 .overview-blocks { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 32px; }
 .overview-block { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; position: relative; overflow: hidden; }
 .overview-block::before { content: ''; position: absolute; left: 0; top: 0; right: 0; height: 4px; }
@@ -317,7 +317,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
   .table-card .table-scroll, .area-table-wrap { overflow-x: auto !important; -webkit-overflow-scrolling: touch; }
   table { min-width: 720px; }
   .area-table-wrap table { min-width: 640px; }
-  /* Filters bar — distribuição mais equilibrada */
+  /* Filters bar – distribuição mais equilibrada */
   .filters-bar > div { flex: 1 1 calc(50% - 8px); min-width: 0; }
   .filters-bar > div .filter-select,
   .filters-bar > div .date-btn { flex: 1; min-width: 0; }
@@ -381,7 +381,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
   .alert-banner-action { align-self: flex-start; }
   .alert-banner-title { font-size: 13px; }
   .alert-banner-desc { font-size: 11px; }
-  /* Section labels — esconder a linha decorativa em mobile, fica feia */
+  /* Section labels – esconder a linha decorativa em mobile, fica feia */
   .section-label::after { display: none; }
   .section-label { margin-bottom: 10px; }
   /* Vision cards em mobile */
@@ -402,7 +402,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
   .chart-card > div:last-child { flex-direction: column !important; gap: 6px !important; align-items: flex-start !important; }
 }
 
-/* Mobile pequeno (até 380px) — iPhone SE etc. */
+/* Mobile pequeno (até 380px) – iPhone SE etc. */
 @media (max-width: 380px) {
   .kpi-grid, .overview-grid { grid-template-columns: 1fr; }
   .overview-block-cards { grid-template-columns: 1fr; }
@@ -661,7 +661,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
       </div>
       <div class="nr-callout-content">
         <div class="nr-callout-title"><span data-pt="Gestão de NRs: do PDF frágil à credencial verificável" data-es="Gestión de NRs: del PDF frágil a la credencial verificable">Gestão de NRs: do PDF frágil à credencial verificável</span></div>
-        <div class="nr-callout-desc"><span data-pt="Toda Norma Regulamentadora exige comprovante de capacitação. A POK substitui o PDF tradicional por credenciais em blockchain, com prova auditável de que o treinamento aconteceu, gestão de validade e fluxo de renovação — tudo integrado à categoria regulatória Segurança e Saúde do Trabalho." data-es="Toda Norma Regulatoria exige comprobante de capacitación. POK sustituye el PDF tradicional por credenciales en blockchain, con prueba auditable de que la capacitación ocurrió, gestión de validez y flujo de renovación — todo integrado a la categoría regulatoria Seguridad y Salud Laboral.">Toda Norma Regulamentadora exige comprovante de capacitação. A POK substitui o PDF tradicional por credenciais em blockchain, com prova auditável de que o treinamento aconteceu, gestão de validade e fluxo de renovação — tudo integrado à categoria regulatória Segurança e Saúde do Trabalho.</span></div>
+        <div class="nr-callout-desc"><span data-pt="Toda Norma Regulamentadora exige comprovante de capacitação. A POK substitui o PDF tradicional por credenciais em blockchain, com prova auditável de que o treinamento aconteceu, gestão de validade e fluxo de renovação – tudo integrado à categoria regulatória Segurança e Saúde do Trabalho." data-es="Toda Norma Regulatoria exige comprobante de capacitación. POK sustituye el PDF tradicional por credenciales en blockchain, con prueba auditable de que la capacitación ocurrió, gestión de validez y flujo de renovación – todo integrado a la categoría regulatoria Seguridad y Salud Laboral.">Toda Norma Regulamentadora exige comprovante de capacitação. A POK substitui o PDF tradicional por credenciais em blockchain, com prova auditável de que o treinamento aconteceu, gestão de validade e fluxo de renovação – tudo integrado à categoria regulatória Segurança e Saúde do Trabalho.</span></div>
         <div class="nr-callout-tags">
           <span class="nr-callout-tag">NR-1</span>
           <span class="nr-callout-tag">NR-10</span>
@@ -672,7 +672,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
         </div>
         <div class="nr-callout-temporal">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          <span><span data-pt="A <strong>NR-1 atualizada</strong> entra em vigor pleno em 26 de maio de 2026, com PGR ampliado para incluir riscos psicossociais — aquecendo a demanda por gestão estruturada de credenciais regulatórias." data-es="La <strong>NR-1 actualizada</strong> entra en vigor pleno el 26 de mayo de 2026, con PGR ampliado para incluir riesgos psicosociales — calentando la demanda por gestión estructurada de credenciales regulatorias.">A <strong>NR-1 atualizada</strong> entra em vigor pleno em 26 de maio de 2026, com PGR ampliado para incluir riscos psicossociais — aquecendo a demanda por gestão estruturada de credenciais regulatórias.</span></span>
+          <span><span data-pt="A <strong>NR-1 atualizada</strong> entra em vigor pleno em 26 de maio de 2026, com PGR ampliado para incluir riscos psicossociais – aquecendo a demanda por gestão estruturada de credenciais regulatórias." data-es="La <strong>NR-1 actualizada</strong> entra en vigor pleno el 26 de mayo de 2026, con PGR ampliado para incluir riesgos psicosociales – calentando la demanda por gestión estructurada de credenciales regulatorias.">A <strong>NR-1 atualizada</strong> entra em vigor pleno em 26 de maio de 2026, com PGR ampliado para incluir riscos psicossociais – aquecendo a demanda por gestão estruturada de credenciais regulatórias.</span></span>
         </div>
       </div>
     </div>
@@ -694,7 +694,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
     <div class="section-label"><span class="accent gold"></span> <span data-pt="Funil de desenvolvimento" data-es="Embudo de desarrollo">Funil de desenvolvimento</span></div>
     <div class="funnel-card">
       <h3><span data-pt="Da credencial à evidência de desenvolvimento" data-es="De la credencial a la evidencia de desarrollo">Da credencial à evidência de desenvolvimento</span></h3>
-      <p><span data-pt="Cada etapa mostra quantos portadores de certificados avançaram no processo — do compartilhamento inicial até a mudança de carreira detectada no perfil." data-es="Cada etapa muestra cuántos portadores de certificados avanzaron en el proceso — desde el compartir inicial hasta el cambio de carrera detectado en el perfil.">Cada etapa mostra quantos portadores de certificados avançaram no processo — do compartilhamento inicial até a mudança de carreira detectada no perfil.</span></p>
+      <p><span data-pt="Cada etapa mostra quantos portadores de certificados avançaram no processo – do compartilhamento inicial até a mudança de carreira detectada no perfil." data-es="Cada etapa muestra cuántos portadores de certificados avanzaron en el proceso – desde el compartir inicial hasta el cambio de carrera detectado en el perfil.">Cada etapa mostra quantos portadores de certificados avançaram no processo – do compartilhamento inicial até a mudança de carreira detectada no perfil.</span></p>
       <div class="funnel-steps">
         <div class="funnel-step"><div class="funnel-bar" style="background:#3a1878;">312</div><div class="funnel-step-label"><span data-pt="Credenciais&lt;br&gt;emitidas" data-es="Credenciales&lt;br&gt;emitidas">Credenciais<br>emitidas</span></div><div class="funnel-step-pct">100%</div></div>
         <div class="funnel-arrow">›</div>
@@ -712,7 +712,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
 
     <!-- KPIs -->
     <div class="section-label"><span class="accent gold"></span> <span data-pt="Métricas-chave de desenvolvimento" data-es="Métricas clave de desarrollo">Métricas-chave de desenvolvimento</span></div>
-    <p style="font-size:11px; color:var(--ink-muted); margin:-8px 0 14px 0; line-height:1.5; padding:8px 14px; background:var(--purple-faint); border-left:3px solid var(--purple-light); border-radius:4px;"><span data-pt="Métricas calculadas sobre os portadores que compartilharam a credencial no LinkedIn — único caminho pelo qual a POK conecta a credencial ao perfil profissional do colaborador." data-es="Métricas calculadas sobre los portadores que compartieron la credencial en LinkedIn — único camino por el cual POK conecta la credencial al perfil profesional del colaborador.">Métricas calculadas sobre os portadores que compartilharam a credencial no LinkedIn — único caminho pelo qual a POK conecta a credencial ao perfil profissional do colaborador.</span></p>
+    <p style="font-size:11px; color:var(--ink-muted); margin:-8px 0 14px 0; line-height:1.5; padding:8px 14px; background:var(--purple-faint); border-left:3px solid var(--purple-light); border-radius:4px;"><span data-pt="Métricas calculadas sobre os portadores que compartilharam a credencial no LinkedIn – único caminho pelo qual a POK conecta a credencial ao perfil profissional do colaborador." data-es="Métricas calculadas sobre los portadores que compartieron la credencial en LinkedIn – único camino por el cual POK conecta la credencial al perfil profesional del colaborador.">Métricas calculadas sobre os portadores que compartilharam a credencial no LinkedIn – único caminho pelo qual a POK conecta a credencial ao perfil profissional do colaborador.</span></p>
     <div class="kpi-grid kpi-grid-3">
       <div class="kpi-card highlight-dev">
         <div class="kpi-value gold">54%</div>
@@ -736,8 +736,8 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
     <div class="chart-card">
       <div class="chart-card-header">
         <div>
-          <h3><span data-pt="Trajetória agregada — eventos acumulados" data-es="Trayectoria agregada — eventos acumulados">Trajetória agregada — eventos acumulados</span></h3>
-          <p><span data-pt="Média de eventos acumulados pelos portadores de acordo com o filtro selecionado — cada novo vínculo profissional registrado no LinkedIn (mudança de cargo na mesma empresa ou mudança de empresa) conta como um evento. À esquerda do marco: dados históricos anteriores ao compartilhamento da credencial. À direita: evolução registrada após o compartilhamento, com leituras bimestrais." data-es="Promedio de eventos acumulados por los portadores de acuerdo con el filtro seleccionado — cada nuevo vínculo profesional registrado en LinkedIn (cambio de cargo en la misma empresa o cambio de empresa) cuenta como un evento. A la izquierda del hito: datos históricos anteriores al compartir de la credencial. A la derecha: evolución registrada después del compartir, con lecturas bimestrales.">Média de eventos acumulados pelos portadores de acordo com o filtro selecionado — cada novo vínculo profissional registrado no LinkedIn (mudança de cargo na mesma empresa ou mudança de empresa) conta como um evento. À esquerda do marco: dados históricos anteriores ao compartilhamento da credencial. À direita: evolução registrada após o compartilhamento, com leituras bimestrais.</span></p>
+          <h3><span data-pt="Trajetória agregada – eventos acumulados" data-es="Trayectoria agregada – eventos acumulados">Trajetória agregada – eventos acumulados</span></h3>
+          <p><span data-pt="Média de eventos acumulados pelos portadores de acordo com o filtro selecionado – cada novo vínculo profissional registrado no LinkedIn (mudança de cargo na mesma empresa ou mudança de empresa) conta como um evento. À esquerda do marco: dados históricos anteriores ao compartilhamento da credencial. À direita: evolução registrada após o compartilhamento, com leituras bimestrais." data-es="Promedio de eventos acumulados por los portadores de acuerdo con el filtro seleccionado – cada nuevo vínculo profesional registrado en LinkedIn (cambio de cargo en la misma empresa o cambio de empresa) cuenta como un evento. A la izquierda del hito: datos históricos anteriores al compartir de la credencial. A la derecha: evolución registrada después del compartir, con lecturas bimestrales.">Média de eventos acumulados pelos portadores de acordo com o filtro selecionado – cada novo vínculo profissional registrado no LinkedIn (mudança de cargo na mesma empresa ou mudança de empresa) conta como um evento. À esquerda do marco: dados históricos anteriores ao compartilhamento da credencial. À direita: evolução registrada após o compartilhamento, com leituras bimestrais.</span></p>
         </div>
       </div>
       <div class="chart-zone-labels">
@@ -839,12 +839,12 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
         <div class="audit-callout-value">100%</div>
         <div class="audit-callout-text">
           <div class="audit-callout-title"><span data-pt="Auditabilidade blockchain" data-es="Auditabilidad blockchain">Auditabilidade blockchain</span></div>
-          <div class="audit-callout-desc"><span data-pt="Todas as credenciais POK são registradas em blockchain com prova criptográfica de integridade — verificáveis publicamente, sem dependência da plataforma." data-es="Todas las credenciales POK se registran en blockchain con prueba criptográfica de integridad — verificables públicamente, sin dependencia de la plataforma.">Todas as credenciais POK são registradas em blockchain com prova criptográfica de integridade — verificáveis publicamente, sem dependência da plataforma.</span></div>
+          <div class="audit-callout-desc"><span data-pt="Todas as credenciais POK são registradas em blockchain com prova criptográfica de integridade – verificáveis publicamente, sem dependência da plataforma." data-es="Todas las credenciales POK se registran en blockchain con prueba criptográfica de integridad – verificables públicamente, sin dependencia de la plataforma.">Todas as credenciais POK são registradas em blockchain com prova criptográfica de integridade – verificáveis publicamente, sem dependência da plataforma.</span></div>
         </div>
       </div>
     </div>
 
-    <!-- Gráfico — distribuição de vencimentos nos próximos 12 meses (projeção, não histórico) -->
+    <!-- Gráfico – distribuição de vencimentos nos próximos 12 meses (projeção, não histórico) -->
     <div class="section-label"><span class="accent green"></span> <span data-pt="Linha do tempo de vencimentos" data-es="Línea de tiempo de vencimientos">Linha do tempo de vencimentos</span></div>
     <div class="chart-card">
       <div class="chart-card-header">
@@ -967,11 +967,6 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
 </main>
 
 <footer class="site-footer">
-  <div class="footer-logo">
-    <div class="footer-logo-icon">
-      <svg viewBox="0 0 18 18" fill="none" width="16" height="16"><rect x="1" y="1" width="16" height="16" rx="3" stroke="#5123a4" stroke-width="2"/><polyline points="4,9 7.5,13 14,5" stroke="#5123a4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </div>
-    <span class="footer-logo-text">pok</span>
   </div>
   <p>Muito mais que certificados digitais · <a href="https://pok.tech" target="_blank" style="color:var(--purple);font-weight:600;text-decoration:none;">pok.tech</a></p>
 </footer>
@@ -989,7 +984,7 @@ function setZone(zone) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// ─── DEV CHART (skills internalizadas — antes/depois) ─────────────────────────
+// ─── DEV CHART (skills internalizadas – antes/depois) ─────────────────────────
 const pastLabels = ['-12m', '-10m', '-8m', '-6m', '-4m', '-2m'];
 const futureLabels = ['+2m', '+4m', '+6m', '+8m', '+10m', '+12m'];
 const allLabels = [...pastLabels, 'Credencial', ...futureLabels];
@@ -1254,7 +1249,7 @@ document.addEventListener('mouseout', (e) => {
   garrow.style.display = 'none';
 });
 
-// initial render — gráficos inicializam ao trocar de aba via setZone()
+// initial render – gráficos inicializam ao trocar de aba via setZone()
 // (a aba inicial é "overview", que não tem gráficos)
 </script>
 
@@ -1287,7 +1282,7 @@ function setLang(lang) {
   <div class="drawer-head">
     <div class="drawer-head-top">
       <div>
-        <div class="drawer-name" id="drawerNameCorp">—</div>
+        <div class="drawer-name" id="drawerNameCorp">–</div>
         <div class="drawer-meta">
           <span class="drawer-meta-item">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -1305,9 +1300,9 @@ function setLang(lang) {
     </div>
     <div class="drawer-cert-badge">
       <span class="dot"></span>
-      <span id="drawerCertNameCorp">—</span>
+      <span id="drawerCertNameCorp">–</span>
       <span style="color:var(--ink-faint); font-weight:400;"><span data-pt="· compartilhado em" data-es="· compartido el">· compartilhado em</span></span>
-      <span id="drawerCertDateCorp">—</span>
+      <span id="drawerCertDateCorp">–</span>
     </div>
   </div>
 
@@ -1319,7 +1314,7 @@ function setLang(lang) {
       <div style="position:relative; height:160px; margin-bottom:4px;">
         <canvas id="drawerChartCorp"></canvas>
       </div>
-      <p style="font-size:11px; color:var(--ink-faint); line-height:1.5; margin-top:6px;"><span data-pt="Eventos acumulados deste portador — antes e após o compartilhamento da credencial. Eixo X: anual antes, bimestral depois." data-es="Eventos acumulados de este portador — antes y después del compartir de la credencial. Eje X: anual antes, bimestral después.">Eventos acumulados deste portador — antes e após o compartilhamento da credencial. Eixo X: anual antes, bimestral depois.</span></p>
+      <p style="font-size:11px; color:var(--ink-faint); line-height:1.5; margin-top:6px;"><span data-pt="Eventos acumulados deste portador – antes e após o compartilhamento da credencial. Eixo X: anual antes, bimestral depois." data-es="Eventos acumulados de este portador – antes y después del compartir de la credencial. Eje X: anual antes, bimestral después.">Eventos acumulados deste portador – antes e após o compartilhamento da credencial. Eixo X: anual antes, bimestral depois.</span></p>
     </div>
 
     <!-- TRAJETÓRIA PROFISSIONAL -->
@@ -1329,7 +1324,7 @@ function setLang(lang) {
         <div class="tl-item">
           <div class="tl-dot before"></div>
           <div class="tl-card">
-            <div class="tl-card-period"><span data-pt="Antes do certificado" data-es="Antes del certificado">Antes do certificado</span> · Mar 2018 — Jul 2020</div>
+            <div class="tl-card-period"><span data-pt="Antes do certificado" data-es="Antes del certificado">Antes do certificado</span> · Mar 2018 – Jul 2020</div>
             <div class="tl-card-title">Analista de Operações</div>
             <div class="tl-card-sub">Empresa Alpha · São Paulo, SP</div>
             <span class="tl-card-type type-full">Full-time</span>
@@ -1338,7 +1333,7 @@ function setLang(lang) {
         <div class="tl-item">
           <div class="tl-dot before"></div>
           <div class="tl-card">
-            <div class="tl-card-period">Ago 2020 — Set 2025 · <span data-pt="Antes do certificado" data-es="Antes del certificado">Antes do certificado</span></div>
+            <div class="tl-card-period">Ago 2020 – Set 2025 · <span data-pt="Antes do certificado" data-es="Antes del certificado">Antes do certificado</span></div>
             <div class="tl-card-title">Analista Pleno de Operações</div>
             <div class="tl-card-sub">Empresa Atual · São Paulo, SP</div>
             <span class="tl-card-type type-full">Full-time · On-site</span>
@@ -1355,7 +1350,7 @@ function setLang(lang) {
         <div class="tl-item">
           <div class="tl-dot after"></div>
           <div class="tl-card after-cert">
-            <div class="tl-card-period">Nov 2025 — <span data-pt="Presente" data-es="Presente">Presente</span> · <span data-pt="Após o certificado" data-es="Después del certificado">Após o certificado</span></div>
+            <div class="tl-card-period">Nov 2025 – <span data-pt="Presente" data-es="Presente">Presente</span> · <span data-pt="Após o certificado" data-es="Después del certificado">Após o certificado</span></div>
             <div class="tl-card-title">Coordenador de Operações</div>
             <div class="tl-card-sub">Empresa Atual · São Paulo, SP</div>
             <span class="tl-card-type type-full">Full-time · On-site</span>
@@ -1372,7 +1367,7 @@ function setLang(lang) {
         <div class="edu-body">
           <div class="edu-degree">MBA em Gestão de Projetos</div>
           <div class="edu-school">FGV</div>
-          <div class="edu-period">Jan 2020 — Dez 2021</div>
+          <div class="edu-period">Jan 2020 – Dez 2021</div>
         </div>
       </div>
       <div class="edu-item">
@@ -1380,7 +1375,7 @@ function setLang(lang) {
         <div class="edu-body">
           <div class="edu-degree"><span data-pt="Bacharel em Administração" data-es="Bachiller en Administración">Bacharel em Administração</span></div>
           <div class="edu-school">USP</div>
-          <div class="edu-period">Fev 2014 — Dez 2017</div>
+          <div class="edu-period">Fev 2014 – Dez 2017</div>
         </div>
       </div>
     </div>
@@ -1437,9 +1432,9 @@ function renderTableCorp(data) {
     <td class="td-muted">${r.date}</td>
     <td class="td-muted">${r.program}</td>
     <td><span style="font-weight:600;">${r.name}</span></td>
-    <td>${r.cargo ? `<span style="font-weight:500;">${r.cargo}</span><br><span class="td-muted">${r.empresa}</span>` : '<span class="td-muted">—</span>'}</td>
+    <td>${r.cargo ? `<span style="font-weight:500;">${r.cargo}</span><br><span class="td-muted">${r.empresa}</span>` : '<span class="td-muted">–</span>'}</td>
     <td>${badgeCorp(r.impact)}</td>
-    <td>${r.dias ? `<span style="font-weight:700;">${r.dias}</span> <span class="td-muted">${diasLabel}</span>` : '<span class="td-muted">—</span>'}</td>
+    <td>${r.dias ? `<span style="font-weight:700;">${r.dias}</span> <span class="td-muted">${diasLabel}</span>` : '<span class="td-muted">–</span>'}</td>
     <td><div class="social-icons">
       <div class="social-btn ${r.shared ? 'active' : ''}" title="${r.shared ? 'Post compartilhado no LinkedIn' : 'Sem post detectado'}">
         <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
