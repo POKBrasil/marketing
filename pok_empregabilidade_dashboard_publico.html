@@ -12,7 +12,7 @@
   --purple-dark: #3a1878;
   --purple-light: #e4dcf7;
   --purple-faint: #F3EFF9;
-  --ink: #1E1230;
+  --ink: #000000;
   --ink-muted: #5E4E7A;
   --ink-faint: #A899C2;
   --border: #D8CEF0;
@@ -26,19 +26,19 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Poppins', sans-serif; background: var(--purple-faint); color: var(--ink); min-height: 100vh; }
 
-.hero { background: var(--purple-dark); padding: 44px 64px 36px; position: relative; overflow: hidden; }
+.hero { background: var(--purple-dark); padding: 44px 64px 16px; position: relative; overflow: hidden; }
 .hero::before { content: ''; position: absolute; top: -80px; right: -80px; width: 340px; height: 340px; border-radius: 50%; background: rgba(123,79,207,0.25); pointer-events: none; }
 .hero::after { content: ''; position: absolute; bottom: -100px; left: 20%; width: 240px; height: 240px; border-radius: 50%; background: rgba(255,255,255,0.04); pointer-events: none; }
 .hero-inner { max-width: 960px; position: relative; z-index: 1; }
 .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,214,0,0.15); border: 1px solid rgba(255,214,0,0.35); border-radius: 99px; padding: 5px 14px; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #FFD600; margin-bottom: 14px; }
 .hero-eyebrow span { width: 6px; height: 6px; border-radius: 50%; background: #FFD600; display: inline-block; }
-.hero-title { font-size: clamp(20px, 2.8vw, 32px); font-weight: 900; line-height: 1.15; color: #fff; letter-spacing: -0.02em; margin-bottom: 10px; }
-.hero-subtitle { font-size: 13px; color: #ffffff; line-height: 1.7; max-width: 580px; font-weight: 400; }
+.hero-title { font-size: clamp(20px, 2.4vw, 32px); white-space: nowrap; font-weight: 900; line-height: 1.15; color: #fff; letter-spacing: -0.02em; margin-bottom: 10px; }
+.hero-subtitle { font-size: 13px; color: #ffffff; line-height: 1.7; font-weight: 400; }
 
-.filters-bar { background: var(--white); border-bottom: 1px solid var(--border); padding: 14px 64px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-.filter-select { font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 500; padding: 8px 32px 8px 14px; border: 1.5px solid var(--border); border-radius: 99px; background: var(--white); color: var(--ink); cursor: pointer; outline: none; appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235123a4' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; transition: border-color 0.15s; }
+.filters-bar { background: var(--white); border-bottom: none; border-top: none; padding: 20px 64px; display: flex; align-items: center; gap: 8px; flex-wrap: nowrap; }
+.filter-select { font-family: 'Poppins', sans-serif; font-size: 12px; font-weight: 500; padding: 6px 26px 6px 11px; border: 1.5px solid var(--border); border-radius: 99px; background: var(--white); color: var(--ink); cursor: pointer; outline: none; appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235123a4' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; transition: border-color 0.15s; }
 .filter-select:hover { border-color: var(--purple); }
-.date-btn { font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 500; padding: 8px 16px; border: 1.5px solid var(--border); border-radius: 99px; background: var(--white); color: var(--ink); cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: border-color 0.15s; }
+.date-btn { font-family: 'Poppins', sans-serif; font-size: 12px; font-weight: 500; padding: 6px 12px; border: 1.5px solid var(--border); border-radius: 99px; background: var(--white); color: var(--ink); cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: border-color 0.15s; }
 .date-btn:hover { border-color: var(--purple); }
 .date-btn svg { width: 15px; height: 15px; color: var(--purple); flex-shrink: 0; }
 
@@ -54,7 +54,7 @@ body { font-family: 'Poppins', sans-serif; background: var(--purple-faint); colo
 .funnel-steps { display: flex; align-items: center; }
 .funnel-step { flex: 1; text-align: center; }
 .funnel-bar { height: 52px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 700; border-radius: var(--radius-md); margin: 0 3px; color: #fff; }
-.funnel-step-label { font-size: 10px; color: var(--ink-muted); margin-top: 8px; line-height: 1.4; font-weight: 500; }
+.funnel-step-label { font-size: 10px; color: var(--ink); margin-top: 8px; line-height: 1.4; font-weight: 500; }
 .funnel-step-pct { font-size: 10px; color: var(--ink-faint); margin-top: 3px; font-weight: 600; }
 .funnel-arrow { color: var(--ink-faint); font-size: 16px; flex-shrink: 0; padding: 0 2px 30px; }
 
@@ -64,7 +64,7 @@ body { font-family: 'Poppins', sans-serif; background: var(--purple-faint); colo
 .kpi-card.highlight { border-left: 4px solid var(--purple); }
 .kpi-value { font-size: 30px; font-weight: 800; color: var(--ink); line-height: 1; margin-bottom: 6px; }
 .kpi-value.purple { color: var(--purple); }
-.kpi-label { font-size: 12px; color: var(--ink-muted); line-height: 1.4; font-weight: 500; padding-right: 24px; }
+.kpi-label { font-size: 12px; color: var(--ink); line-height: 1.4; font-weight: 500; padding-right: 24px; }
 
 /* CHART CARD */
 .chart-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px 32px; margin-bottom: 24px; }
@@ -84,25 +84,26 @@ body { font-family: 'Poppins', sans-serif; background: var(--purple-faint); colo
 /* TABLE */
 .table-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); }
 .table-toolbar { display: flex; align-items: center; gap: 10px; padding: 16px 20px; border-bottom: 1px solid var(--border); flex-wrap: wrap; background: var(--purple-faint); border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
-.table-toolbar input { font-family: 'Poppins', sans-serif; font-size: 13px; padding: 8px 14px; border: 1.5px solid var(--border); border-radius: 99px; background: var(--white); color: var(--ink); outline: none; flex: 1; min-width: 160px; }
+.table-toolbar input { font-family: 'Poppins', sans-serif; font-size: 12px; padding: 6px 12px; border: 1.5px solid var(--border); border-radius: 99px; background: var(--white); color: var(--ink); outline: none; flex: 1; min-width: 160px; }
 .table-toolbar input:focus { border-color: var(--purple); }
-.table-toolbar select { font-family: 'Poppins', sans-serif; font-size: 13px; padding: 8px 32px 8px 14px; border: 1.5px solid var(--border); border-radius: 99px; background: var(--white); color: var(--ink); outline: none; appearance: none; background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235123a4' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; }
+.table-toolbar select { font-family: 'Poppins', sans-serif; font-size: 12px; padding: 6px 26px 6px 11px; border: 1.5px solid var(--border); border-radius: 99px; background: var(--white); color: var(--ink); outline: none; appearance: none; background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235123a4' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; }
 .toggle-label { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--ink-muted); cursor: pointer; user-select: none; margin-left: auto; font-weight: 500; }
-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+table { width: 100%; border-collapse: collapse; font-size: 12px; }
 thead th { padding: 11px 16px; text-align: left; font-size: 10px; font-weight: 700; color: var(--ink-faint); letter-spacing: 0.1em; text-transform: uppercase; border-bottom: 1px solid var(--border); background: var(--white); }
 .th-inner { display: flex; align-items: center; gap: 5px; }
 tbody tr { border-bottom: 1px solid var(--border); transition: background 0.12s; }
 tbody tr:last-child { border-bottom: none; }
 tbody tr:hover { background: var(--purple-faint); }
-tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
-.td-muted { color: var(--ink-muted) !important; font-size: 12px; }
-.badge { display: inline-flex; align-items: center; font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 5px; letter-spacing: 0.05em; text-transform: uppercase; }
+tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; font-size: 12px; }
+.td-muted { color: var(--ink) !important; font-size: 12px; }
+.badge { display: inline-flex; align-items: center; font-size: 10px; font-weight: 400; padding: 3px 10px; border-radius: 5px; letter-spacing: 0.05em; text-transform: uppercase; }
 .badge-novo { background: var(--green-light); color: var(--green-dark); }
 .badge-promo { background: var(--purple-light); color: var(--purple); }
 .badge-none { background: #f0edf8; color: var(--ink-faint); }
 .social-icons { display: flex; gap: 6px; }
-.social-btn { width: 30px; height: 30px; border-radius: 8px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; cursor: pointer; background: var(--white); }
-.social-btn.active { background: #dff0fd; border-color: #8ec8f4; }
+.social-btn { width: 36px; height: 36px; border-radius: 10px; border: 1.5px solid #c2dff7; display: flex; align-items: center; justify-content: center; cursor: pointer; background: #e8f4fd; }
+.social-btn.active { background: #e8f4fd; border-color: #5123a4; }
+.social-btn.inactive { background: #f0edf8; border-color: #D8CEF0; }
 
 /* TOOLTIP */
 .info-btn { width: 15px; height: 15px; border-radius: 50%; border: 1.5px solid var(--border); display: inline-flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 700; color: var(--ink-faint); cursor: pointer; font-family: 'Poppins', sans-serif; background: transparent; flex-shrink: 0; vertical-align: middle; padding: 0; transition: border-color 0.12s, color 0.12s; }
@@ -140,7 +141,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
 .footer-logo { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 8px; }
 .footer-logo-icon { width: 28px; height: 28px; border: 2px solid var(--purple); border-radius: 7px; display: flex; align-items: center; justify-content: center; }
 .footer-logo-text { font-size: 18px; font-weight: 800; color: var(--purple); }
-.site-footer p { font-size: 12px; color: var(--ink-faint); }
+.site-footer p { font-size: 12px; color: var(--ink); }
 
 @media (max-width: 900px) {
   .hero { padding: 36px 24px 28px; }
@@ -159,7 +160,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
   .filters-bar { padding: 10px 16px; flex-direction: column; align-items: stretch; gap: 8px; }
   .filter-select { width: 100%; }
   .date-btn { width: 100%; justify-content: flex-start; }
-  #lang-toggle { position: fixed; top: 12px; right: 12px; z-index: 999; }
+  #lang-toggle { }
   .kpi-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
   .kpi-card { padding: 16px; }
   .kpi-value { font-size: 28px; }
@@ -211,7 +212,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
 .tl-card-period { font-size: 10px; font-weight: 700; color: var(--ink-faint); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 4px; }
 .tl-card.cert-marker .tl-card-period { color: rgba(228,220,247,0.6); }
 .tl-card-title { font-size: 13px; font-weight: 700; color: var(--ink); line-height: 1.3; }
-.tl-card-sub { font-size: 12px; color: var(--ink-muted); margin-top: 2px; }
+.tl-card-sub { font-size: 12px; color: var(--ink); margin-top: 2px; }
 .tl-card-type { display: inline-flex; margin-top: 6px; font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 99px; }
 .type-full { background: var(--green-light); color: var(--green-dark); }
 .type-intern { background: var(--purple-light); color: var(--purple); }
@@ -219,7 +220,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
 
 /* skills chips */
 .skills-wrap { display: flex; flex-wrap: wrap; gap: 6px; }
-.skill-chip { font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 99px; background: var(--purple-faint); border: 1px solid var(--border); color: var(--ink-muted); }
+.skill-chip { font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 99px; background: var(--purple-faint); border: 1px solid var(--border); color: var(--ink); }
 
 /* education */
 .edu-item { display: flex; gap: 12px; margin-bottom: 14px; }
@@ -235,6 +236,34 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
 .dev-note-field { color: #a78bf0; font-family: monospace; white-space: nowrap; flex-shrink: 0; }
 .dev-note-desc { color: #9CA3AF; }
 
+
+@media (max-width: 900px) {
+  /* Three boxes hero grid */
+  div[style*="grid-template-columns:1fr 1fr 1fr"] { grid-template-columns: 1fr !important; }
+  /* POK Score main grid */
+  div[style*="grid-template-columns:280px 1fr"] { grid-template-columns: 1fr !important; }
+  /* Serasa and Público 4-box grids */
+  div[style*="grid-template-columns:repeat(4,1fr)"] { grid-template-columns: 1fr 1fr !important; }
+  /* Ranking grid */
+  div[style*="grid-template-columns:40px 1fr 80px 120px 80px"] { grid-template-columns: 32px 1fr 60px 80px !important; }
+  /* Hero padding */
+  section[style*="padding:56px 64px"] { padding: 36px 24px 40px !important; }
+  /* Filters bar nowrap fix */
+  .filters-bar { flex-wrap: wrap !important; }
+}
+
+@media (max-width: 600px) {
+  /* Three boxes stack to 1 col */
+  div[style*="grid-template-columns:1fr 1fr 1fr"] { grid-template-columns: 1fr !important; }
+  /* Serasa/Público 4 boxes stack to 1 col */
+  div[style*="grid-template-columns:repeat(4,1fr)"] { grid-template-columns: 1fr !important; }
+  /* Ranking hide last 2 cols */
+  div[style*="grid-template-columns:40px 1fr 80px 120px 80px"] { grid-template-columns: 28px 1fr 50px !important; }
+  /* Hero boxes padding */
+  div[style*="background:var(--purple-dark); padding:8px 64px"] { padding: 8px 16px 24px !important; }
+  /* Chart card header flex */
+  .chart-card-header { flex-direction: column !important; }
+}
 </style>
 </head>
 <body>
@@ -242,30 +271,79 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
 <div id="gtip"></div>
 <div id="gtip-arrow"></div>
 
-<div id="lang-toggle" style="position:fixed; top:16px; right:20px; z-index:999; display:flex; border:1.5px solid rgba(228,220,247,0.4); border-radius:8px; overflow:hidden; font-size:12px; font-weight:700; box-shadow:0 2px 8px rgba(0,0,0,0.15);">
-  <button id="btn-pt" onclick="setLang('pt')" style="padding:5px 14px; background:var(--purple); color:#fff; border:none; cursor:pointer; font-family:'Poppins',sans-serif; font-weight:700;">PT</button>
-  <button id="btn-es" onclick="setLang('es')" style="padding:5px 14px; background:rgba(255,255,255,0.15); color:rgba(255,255,255,0.7); border:none; cursor:pointer; font-family:'Poppins',sans-serif; font-weight:700;">ES</button>
-</div>
+
 
 <header class="hero">
-  <div class="hero-inner">
+  <div class="hero-inner" style="position:relative;">
+    <div id="lang-toggle" style="position:absolute; top:0; right:0; display:flex; border:1.5px solid rgba(228,220,247,0.4); border-radius:8px; overflow:hidden; font-size:12px; font-weight:700; box-shadow:0 2px 8px rgba(0,0,0,0.15);">
+      <button id="btn-pt" onclick="setLang('pt')" style="padding:5px 14px; background:var(--purple); color:#fff; border:none; cursor:pointer; font-family:'Poppins',sans-serif; font-weight:700;">PT</button>
+      <button id="btn-es" onclick="setLang('es')" style="padding:5px 14px; background:rgba(255,255,255,0.15); color:rgba(255,255,255,0.7); border:none; cursor:pointer; font-family:'Poppins',sans-serif; font-weight:700;">ES</button>
+    </div>
     <svg style="height:36px; width:auto; margin-bottom:28px; display:block;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 197.3"><defs><style>.cls-1{fill:#fff;stroke-width:0px;}</style></defs><path class="cls-1" d="M131.4,27.2c0-5.4-4.4-9.9-9.9-9.9H5.9c-3.3,0-5.9,2.6-5.9,5.9v115.6c0,5.5,4.4,9.9,9.9,9.9s9.9-4.4,9.9-9.9V42.3c0-2.9,2.3-5.2,5.2-5.2h96.6c5.3,0,9.8-4.4,9.8-9.9ZM164.8,60.6c-5.4,0-9.9,4.4-9.9,9.9v96.6c0,2.9-2.3,5.2-5.2,5.2H53.1c-5.4,0-9.9,4.4-9.9,9.9s4.4,9.9,9.9,9.9h115.6c3.3,0,5.9-2.6,5.9-5.9v-115.7c0-5.5-4.4-9.9-9.8-9.9ZM103.7,76l-23.9,35.8c-.9,1.4-2.8,1.6-4,.4l-9.9-9.9c-3.5-3.5-9.1-3.5-12.5,0-3.5,3.5-3.5,9.1,0,12.5l20.1,20.1c3.8,3.8,10.1,3.2,13.1-1.3l31.9-47.8c2.7-4.1,1.6-9.6-2.5-12.3-4.1-2.6-9.6-1.5-12.3,2.5ZM329.1,49.1c-7.4-4.8-15.9-7.2-25.5-7.2-6,0-11.9,1.2-17.5,3.5-5.5,2.3-10.1,5.3-14,9-1.1,1-2,2.1-2.9,3.2l-.2-13.9h-24.7v153.6h25.3v-58.3c.5.5.9,1,1.4,1.5,4,4,8.8,7.2,14.6,9.7,5.9,2.5,12,3.7,18.3,3.7,9.5,0,17.9-2.4,25.3-7.2,7.5-4.9,13.4-11.6,17.7-19.9,4.2-8.5,6.4-18.2,6.4-29s-2.2-20.4-6.6-28.8c-4.1-8.4-10-15.1-17.6-19.9ZM325.2,115.3c-2.6,5.1-6.2,9-10.7,11.9s-9.7,4.3-15.4,4.3c-6,0-11.3-1.4-15.8-4.3-4.5-2.9-8.1-6.9-10.7-11.9-2.6-5.1-3.9-10.9-3.9-17.5s1.3-12.4,3.9-17.5,6.2-9,10.7-11.9,9.8-4.3,15.8-4.3,11.1,1.5,15.6,4.5c4.5,2.9,8,6.9,10.5,11.9,2.6,4.9,3.9,10.7,3.9,17.3s-1.3,12.5-3.9,17.5ZM449.9,48.9c-8.5-4.9-18.1-7.4-28.8-7.4s-20.5,2.5-29,7.4c-8.5,4.8-15.2,11.4-20.1,19.9-4.8,8.5-7.2,18.2-7.2,29s2.4,20.5,7.2,29c4.9,8.5,11.6,15.2,20.1,20.1,8.5,4.8,18.2,7.2,29,7.2s20.3-2.4,28.8-7.2c8.5-4.9,15.1-11.6,19.9-20.1,4.9-8.5,7.4-18.2,7.4-29s-2.5-20.5-7.4-29c-4.7-8.4-11.4-15.1-19.9-19.9ZM447.9,115.3c-2.6,5.1-6.2,9.1-10.9,12.1-4.7,2.9-9.9,4.3-15.8,4.3s-11.2-1.4-16-4.3c-4.7-3-8.3-7.1-10.9-12.1-2.6-5.2-3.9-11-3.9-17.5s1.3-12.2,3.9-17.3c2.6-5.2,6.2-9.3,10.9-12.1,4.8-3,10.1-4.5,16-4.5s11.2,1.4,15.8,4.3c4.7,2.9,8.3,6.9,10.9,12.1,2.7,5.1,4,10.9,3.9,17.5.1,6.5-1.2,12.3-3.9,17.5ZM548.8,91.2l50.6-47.5h-33.5l-45,45V0h-25.1v152.1h25.1v-34.6l10.9-10.2,37,44.9h31.2l-51.2-61Z"/></svg>
-    <div class="hero-eyebrow" id="t-eyebrow"><span></span> Módulo Ensino Superior · Capital Humano</div>
+    <div class="hero-eyebrow" id="t-eyebrow"><span></span> Painel de Empregabilidade Ensino Superior</div>
     <h1 class="hero-title"><span id="t-title">Trajetórias de Impacto</span></h1>
-    <p class="hero-subtitle"><span id="t-subtitle">Quando um portador compartilha seu certificado no LinkedIn, a POK lê o histórico completo do perfil e monitora mudanças de carreira ao longo do tempo – novos empregos, promoções e evolução de habilidades.</span></p>
+    <p class="hero-subtitle"><span id="t-subtitle">Painel de leitura de dados de empregabilidade por Instituição e por curso a partir da emissão de certificados, badges e microcredenciais POK</span></p>
   </div>
 </header>
 
-<div class="filters-bar" style="justify-content:space-between;">
+<div style="background:var(--purple-dark); padding:8px 64px 32px;">
+  <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; margin-top:20px;">
+
+    <!-- Box 1: Campanha Egressos -->
+    <div style="background:#8267be; border:none; border-radius:16px; padding:22px 24px;">
+      <div style="font-size:13px; font-weight:700; color:#fff; margin-bottom:10px;">Campanha Egressos</div>
+      <div style="font-size:12px; color:#fff; line-height:1.7;">30.000 certificados para egressos enviados de uma vez só, com CPF gravado no certificado blockchain, para captura de dados de várias naturezas</div>
+
+    </div>
+
+    <!-- Box 2: Núcleo -->
+    <div style="background:#5123a4; border-radius:16px; padding:22px 24px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:14px;">
+      <div style="font-size:9px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:#e6c24a;">Núcleo</div>
+      <div style="font-size:13px; font-weight:700; color:#fff; line-height:1.3;">Credencial Blockchain POK</div>
+      <div style="background:#e6c24a; border-radius:12px; padding:8px 16px; font-size:14px; font-weight:800; color:#5123a4;">POK</div>
+      <div style="font-size:11px; color:#fff; line-height:1.6;">O CPF transforma o certificado no elo entre captura e empregabilidade</div>
+    </div>
+
+    <!-- Box 3: Empregabilidade -->
+    <div style="background:#8267be; border:none; border-radius:16px; padding:22px 24px;">
+      <div style="font-size:13px; font-weight:700; color:#fff; margin-bottom:14px;">Empregabilidade</div>
+      <div style="font-size:12px; font-weight:700; color:#fff; margin-bottom:4px;">Métricas LinkedIn</div>
+      <div style="font-size:11px; color:#fff; line-height:1.6; margin-bottom:4px;">Dados autodeclarados e públicos do portador do certificado</div>
+      <div style="font-size:18px; color:#e6c24a; margin:6px 0 12px;">+</div>
+      <div style="font-size:12px; font-weight:700; color:#fff; margin-bottom:4px;">Métricas Serasa</div>
+      <div style="font-size:11px; color:#fff; line-height:1.6; margin-bottom:12px;">Dados financeiros fazem leitura indireta de empregabilidade</div>
+      <div style="font-size:18px; color:#e6c24a; margin:6px 0 12px;">+</div>
+      <div style="font-size:12px; font-weight:700; color:#fff; margin-bottom:4px;">Métricas Públicas e Semi-públicas</div>
+      <div style="font-size:11px; color:#fff; line-height:1.6;">Base CAGED, Base Rais, Base CNIS, Base eSocial, SINE / Portal Emprega Brasil, Plataforma Lattes – CNPq, CIEE / IEL / Nube</div>
+
+    </div>
+
+  </div>
+</div>
+<div class="filters-bar" style="justify-content:flex-start; flex-direction:column; align-items:flex-start; padding-top:20px; padding-bottom:20px;">
+  <h2 style="font-size:22px; font-weight:800; color:var(--ink); margin-bottom:16px;">Painel de Empregabilidade</h2>
+  <div style="display:flex; align-items:center; gap:8px; flex-wrap:nowrap; width:100%;">
 
   <div style="display:flex;align-items:center;gap:6px;">
     <select class="filter-select" id="filterCert">
       <option value="" id="t-f1">Todos os cursos</option>
-      <option>AI Bootcamp 2025</option>
-      <option>Executive Program - T15</option>
-      <option>Missão IA</option>
+      <option>Direito</option>
+      <option>Pedagogia</option>
+      <option>Tecnologia da Informação</option>
+      <option>Enfermagem</option>
     </select>
     <button class="info-btn" data-tip="Filtra pelo nome do certificado.">i</button>
+  </div>
+
+  <div style="display:flex;align-items:center;gap:6px;">
+    <select class="filter-select" id="filterTitulo">
+      <option value="" id="t-f4">Todas as competências</option>
+      <option>Bacharel em Direito</option>
+      <option>Pedagoga Sênior</option>
+      <option>Técnico em Tecnologia da Informação</option>
+      <option>Bacharel em Enfermagem</option>
+    </select>
+    <button class="info-btn" data-tip="Filtra pela competência registrada no certificado POK.">i</button>
   </div>
 
   <div style="display:flex;align-items:center;gap:6px;">
@@ -284,22 +362,21 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
     <button class="info-btn" data-tip="Filtra pelo período em que o portador compartilhou o certificado no LinkedIn.">i</button>
   </div>
 
-  <div style="display:flex;align-items:center;gap:6px;">
-    <select class="filter-select" id="filterTitulo">
-      <option value="" id="t-f4">Todos os títulos</option>
-      <option>Tecnólogo em Análise e Desenvolvimento de Sistemas</option>
-      <option>Bacharel em Administração</option>
-      <option>MBA em Gestão de Projetos</option>
-      <option>Especialização em Inteligência Artificial</option>
-    </select>
-    <button class="info-btn" data-tip="Filtra pelo título de formação registrado no certificado POK.">i</button>
+
   </div>
-
-
 </div>
 
 <main class="content">
 
+<div style="display:flex; align-items:center; gap:12px; margin-bottom:16px; margin-top:0;">
+    <div style="width:3px; height:36px; background:#5123a4; border-radius:2px; flex-shrink:0;"></div>
+    <div style="width:32px; height:32px; border-radius:9px; border:1.5px solid #5123a4; display:flex; align-items:center; justify-content:center; flex-shrink:0; background:#f3eff9;">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1.5C7 1.5 4 4.5 4 7a3 3 0 0 0 6 0c0-2.5-3-5.5-3-5.5Z" fill="#5123a4" opacity="0.3"/><path d="M7 2.5l1.8 3.2A2 2 0 1 1 5.2 5.7L7 2.5Z" fill="#5123a4"/></svg>
+    </div>
+    <span style="font-size:18px; font-weight:700; color:var(--ink);">LinkedIn</span>
+  </div>
+  <div style="background:var(--white); border:1px solid var(--border); border-radius:var(--radius-lg); padding:40px 32px; text-align:left; color:var(--ink); font-size:14px; line-height:1.8; margin-bottom:16px;">A partir do compartilhamento do certificado no LinkedIn (tornando a informação pública) a POK levanta dados por curso, como novos empregos, promoções e tempo de impacto.</div>
+  </div>
   <div class="section-label"><span id="t-sl1">Funil de engajamento</span></div>
   <div class="funnel-card">
     <h3><span id="t-funnel-title">Do certificado ao impacto real</span></h3>
@@ -363,7 +440,7 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
       <canvas id="hybridChart" role="img" aria-label="Gráfico de evolução do perfil dos portadores de certificados antes e depois do compartilhamento do certificado"></canvas>
     </div>
 
-    <div style="display:flex; align-items:center; justify-content:center; gap:6px; margin-top:14px; font-size:11px; color:var(--ink-faint);">
+    <div style="display:flex; align-items:center; justify-content:center; gap:6px; margin-top:14px; font-size:11px; color:var(--ink);">
       <div style="width:24px; height:2px; background:var(--purple); border-radius:1px;"></div>
       Média dos portadores de certificados
       <div style="width:1px; height:12px; background:var(--border); margin:0 8px;"></div>
@@ -404,7 +481,262 @@ tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; }
     <div id="emptyState">Nenhum portador encontrado com os filtros aplicados.</div>
   </div>
 
+
+  <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px; margin-top:40px;">
+    <div style="width:3px; height:36px; background:#5123a4; border-radius:2px; flex-shrink:0;"></div>
+    <div style="width:32px; height:32px; border-radius:9px; border:1.5px solid #5123a4; display:flex; align-items:center; justify-content:center; flex-shrink:0; background:#f3eff9;">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1.5C7 1.5 4 4.5 4 7a3 3 0 0 0 6 0c0-2.5-3-5.5-3-5.5Z" fill="#5123a4" opacity="0.3"/><path d="M7 2.5l1.8 3.2A2 2 0 1 1 5.2 5.7L7 2.5Z" fill="#5123a4"/></svg>
+    </div>
+    <span style="font-size:18px; font-weight:700; color:var(--ink);">Serasa</span>
+  </div>
+  <div style="background:var(--white); border:1px solid var(--border); border-radius:var(--radius-lg); padding:40px 32px; text-align:left; color:var(--ink); font-size:14px; line-height:1.8;">
+    Através da parceria POK e Serasa Experian, a POK verifica vínculos formais de emprego, histórico de renda, identidade e trajetória financeira do portador a partir do CPF gravado no certificado. Esses dados fornecem uma leitura objetiva e verificável da empregabilidade.
+  </div>
+  <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:20px;">
+
+    <div style="background:var(--white); border:1px solid var(--border); border-left:3px solid var(--purple); border-radius:var(--radius-lg); padding:20px 20px 16px;">
+      <div style="font-size:10px; font-weight:700; color:var(--purple); letter-spacing:0.08em; margin-bottom:8px;">01</div>
+      <div style="font-size:13px; font-weight:700; color:var(--ink); margin-bottom:10px; line-height:1.3;">Empreendedorismo pós-credencial</div>
+      <div style="font-size:12px; color:var(--ink); line-height:1.6; margin-bottom:12px;">Portadores que abriram MEI ou se tornaram sócios de empresa após receberem a credencial – identificados via cruzamento CPF × CNPJ. Especialmente relevante para trilhas com vocação empreendedora.</div>
+      
+    </div>
+
+    <div style="background:var(--white); border:1px solid var(--border); border-left:3px solid var(--purple); border-radius:var(--radius-lg); padding:20px 20px 16px;">
+      <div style="font-size:10px; font-weight:700; color:var(--purple); letter-spacing:0.08em; margin-bottom:8px;">02</div>
+      <div style="font-size:13px; font-weight:700; color:var(--ink); margin-bottom:10px; line-height:1.3;">Estabilidade financeira como dimensão de bem-estar</div>
+      <div style="font-size:12px; color:var(--ink); line-height:1.6; margin-bottom:12px;">Indicadores agregados de estabilidade financeira da base de portadores pós-credencial – saída de negativação, evolução de score, regularidade de pagamentos. Compõe leitura de empregabilidade com dimensão de qualidade de vida financeira.</div>
+      
+    </div>
+
+    <div style="background:var(--white); border:1px solid var(--border); border-left:3px solid var(--purple); border-radius:var(--radius-lg); padding:20px 20px 16px;">
+      <div style="font-size:10px; font-weight:700; color:var(--purple); letter-spacing:0.08em; margin-bottom:8px;">03</div>
+      <div style="font-size:13px; font-weight:700; color:var(--ink); margin-bottom:10px; line-height:1.3;">Variação de renda antes e depois da credencial</div>
+      <div style="font-size:12px; color:var(--ink); line-height:1.6; margin-bottom:12px;">Faixa de renda estimada do aluno ou egresso comparada nos períodos pré e pós-emissão. A Serasa comercializa o Renda 4.0, modelo proprietário de estimativa de renda mensal – a leitura longitudinal pré/pós é estruturada como consolidação sobre esse atributo.</div>
+      
+    </div>
+
+    <div style="background:var(--white); border:1px solid var(--border); border-left:3px solid var(--purple); border-radius:var(--radius-lg); padding:20px 20px 16px;">
+      <div style="font-size:10px; font-weight:700; color:var(--purple); letter-spacing:0.08em; margin-bottom:8px;">04</div>
+      <div style="font-size:13px; font-weight:700; color:var(--ink); margin-bottom:10px; line-height:1.3;">Mobilidade geográfica pós-credencial</div>
+      <div style="font-size:12px; color:var(--ink); line-height:1.6; margin-bottom:12px;">Mudança de município ou estado capturada via endereço atualizado na base Serasa, frequentemente associada a oportunidades profissionais ascendentes. Ganha mais potência quando cruzada com outras leituras (renda, ocupação).</div>
+      
+    </div>
+
+  </div>
+
+  <div class="chart-card" style="margin-top:24px;">
+    <div class="chart-card-header">
+      <div>
+        <h3>Trajetória agregada – métricas Serasa</h3>
+        <p>Evolução média dos portadores do curso selecionado. À esquerda da emissão: histórico na base Serasa. À direita: evolução após a emissão do certificado.</p>
+      </div>
+      <select class="filter-select" id="serasaMetricSelect" onchange="updateSerasaChart()">
+        <option value="renda">Variação de renda (faixa média)</option>
+        <option value="score">Score de crédito médio</option>
+        <option value="negativacao">% com negativação ativa</option>
+        <option value="empreendedorismo">% com CNPJ aberto</option>
+      </select>
+    </div>
+    <div class="chart-zone-labels">
+      <span class="zone-label past">← Antes da emissão</span>
+      <span class="zone-divider"></span>
+      <span class="zone-label future">Após a emissão →</span>
+    </div>
+    <div style="position:relative; width:100%; height:260px;">
+      <canvas id="serasaChart" role="img" aria-label="Gráfico Serasa"></canvas>
+    </div>
+    <div style="display:flex; align-items:center; justify-content:center; gap:6px; margin-top:14px; font-size:11px; color:var(--ink);">
+      <div style="width:24px; height:2px; background:var(--purple); border-radius:1px;"></div>
+      Média dos portadores
+      <div style="width:1px; height:12px; background:var(--border); margin:0 8px;"></div>
+      <div style="width:2px; height:16px; background:var(--ink); border-radius:1px; opacity:0.3;"></div>
+      Marco da emissão
+    </div>
+  </div>
+
+
+
+  <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px; margin-top:40px;">
+    <div style="width:3px; height:36px; background:#5123a4; border-radius:2px; flex-shrink:0;"></div>
+    <div style="width:32px; height:32px; border-radius:9px; border:1.5px solid #5123a4; display:flex; align-items:center; justify-content:center; flex-shrink:0; background:#f3eff9;">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1.5C7 1.5 4 4.5 4 7a3 3 0 0 0 6 0c0-2.5-3-5.5-3-5.5Z" fill="#5123a4" opacity="0.3"/><path d="M7 2.5l1.8 3.2A2 2 0 1 1 5.2 5.7L7 2.5Z" fill="#5123a4"/></svg>
+    </div>
+    <span style="font-size:18px; font-weight:700; color:var(--ink);">Público e Semi-Público</span>
+  </div>
+  <div style="background:var(--white); border:1px solid var(--border); border-radius:var(--radius-lg); padding:40px 32px; text-align:left; color:var(--ink); font-size:14px; line-height:1.8;">
+    Através de acesso a bases como CAGED, Rais, CNIS, eSocial e SINE, a POK registra admissões, demissões e movimentações formais no mercado de trabalho. Já pela Plataforma Lattes – CNPq e CIEE / IEL / Nube, a POK mapeia a trajetória acadêmica e de estágio do portador. Juntas, essas fontes permitem cruzar o impacto do certificado com dados estruturais de mercado.
+  </div>
+  <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:20px;">
+
+    <div style="background:var(--white); border:1px solid var(--border); border-left:3px solid var(--purple); border-radius:var(--radius-lg); padding:20px 20px 16px;">
+      <div style="font-size:10px; font-weight:700; color:var(--purple); letter-spacing:0.08em; margin-bottom:8px;">01</div>
+      <div style="font-size:13px; font-weight:700; color:var(--ink); margin-bottom:10px; line-height:1.3;">Vínculo formal de emprego</div>
+      <div style="font-size:12px; color:var(--ink); line-height:1.6;">CAGED, Rais e eSocial registram admissões e demissões com data, cargo e CNPJ do empregador. Permitem confirmar se o portador obteve ou manteve vínculo formal após a credencial.</div>
+    </div>
+
+    <div style="background:var(--white); border:1px solid var(--border); border-left:3px solid var(--purple); border-radius:var(--radius-lg); padding:20px 20px 16px;">
+      <div style="font-size:10px; font-weight:700; color:var(--purple); letter-spacing:0.08em; margin-bottom:8px;">02</div>
+      <div style="font-size:13px; font-weight:700; color:var(--ink); margin-bottom:10px; line-height:1.3;">Histórico previdenciário</div>
+      <div style="font-size:12px; color:var(--ink); line-height:1.6;">A base CNIS consolida o histórico de contribuições previdenciárias do portador ao longo da vida, incluindo períodos de informalidade, desemprego e reingresso no mercado.</div>
+    </div>
+
+    <div style="background:var(--white); border:1px solid var(--border); border-left:3px solid var(--purple); border-radius:var(--radius-lg); padding:20px 20px 16px;">
+      <div style="font-size:10px; font-weight:700; color:var(--purple); letter-spacing:0.08em; margin-bottom:8px;">03</div>
+      <div style="font-size:13px; font-weight:700; color:var(--ink); margin-bottom:10px; line-height:1.3;">Intermediação e recolocação</div>
+      <div style="font-size:12px; color:var(--ink); line-height:1.6;">SINE e Portal Emprega Brasil registram buscas ativas por emprego e encaminhamentos. Cruzar com a data da credencial revela se o portador estava em situação de desemprego ativo antes ou depois da emissão.</div>
+    </div>
+
+    <div style="background:var(--white); border:1px solid var(--border); border-left:3px solid var(--purple); border-radius:var(--radius-lg); padding:20px 20px 16px;">
+      <div style="font-size:10px; font-weight:700; color:var(--purple); letter-spacing:0.08em; margin-bottom:8px;">04</div>
+      <div style="font-size:13px; font-weight:700; color:var(--ink); margin-bottom:10px; line-height:1.3;">Trajetória acadêmica e estágio</div>
+      <div style="font-size:12px; color:var(--ink); line-height:1.6;">Plataforma Lattes – CNPq mapeia a produção acadêmica e científica do portador. CIEE e IEL / Nube registram contratos de estágio, permitindo identificar inserção profissional antes da formalização do emprego.</div>
+    </div>
+
+  </div>
+
+  <div class="chart-card" style="margin-top:24px;">
+    <div class="chart-card-header">
+      <div>
+        <h3>Trajetória agregada – bases públicas</h3>
+        <p>Evolução média dos portadores do curso selecionado. À esquerda da emissão: histórico nas bases públicas. À direita: evolução após a emissão do certificado.</p>
+      </div>
+      <select class="filter-select" id="publicoMetricSelect" onchange="updatePublicoChart()">
+        <option value="vinculo">% com vínculo formal ativo</option>
+        <option value="sine">% inscrito no SINE</option>
+        <option value="contribuicao">Meses médios de contribuição previdenciária</option>
+        <option value="estagio">% com contrato de estágio ativo</option>
+      </select>
+    </div>
+    <div class="chart-zone-labels">
+      <span class="zone-label past">← Antes da emissão</span>
+      <span class="zone-divider"></span>
+      <span class="zone-label future">Após a emissão →</span>
+    </div>
+    <div style="position:relative; width:100%; height:260px;">
+      <canvas id="publicoChart" role="img" aria-label="Gráfico bases públicas"></canvas>
+    </div>
+    <div style="display:flex; align-items:center; justify-content:center; gap:6px; margin-top:14px; font-size:11px; color:var(--ink);">
+      <div style="width:24px; height:2px; background:var(--purple); border-radius:1px;"></div>
+      Média dos portadores
+      <div style="width:1px; height:12px; background:var(--border); margin:0 8px;"></div>
+      <div style="width:2px; height:16px; background:var(--ink); border-radius:1px; opacity:0.3;"></div>
+      Marco da emissão
+    </div>
+  </div>
+
+
 </main>
+
+<section style="background:var(--purple-dark); padding:56px 64px 64px; position:relative; overflow:hidden;">
+  <div style="position:absolute;top:-80px;right:-80px;width:340px;height:340px;border-radius:50%;background:rgba(123,79,207,0.2);pointer-events:none;"></div>
+  <div style="max-width:1120px; margin:0 auto; position:relative; z-index:1;">
+
+    <!-- Header -->
+    <div style="margin-bottom:40px;">
+      <div style="display:inline-flex; align-items:center; gap:8px; background:rgba(230,194,74,0.15); border:1px solid rgba(230,194,74,0.3); border-radius:99px; padding:5px 14px; font-size:10px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:#e6c24a; margin-bottom:16px;">
+        <span style="width:6px;height:6px;border-radius:50%;background:#e6c24a;display:inline-block;"></span>
+        Índice de Impacto POK
+      </div>
+      <h2 style="font-size:28px; font-weight:900; color:#fff; letter-spacing:-0.02em; margin-bottom:10px;">POK Score</h2>
+      <p style="font-size:14px; color:#fff; line-height:1.7;">Índice ponderado de empregabilidade por curso ou competência, construído a partir de três fontes de dados — LinkedIn, Serasa e bases públicas — convergindo pelo CPF gravado no certificado.</p>
+    </div>
+
+    <!-- Score card principal -->
+    <div style="display:grid; grid-template-columns:280px 1fr; gap:24px; margin-bottom:32px;">
+
+      <!-- Score número -->
+      <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:20px; padding:32px 28px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;">
+        <div style="font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#e6c24a; margin-bottom:12px;">Score atual</div>
+        <div style="font-size:72px; font-weight:900; color:#fff; line-height:1; margin-bottom:4px;" id="scoreTotal">74</div>
+        <div style="font-size:13px; color:#fff; margin-bottom:20px;">de 100 pontos</div>
+        <div style="width:100%; height:8px; background:rgba(255,255,255,0.1); border-radius:99px; overflow:hidden;">
+          <div id="scoreTotalBar" style="height:100%; width:74%; background:linear-gradient(90deg,#e6c24a,#f0a500); border-radius:99px; transition:width 0.8s ease;"></div>
+        </div>
+        <div style="font-size:11px; color:#fff; margin-top:10px;">Direito · 2025</div>
+      </div>
+
+      <!-- Dimensões -->
+      <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:20px; padding:28px 32px;">
+        <div style="font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#fff; margin-bottom:20px;">Composição do score</div>
+        <div style="display:flex; flex-direction:column; gap:16px;" id="dimensoesContainer">
+
+          <div class="dim-row">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+              <div style="font-size:13px; font-weight:600; color:#fff;">Inserção <span style="font-size:11px; font-weight:400; color:#fff;">· LinkedIn + CAGED + SINE</span></div>
+              <div style="font-size:13px; font-weight:700; color:#e6c24a;"><span class="dim-score">82</span><span style="font-size:10px; color:#fff; font-weight:400;"> /100 · peso 30%</span></div>
+            </div>
+            <div style="height:6px; background:rgba(255,255,255,0.1); border-radius:99px; overflow:hidden;"><div style="height:100%; width:82%; background:#5DCAA5; border-radius:99px;"></div></div>
+          </div>
+
+          <div class="dim-row">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+              <div style="font-size:13px; font-weight:600; color:#fff;">Progressão <span style="font-size:11px; font-weight:400; color:#fff;">· LinkedIn + Serasa Renda</span></div>
+              <div style="font-size:13px; font-weight:700; color:#e6c24a;"><span class="dim-score">71</span><span style="font-size:10px; color:#fff; font-weight:400;"> /100 · peso 30%</span></div>
+            </div>
+            <div style="height:6px; background:rgba(255,255,255,0.1); border-radius:99px; overflow:hidden;"><div style="height:100%; width:71%; background:#8267be; border-radius:99px;"></div></div>
+          </div>
+
+          <div class="dim-row">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+              <div style="font-size:13px; font-weight:600; color:#fff;">Estabilidade <span style="font-size:11px; font-weight:400; color:#fff;">· Serasa + CNIS</span></div>
+              <div style="font-size:13px; font-weight:700; color:#e6c24a;"><span class="dim-score">68</span><span style="font-size:10px; color:#fff; font-weight:400;"> /100 · peso 20%</span></div>
+            </div>
+            <div style="height:6px; background:rgba(255,255,255,0.1); border-radius:99px; overflow:hidden;"><div style="height:100%; width:68%; background:#5123a4; border-radius:99px;"></div></div>
+          </div>
+
+          <div class="dim-row">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+              <div style="font-size:13px; font-weight:600; color:#fff;">Velocidade <span style="font-size:11px; font-weight:400; color:#fff;">· LinkedIn · dias até impacto</span></div>
+              <div style="font-size:13px; font-weight:700; color:#e6c24a;"><span class="dim-score">79</span><span style="font-size:10px; color:#fff; font-weight:400;"> /100 · peso 10%</span></div>
+            </div>
+            <div style="height:6px; background:rgba(255,255,255,0.1); border-radius:99px; overflow:hidden;"><div style="height:100%; width:79%; background:#4a6bc0; border-radius:99px;"></div></div>
+          </div>
+
+          <div class="dim-row">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+              <div style="font-size:13px; font-weight:600; color:#fff;">Empreendedorismo <span style="font-size:11px; font-weight:400; color:#fff;">· Serasa CPF × CNPJ</span></div>
+              <div style="font-size:13px; font-weight:700; color:#e6c24a;"><span class="dim-score">55</span><span style="font-size:10px; color:#fff; font-weight:400;"> /100 · peso 10%</span></div>
+            </div>
+            <div style="height:6px; background:rgba(255,255,255,0.1); border-radius:99px; overflow:hidden;"><div style="height:100%; width:55%; background:#e6c24a; border-radius:99px;"></div></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Ranking de cursos -->
+    <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:20px; padding:28px 32px; margin-bottom:32px;">
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; flex-wrap:wrap; gap:12px;">
+        <div style="font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#fff;">Ranking por curso</div>
+        <div style="font-size:12px; color:#fff;">Mostrando todos os cursos · ordenados por POK Score</div>
+      </div>
+
+      <!-- Header da tabela -->
+      <div style="display:grid; grid-template-columns:40px 1fr 80px 120px 80px; gap:0; padding:8px 16px; border-bottom:1px solid rgba(255,255,255,0.1); margin-bottom:4px;">
+        <div style="font-size:10px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#fff;">#</div>
+        <div style="font-size:10px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#fff;">Curso</div>
+        <div style="font-size:10px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#fff; text-align:center;">Score</div>
+        <div style="font-size:10px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#fff; text-align:center;">Variação</div>
+        <div style="font-size:10px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#fff; text-align:center;">Inserção</div>
+      </div>
+
+      <!-- Ranking rows scrollável -->
+      <div id="rankingList" style="max-height:320px; overflow-y:auto; display:flex; flex-direction:column; gap:2px;"></div>
+
+      <div style="font-size:11px; color:#fff; margin-top:14px; text-align:center;" id="rankingFooter"></div>
+    </div>
+
+    <!-- Nota metodológica -->
+    <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:22px 28px; display:flex; gap:16px; align-items:flex-start;">
+      <div style="font-size:18px; flex-shrink:0; margin-top:2px;">📐</div>
+      <div>
+        <div style="font-size:12px; font-weight:700; color:#fff; margin-bottom:6px;">Metodologia do POK Score</div>
+        <div style="font-size:12px; color:#fff; line-height:1.7;">Score ponderado de 0 a 100, calculado a partir de métricas das três fontes de dados POK. Os pesos padrão são: Inserção 30% · Progressão 30% · Estabilidade 20% · Velocidade 10% · Empreendedorismo 10%. O score é calculado sobre portadores que compartilharam o certificado no LinkedIn, com CPF verificado nas bases externas.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 
 <footer class="site-footer">
@@ -458,7 +790,7 @@ function buildChartData(key) {
   // Segment colors: past = faint purple, future = purple
   const pointBg = allLabels.map((_, i) => {
     if (i === shareIndex) return '#5123a4';
-    if (i < shareIndex) return '#A899C2';
+    if (i < shareIndex) return '#1E1230';
     return '#5123a4';
   });
   const pointR = allLabels.map((_, i) => i === shareIndex ? 7 : 4);
@@ -520,8 +852,8 @@ function updateChart() {
             color: ctx => {
               const i = ctx.index;
               if (i === shareIndex) return '#5123a4';
-              if (i < shareIndex) return '#A899C2';
-              return '#5E4E7A';
+              if (i < shareIndex) return '#1E1230';
+              return '#1E1230';
             },
             maxRotation: 0
           },
@@ -530,8 +862,8 @@ function updateChart() {
         y: {
           min: 0,
           max: d.yMax,
-          title: { display: true, text: d.yLabel, font: { size: 11, family: 'Poppins' }, color: '#A899C2' },
-          ticks: { font: { size: 11, family: 'Poppins' }, color: '#A899C2', stepSize: 1 },
+          title: { display: true, text: d.yLabel, font: { size: 11, family: 'Poppins' }, color: '#1E1230' },
+          ticks: { font: { size: 11, family: 'Poppins' }, color: '#1E1230', stepSize: 1 },
           grid: { color: 'rgba(216,206,240,0.4)' }
         }
       }
@@ -601,16 +933,16 @@ updateChart();
 
 // ─── TABLE ────────────────────────────────────────────────────────────────────
 const rows = [
-  {date:'08/28/25',program:'Executive Program - T15',name:'Diogo Baum',cargo:null,empresa:null,impact:'none',dias:null,shared:false,hasPost:true},
-  {date:'08/28/25',program:'Executive Program - T15',name:'Jeferson Faes Bertolini',cargo:null,empresa:null,impact:'none',dias:null,shared:false,hasPost:false},
-  {date:'10/30/25',program:'AI Bootcamp 2025',name:'Guilherme Carbonari',cargo:'Learning Content Developer',empresa:'Capgemini',impact:'novo',dias:32,shared:true,hasPost:true},
-  {date:'10/30/25',program:'AI Bootcamp 2025',name:'Carolina Ferrés',cargo:null,empresa:null,impact:'none',dias:null,shared:false,hasPost:true},
-  {date:'10/30/25',program:'AI Bootcamp 2025',name:'Carlos Geraldo',cargo:null,empresa:null,impact:'none',dias:null,shared:false,hasPost:true},
-  {date:'12/01/25',program:'Missão IA',name:'André Baptista Vio',cargo:'Regional Head of Product Marketing',empresa:'Edenred Pay Brasil',impact:'promo',dias:31,shared:true,hasPost:true},
-  {date:'10/30/25',program:'AI Bootcamp 2025',name:'Danilo Pires',cargo:null,empresa:null,impact:'none',dias:null,shared:false,hasPost:true},
-  {date:'10/30/25',program:'AI Bootcamp 2025',name:'Izabella Adamuccio',cargo:null,empresa:null,impact:'none',dias:null,shared:false,hasPost:true},
-  {date:'08/28/25',program:'Executive Program - T15',name:'Bruno Reis de Arruda Alves',cargo:null,empresa:null,impact:'none',dias:null,shared:false,hasPost:false},
-  {date:'10/30/25',program:'AI Bootcamp 2025',name:'Yuri Oliveira',cargo:null,empresa:null,impact:'none',dias:null,shared:false,hasPost:true},
+  {date:'08/28/25',program:'Direito',name:'Diogo Baum',cargo:null,empresa:null,impact:'none',dias:null,shared:false,hasPost:true},
+  {date:'08/28/25',program:'Direito',name:'Jeferson Faes Bertolini',cargo:null,empresa:null,impact:'none',dias:null,shared:false,hasPost:false},
+  {date:'10/30/25',program:'Tecnologia da Informação',name:'Guilherme Carbonari',cargo:'Learning Content Developer',empresa:'Capgemini',impact:'novo',dias:32,shared:true,hasPost:true},
+  {date:'10/30/25',program:'Tecnologia da Informação',name:'Carolina Ferrés',cargo:null,empresa:null,impact:'none',dias:null,shared:false,hasPost:true},
+  {date:'10/30/25',program:'Tecnologia da Informação',name:'Carlos Geraldo',cargo:null,empresa:null,impact:'none',dias:null,shared:false,hasPost:true},
+  {date:'12/01/25',program:'Pedagogia',name:'André Baptista Vio',cargo:'Regional Head of Product Marketing',empresa:'Edenred Pay Brasil',impact:'promo',dias:31,shared:true,hasPost:true},
+  {date:'10/30/25',program:'Tecnologia da Informação',name:'Danilo Pires',cargo:null,empresa:null,impact:'none',dias:null,shared:false,hasPost:true},
+  {date:'10/30/25',program:'Tecnologia da Informação',name:'Izabella Adamuccio',cargo:null,empresa:null,impact:'none',dias:null,shared:false,hasPost:true},
+  {date:'08/28/25',program:'Direito',name:'Bruno Reis de Arruda Alves',cargo:null,empresa:null,impact:'none',dias:null,shared:false,hasPost:false},
+  {date:'10/30/25',program:'Tecnologia da Informação',name:'Yuri Oliveira',cargo:null,empresa:null,impact:'none',dias:null,shared:false,hasPost:true},
 ];
 
 function badge(i){
@@ -626,24 +958,24 @@ function renderTable(data){
   tb.innerHTML=data.map(r=>`<tr>
     <td class="td-muted">${r.date}</td>
     <td class="td-muted">${r.program}</td>
-    <td><span style="font-weight:600;">${r.name}</span></td>
-    <td>${r.cargo?`<span style="font-weight:500;">${r.cargo}</span><br><span class="td-muted">${r.empresa}</span>`:'<span class="td-muted">–</span>'}</td>
+    <td>${r.name}</td>
+    <td>${r.cargo?`${r.cargo}<br><span class="td-muted">${r.empresa}</span>`:'<span class="td-muted">–</span>'}</td>
     <td>${badge(r.impact)}</td>
-    <td>${r.dias?`<span style="font-weight:700;">${r.dias}</span> <span class="td-muted">dias</span>`:'<span class="td-muted">–</span>'}</td>
+    <td>${r.dias?`${r.dias} dias`:'<span class="td-muted">–</span>'}</td>
     <td><div class="social-icons">
-      <div class="social-btn ${r.shared?'active':''}" title="${r.shared?'Post compartilhado no LinkedIn':'Sem post detectado'}">
-        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="1" y="1" width="20" height="20" rx="4" stroke="${r.shared?'#5123a4':'#A899C2'}" stroke-width="1.5" fill="white"/>
-          <rect x="5" y="7" width="12" height="1.5" rx="0.75" fill="${r.shared?'#5123a4':'#A899C2'}"/>
-          <rect x="5" y="10.5" width="8" height="1.5" rx="0.75" fill="${r.shared?'#5123a4':'#A899C2'}"/>
-          <rect x="5" y="14" width="10" height="1.5" rx="0.75" fill="${r.shared?'#5123a4':'#A899C2'}"/>
+      <div style="width:36px;height:36px;border-radius:10px;border:1.5px solid ${r.hasPost?'#5123a4':'#D8CEF0'};display:flex;align-items:center;justify-content:center;cursor:pointer;background:${r.hasPost?'#dff0fd':'#f5f3fc'};" title="${r.hasPost?'Ver perfil LinkedIn':'Sem perfil detectado'}">
+        <svg width="20" height="20" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="1" width="20" height="20" rx="5" stroke="${r.hasPost?'#5123a4':'#D8CEF0'}" stroke-width="1.5" fill="${r.hasPost?'#dff0fd':'#f5f3fc'}"/>
+          <circle cx="11" cy="8.5" r="3" stroke="${r.hasPost?'#5123a4':'#D8CEF0'}" stroke-width="1.5" fill="none"/>
+          <path d="M5.5 17.5c0-3 2.5-5 5.5-5s5.5 2 5.5 5" stroke="${r.hasPost?'#5123a4':'#D8CEF0'}" stroke-width="1.5" stroke-linecap="round" fill="none"/>
         </svg>
       </div>
-      <div class="social-btn ${r.hasPost?'active':''}" title="${r.hasPost?'Ver perfil LinkedIn':'Sem perfil detectado'}">
-        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="1" y="1" width="20" height="20" rx="4" stroke="${r.hasPost?'#5123a4':'#A899C2'}" stroke-width="1.5" fill="white"/>
-          <circle cx="11" cy="8.5" r="3" stroke="${r.hasPost?'#5123a4':'#A899C2'}" stroke-width="1.5" fill="none"/>
-          <path d="M5.5 17.5c0-3 2.5-5 5.5-5s5.5 2 5.5 5" stroke="${r.hasPost?'#5123a4':'#A899C2'}" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+      <div style="width:36px;height:36px;border-radius:10px;border:1.5px solid ${r.shared?'#5123a4':'#D8CEF0'};display:flex;align-items:center;justify-content:center;cursor:pointer;background:${r.shared?'#dff0fd':'#f5f3fc'};" title="${r.shared?'Post compartilhado no LinkedIn':'Sem post detectado'}">
+        <svg width="20" height="20" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="1" width="20" height="20" rx="5" stroke="${r.shared?'#5123a4':'#D8CEF0'}" stroke-width="1.5" fill="${r.shared?'#dff0fd':'#f5f3fc'}"/>
+          <rect x="5" y="7" width="12" height="1.5" rx="0.75" fill="${r.shared?'#5123a4':'#D8CEF0'}"/>
+          <rect x="5" y="10.5" width="8" height="1.5" rx="0.75" fill="${r.shared?'#5123a4':'#D8CEF0'}"/>
+          <rect x="5" y="14" width="10" height="1.5" rx="0.75" fill="${r.shared?'#5123a4':'#D8CEF0'}"/>
         </svg>
       </div>
       <div class="social-btn" title="Ver trajetória do portador" onclick="openDrawer('${r.name}','${r.program}','${r.date}','${r.impact}')" style="cursor:pointer;">
@@ -789,7 +1121,7 @@ document.getElementById('calOverlay').addEventListener('click',function(e){if(e.
       <div style="position:relative; height:160px; margin-bottom:4px;">
         <canvas id="drawerChart"></canvas>
       </div>
-      <p style="font-size:11px; color:var(--ink-faint); line-height:1.5; margin-top:6px;">Impactos acumulados deste portador – antes e após o compartilhamento do certificado. Eixo X: anual antes, bimestral depois.</p>
+      <p style="font-size:11px; color:var(--ink); line-height:1.5; margin-top:6px;">Impactos acumulados deste portador – antes e após o compartilhamento do certificado. Eixo X: anual antes, bimestral depois.</p>
     </div>
 
     <!-- TRAJETÓRIA PROFISSIONAL -->
@@ -997,14 +1329,14 @@ function openDrawer(name, program, date, impact) {
         },
         scales: {
           x: {
-            ticks: { font: { size: 9, family: 'Poppins' }, color: '#A899C2', maxRotation: 45 },
+            ticks: { font: { size: 9, family: 'Poppins' }, color: '#1E1230', maxRotation: 45 },
             grid: { color: 'rgba(216,206,240,0.4)' }
           },
           y: {
             beginAtZero: true,
-            ticks: { font: { size: 9, family: 'Poppins' }, color: '#A899C2', stepSize: 1 },
+            ticks: { font: { size: 9, family: 'Poppins' }, color: '#1E1230', stepSize: 1 },
             grid: { color: 'rgba(216,206,240,0.4)' },
-            title: { display: true, text: 'Impactos', font: { size: 9 }, color: '#A899C2' }
+            title: { display: true, text: 'Impactos', font: { size: 9 }, color: '#1E1230' }
           }
         }
       },
@@ -1023,13 +1355,13 @@ function closeDrawer() {
 <script>
 const translations = {
   pt: {
-    'eyebrow': 'Módulo Ensino Superior · Capital Humano',
+    'eyebrow': 'Painel de Empregabilidade Ensino Superior',
     'title': 'Empregabilidade',
-    'subtitle': 'Quando um portador compartilha seu certificado no LinkedIn, a POK lê o histórico completo do perfil e monitora mudanças de carreira ao longo do tempo – novos empregos, promoções e evolução de habilidades.',
+    'subtitle': 'Painel de leitura de dados de empregabilidade por Instituição e por curso a partir da emissão de certificados, badges e microcredenciais POK',
     'f1': 'Todos os cursos',
     'f2': 'Data de emissão',
     'f3': 'Data de compartilhamento',
-    'f4': 'Todos os títulos',
+    'f4': 'Todas as competências',
     'fn1': 'Compartilhamentos<br>no LinkedIn',
     'fn2': 'Publicações<br>detectadas',
     'fn3': 'Adicionado<br>ao perfil',
@@ -1149,7 +1481,7 @@ const translations = {
     'd4': 'Habilidades declaradas no LinkedIn',
   },
   es: {
-    'eyebrow': 'Módulo Ensino Superior · Capital Humano',
+    'eyebrow': 'Painel de Empregabilidade Ensino Superior',
     'title': 'Empleabilidad',
     'subtitle': 'Cuando un portador comparte su certificado en LinkedIn, POK lee el historial completo del perfil y monitorea los cambios de carrera a lo largo del tiempo – nuevos empleos, ascensos y evolución de habilidades.',
     'f1': 'Todos los cursos',
@@ -1263,6 +1595,152 @@ function setLang(lang) {
   document.getElementById('btn-es').style.background = lang === 'es' ? 'var(--purple)' : 'var(--white)';
   document.getElementById('btn-es').style.color = lang === 'es' ? '#fff' : 'var(--ink-muted)';
 }
+
+// ─── SERASA CHART ─────────────────────────────────────────────────────────────
+const serasaDatasets = {
+  renda: { label: 'Faixa de renda média (1=E … 5=A)', past: [1.8,1.9,2.0,2.0,2.1,2.2,2.3,2.4], share: 2.4, future: [2.5,2.6,2.8,3.0,3.1,3.2], yLabel: 'Faixa de renda', yMax: 5 },
+  score: { label: 'Score de crédito médio', past: [510,520,530,535,540,550,560,570], share: 575, future: [585,600,615,625,635,640], yLabel: 'Score Serasa', yMax: 1000 },
+  negativacao: { label: '% com negativação ativa', past: [38,36,35,34,33,31,29,27], share: 26, future: [24,21,18,16,15,14], yLabel: '% negativados', yMax: 50 },
+  empreendedorismo: { label: '% com CNPJ aberto', past: [2,2,3,3,4,4,5,5], share: 6, future: [7,8,10,11,12,13], yLabel: '% com CNPJ', yMax: 20 }
+};
+
+let serasaChart = null;
+
+function buildExtraChart(canvasId, datasets, key, labelOverride) {
+  const d = datasets[key];
+  const values = [...d.past, d.share, ...d.future];
+  const pastL = ['2018','2019','2020','2021','2022','2023','2024','2025'];
+  const futureL = ['2 meses','4 meses','6 meses','8 meses','10 meses','12 meses'];
+  const labels = [...pastL, 'Emissão', ...futureL];
+  const si = pastL.length;
+
+  const pointBg = labels.map((_, i) => i === si ? '#5123a4' : '#A899C2');
+  const pointR = labels.map((_, i) => i === si ? 7 : 4);
+
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) return null;
+  const ctx = canvas.getContext('2d');
+  const grad = ctx.createLinearGradient(0, 0, ctx.canvas.width, 0);
+  grad.addColorStop(0, 'rgba(168,153,194,0.5)');
+  grad.addColorStop(si / (labels.length - 1), 'rgba(81,35,164,0.5)');
+  grad.addColorStop(1, 'rgba(81,35,164,0.9)');
+
+  return new Chart(ctx, {
+    type: 'line',
+    data: { labels, datasets: [{ label: d.label, data: values, borderColor: grad, borderWidth: 2.5, pointBackgroundColor: pointBg, pointBorderColor: '#fff', pointBorderWidth: 2, pointRadius: pointR, pointHoverRadius: 7, tension: 0, fill: false }] },
+    options: {
+      responsive: true, maintainAspectRatio: false, layout: { padding: { top: 36 } },
+      plugins: { legend: { display: false }, tooltip: { callbacks: { title: c => c[0].label, label: c => `${d.yLabel}: ${c.parsed.y}` }, bodyFont: { family: 'Poppins', size: 12 }, titleFont: { family: 'Poppins', size: 12, weight: '600' } } },
+      scales: {
+        x: { ticks: { font: { size: 11, family: 'Poppins' }, color: '#1E1230', maxRotation: 0 }, grid: { color: 'rgba(216,206,240,0.5)' } },
+        y: { min: 0, max: d.yMax, title: { display: true, text: d.yLabel, font: { size: 11, family: 'Poppins' }, color: '#1E1230' }, ticks: { font: { size: 11, family: 'Poppins' }, color: '#1E1230' }, grid: { color: 'rgba(216,206,240,0.4)' } }
+      }
+    },
+    plugins: [{
+      id: 'emissaoMarker',
+      afterDraw(chart) {
+        const { ctx, chartArea, scales } = chart;
+        const shareX = scales.x.getPixelForValue(si);
+        ctx.save();
+        ctx.fillStyle = 'rgba(243,239,249,0.5)';
+        ctx.fillRect(chartArea.left, chartArea.top, shareX - chartArea.left, chartArea.bottom - chartArea.top);
+        ctx.fillStyle = 'rgba(225,220,247,0.18)';
+        ctx.fillRect(shareX, chartArea.top, chartArea.right - shareX, chartArea.bottom - chartArea.top);
+        ctx.beginPath(); ctx.setLineDash([5,4]); ctx.strokeStyle = 'rgba(81,35,164,0.5)'; ctx.lineWidth = 1.5;
+        ctx.moveTo(shareX, chartArea.top); ctx.lineTo(shareX, chartArea.bottom); ctx.stroke(); ctx.setLineDash([]);
+        const pillText = labelOverride || 'Emissão';
+        ctx.font = '600 11px Poppins, sans-serif'; ctx.textAlign = 'center';
+        const pillW = ctx.measureText(pillText).width + 20, pillH = 22;
+        const pillX = shareX - pillW / 2, pillY = chartArea.top - pillH - 6;
+        ctx.fillStyle = '#5123a4'; ctx.beginPath(); ctx.roundRect(pillX, pillY, pillW, pillH, 6); ctx.fill();
+        ctx.fillStyle = '#fff'; ctx.fillText(pillText, shareX, pillY + 15);
+        ctx.beginPath(); ctx.moveTo(shareX-6, pillY+pillH); ctx.lineTo(shareX+6, pillY+pillH); ctx.lineTo(shareX, pillY+pillH+6); ctx.closePath(); ctx.fillStyle = '#5123a4'; ctx.fill();
+        ctx.restore();
+      }
+    }]
+  });
+}
+
+function updateSerasaChart() {
+  const sel = document.getElementById('serasaMetricSelect'); if (!sel) return;
+  const key = sel.value;
+  if (serasaChart) serasaChart.destroy();
+  serasaChart = buildExtraChart('serasaChart', serasaDatasets, key, 'Emissão do certificado');
+}
+
+// ─── PÚBLICO CHART ────────────────────────────────────────────────────────────
+const publicoDatasets = {
+  vinculo: { label: '% com vínculo formal ativo', past: [42,44,46,47,48,50,52,54], share: 55, future: [58,62,65,67,68,70], yLabel: '% com vínculo', yMax: 100 },
+  sine: { label: '% inscrito no SINE', past: [28,26,25,24,23,22,20,19], share: 18, future: [16,13,11,9,8,7], yLabel: '% no SINE', yMax: 40 },
+  contribuicao: { label: 'Meses médios de contribuição previdenciária', past: [18,22,26,30,34,38,42,46], share: 48, future: [50,54,58,62,66,70], yLabel: 'Meses contrib.', yMax: 100 },
+  estagio: { label: '% com contrato de estágio ativo', past: [8,9,10,11,12,13,12,11], share: 10, future: [8,6,5,4,3,2], yLabel: '% em estágio', yMax: 20 }
+};
+
+let publicoChart = null;
+
+function updatePublicoChart() {
+  const sel = document.getElementById('publicoMetricSelect'); if (!sel) return;
+  const key = sel.value;
+  if (publicoChart) publicoChart.destroy();
+  publicoChart = buildExtraChart('publicoChart', publicoDatasets, key, 'Emissão do certificado');
+}
+
+
+// ─── POK SCORE RANKING ───────────────────────────────────────────────────────
+const rankingData = [
+  { curso: 'Tecnologia da Informação', score: 88, var: +12, insercao: 91 },
+  { curso: 'Enfermagem',               score: 79, var: +8,  insercao: 83 },
+  { curso: 'Direito',                  score: 74, var: +6,  insercao: 82 },
+  { curso: 'Pedagogia',                score: 61, var: +3,  insercao: 65 },
+  { curso: 'Administração',            score: 70, var: +5,  insercao: 72 },
+  { curso: 'Ciências Contábeis',       score: 67, var: +2,  insercao: 69 },
+  { curso: 'Engenharia Civil',         score: 81, var: +9,  insercao: 85 },
+  { curso: 'Medicina',                 score: 94, var: +4,  insercao: 97 },
+  { curso: 'Psicologia',               score: 72, var: +7,  insercao: 74 },
+  { curso: 'Marketing',                score: 66, var: +1,  insercao: 68 },
+].sort((a, b) => b.score - a.score);
+
+function renderRanking(selectedCurso) {
+  const list = document.getElementById('rankingList');
+  const footer = document.getElementById('rankingFooter');
+  if (!list) return;
+
+  list.innerHTML = rankingData.map(function(r, i) {
+    const isSelected = selectedCurso && r.curso.toLowerCase().indexOf(selectedCurso.toLowerCase()) >= 0;
+    const highlight = isSelected ? 'border:1px solid rgba(230,194,74,0.5); background:rgba(230,194,74,0.08);' : 'border:1px solid transparent;';
+    const varColor = r.var > 0 ? '#5DCAA5' : r.var < 0 ? '#f87171' : '#fff';
+    const varSign = r.var > 0 ? '↑ +' : r.var < 0 ? '↓ ' : '→ ';
+    return '<div style="display:grid; grid-template-columns:40px 1fr 80px 120px 80px; gap:0; padding:10px 16px; border-radius:10px; ' + highlight + ' align-items:center;">' +
+      '<div style="font-size:12px; font-weight:700; color:#fff;">' + (i+1) + '</div>' +
+      '<div style="font-size:13px; font-weight:' + (isSelected?'700':'500') + '; color:#fff;">' + r.curso + '</div>' +
+      '<div style="text-align:center;"><span style="font-size:18px; font-weight:900; color:#fff;">' + r.score + '</span></div>' +
+      '<div style="text-align:center; font-size:12px; color:' + varColor + '; font-weight:600;">' + varSign + Math.abs(r.var) + ' pts</div>' +
+      '<div style="text-align:center;">' +
+        '<div style="height:5px; background:rgba(255,255,255,0.1); border-radius:99px; overflow:hidden; width:60px; margin:0 auto;">' +
+          '<div style="height:100%; width:' + r.insercao + '%; background:#5DCAA5; border-radius:99px;"></div>' +
+        '</div>' +
+        '<div style="font-size:10px; color:#fff; margin-top:3px;">' + r.insercao + '%</div>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+
+  if (selectedCurso) {
+    const found = rankingData.find(function(r) { return r.curso.toLowerCase().indexOf(selectedCurso.toLowerCase()) >= 0; });
+    const pos = found ? rankingData.indexOf(found) + 1 : null;
+    if (footer) footer.textContent = found ? found.curso + ' ocupa a posição ' + pos + 'º de ' + rankingData.length + ' cursos' : '';
+  } else {
+    if (footer) footer.textContent = '';
+  }
+}
+
+renderRanking(null);
+
+// Init both — use window.onload to ensure Chart.js is ready
+window.addEventListener('load', function() {
+  if (document.getElementById('serasaChart')) updateSerasaChart();
+  if (document.getElementById('publicoChart')) updatePublicoChart();
+});
+
 </script>
 </body>
 </html>
