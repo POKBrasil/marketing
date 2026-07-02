@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POK Holder – Sua carteira digital de credenciais</title>
+  <meta name="description" content="O POK Holder é a carteira digital onde suas conquistas ganham presença. Reúna, organize e compartilhe suas credenciais verificáveis.">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --roxo:      #5123a4;
+      --roxo-h:    #6333c5;
+      --roxo-pale: #F3EFF9;
+      --roxo-mid:  #ece7f7;
+      --dourado:   #f1ce0a;
+      --dourado-dk:#c8a900;
+      --dark:      #111111;
+      --white:     #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--white);
+      color: #111111;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+
+    /* ── NAV ──────────────────────────────── */
+    .nav {
+      background: var(--white);
+      height: 68px;
+      display: flex;
+      align-items: center;
+      padding: 0 56px;
+      border-bottom: 1.5px solid var(--roxo-mid);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo img { height: 34px; width: auto; }
+
+    /* ── HERO ──────────────────────────────── */
+    .hero {
+      background: var(--white);
+      padding: 32px 56px 48px;
+    }
+
+    .hero-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 40px;
+    }
+
+    .hero-visual img { width: 100%; max-width: 640px; display: block; }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow-line  { width: 36px; height: 2px; background: var(--roxo); }
+    .eyebrow-diamond { width: 7px; height: 7px; background: var(--dourado); transform: rotate(45deg); }
+
+    .eyebrow-text {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--roxo);
+    }
+
+    h1 {
+      font-size: 40px;
+      font-weight: 800;
+      line-height: 1.18;
+      color: #111111;
+      margin-bottom: 20px;
+    }
+
+    h1 .hl { color: var(--roxo); }
+
+    .hero-sub {
+      font-size: 16px;
+      color: #111111;
+      line-height: 1.75;
+      margin-bottom: 36px;
+    }
+
+    .hero-sub strong { color: #111111; font-weight: 600; }
+
+    .btn-roxo {
+      display: inline-block;
+      background: var(--roxo);
+      color: var(--white);
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 15px 36px;
+      border-radius: 10px;
+      text-decoration: none;
+      letter-spacing: 0.2px;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-roxo:hover {
+      background: var(--roxo-h);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(81,35,164,0.28);
+    }
+
+    /* ── INTRO (fundo branco → texto preto) ── */
+    .intro {
+      background: var(--white);
+      padding: 40px 56px 72px;
+    }
+
+    .intro-inner {
+      max-width: 780px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 28px;
+      font-weight: 800;
+      color: #111111;
+      line-height: 1.25;
+      margin-bottom: 18px;
+    }
+
+    h2 .hl { color: var(--roxo); }
+
+    .intro-text {
+      font-size: 16px;
+      color: #111111;
+      line-height: 1.75;
+    }
+
+    .intro-text p + p { margin-top: 18px; }
+    .intro-text strong { color: #111111; font-weight: 600; }
+    .intro-text a { color: var(--roxo); font-weight: 600; text-decoration: none; }
+    .intro-text a:hover { text-decoration: underline; }
+
+    /* ── FEATURES (fundo roxo → texto branco) */
+    .features {
+      background: var(--roxo);
+      padding: 72px 56px;
+    }
+
+    .features-inner { max-width: 1120px; margin: 0 auto; }
+
+    .f-eyebrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .f-eyebrow-line { width: 36px; height: 2px; background: var(--dourado); }
+    .f-eyebrow-diamond { width: 7px; height: 7px; background: var(--dourado); transform: rotate(45deg); }
+    .f-eyebrow-text {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .f-title {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--white);
+      text-align: center;
+      line-height: 1.3;
+      margin-bottom: 48px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .feature-card {
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 18px;
+      padding: 32px 28px;
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--dourado);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .feature-icon svg { width: 24px; height: 24px; }
+
+    .feature-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .feature-desc {
+      font-size: 14px;
+      color: var(--white);
+      line-height: 1.65;
+    }
+
+    /* ── STATS (fundo branco → texto preto) ── */
+    .stats {
+      background: var(--white);
+      padding: 72px 56px;
+    }
+
+    .stats-inner { max-width: 1120px; margin: 0 auto; text-align: center; }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 8px;
+    }
+
+    .stat-block { padding: 20px; }
+
+    .stat-block .stat-ic {
+      width: 44px;
+      height: 44px;
+      background: var(--roxo-pale);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .stat-block .stat-ic svg { width: 22px; height: 22px; }
+
+    .stat-block h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #111111;
+      margin-bottom: 8px;
+    }
+
+    .stat-block p {
+      font-size: 14px;
+      color: #111111;
+      line-height: 1.6;
+    }
+
+    /* ── DOWNLOAD CTA (fundo roxo → branco) ── */
+    .download {
+      background: var(--roxo);
+      padding: 72px 56px;
+    }
+
+    .download-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .download h2 { color: var(--white); }
+    .download h2 .hl { color: var(--dourado); }
+
+    .download-sub {
+      font-size: 16px;
+      color: var(--white);
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+
+    .download-badges {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .app-badge {
+      height: 56px;
+      width: auto;
+      display: block;
+      transition: transform 0.2s;
+    }
+
+    .download-badges a:hover .app-badge { transform: translateY(-3px); }
+
+    /* ── FOOTER (fundo roxo → branco) ──────── */
+    footer {
+      background: var(--roxo);
+      border-top: 1px solid rgba(255,255,255,0.15);
+      padding: 32px 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .ft-logo img { height: 32px; width: auto; }
+
+    .ft-right { display: flex; align-items: center; gap: 24px; }
+    .ft-right a { color: #ffffff; font-size: 13px; font-weight: 600; text-decoration: none; }
+    .ft-tagline { font-size: 14px; font-weight: 500; color: #ffffff; }
+
+    /* ── FADE IN ───────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-inner > * { opacity: 0; animation: fadeUp 0.5s ease forwards; }
+    .hero-inner > *:nth-child(1) { animation-delay: 0.08s; }
+    .hero-inner > *:nth-child(2) { animation-delay: 0.18s; }
+
+    /* ── RESPONSIVE ───────────────────────── */
+    @media (max-width: 960px) {
+      .features-grid, .stats-grid { grid-template-columns: 1fr; }
+      h1 { font-size: 30px; }
+      h2, .f-title { font-size: 24px; }
+
+      .hero, .intro, .features, .stats, .download {
+        padding-left: 24px; padding-right: 24px;
+      }
+      .nav { padding: 0 24px; }
+      footer { padding: 24px; flex-direction: column; gap: 14px; text-align: center; }
+      .ft-right { flex-direction: column; gap: 10px; }
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 26px; }
+      .download-badges { flex-direction: column; }
+      .download-badges img, .btn-web { height: 48px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ──────────────────────────────────────── -->
+<nav class="nav">
+  <a href="https://pok.tech" class="nav-logo" aria-label="POK">
+    <img src="https://content.app-us1.com/m7A5p8/2026/03/06/2ac7ad55-dbe9-497b-9632-bb21e1cae55f.png" alt="POK">
+  </a>
+</nav>
+
+<!-- ── HERO ─────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-inner">
+
+    <div class="hero-visual">
+      <img
+        src="https://pokbrasil.github.io/content/landing-pokholder.png"
+        alt="Carteira digital POK Holder com credenciais organizadas"
+      >
+    </div>
+
+    <div>
+      <div class="eyebrow">
+        <div class="eyebrow-line"></div>
+        <div class="eyebrow-diamond"></div>
+        <span class="eyebrow-text">Carteira digital de credenciais</span>
+      </div>
+
+      <h1>Sua jornada de educação continuada, organizada em uma carteira de <span class="hl">conquistas verificáveis</span></h1>
+
+      <p class="hero-sub">
+        O POK Holder é o espaço onde suas conquistas ganham presença digital e passam a contar a história completa da sua trajetória de aprendizagem.
+      </p>
+
+      <a href="https://holder.pok.tech/" target="_blank" class="btn-roxo">Acessar o POK Holder</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── INTRO (fundo branco → texto preto) ────── -->
+<section class="intro">
+  <div class="intro-inner">
+    <div class="eyebrow">
+      <div class="eyebrow-line"></div>
+      <div class="eyebrow-diamond"></div>
+      <span class="eyebrow-text">O que é o POK Holder</span>
+    </div>
+    <h2>Todos os seus certificados reunidos em <span class="hl">um só lugar</span></h2>
+    <div class="intro-text">
+      <p>Disponível em versão web e aplicativo, o POK Holder funciona como uma carteira digital de credenciais. Em um único ambiente, você reúne todos os certificados emitidos por diferentes instituições e organiza sua jornada de aprendizagem de forma clara, estruturada e verificável.</p>
+      <p>Cada credencial armazenada carrega mais do que um título. Ela registra evidências da sua formação e apresenta dados que fortalecem sua trajetória.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── FEATURES (fundo roxo → texto branco) ──── -->
+<section class="features">
+  <div class="features-inner">
+    <div class="f-eyebrow">
+      <div class="f-eyebrow-line"></div>
+      <div class="f-eyebrow-diamond"></div>
+      <span class="f-eyebrow-text">Como funciona</span>
+    </div>
+    <h2 class="f-title">O controle da sua história está nas suas mãos</h2>
+
+    <div class="features-grid">
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#5123a4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="16" rx="2"/>
+            <path d="M7 9h10M7 13h6"/>
+          </svg>
+        </div>
+        <div class="feature-title">Portfólio organizado</div>
+        <div class="feature-desc">Reúna certificados de diferentes instituições e organize sua jornada de aprendizagem de forma clara e estruturada.</div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#5123a4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5z"/>
+          </svg>
+        </div>
+        <div class="feature-title">Público ou privado, você decide</div>
+        <div class="feature-desc">Escolha se cada credencial será pública ou privada e compartilhe uma página com todas as suas conquistas quando precisar.</div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#5123a4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+          </svg>
+        </div>
+        <div class="feature-title">Integração com o LinkedIn</div>
+        <div class="feature-desc">Conecte suas credenciais à sua presença profissional online, transformando certificados em sinais claros de competência.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── STATS (fundo branco → texto preto) ────── -->
+<section class="stats">
+  <div class="stats-inner">
+    <div class="eyebrow">
+      <div class="eyebrow-line"></div>
+      <div class="eyebrow-diamond"></div>
+      <span class="eyebrow-text">Cada credencial conta uma história</span>
+    </div>
+    <h2>Mais do que um título – <span class="hl">evidências da sua formação</span></h2>
+
+    <div class="stats-grid">
+
+      <div class="stat-block">
+        <div class="stat-ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#5123a4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
+          </svg>
+        </div>
+        <h3>Instituições certificadoras</h3>
+        <p>Veja quantas instituições já certificaram seu aprendizado.</p>
+      </div>
+
+      <div class="stat-block">
+        <div class="stat-ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#5123a4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+          </svg>
+        </div>
+        <h3>Visualizações</h3>
+        <p>Acompanhe quantas vezes suas credenciais foram visualizadas.</p>
+      </div>
+
+      <div class="stat-block">
+        <div class="stat-ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#5123a4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/>
+          </svg>
+        </div>
+        <h3>Validações realizadas</h3>
+        <p>Saiba quantas validações foram feitas nas suas conquistas.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── DOWNLOAD CTA (fundo roxo → branco) ────── -->
+<section class="download">
+  <div class="download-inner">
+    <div class="f-eyebrow">
+      <div class="f-eyebrow-line"></div>
+      <div class="f-eyebrow-diamond"></div>
+      <span class="f-eyebrow-text">Comece agora</span>
+    </div>
+    <h2>Sua jornada, <span class="hl">visível e reconhecida</span></h2>
+    <p class="download-sub">A cada nova certificação, sua jornada se torna mais completa. Acesse pela web ou baixe o aplicativo.</p>
+
+    <div class="download-badges">
+
+      <a href="https://holder.pok.tech/" target="_blank" aria-label="Acessar POK Holder versão web">
+        <svg class="app-badge" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg" role="img">
+          <rect width="200" height="60" rx="10" fill="#000000"/>
+          <g transform="translate(22, 16)">
+            <circle cx="14" cy="14" r="13" fill="none" stroke="#ffffff" stroke-width="1.6"/>
+            <path d="M1 14h26M14 1a20 20 0 0 1 5.5 13A20 20 0 0 1 14 27 20 20 0 0 1 8.5 14 20 20 0 0 1 14 1z" fill="none" stroke="#ffffff" stroke-width="1.6"/>
+          </g>
+          <text x="62" y="26" fill="#ffffff" font-family="Poppins, Arial, sans-serif" font-size="8" font-weight="400">Acesse a</text>
+          <text x="62" y="42" fill="#ffffff" font-family="Poppins, Arial, sans-serif" font-size="15" font-weight="600">Versão Web</text>
+        </svg>
+      </a>
+
+      <a href="https://play.google.com/store/apps/details?id=com.pok.holder" target="_blank" aria-label="Disponível no Google Play">
+        <svg class="app-badge" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg" role="img">
+          <rect width="200" height="60" rx="10" fill="#000000"/>
+          <g transform="translate(22, 15)">
+            <path d="M0 2 L0 28 L14 15 Z" fill="#00D3FF"/>
+            <path d="M0 2 L18 12 L14 15 Z" fill="#00E676"/>
+            <path d="M0 28 L18 18 L14 15 Z" fill="#FF3D57"/>
+            <path d="M18 12 L24 15 L18 18 L14 15 Z" fill="#FFCE00"/>
+          </g>
+          <text x="62" y="26" fill="#ffffff" font-family="Poppins, Arial, sans-serif" font-size="8" font-weight="400">DISPONÍVEL NO</text>
+          <text x="62" y="42" fill="#ffffff" font-family="Poppins, Arial, sans-serif" font-size="16" font-weight="600">Google Play</text>
+        </svg>
+      </a>
+
+      <a href="https://apps.apple.com/ar/app/pok-holder/id6746414684" target="_blank" aria-label="Baixar na App Store">
+        <svg class="app-badge" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg" role="img">
+          <rect width="200" height="60" rx="10" fill="#000000"/>
+          <path transform="translate(20, 15)" d="M20.5 15.8c0-3 2.4-4.4 2.5-4.5-1.4-2-3.5-2.3-4.2-2.3-1.8-.2-3.5 1-4.4 1-.9 0-2.3-1-3.8-1-2 0-3.7 1.1-4.7 2.9-2 3.5-.5 8.6 1.4 11.5.9 1.4 2 3 3.5 2.9 1.4-.1 1.9-.9 3.6-.9 1.7 0 2.1.9 3.6.9 1.5 0 2.4-1.4 3.3-2.8 1.1-1.6 1.5-3.2 1.5-3.2s-2.9-1.1-2.9-4.4zM17.7 6.9c.8-1 1.3-2.3 1.2-3.7-1.1.1-2.5.8-3.3 1.7-.7.9-1.4 2.2-1.2 3.5 1.3.1 2.5-.6 3.3-1.5z" fill="#ffffff"/>
+          <text x="62" y="26" fill="#ffffff" font-family="Poppins, Arial, sans-serif" font-size="8" font-weight="400">BAIXAR NA</text>
+          <text x="62" y="42" fill="#ffffff" font-family="Poppins, Arial, sans-serif" font-size="16" font-weight="600">App Store</text>
+        </svg>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER (fundo roxo → branco) ──────────── -->
+<footer>
+  <img
+    src="https://content.app-us1.com/m7A5p8/2026/03/11/ddc2f081-9fdc-422f-8da3-4992d80f2aca.png"
+    alt="POK"
+    class="ft-logo"
+    style="height:32px; width:auto;"
+  >
+  <div class="ft-right">
+    <a href="https://pok.tech" target="_blank">pok.tech</a>
+    <span class="ft-tagline">Muito mais que certificados digitais</span>
+  </div>
+</footer>
+
+</body>
+</html>
