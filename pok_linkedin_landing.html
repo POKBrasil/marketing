@@ -55,7 +55,7 @@
     /* ── HERO ──────────────────────────────── */
     .hero {
       background: var(--white);
-      padding: 64px 56px 80px;
+      padding: 32px 56px 40px;
     }
 
     .hero-inner {
@@ -102,6 +102,8 @@
     }
 
     h1 .hl { color: var(--roxo); }
+
+    h2 .hl { color: var(--roxo); }
 
     .hero-sub {
       font-size: 16px;
@@ -204,6 +206,8 @@
       font-style: italic;
     }
 
+
+
     /* ── SOBRE (fundo branco → texto preto) ─ */
     .sobre {
       background: var(--white);
@@ -213,46 +217,51 @@
     .sobre-inner {
       max-width: 860px;
       margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       text-align: center;
-      gap: 48px;
     }
 
     .sobre-text { width: 100%; }
 
-    .sec-label {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--roxo);
-      margin-bottom: 10px;
-    }
-
-    h2 {
-      font-size: 32px;
-      font-weight: 700;
-      color: #111111;
-      line-height: 1.28;
-      margin-bottom: 16px;
-    }
-
-    h2 .hl { color: var(--roxo); }
+    .sobre-h2 { font-size: 28px; font-weight: 800; line-height: 1.18; margin-bottom: 20px; }
 
     .body-text {
-      font-size: 15px;
+      font-size: 16px;
       color: #111111;
-      line-height: 1.8;
+      line-height: 1.75;
     }
 
-    .body-text p + p { margin-top: 14px; }
+    .body-text p + p { margin-top: 20px; }
+
+    .body-text strong { color: #111111; font-weight: 600; }
 
     .sobre-visual img {
       width: 100%;
       max-width: 720px;
       border-radius: 16px;
+    }
+    /* ── CTA BOX (fundo roxo → texto branco) */
+    .cta-box {
+      background: var(--roxo);
+      border-radius: 20px;
+      padding: 36px 40px;
+      text-align: center;
+      margin-top: 28px;
+    }
+
+    .cta-box-title {
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .cta-box-sub {
+      font-size: 14px;
+      color: var(--white);
+      line-height: 1.6;
+      max-width: none;
+      margin: 0 auto 24px;
     }
 
     /* ── HOW TO (fundo branco → texto preto) */
@@ -262,6 +271,8 @@
     }
 
     .section-inner { max-width: 1120px; margin: 0 auto; }
+
+    .section-inner .eyebrow { justify-content: flex-start; }
 
     .sec-sub {
       font-size: 15px;
@@ -298,20 +309,22 @@
       min-width: 280px;
       display: flex;
       align-items: center;
-      padding: 24px 0 24px 24px;
+      padding: 16px;
+      margin: 16px 0 16px 16px;
+      background: var(--white);
+      border-radius: 12px;
     }
 
     .how-card-img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: auto;
       display: block;
       border-radius: 0;
     }
 
     .how-card-body {
       flex: 1;
-      padding: 32px 32px 36px;
+      padding: 32px 24px 36px 20px;
     }
 
     .how-card--stacked {
@@ -319,9 +332,12 @@
     }
 
     .how-card--stacked .how-card-img-wrap {
-      width: 100%;
+      width: calc(100% - 32px);
       min-width: unset;
-      padding: 20px;
+      padding: 16px;
+      margin: 16px 16px 0;
+      background: var(--white);
+      border-radius: 12px;
     }
 
     .how-card--stacked .how-card-img {
@@ -451,10 +467,11 @@
       color: var(--dark);
       font-family: 'Poppins', sans-serif;
       font-size: 14px;
-      font-weight: 700;
-      padding: 16px 40px;
+      font-weight: 600;
+      padding: 15px 36px;
       border-radius: 10px;
       text-decoration: none;
+      letter-spacing: 0.2px;
       transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
     }
 
@@ -479,6 +496,30 @@
     .ft-tagline { font-size: 14px; font-weight: 500; color: #ffffff; }
 
     /* ── RESPONSIVE ───────────────────────── */
+    /* ── CARD LAYOUT (≤1100px) ──────────────── */
+    @media (max-width: 1100px) {
+      .how-card {
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .how-card-img-wrap {
+        width: calc(100% - 32px) !important;
+        min-width: unset !important;
+        padding: 16px;
+        margin: 16px 16px 0;
+      }
+
+      .how-card-img {
+        width: 100%;
+        height: auto;
+      }
+
+      .how-card-body {
+        padding: 12px 20px 28px;
+      }
+    }
+
     /* ── TABLET (≤960px) ─────────────────── */
     @media (max-width: 960px) {
       .sobre-inner, .howto-grid {
@@ -503,34 +544,14 @@
         padding-right: 24px;
       }
 
-      .hero { padding-top: 48px; padding-bottom: 56px; }
+      .hero { padding-top: 24px; padding-bottom: 32px; }
       .stats { padding-top: 56px; padding-bottom: 56px; }
-      .sobre { padding-top: 64px; padding-bottom: 32px; }
       .howto { padding-top: 32px; padding-bottom: 64px; }
 
       .nav { padding: 0 24px; }
       footer { padding: 24px; flex-direction: column; gap: 10px; text-align: center; }
 
-      /* Cards how-to: empilhar imagem + texto */
-      .how-card {
-        flex-direction: column;
-      }
 
-      .how-card-img-wrap {
-        width: 100% !important;
-        min-width: unset !important;
-        padding: 20px 20px 0 20px;
-      }
-
-      .how-card-img {
-        width: 100%;
-        height: auto;
-        object-fit: contain;
-      }
-
-      .how-card-body {
-        padding: 20px 24px 28px;
-      }
     }
 
     /* ── MOBILE (≤480px) ──────────────────── */
@@ -544,9 +565,10 @@
 
       .s-title { font-size: 20px; }
 
-      .hero-inner, .sobre-inner { gap: 32px; }
+      .hero-inner { gap: 32px; }
+      .sobre { padding-top: 48px; padding-bottom: 24px; }
 
-      .howto-grid { gap: 20px; }
+      .sobre-inner, .howto-grid { gap: 20px; }
 
       .how-card-body { padding: 16px 20px 24px; }
     }
@@ -644,35 +666,37 @@
   </div>
 </section>
 
+
+
 <!-- ── SOBRE (fundo branco → texto preto) ────── -->
 <section class="sobre">
   <div class="sobre-inner">
 
-    <div class="sobre-visual">
-      <img
-        src="https://pokbrasil.github.io/clientes/landing-linkedin-licences.png"
-        alt="Seção Licenças e Certificações do LinkedIn com badges verificados"
-      >
-    </div>
-
     <div class="sobre-text">
-      <div class="sec-label">Por que compartilhar</div>
-      <h2>Seu perfil deixa de ser um currículo e passa a ser uma <span class="hl">evidência da sua jornada</span></h2>
+      <div class="eyebrow">
+        <div class="eyebrow-line"></div>
+        <div class="eyebrow-diamond"></div>
+        <span class="eyebrow-text">Por que compartilhar</span>
+      </div>
+      <h2 class="sobre-h2">Seu perfil deixa de ser um <span class="hl">currículo</span> e passa a ser uma <span class="hl">evidência da sua jornada</span></h2>
       <div class="body-text">
-        <p>O LinkedIn funciona hoje como a principal vitrine profissional. Recrutadores utilizam a plataforma para identificar competências, acompanhar trajetórias de aprendizagem e descobrir profissionais em evolução constante.</p>
-        <p>Compartilhar suas certificações torna o perfil mais completo, mais atualizado e mais relevante. Cada nova certificação publicada comunica movimento, atualização e desenvolvimento de competências.</p>
-        <p>Perfis que demonstram aprendizado contínuo geram mais descoberta profissional, mais conexões e mais oportunidades.</p>
+        <p>O LinkedIn funciona hoje como a principal <strong>vitrine profissional</strong>. Recrutadores utilizam a plataforma para identificar competências, acompanhar trajetórias de aprendizagem e descobrir profissionais em evolução constante.</p>
+        <p>Compartilhar suas certificações torna o <strong>perfil mais completo</strong>, mais atualizado e mais relevante. Cada nova certificação publicada comunica movimento, atualização e desenvolvimento de competências.</p>
+        <p>Perfis que demonstram aprendizado contínuo geram mais descoberta profissional, mais conexões e <strong>mais oportunidades</strong>.</p>
       </div>
     </div>
 
   </div>
 </section>
 
-
 <!-- ── HOW TO (fundo branco → texto preto) ───── -->
 <section class="howto" id="como-compartilhar">
   <div class="section-inner">
-    <div class="sec-label">Passo a passo</div>
+    <div class="eyebrow">
+      <div class="eyebrow-line"></div>
+      <div class="eyebrow-diamond"></div>
+      <span class="eyebrow-text">Passo a passo</span>
+    </div>
     <h2>Duas formas de compartilhar</h2>
     <p class="sec-sub">A recomendação é usar as duas – cada uma tem um papel estratégico diferente no seu perfil.</p>
 
@@ -719,13 +743,15 @@
       </div>
 
     </div>
+
+    <div class="cta-box">
+      <h3 class="cta-box-title">Conheça a Carteira Digital POK Holder</h3>
+      <p class="cta-box-sub">Todas as suas credenciais verificáveis reunidas em um só lugar, prontas para compartilhar.</p>
+      <a href="#" class="btn-dourado">Conheça a POK Holder</a>
+    </div>
+
   </div>
 </section>
-
-
-
-
-
 <!-- ── FOOTER (fundo escuro → texto branco) ───── -->
 <footer>
   <img
