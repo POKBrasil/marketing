@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compartilhe sua credencial no LinkedIn – POK</title>
+  <meta name="description" content="Seu certificado POK é verificável e confiável. Compartilhe no LinkedIn e aumente sua visibilidade profissional.">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --roxo:      #5123a4;
+      --roxo-h:    #6333c5;
+      --roxo-pale: #F3EFF9;
+      --roxo-mid:  #ece7f7;
+      --dourado:   #f1ce0a;
+      --dourado-dk:#c8a900;
+      --dark:      #111111;
+      --white:     #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--white);
+      color: #111111;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+
+    /* ── NAV ──────────────────────────────── */
+    .nav {
+      background: var(--white);
+      height: 68px;
+      display: flex;
+      align-items: center;
+      padding: 0 56px;
+      border-bottom: 1.5px solid var(--roxo-mid);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .nav-logo img { height: 34px; width: auto; }
+
+    /* ── HERO ──────────────────────────────── */
+    .hero {
+      background: var(--white);
+      padding: 64px 56px 80px;
+    }
+
+    .hero-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 48px;
+    }
+
+    .hero-visual img {
+      width: 100%;
+      max-width: 720px;
+      display: block;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow-line  { width: 36px; height: 2px; background: var(--roxo); }
+    .eyebrow-diamond { width: 7px; height: 7px; background: var(--dourado); transform: rotate(45deg); }
+
+    .eyebrow-text {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--roxo);
+    }
+
+    h1 {
+      font-size: 42px;
+      font-weight: 800;
+      line-height: 1.18;
+      color: #111111;
+      margin-bottom: 20px;
+    }
+
+    h1 .hl { color: var(--roxo); }
+
+    .hero-sub {
+      font-size: 16px;
+      color: #111111;
+      line-height: 1.75;
+      margin-bottom: 36px;
+    }
+
+    .hero-sub strong { color: #111111; font-weight: 600; }
+
+    .btn-roxo {
+      display: inline-block;
+      background: var(--roxo);
+      color: var(--white);
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 15px 36px;
+      border-radius: 10px;
+      text-decoration: none;
+      letter-spacing: 0.2px;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-roxo:hover {
+      background: var(--roxo-h);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(81,35,164,0.28);
+    }
+
+    /* ── STATS (fundo roxo → texto branco) ── */
+    .stats {
+      background: var(--roxo);
+      padding: 72px 56px;
+    }
+
+    .stats-inner { max-width: 1120px; margin: 0 auto; }
+
+    .s-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .s-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 48px;
+      max-width: 100%;
+      line-height: 1.35;
+    }
+
+    .stats-list {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+    }
+
+    .stat-item {
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 18px;
+      padding: 28px 18px 24px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .stat-item img {
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+    }
+
+    .stat-num {
+      font-size: 40px;
+      font-weight: 800;
+      color: var(--dourado);
+      line-height: 1;
+    }
+
+    .stat-num sup, .stat-num span { font-size: 22px; }
+
+    .stat-desc {
+      font-size: 12px;
+      line-height: 1.55;
+      color: var(--white);
+    }
+
+    .stats-fonte {
+      font-size: 11px;
+      color: rgba(255,255,255,0.6);
+      margin-top: 24px;
+      font-style: italic;
+    }
+
+    /* ── SOBRE (fundo branco → texto preto) ─ */
+    .sobre {
+      background: var(--white);
+      padding: 88px 56px 40px;
+    }
+
+    .sobre-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 48px;
+    }
+
+    .sobre-text { width: 100%; }
+
+    .sec-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--roxo);
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 32px;
+      font-weight: 700;
+      color: #111111;
+      line-height: 1.28;
+      margin-bottom: 16px;
+    }
+
+    h2 .hl { color: var(--roxo); }
+
+    .body-text {
+      font-size: 15px;
+      color: #111111;
+      line-height: 1.8;
+    }
+
+    .body-text p + p { margin-top: 14px; }
+
+    .sobre-visual img {
+      width: 100%;
+      max-width: 720px;
+      border-radius: 16px;
+    }
+
+    /* ── HOW TO (fundo branco → texto preto) */
+    .howto {
+      background: var(--white);
+      padding: 40px 56px 88px;
+    }
+
+    .section-inner { max-width: 1120px; margin: 0 auto; }
+
+    .sec-sub {
+      font-size: 15px;
+      color: #111111;
+      max-width: 100%;
+      line-height: 1.75;
+      margin-bottom: 52px;
+    }
+
+    .howto-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+
+    .how-card {
+      background: var(--roxo-pale);
+      border-radius: 24px;
+      padding: 0;
+      display: flex;
+      gap: 0;
+      align-items: flex-start;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .how-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 40px rgba(81,35,164,0.12);
+    }
+
+    .how-card-img-wrap {
+      width: 280px;
+      min-width: 280px;
+      display: flex;
+      align-items: center;
+      padding: 24px 0 24px 24px;
+    }
+
+    .how-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 0;
+    }
+
+    .how-card-body {
+      flex: 1;
+      padding: 32px 32px 36px;
+    }
+
+    .how-card--stacked {
+      flex-direction: column;
+    }
+
+    .how-card--stacked .how-card-img-wrap {
+      width: 100%;
+      min-width: unset;
+      padding: 20px;
+    }
+
+    .how-card--stacked .how-card-img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .how-card--stacked .how-card-body {
+      padding: 20px 32px 36px;
+    }
+
+    .how-step {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--roxo);
+      margin-bottom: 10px;
+    }
+
+    .how-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #111111;
+      margin-bottom: 12px;
+    }
+
+    .how-desc {
+      font-size: 13.5px;
+      color: #111111;
+      line-height: 1.75;
+      margin-bottom: 22px;
+    }
+
+    .how-desc strong { color: var(--roxo); font-weight: 600; }
+
+    .how-tag {
+      display: inline-block;
+      background: var(--roxo);
+      color: var(--white);
+      font-size: 11.5px;
+      font-weight: 600;
+      padding: 7px 18px;
+      border-radius: 8px;
+      letter-spacing: 0.2px;
+    }
+
+    /* ── PROVA BAR ──────────────────────────── */
+    .proof-bar {
+      background: var(--dourado);
+      padding: 20px 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .proof-bar-text {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .proof-bar-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--roxo);
+      opacity: 0.45;
+    }
+
+    /* ── CTA (fundo escuro → texto branco) ── */
+    .cta-section {
+      background: #1a1040;
+      padding: 96px 56px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -100px; left: 50%;
+      transform: translateX(-50%);
+      width: 700px; height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(81,35,164,0.5) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .cta-inner { max-width: 600px; margin: 0 auto; position: relative; }
+
+    .cta-chip {
+      display: inline-block;
+      background: rgba(241,206,10,0.12);
+      border: 1px solid rgba(241,206,10,0.3);
+      color: var(--dourado);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 7px 18px;
+      border-radius: 8px;
+      margin-bottom: 26px;
+    }
+
+    .cta-title {
+      font-size: 38px;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    .cta-sub {
+      font-size: 15px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.75;
+      margin-bottom: 40px;
+    }
+
+    .btn-dourado {
+      display: inline-block;
+      background: var(--dourado);
+      color: var(--dark);
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 16px 40px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-dourado:hover {
+      background: var(--dourado-dk);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(241,206,10,0.3);
+    }
+
+    /* ── FOOTER (fundo escuro → texto branco) */
+    footer {
+      background: var(--roxo);
+      border-top: 1px solid rgba(255,255,255,0.15);
+      padding: 32px 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .ft-logo img { height: 32px; width: auto; }
+
+    .ft-tagline { font-size: 14px; font-weight: 500; color: #ffffff; }
+
+    /* ── RESPONSIVE ───────────────────────── */
+    /* ── TABLET (≤960px) ─────────────────── */
+    @media (max-width: 960px) {
+      .sobre-inner, .howto-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      h1 { font-size: 32px; }
+      h2 { font-size: 26px; }
+
+      .stats-list { grid-template-columns: repeat(2, 1fr); }
+
+      .stats-list .stat-item:last-child {
+        grid-column: span 2;
+        max-width: 300px;
+        margin: 0 auto;
+        width: 100%;
+      }
+
+      .hero, .stats, .sobre, .howto {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
+      .hero { padding-top: 48px; padding-bottom: 56px; }
+      .stats { padding-top: 56px; padding-bottom: 56px; }
+      .sobre { padding-top: 64px; padding-bottom: 32px; }
+      .howto { padding-top: 32px; padding-bottom: 64px; }
+
+      .nav { padding: 0 24px; }
+      footer { padding: 24px; flex-direction: column; gap: 10px; text-align: center; }
+
+      /* Cards how-to: empilhar imagem + texto */
+      .how-card {
+        flex-direction: column;
+      }
+
+      .how-card-img-wrap {
+        width: 100% !important;
+        min-width: unset !important;
+        padding: 20px 20px 0 20px;
+      }
+
+      .how-card-img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+
+      .how-card-body {
+        padding: 20px 24px 28px;
+      }
+    }
+
+    /* ── MOBILE (≤480px) ──────────────────── */
+    @media (max-width: 480px) {
+      h1 { font-size: 26px; }
+      h2 { font-size: 22px; }
+
+      .stats-list { grid-template-columns: 1fr 1fr; }
+
+      .stat-num { font-size: 32px; }
+
+      .s-title { font-size: 20px; }
+
+      .hero-inner, .sobre-inner { gap: 32px; }
+
+      .howto-grid { gap: 20px; }
+
+      .how-card-body { padding: 16px 20px 24px; }
+    }
+
+    /* ── FADE IN ───────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-content > * {
+      opacity: 0;
+      animation: fadeUp 0.5s ease forwards;
+    }
+    .hero-content > *:nth-child(1) { animation-delay: 0.08s; }
+    .hero-content > *:nth-child(2) { animation-delay: 0.18s; }
+    .hero-content > *:nth-child(3) { animation-delay: 0.28s; }
+    .hero-content > *:nth-child(4) { animation-delay: 0.38s; }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ──────────────────────────────────────── -->
+<nav class="nav">
+  <a href="https://pok.tech" class="nav-logo" aria-label="POK">
+    <img src="https://content.app-us1.com/m7A5p8/2026/03/06/2ac7ad55-dbe9-497b-9632-bb21e1cae55f.png" alt="POK">
+  </a>
+</nav>
+
+<!-- ── HERO ─────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-inner">
+
+    <div class="hero-visual">
+      <img
+        src="https://pokbrasil.github.io/clientes/landing-linkedin.png"
+        alt="Mockup de perfil LinkedIn com certificados POK na seção Licenças e Certificações"
+      >
+    </div>
+
+    <div class="hero-content">
+      <div class="eyebrow">
+        <div class="eyebrow-line"></div>
+        <div class="eyebrow-diamond"></div>
+        <span class="eyebrow-text">Para portadores de credenciais POK</span>
+      </div>
+
+      <h1>Compartilhe seus <span class="hl">certificados e badges</span> no LinkedIn e aumente sua <span class="hl">visibilidade profissional</span></h1>
+
+      <p class="hero-sub">
+        Seu certificado POK é <strong>verificável</strong> – qualquer recrutador pode confirmar sua conquista com um clique.
+        Quando você exibe no LinkedIn, passa a aparecer em mais buscas e se destaca para quem está contratando.
+      </p>
+
+      <a href="#como-compartilhar" class="btn-roxo">Como compartilhar agora</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── STATS (fundo roxo → texto branco) ─────── -->
+<section class="stats">
+  <div class="stats-inner">
+    <div class="s-eyebrow">O que os dados mostram</div>
+    <h2 class="s-title">Visibilidade no LinkedIn não é acaso – é uma decisão estratégica</h2>
+    <div class="stats-list">
+
+      <div class="stat-item">
+        <div class="stat-num">87<sup>%</sup></div>
+        <div class="stat-desc">dos recrutadores utilizam o LinkedIn para encontrar candidatos</div>
+      </div>
+
+      <div class="stat-item">
+        <div class="stat-num">71<sup>%</sup></div>
+        <div class="stat-desc">mais chances de convite para entrevista com perfil completo</div>
+      </div>
+
+      <div class="stat-item">
+        <div class="stat-num">33<span>×</span></div>
+        <div class="stat-desc">mais contatos de recrutadores ao listar habilidades verificadas</div>
+      </div>
+
+      <div class="stat-item">
+        <div class="stat-num">17<span>×</span></div>
+        <div class="stat-desc">mais visualizações de perfil com habilidades e endorsements</div>
+      </div>
+
+      <div class="stat-item">
+        <div class="stat-num">21<span>×</span></div>
+        <div class="stat-desc">mais visualizações em perfis completos com foto e credenciais</div>
+      </div>
+
+    </div>
+    <p class="stats-fonte">Fontes: Jobscan (2024) · ResumeGo / Fortune (2019) · LinkedIn / CNBC (2023)</p>
+  </div>
+</section>
+
+<!-- ── SOBRE (fundo branco → texto preto) ────── -->
+<section class="sobre">
+  <div class="sobre-inner">
+
+    <div class="sobre-visual">
+      <img
+        src="https://pokbrasil.github.io/clientes/landing-linkedin-licences.png"
+        alt="Seção Licenças e Certificações do LinkedIn com badges verificados"
+      >
+    </div>
+
+    <div class="sobre-text">
+      <div class="sec-label">Por que compartilhar</div>
+      <h2>Seu perfil deixa de ser um currículo e passa a ser uma <span class="hl">evidência da sua jornada</span></h2>
+      <div class="body-text">
+        <p>O LinkedIn funciona hoje como a principal vitrine profissional. Recrutadores utilizam a plataforma para identificar competências, acompanhar trajetórias de aprendizagem e descobrir profissionais em evolução constante.</p>
+        <p>Compartilhar suas certificações torna o perfil mais completo, mais atualizado e mais relevante. Cada nova certificação publicada comunica movimento, atualização e desenvolvimento de competências.</p>
+        <p>Perfis que demonstram aprendizado contínuo geram mais descoberta profissional, mais conexões e mais oportunidades.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ── HOW TO (fundo branco → texto preto) ───── -->
+<section class="howto" id="como-compartilhar">
+  <div class="section-inner">
+    <div class="sec-label">Passo a passo</div>
+    <h2>Duas formas de compartilhar</h2>
+    <p class="sec-sub">A recomendação é usar as duas – cada uma tem um papel estratégico diferente no seu perfil.</p>
+
+    <div class="howto-grid">
+
+      <div class="how-card">
+        <div class="how-card-img-wrap">
+          <img
+            class="how-card-img"
+            src="https://pokbrasil.github.io/clientes/landing-linkedin-post.png"
+            alt="Publicar certificado como post no LinkedIn"
+          >
+        </div>
+        <div class="how-card-body">
+          <div class="how-step">Opção 1 – Alcance imediato</div>
+          <h3 class="how-title">Publicação em post</h3>
+          <p class="how-desc">
+            Publique seu certificado como uma conquista profissional. O post alcança toda a sua rede, aparece no feed, gera curtidas e comentários – e sinaliza que você está em constante evolução.
+            <br><br>
+            <strong>Ideal para:</strong> anunciar uma nova certificação, comemorar a conclusão de um programa e reforçar sua autoridade no tema.
+          </p>
+          <span class="how-tag">Engajamento imediato</span>
+        </div>
+      </div>
+
+      <div class="how-card how-card--stacked">
+        <div class="how-card-img-wrap">
+          <img
+            class="how-card-img"
+            src="https://pokbrasil.github.io/clientes/landing-linkedin-licences.png"
+            alt="Adicionar certificado na seção Licenças e Certificações do LinkedIn"
+          >
+        </div>
+        <div class="how-card-body">
+          <div class="how-step">Opção 2 – Presença permanente</div>
+          <h3 class="how-title">Seção Licenças e Certificações</h3>
+          <p class="how-desc">
+            Registre o certificado diretamente na seção dedicada do perfil. Ela funciona como um portfólio estruturado de formação profissional – visível a qualquer recrutador que visitar seu perfil.
+            <br><br>
+            <strong>Ideal para:</strong> construir um portfólio permanente de competências verificáveis que fortalece seu posicionamento nas buscas internas da plataforma.
+          </p>
+          <span class="how-tag">Visível no perfil para sempre</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- ── FOOTER (fundo escuro → texto branco) ───── -->
+<footer>
+  <img
+    src="https://content.app-us1.com/m7A5p8/2026/03/11/ddc2f081-9fdc-422f-8da3-4992d80f2aca.png"
+    alt="POK"
+    class="ft-logo"
+    style="height:32px; width:auto;"
+  >
+  <div style="display:flex; align-items:center; gap:24px;">
+    <a href="https://pok.tech" target="_blank" style="color:#ffffff; font-size:13px; font-weight:600; text-decoration:none;">pok.tech</a>
+    <span class="ft-tagline">Muito mais que certificados digitais</span>
+  </div>
+</footer>
+
+</body>
+</html>
