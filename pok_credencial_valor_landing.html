@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Por que sua credencial POK vale mais – POK</title>
+  <meta name="description" content="Você não recebeu apenas um comprovante. Recebeu uma credencial digital verificável, construída sobre padrões internacionais e tecnologia blockchain.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Uma credencial NFT em Open Badge 3.0 – reconhecida em qualquer lugar do mundo">
+  <meta property="og:description" content="Você não recebeu apenas um comprovante. Recebeu uma credencial digital verificável, construída sobre padrões internacionais e tecnologia blockchain.">
+  <meta property="og:image" content="https://pokbrasil.github.io/content/og-nft.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://pokbrasil.github.io/marketing/pok_credencial_valor_landing.html">
+  <meta property="og:site_name" content="POK">
+  <meta property="og:locale" content="pt_BR">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Uma credencial NFT em Open Badge 3.0 – reconhecida em qualquer lugar do mundo">
+  <meta name="twitter:description" content="Você não recebeu apenas um comprovante. Recebeu uma credencial digital verificável, construída sobre padrões internacionais e tecnologia blockchain.">
+  <meta name="twitter:image" content="https://pokbrasil.github.io/content/og-nft.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --roxo:      #5123a4;
+      --roxo-h:    #6333c5;
+      --roxo-pale: #F3EFF9;
+      --roxo-mid:  #ece7f7;
+      --dourado:   #f1ce0a;
+      --dourado-dk:#c8a900;
+      --dark:      #111111;
+      --white:     #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--white);
+      color: #111111;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+
+    /* ── NAV ──────────────────────────────── */
+    .nav {
+      background: var(--white);
+      height: 68px;
+      display: flex;
+      align-items: center;
+      padding: 0 56px;
+      border-bottom: 1.5px solid var(--roxo-mid);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .nav-logo img { height: 34px; width: auto; }
+
+    /* ── HERO ──────────────────────────────── */
+    .hero {
+      background: var(--white);
+      padding: 72px 56px 64px;
+    }
+
+    .hero-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow-line  { width: 36px; height: 2px; background: var(--roxo); }
+    .eyebrow-diamond { width: 7px; height: 7px; background: var(--dourado); transform: rotate(45deg); }
+
+    .eyebrow-text {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--roxo);
+    }
+
+    h1 {
+      font-size: 42px;
+      font-weight: 800;
+      line-height: 1.18;
+      color: #111111;
+      margin-bottom: 24px;
+    }
+
+    h1 .hl { color: var(--roxo); }
+    h2 .hl { color: var(--roxo); }
+
+    .hero-sub {
+      font-size: 17px;
+      color: #111111;
+      line-height: 1.75;
+      max-width: 720px;
+    }
+
+    .hero-sub strong { color: #111111; font-weight: 600; }
+
+    /* ── PILARES (fundo roxo → texto branco) ── */
+    .pilares {
+      background: var(--roxo);
+      padding: 80px 56px;
+    }
+
+    .pilares-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .s-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 10px;
+    }
+
+    .s-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 52px;
+      line-height: 1.35;
+    }
+
+    .pilares-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .pilar-card {
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 20px;
+      padding: 36px 28px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .pilar-icon {
+      width: 52px;
+      height: 52px;
+      background: rgba(241,206,10,0.15);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pilar-icon svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    .pilar-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      color: var(--dourado);
+      margin-bottom: -4px;
+    }
+
+    .pilar-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.25;
+    }
+
+    .pilar-body {
+      font-size: 14px;
+      color: #ffffff;
+      line-height: 1.75;
+    }
+
+    .pilar-body strong { color: var(--white); font-weight: 600; }
+
+    /* ── O QUE VOCÊ GANHA (branco) ── */
+    .ganhos {
+      background: var(--white);
+      padding: 88px 56px;
+    }
+
+    .ganhos-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .ganhos-h2 {
+      font-size: 30px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .ganhos-sub {
+      font-size: 16px;
+      color: #111111;
+      line-height: 1.75;
+      margin-bottom: 52px;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .ganhos-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      text-align: left;
+    }
+
+    .ganho-item {
+      background: var(--roxo-pale);
+      border: 1.5px solid var(--roxo-mid);
+      border-radius: 16px;
+      padding: 28px 24px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .ganho-dot {
+      width: 10px;
+      height: 10px;
+      min-width: 10px;
+      background: var(--dourado);
+      border-radius: 50%;
+      margin-top: 7px;
+    }
+
+    .ganho-text {
+      font-size: 15px;
+      color: #111;
+      line-height: 1.65;
+    }
+
+    .ganho-text strong {
+      font-weight: 700;
+      color: var(--roxo);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    /* ── CTA FINAL (roxo) ── */
+    .cta-final {
+      background: var(--roxo);
+      padding: 80px 56px;
+    }
+
+    .cta-final-inner {
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .cta-final-title {
+      font-size: 30px;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .cta-final-sub {
+      font-size: 16px;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.75;
+      margin-bottom: 36px;
+    }
+
+    .cta-final-sub a {
+      color: var(--dourado);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .cta-final-sub a:hover { text-decoration: underline; }
+
+    .btn-dourado {
+      display: inline-block;
+      background: var(--dourado);
+      color: #111111;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 15px 36px;
+      border-radius: 10px;
+      text-decoration: none;
+      letter-spacing: 0.2px;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-dourado:hover {
+      background: var(--dourado-dk);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(241,206,10,0.30);
+    }
+
+    /* ── FOOTER ──────────────────────────────── */
+    footer {
+      background: var(--roxo);
+      border-top: 1px solid rgba(255,255,255,0.15);
+      padding: 32px 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .ft-tagline {
+      font-size: 14px;
+      font-weight: 500;
+      color: #ffffff;
+    }
+
+    /* ── RESPONSIVE ──────────────────────────── */
+    @media (max-width: 768px) {
+      .nav { padding: 0 24px; }
+
+      .hero { padding: 52px 24px 48px; }
+      h1 { font-size: 28px; }
+      .hero-sub { font-size: 15px; }
+
+      .pilares { padding: 56px 24px; }
+      .pilares-grid { grid-template-columns: 1fr; }
+      .s-title { font-size: 22px; }
+
+      .ganhos { padding: 56px 24px; }
+      .ganhos-h2 { font-size: 24px; }
+      .ganhos-list { grid-template-columns: 1fr; }
+
+      .cta-final { padding: 56px 24px; }
+      .cta-final-title { font-size: 24px; }
+
+      footer {
+        padding: 24px;
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ──────────────────────────────── -->
+<nav class="nav">
+  <a href="https://pok.tech" target="_blank" class="nav-logo">
+    <img
+      src="https://content.app-us1.com/m7A5p8/2026/03/11/ddc2f081-9fdc-422f-8da3-4992d80f2aca.png"
+      alt="POK"
+    >
+  </a>
+</nav>
+
+<!-- ── HERO ──────────────────────────────── -->
+<section class="hero">
+  <div class="hero-inner">
+
+    <!-- IMAGEM HERO -->
+    <div class="hero-visual" style="width:100%; max-width:720px;">
+      <img
+        src="https://pokbrasil.github.io/content/lp_nft_3000px.png"
+        alt="Carteira digital POK com credencial verificável, badge NFT, padrões internacionais e autenticidade blockchain"
+        style="width:100%; display:block;"
+      >
+    </div>
+
+    <div class="eyebrow">
+      <div class="eyebrow-line"></div>
+      <div class="eyebrow-diamond"></div>
+      <span class="eyebrow-text">Para portadores de credenciais POK</span>
+    </div>
+
+    <h1>Por que sua credencial POK <span class="hl">vale mais</span> do que um certificado comum</h1>
+
+    <p class="hero-sub">
+      Você não recebeu apenas um comprovante de conclusão. Recebeu uma <strong>credencial digital verificável</strong>, construída sobre padrões internacionais e tecnologia blockchain – o que a torna confiável, portável e reconhecida em qualquer lugar do mundo.
+    </p>
+
+  </div>
+</section>
+
+<!-- ── PILARES (fundo roxo) ──────────────── -->
+<section class="pilares">
+  <div class="pilares-inner">
+
+    <div class="s-eyebrow">O que torna sua credencial diferente</div>
+    <h2 class="s-title">Três pilares que fazem sua credencial ser levada a sério</h2>
+
+    <div class="pilares-grid">
+
+      <!-- Padrões internacionais -->
+      <div class="pilar-card">
+        <div class="pilar-icon">
+          <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="14" cy="14" r="11" stroke="#f1ce0a" stroke-width="2"/>
+            <ellipse cx="14" cy="14" rx="5" ry="11" stroke="#f1ce0a" stroke-width="1.5"/>
+            <line x1="3" y1="14" x2="25" y2="14" stroke="#f1ce0a" stroke-width="1.5"/>
+            <line x1="5" y1="8.5" x2="23" y2="8.5" stroke="#f1ce0a" stroke-width="1.2"/>
+            <line x1="5" y1="19.5" x2="23" y2="19.5" stroke="#f1ce0a" stroke-width="1.2"/>
+          </svg>
+        </div>
+        <span class="pilar-tag">Padrões internacionais</span>
+        <div class="pilar-title">Open Badge 3.0 e Europass</div>
+        <div class="pilar-body">
+          <p>Sua credencial segue o <strong>Open Badge 3.0</strong> e o <strong>Europass (ELM)</strong>, padrões globais de certificação reconhecidos por organizações como a 1EdTech.</p>
+          <br>
+          <p>Na prática, isso significa que ela é entendida e aceita por instituições, plataformas e empregadores <strong>no Brasil e no exterior</strong> – sem depender de um único sistema para provar que é legítima.</p>
+        </div>
+      </div>
+
+      <!-- Blockchain -->
+      <div class="pilar-card">
+        <div class="pilar-icon">
+          <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="10" width="7" height="7" rx="2" stroke="#f1ce0a" stroke-width="1.8"/>
+            <rect x="18" y="10" width="7" height="7" rx="2" stroke="#f1ce0a" stroke-width="1.8"/>
+            <rect x="10.5" y="3" width="7" height="7" rx="2" stroke="#f1ce0a" stroke-width="1.8"/>
+            <rect x="10.5" y="18" width="7" height="7" rx="2" stroke="#f1ce0a" stroke-width="1.8"/>
+            <line x1="10" y1="13.5" x2="18" y2="13.5" stroke="#f1ce0a" stroke-width="1.5"/>
+            <line x1="14" y1="10" x2="14" y2="18" stroke="#f1ce0a" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <span class="pilar-tag">Blockchain</span>
+        <div class="pilar-title">Autenticidade que ninguém pode falsificar</div>
+        <div class="pilar-body">
+          <p>Sua credencial está registrada em <strong>blockchain</strong>. Isso garante que ela seja autêntica, íntegra e rastreável de forma descentralizada e imutável.</p>
+          <br>
+          <p>Qualquer pessoa – um recrutador, uma instituição – pode verificar sua conquista publicamente, <strong>com um clique</strong>, sem intermediários e sem risco de fraude.</p>
+        </div>
+      </div>
+
+      <!-- Verificação pública -->
+      <div class="pilar-card">
+        <div class="pilar-icon">
+          <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="14" cy="14" r="10" stroke="#f1ce0a" stroke-width="1.8"/>
+            <polyline points="9,14 12.5,17.5 19,10.5" stroke="#f1ce0a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="pilar-tag">Verificação pública</span>
+        <div class="pilar-title">Qualquer pessoa pode confirmar, a qualquer hora</div>
+        <div class="pilar-body">
+          <p>Ao contrário de um PDF ou papel, sua credencial POK tem uma <strong>URL pública de verificação</strong>. Ela funciona como uma prova que existe independentemente de você.</p>
+          <br>
+          <p>Basta compartilhar o link – e quem receber sabe instantaneamente que a credencial é real, de quem é, e o que ela certifica.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── O QUE VOCÊ GANHA (branco) ─────────── -->
+<section class="ganhos">
+  <div class="ganhos-inner">
+
+    <div class="eyebrow">
+      <div class="eyebrow-line"></div>
+      <div class="eyebrow-diamond"></div>
+      <span class="eyebrow-text">Na prática</span>
+    </div>
+
+    <h2 class="ganhos-h2">Uma credencial que é <span class="hl">sua de verdade</span></h2>
+    <p class="ganhos-sub">
+      Portável, conectada ao seu perfil profissional e capaz de comprovar suas competências de forma instantânea e inquestionável.
+    </p>
+
+    <div class="ganhos-list">
+
+      <div class="ganho-item">
+        <div class="ganho-dot"></div>
+        <div class="ganho-text">
+          <strong>É sua – para sempre</strong>
+          Não fica presa à plataforma da instituição. Você leva para onde quiser, compartilha como quiser e ela permanece válida independentemente de qualquer sistema.
+        </div>
+      </div>
+
+      <div class="ganho-item">
+        <div class="ganho-dot"></div>
+        <div class="ganho-text">
+          <strong>Prova instantânea de competência</strong>
+          Qualquer recrutador ou instituição pode confirmar sua credencial com um clique, sem precisar entrar em contato com a escola ou empresa emissora.
+        </div>
+      </div>
+
+      <div class="ganho-item">
+        <div class="ganho-dot"></div>
+        <div class="ganho-text">
+          <strong>Conectada ao seu perfil profissional</strong>
+          Adicione no LinkedIn, inclua no currículo ou envie o link diretamente. Sua credencial entra direto na conversa com quem contrata.
+        </div>
+      </div>
+
+      <div class="ganho-item">
+        <div class="ganho-dot"></div>
+        <div class="ganho-text">
+          <strong>Reconhecida no Brasil e no exterior</strong>
+          Os padrões Open Badge 3.0 e Europass são globais. Sua credencial funciona da mesma forma aqui e em qualquer país que adote esses padrões internacionais.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA FINAL (roxo) ──────────────────── -->
+<section class="cta-final">
+  <div class="cta-final-inner">
+
+    <h2 class="cta-final-title">Dúvidas sobre sua credencial?</h2>
+    <p class="cta-final-sub">
+      Se precisar de ajuda – para acessar, compartilhar ou entender sua credencial – entre em contato. Estamos aqui para isso.<br><br>
+      Escreva para <a href="mailto:[Responder para email]">[Responder para email]</a> e teremos prazer em ajudar.
+    </p>
+
+    <a href="https://pok.tech" target="_blank" class="btn-dourado">Conheça a POK</a>
+
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────── -->
+<footer>
+  <img
+    src="https://content.app-us1.com/m7A5p8/2026/03/11/ddc2f081-9fdc-422f-8da3-4992d80f2aca.png"
+    alt="POK"
+    class="ft-logo"
+    style="height:32px; width:auto;"
+  >
+  <div style="display:flex; align-items:center; gap:24px;">
+    <a href="https://pok.tech" target="_blank" style="color:#ffffff; font-size:13px; font-weight:600; text-decoration:none;">pok.tech</a>
+    <span class="ft-tagline">Muito mais que certificados digitais</span>
+  </div>
+</footer>
+
+</body>
+</html>
