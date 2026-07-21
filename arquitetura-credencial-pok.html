@@ -41,9 +41,9 @@
   td.num{font-weight:700;color:#111;text-align:center;width:44px;font-size:1rem}
   td.comp{font-weight:600;width:26%}
   td.desc{font-weight:400;color:#111;font-size:.82rem}
-  .tbl2 thead th:first-child{background:var(--roxo);width:auto;text-align:left}
-  .tbl2 td.comp{width:24%}
-  .tbl2 td.desc{width:38%}
+  .tbl2 thead th:first-child{background:var(--roxo);width:35%;text-align:left}
+  .tbl2 td.comp{width:35%}
+  .tbl2 td.desc{width:65%}
   .diagcap{font-size:.8rem;color:#444;margin-top:12px;text-align:center}
 
   .infocard{background:#fff;border:1px solid #e3dcf4;border-radius:14px;padding:22px 24px;margin-top:26px}
@@ -224,7 +224,7 @@
         <tr>
           <td class="num">1</td>
           <td class="comp">NFT – imagem da credencial</td>
-          <td class="desc">A imagem assinada da credencial (nome do receptor, programa, datas, assinaturas). É onde entra a assinatura ICP-Brasil do emissor. É o único conteúdo gravado on-chain, como NFT.</td>
+          <td class="desc">A imagem assinada da credencial (nome do receptor, programa, datas, assinaturas). É onde entra a assinatura ICP-Brasil do emissor.</td>
         </tr>
         <tr>
           <td class="num">2</td>
@@ -273,6 +273,47 @@
         </tr>
       </tbody>
     </table>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Como cada dado é gravado</h2>
+    <table class="tbl2">
+      <thead><tr><th>Dado</th><th>Como é gravado</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="comp">Nome do receptor</td>
+          <td class="desc">Encriptado, reversível (AES-256-GCM)</td>
+        </tr>
+        <tr>
+          <td class="comp">Identificador (documento / CPF)</td>
+          <td class="desc">Hash não reversível; opcional na emissão</td>
+        </tr>
+        <tr>
+          <td class="comp">Demais campos da credencial</td>
+          <td class="desc">Em claro na blockchain, tal como carregados pela instituição emissora</td>
+        </tr>
+        <tr>
+          <td class="comp">Anexos</td>
+          <td class="desc">Encriptados no IPFS, com a mesma chave do nome</td>
+        </tr>
+        <tr>
+          <td class="comp">Chave de cifra</td>
+          <td class="desc">Uma por certificado; armazenada fora da blockchain</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="frame">
+      <h3>Onde a informação fica</h3>
+      <p style="font-size:.8rem">Toda a informação da credencial, exceto a chave de cifra, é gravada na blockchain, para manter a credencial independente da POK. A POK também armazena essa informação em ambiente web2, para a experiência de uso na plataforma. Nos campos livres, a instituição emissora deve considerar não incluir dados que possam identificar a pessoa.</p>
+    </div>
+
+    <div class="frame" style="border-left-color:#9a3b2f">
+      <h3>Ponto de atenção – identificador (CPF)</h3>
+      <p style="font-size:.8rem">O CPF é gravado na blockchain como hash não reversível. Vale confirmar com o time técnico se há um segredo (salt) na geração desse hash: sem ele, o hash de um CPF pode ser revertido por força bruta, porque o conjunto de CPFs válidos é pequeno e conhecido. Além disso, por estar on-chain e sem chave de cifra, esse campo não é alcançado pela eliminação por crypto-shredding.</p>
+    </div>
   </div>
 </section>
 
