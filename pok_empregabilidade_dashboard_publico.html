@@ -83,25 +83,25 @@ body { font-family: 'Poppins', sans-serif; background: var(--purple-faint); colo
 
 /* TABLE */
 .table-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); }
-.table-toolbar { display: flex; align-items: center; gap: 10px; padding: 16px 20px; border-bottom: 1px solid var(--border); flex-wrap: wrap; background: var(--purple-faint); border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
-.table-toolbar input[type="text"] { font-family: 'Poppins', sans-serif; font-size: 12px; padding: 6px 12px; border: 1.5px solid var(--border); border-radius: 99px; background: var(--white); color: var(--ink); outline: none; flex: 1; min-width: 160px; }
-.table-toolbar input[type="text"]:focus { border-color: var(--purple); }
+.table-toolbar { display: flex; align-items: center; gap: 10px; padding: 16px 20px; border-bottom: 1px solid var(--border); flex-wrap: wrap; min-width: 0; background: var(--purple-faint); border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
+.table-toolbar input { font-family: 'Poppins', sans-serif; font-size: 12px; padding: 6px 12px; border: 1.5px solid var(--border); border-radius: 99px; background: var(--white); color: var(--ink); outline: none; flex: 1; min-width: 160px; }
+.table-toolbar input:focus { border-color: var(--purple); }
 .table-toolbar select { font-family: 'Poppins', sans-serif; font-size: 12px; padding: 6px 26px 6px 11px; border: 1.5px solid var(--border); border-radius: 99px; background: var(--white); color: var(--ink); outline: none; appearance: none; background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235123a4' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; }
-.toggle-label { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--ink); cursor: pointer; user-select: none; margin-left: auto; font-weight: 500; }
-table { width: 100%; border-collapse: collapse; font-size: 11px; }
-thead th { padding: 9px 8px; text-align: left; font-size: 9px; font-weight: 700; color: var(--ink); letter-spacing: 0.06em; text-transform: uppercase; border-bottom: 1px solid var(--border); background: var(--white); }
-.th-inner { display: flex; align-items: center; gap: 4px; }
+.toggle-label { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--ink-muted); cursor: pointer; user-select: none; margin-left: auto; font-weight: 500; }
+table { width: 100%; border-collapse: collapse; font-size: 12px; }
+thead th { padding: 11px 16px; text-align: left; font-size: 10px; font-weight: 700; color: var(--ink-faint); letter-spacing: 0.1em; text-transform: uppercase; border-bottom: 1px solid var(--border); background: var(--white); }
+.th-inner { display: flex; align-items: center; gap: 5px; }
 tbody tr { border-bottom: 1px solid var(--border); transition: background 0.12s; }
 tbody tr:last-child { border-bottom: none; }
 tbody tr:hover { background: var(--purple-faint); }
-tbody td { padding: 10px 8px; color: var(--ink); vertical-align: middle; font-size: 11px; }
-.td-muted { color: var(--ink) !important; font-size: 11px; }
-.badge { display: inline-flex; align-items: center; font-size: 9px; font-weight: 400; padding: 3px 7px; border-radius: 5px; letter-spacing: 0.03em; text-transform: uppercase; }
+tbody td { padding: 13px 16px; color: var(--ink); vertical-align: middle; font-size: 12px; }
+.td-muted { color: var(--ink) !important; font-size: 12px; }
+.badge { display: inline-flex; align-items: center; font-size: 10px; font-weight: 400; padding: 3px 10px; border-radius: 5px; letter-spacing: 0.05em; text-transform: uppercase; }
 .badge-novo { background: var(--green-light); color: var(--green-dark); }
 .badge-promo { background: var(--purple-light); color: var(--purple); }
 .badge-none { background: #f0edf8; color: var(--ink-faint); }
-.social-icons { display: flex; gap: 4px; }
-.social-btn { width: 28px; height: 28px; border-radius: 8px; border: 1.5px solid #c2dff7; display: flex; align-items: center; justify-content: center; cursor: pointer; background: #e8f4fd; }
+.social-icons { display: flex; gap: 6px; }
+.social-btn { width: 36px; height: 36px; border-radius: 10px; border: 1.5px solid #c2dff7; display: flex; align-items: center; justify-content: center; cursor: pointer; background: #e8f4fd; }
 .social-btn.active { background: #e8f4fd; border-color: #5123a4; }
 .social-btn.inactive { background: #f0edf8; border-color: #D8CEF0; }
 
@@ -151,6 +151,8 @@ tbody td { padding: 10px 8px; color: var(--ink); vertical-align: middle; font-si
   .cal-months { grid-template-columns: 1fr; }
   .cal-box { min-width: unset; }
   .funnel-steps { overflow-x: auto; padding-bottom: 8px; -webkit-overflow-scrolling: touch; }
+  .filters-bar { padding-left: 24px !important; padding-right: 24px !important; }
+  section[style*="padding:56px 64px"] { padding: 36px 24px 40px !important; }
 }
 
 @media (max-width: 600px) {
@@ -207,10 +209,10 @@ tbody td { padding: 10px 8px; color: var(--ink); vertical-align: middle; font-si
 .tl-card { background: var(--purple-faint); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; }
 .tl-card.cert-marker { background: var(--purple); border-color: var(--purple); }
 .tl-card.cert-marker .tl-card-title { color: #fff; }
-.tl-card.cert-marker .tl-card-sub { color: #fff; }
+.tl-card.cert-marker .tl-card-sub { color: rgba(228,220,247,0.75); }
 .tl-card.after-cert { border-left: 3px solid var(--green); }
 .tl-card-period { font-size: 10px; font-weight: 700; color: var(--ink-faint); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 4px; }
-.tl-card.cert-marker .tl-card-period { color: #fff; }
+.tl-card.cert-marker .tl-card-period { color: rgba(228,220,247,0.6); }
 .tl-card-title { font-size: 13px; font-weight: 700; color: var(--ink); line-height: 1.3; }
 .tl-card-sub { font-size: 12px; color: var(--ink); margin-top: 2px; }
 .tl-card-type { display: inline-flex; margin-top: 6px; font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 99px; }
@@ -290,10 +292,9 @@ tbody td { padding: 10px 8px; color: var(--ink); vertical-align: middle; font-si
   <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; margin-top:20px;">
 
     <!-- Box 1: Campanha Egressos -->
-    <div style="background:#8267be; border:none; border-radius:16px; padding:22px 24px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;">
+    <div style="background:#8267be; border:none; border-radius:16px; padding:22px 24px;">
       <div style="font-size:13px; font-weight:700; color:#fff; margin-bottom:10px;">Campanha Egressos</div>
-      <div style="font-size:44px; font-weight:900; color:#fff; line-height:1; margin-bottom:10px;">50.000</div>
-      <div style="font-size:12px; color:#fff; line-height:1.7;">certificados para egressos enviados de uma vez só, com CPF gravado no certificado blockchain, para captura de dados de várias naturezas</div>
+      <div style="font-size:12px; color:#fff; line-height:1.7;">30.000 certificados para egressos enviados de uma vez só, com CPF gravado no certificado blockchain, para captura de dados de várias naturezas</div>
 
     </div>
 
@@ -302,7 +303,7 @@ tbody td { padding: 10px 8px; color: var(--ink); vertical-align: middle; font-si
       <div style="font-size:9px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:#e6c24a;">Núcleo</div>
       <div style="font-size:13px; font-weight:700; color:#fff; line-height:1.3;">Credencial Blockchain POK</div>
       <div style="background:#e6c24a; border-radius:12px; padding:8px 16px; font-size:14px; font-weight:800; color:#5123a4;">POK</div>
-      <div style="font-size:11px; color:#fff; line-height:1.6;">Conexão com LinkedIn + CPF transforma o certificado no elo entre captura e empregabilidade</div>
+      <div style="font-size:11px; color:#fff; line-height:1.6;">O CPF transforma o certificado no elo entre captura e empregabilidade</div>
     </div>
 
     <!-- Box 3: Empregabilidade -->
@@ -322,37 +323,29 @@ tbody td { padding: 10px 8px; color: var(--ink); vertical-align: middle; font-si
   </div>
 </div>
 <div class="filters-bar" style="justify-content:flex-start; flex-direction:column; align-items:flex-start; padding-top:20px; padding-bottom:20px;">
-  <h2 style="font-size:22px; font-weight:800; color:var(--ink); margin-bottom:0;">Painel de Empregabilidade</h2>
-  <p id="t-painel-intro" style="font-size:12px; color:var(--ink); line-height:1.7; margin-bottom:20px; max-width:960px;">Filtre por trilha, curso, competência e/ou período, e o painel recorta a base de portadores conforme a seleção. Trilha, curso e competência são recortes independentes, então é possível acompanhar uma mesma competência certificada em portadores vindos de cursos diferentes. Isso permite ler a empregabilidade por aquilo que a pessoa sabe fazer, e não apenas pelo certificado – abrindo comparações que o recorte por trilha e curso sozinho não mostra.</p>
+  <h2 style="font-size:22px; font-weight:800; color:var(--ink); margin-bottom:16px;">Painel de Empregabilidade</h2>
   <div style="display:flex; align-items:center; gap:8px; flex-wrap:nowrap; width:100%;">
-
-  <div style="display:flex;align-items:center;gap:6px;">
-    <select class="filter-select" id="filterTrilha">
-      <option value="" id="t-f5">Todas as trilhas</option>
-      <option>Trilha de Dados</option>
-      <option>Trilha de Gestão</option>
-      <option>Trilha Financeira</option>
-    </select>
-    <button class="info-btn" data-tip="Filtra pela trilha formativa – o encadeamento de badges e certificados intermediários que compõem o curso até a credencial final. É o recorte que melhor mede a empregabilidade, por refletir o percurso completo.">i</button>
-  </div>
 
   <div style="display:flex;align-items:center;gap:6px;">
     <select class="filter-select" id="filterCert">
       <option value="" id="t-f1">Todos os cursos</option>
+      <option>Direito</option>
+      <option>Pedagogia</option>
       <option>Tecnologia da Informação</option>
-      <option>Administração</option>
-      <option>Ciências Contábeis</option>
-      <option>Estatística</option>
+      <option>Enfermagem</option>
     </select>
-    <button class="info-btn" data-tip="Filtra pelo curso de origem do portador.">i</button>
+    <button class="info-btn" data-tip="Filtra pelo nome do certificado.">i</button>
   </div>
 
   <div style="display:flex;align-items:center;gap:6px;">
     <select class="filter-select" id="filterTitulo">
       <option value="" id="t-f4">Todas as competências</option>
-      <option selected>Analista de Dados</option>
+      <option>Bacharel em Direito</option>
+      <option>Pedagoga Sênior</option>
+      <option>Técnico em Tecnologia da Informação</option>
+      <option>Bacharel em Enfermagem</option>
     </select>
-    <button class="info-btn" data-tip="Filtra pela competência certificada pela POK, que pode ser emitida por diferentes cursos.">i</button>
+    <button class="info-btn" data-tip="Filtra pela competência registrada no certificado POK.">i</button>
   </div>
 
   <div style="display:flex;align-items:center;gap:6px;">
@@ -379,17 +372,17 @@ tbody td { padding: 10px 8px; color: var(--ink); vertical-align: middle; font-si
 
 <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px; margin-top:0;">
     <div style="width:3px; height:36px; background:#5123a4; border-radius:2px; flex-shrink:0;"></div>
-    <div style="width:32px; height:32px; flex-shrink:0;">
-      <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="8" fill="#0A66C2"/><path fill="#fff" d="M11.06 24.5H7.4V12.9h3.66V24.5ZM9.23 11.3a2.12 2.12 0 1 1 0-4.25 2.12 2.12 0 0 1 0 4.25ZM24.6 24.5h-3.65v-5.65c0-1.35-.03-3.08-1.88-3.08-1.88 0-2.17 1.47-2.17 2.98v5.75H13.25V12.9h3.5v1.59h.05c.49-.92 1.68-1.9 3.46-1.9 3.7 0 4.38 2.44 4.38 5.6V24.5Z"/></svg>
+    <div style="width:32px; height:32px; border-radius:9px; border:1.5px solid #5123a4; display:flex; align-items:center; justify-content:center; flex-shrink:0; background:#f3eff9;">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1.5C7 1.5 4 4.5 4 7a3 3 0 0 0 6 0c0-2.5-3-5.5-3-5.5Z" fill="#5123a4" opacity="0.3"/><path d="M7 2.5l1.8 3.2A2 2 0 1 1 5.2 5.7L7 2.5Z" fill="#5123a4"/></svg>
     </div>
     <span style="font-size:18px; font-weight:700; color:var(--ink);">LinkedIn</span>
   </div>
-  <div style="background:var(--white); border:1px solid var(--border); border-radius:var(--radius-lg); padding:40px 32px; text-align:left; color:var(--ink); font-size:12px; line-height:1.8; margin-bottom:16px;">A partir do compartilhamento do certificado no LinkedIn (tornando a informação pública) a POK levanta dados por curso ou por competência, como novos empregos, promoções e o tempo de impacto dessas mudanças.</div>
+  <div style="background:var(--white); border:1px solid var(--border); border-radius:var(--radius-lg); padding:40px 32px; text-align:left; color:var(--ink); font-size:14px; line-height:1.8; margin-bottom:16px;">A partir do compartilhamento do certificado no LinkedIn (tornando a informação pública) a POK levanta dados por curso, como novos empregos, promoções e tempo de impacto.</div>
   </div>
   <div class="section-label"><span id="t-sl1">Funil de engajamento</span></div>
   <div class="funnel-card">
-    <h3><span id="t-funnel-title">Do certificado à mudança real</span></h3>
-    <p><span id="t-funnel-desc">Acompanhe, etapa a etapa, quantos egressos compartilharam o certificado, publicaram, adicionaram ao perfil e chegaram a uma mudança de carreira – novo emprego ou promoção. O funil mostra onde o engajamento se sustenta ou se perde ao longo do caminho, revelando quanto do potencial de cada turma se converte em impacto.</span></p>
+    <h3><span id="t-funnel-title">Do certificado ao impacto real</span></h3>
+    <p><span id="t-funnel-desc">Cada etapa mostra quantos portadores de certificados avançaram no processo – do compartilhamento inicial até a mudança de carreira detectada no perfil.</span></p>
     <div class="funnel-steps">
       <div class="funnel-step"><div class="funnel-bar" style="background:#3a1878;">56</div><div class="funnel-step-label"><span id="t-fn1">Compartilhamentos<br>no LinkedIn</span></div><div class="funnel-step-pct">100%</div></div>
       <div class="funnel-arrow">›</div>
@@ -397,7 +390,7 @@ tbody td { padding: 10px 8px; color: var(--ink); vertical-align: middle; font-si
       <div class="funnel-arrow">›</div>
       <div class="funnel-step"><div class="funnel-bar" style="background:#6b45bb;">17</div><div class="funnel-step-label"><span id="t-fn3">Adicionado<br>ao perfil</span></div><div class="funnel-step-pct">30%</div></div>
       <div class="funnel-arrow">›</div>
-      <div class="funnel-step"><div class="funnel-bar" style="background:#8f76cc;">10</div><div class="funnel-step-label"><span id="t-fn4">Alguma mudança<br>detectada</span></div><div class="funnel-step-pct">18%</div></div>
+      <div class="funnel-step"><div class="funnel-bar" style="background:#8f76cc;">10</div><div class="funnel-step-label"><span id="t-fn4">Algum impacto<br>detectado</span></div><div class="funnel-step-pct">18%</div></div>
       <div class="funnel-arrow">›</div>
       <div class="funnel-step"><div class="funnel-bar" style="background:#1D9E75;">5</div><div class="funnel-step-label"><span id="t-fn5">Novo<br>emprego</span></div><div class="funnel-step-pct">9%</div></div>
       <div class="funnel-arrow">›</div>
@@ -406,18 +399,16 @@ tbody td { padding: 10px 8px; color: var(--ink); vertical-align: middle; font-si
   </div>
 
   <div class="section-label"><span id="t-sl2">Métricas principais</span></div>
-  <h3 id="t-metricas-sub" style="font-size:15px; font-weight:700; color:var(--ink); margin-bottom:4px;">O desempenho do recorte em números</h3>
-  <p id="t-metricas-desc" style="font-size:12px; color:var(--ink); line-height:1.7; margin:0 0 16px; max-width:960px;">Leia as métricas agregadas do recorte: o tempo médio até a mudança, a taxa de conversão dos que compartilharam, e a quantidade de novos empregos e promoções. É uma leitura comparável do desempenho de uma trilha, curso ou competência, útil para avaliação institucional e para comunicação com o mercado.</p>
   <div class="kpi-grid">
     <div class="kpi-card highlight">
       <div class="kpi-value purple">76 dias</div>
-      <div class="kpi-label"><span id="t-kpi1">Tempo médio até a mudança</span></div>
+      <div class="kpi-label"><span id="t-kpi1">Tempo médio até o impacto</span></div>
       <button class="info-btn" data-tip="Média de dias entre o compartilhamento do certificado e a primeira mudança detectada no perfil (novo emprego ou promoção).">i</button>
     </div>
     <div class="kpi-card">
       <div class="kpi-value purple">18%</div>
       <div class="kpi-label"><span id="t-kpi2">Taxa de conversão geral</span></div>
-      <button class="info-btn" data-tip="Percentual de portadores de certificados que compartilharam o certificado e tiveram alguma mudança detectada no período selecionado.">i</button>
+      <button class="info-btn" data-tip="Percentual de portadores de certificados que compartilharam o certificado e tiveram algum impacto detectado no período selecionado.">i</button>
     </div>
     <div class="kpi-card">
       <div class="kpi-value purple">5</div>
@@ -436,8 +427,8 @@ tbody td { padding: 10px 8px; color: var(--ink); vertical-align: middle; font-si
   <div class="chart-card">
     <div class="chart-card-header">
       <div>
-        <h3><span id="t-chart-title">Trajetória agregada – mudanças de carreira acumuladas</span></h3>
-        <p id="chartDesc"><span id="t-chart-desc">Acompanhe a curva de trajetória: de um lado do marco do compartilhamento, o histórico de carreira reconstruído; do outro, a evolução observada ao longo do tempo nas leituras periódicas. Cada novo emprego ou promoção conta como uma mudança. A curva situa a credencial na linha do tempo da carreira e mostra como o grupo evolui a partir do momento em que conquistou a competência.</span></p>
+        <h3><span id="t-chart-title">Trajetória agregada – impactos acumulados</span></h3>
+        <p id="chartDesc"><span id="t-chart-desc">Média de impactos acumulados pelos portadores de acordo com o filtro selecionado – cada novo vínculo profissional registrado no LinkedIn conta como um impacto. À esquerda do marco: dados históricos anteriores ao compartilhamento do certificado. À direita: evolução registrada após o compartilhamento do certificado.</p>
       </div>
     </div>
 
@@ -462,40 +453,27 @@ tbody td { padding: 10px 8px; color: var(--ink); vertical-align: middle; font-si
 
   <!-- TABLE -->
   <div class="section-label"><span id="t-sl4">Portadores individuais</span></div>
-  <h3 id="t-portadores-sub" style="font-size:15px; font-weight:700; color:var(--ink); margin-bottom:4px;">Do agregado ao caso a caso</h3>
-  <p style="font-size:12px; color:var(--ink); line-height:1.7; margin:0 0 14px; max-width:960px;"><span id="t-tbl-ctx">Desça ao caso a caso: para cada egresso, veja a trilha e o curso de origem, a competência certificada, o cargo atual detectado, o tipo de mudança e o tempo até ela acontecer. Busque ou filtre para ver as linhas correspondentes e acessar o perfil de cada pessoa no LinkedIn. A tabela leva a leitura do plano abstrato ao caso concreto, permitindo verificar histórias individuais e sustentar os números agregados com evidência. Nesta visão, o filtro de competência está aplicado em <strong>Analista de Dados</strong>.</span></p>
-
-  <div style="display:flex; align-items:center; gap:10px; margin:20px 0 4px;">
-    <div style="width:28px;height:28px;border-radius:8px;border:1.5px solid #5123a4;display:flex;align-items:center;justify-content:center;background:#fff;flex-shrink:0;">
-      <svg width="16" height="16" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="13" width="3" height="4" rx="0.5" fill="#5123a4"/><rect x="9.5" y="9" width="3" height="8" rx="0.5" fill="#5123a4"/><rect x="14" y="5" width="3" height="12" rx="0.5" fill="#5123a4"/></svg>
-    </div>
-    <h3 id="t-traj-sub" style="font-size:13px; font-weight:700; color:var(--ink); margin:0;">Trajetória do portador</h3>
-  </div>
-  <p id="t-traj-desc" style="font-size:11px; color:var(--ink); line-height:1.7; margin:0 0 14px; max-width:960px;">Clique no ícone de trajetória de um portador e veja seu percurso completo: a linha do tempo profissional, com cada cargo situado antes ou após o compartilhamento, além da formação e das habilidades declaradas. É o retrato completo de um egresso num só lugar, conectando formação, competência e evolução de carreira – a prova, no nível da pessoa, de que a credencial acompanha um percurso real.</p>
-
   <div class="table-card">
     <div class="table-toolbar">
-      <input type="text" id="searchInput" placeholder="Buscar por curso, competência ou portador..." oninput="filterTable()" />
+      <input type="text" id="searchInput" placeholder="Buscar portador ou programa..." oninput="filterTable()" />
       <select id="impactFilter" onchange="filterTable()">
-        <option value="">Todas as mudanças</option>
+        <option value="">Todos os impactos</option>
         <option value="novo">Novo emprego</option>
         <option value="promo">Promoção</option>
-        <option value="none">Sem mudança ainda</option>
+        <option value="none">Sem impacto ainda</option>
       </select>
-      <label class="toggle-label"><input type="checkbox" id="sharedOnly" onchange="filterTable()" /> <span id="t-shared">Ver só com postagem compartilhada</span></label>
+      <label class="toggle-label"><input type="checkbox" id="sharedOnly" onchange="filterTable()" /> Ver só com postagem compartilhada</label>
     </div>
     <div style="overflow-x:auto;">
       <table>
         <thead>
           <tr>
-            <th style="width:88px;"><div class="th-inner"><span id="t-th3" style="font-size:9px; letter-spacing:0.02em;">Data de compartilhamento</span> <button class="info-btn" data-tip="Data em que o portador compartilhou o certificado no LinkedIn.">i</button></div></th>
-            <th><div class="th-inner"><span id="t-th-trilha">Trilha</span> <button class="info-btn" data-tip="Trilha formativa do portador – o encadeamento de badges e certificados que compõem o curso até a credencial final.">i</button></div></th>
-            <th><div class="th-inner"><span id="t-th2">Curso</span> <button class="info-btn" data-tip="Curso de origem do portador.">i</button></div></th>
-            <th><div class="th-inner"><span id="t-th-comp">Competência</span> <button class="info-btn" data-tip="Competência certificada pela POK. A mesma competência pode ser emitida por diferentes cursos.">i</button></div></th>
+            <th><div class="th-inner"><span id="t-th3">Data de compartilhamento</span> <button class="info-btn" data-tip="Data em que o portador compartilhou o certificado no LinkedIn.">i</button></div></th>
+            <th><div class="th-inner"><span id="t-th2">Curso</span> <button class="info-btn" data-tip="Nome do programa ou certificado POK que o portador concluiu.">i</button></div></th>
             <th><div class="th-inner">Portador <button class="info-btn" data-tip="Nome do profissional que recebeu e compartilhou o certificado.">i</button></div></th>
             <th><div class="th-inner">Cargo detectado <button class="info-btn" data-tip="Cargo e empresa registrados no campo Experience do LinkedIn no momento do compartilhamento ou em leitura posterior.">i</button></div></th>
-            <th><div class="th-inner"><span id="t-th4">Mudança</span> <button class="info-btn" data-tip="Tipo de mudança detectada: novo emprego (troca de empresa) ou promoção (mesmo empregador, cargo mais sênior).">i</button></div></th>
-            <th><div class="th-inner"><span id="t-th5" style="white-space:nowrap;">Dias até a<br>mudança</span> <button class="info-btn" data-tip="Número de dias entre o compartilhamento e a detecção da mudança no perfil.">i</button></div></th>
+            <th><div class="th-inner"><span id="t-th4">Impacto</span> <button class="info-btn" data-tip="Tipo de mudança detectada: novo emprego (troca de empresa) ou promoção (mesmo empregador, cargo mais sênior).">i</button></div></th>
+            <th><div class="th-inner"><span id="t-th5">Dias até impacto</span> <button class="info-btn" data-tip="Número de dias entre o compartilhamento e a detecção da mudança no perfil.">i</button></div></th>
             <th><div class="th-inner">LinkedIn <button class="info-btn" data-tip="Ícone de perfil: acessa o LinkedIn do portador. Ícone de postagem: indica se foi detectada uma publicação sobre o certificado no feed.">i</button></div></th>
           </tr>
         </thead>
@@ -508,12 +486,12 @@ tbody td { padding: 10px 8px; color: var(--ink); vertical-align: middle; font-si
 
   <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px; margin-top:40px;">
     <div style="width:3px; height:36px; background:#5123a4; border-radius:2px; flex-shrink:0;"></div>
-    <div style="width:32px; height:32px; flex-shrink:0;">
-      <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="8" fill="#e5006d"/><rect x="8.5" y="9.5" width="6" height="6" rx="1.8" fill="#fff"/><rect x="14.8" y="5.2" width="4.6" height="4.6" rx="1.4" fill="#fff"/><rect x="20.4" y="8.2" width="3" height="3" rx="1" fill="#fff"/><rect x="8.6" y="17.4" width="3" height="3" rx="1" fill="#fff"/><rect x="12.6" y="21.4" width="4.2" height="4.2" rx="1.3" fill="#fff"/><path fill="#fff" d="M23.1 13.0c-.7-.7-1.9-1.2-3.2-1.2-2.1 0-3.7 1.2-3.7 2.9 0 1.7 1.3 2.3 3 2.7 1.4.3 2 .6 2 1.2 0 .6-.6 1-1.6 1-1.1 0-2.1-.5-2.8-1.3l-1.2 1.6c.9.9 2.3 1.5 4 1.5 2.3 0 3.8-1.2 3.8-3 0-1.7-1.4-2.4-3.2-2.8-1.3-.3-1.8-.5-1.8-1.1 0-.5.5-.8 1.3-.8 1 0 1.9.4 2.5 1.1l1.2-1.6Z"/></svg>
+    <div style="width:32px; height:32px; border-radius:9px; border:1.5px solid #5123a4; display:flex; align-items:center; justify-content:center; flex-shrink:0; background:#f3eff9;">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1.5C7 1.5 4 4.5 4 7a3 3 0 0 0 6 0c0-2.5-3-5.5-3-5.5Z" fill="#5123a4" opacity="0.3"/><path d="M7 2.5l1.8 3.2A2 2 0 1 1 5.2 5.7L7 2.5Z" fill="#5123a4"/></svg>
     </div>
     <span style="font-size:18px; font-weight:700; color:var(--ink);">Serasa</span>
   </div>
-  <div style="background:var(--white); border:1px solid var(--border); border-radius:var(--radius-lg); padding:40px 32px; text-align:left; color:var(--ink); font-size:12px; line-height:1.8;">
+  <div style="background:var(--white); border:1px solid var(--border); border-radius:var(--radius-lg); padding:40px 32px; text-align:left; color:var(--ink); font-size:14px; line-height:1.8;">
     Através da parceria POK e Serasa Experian, a POK verifica vínculos formais de emprego, histórico de renda, identidade e trajetória financeira do portador a partir do CPF gravado no certificado. Esses dados fornecem uma leitura objetiva e verificável da empregabilidade.
   </div>
   <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:20px;">
@@ -587,7 +565,7 @@ tbody td { padding: 10px 8px; color: var(--ink); vertical-align: middle; font-si
     </div>
     <span style="font-size:18px; font-weight:700; color:var(--ink);">Público e Semi-Público</span>
   </div>
-  <div style="background:var(--white); border:1px solid var(--border); border-radius:var(--radius-lg); padding:40px 32px; text-align:left; color:var(--ink); font-size:12px; line-height:1.8;">
+  <div style="background:var(--white); border:1px solid var(--border); border-radius:var(--radius-lg); padding:40px 32px; text-align:left; color:var(--ink); font-size:14px; line-height:1.8;">
     Através de acesso a bases como CAGED, Rais, CNIS, eSocial e SINE, a POK registra admissões, demissões e movimentações formais no mercado de trabalho. Já pela Plataforma Lattes – CNPq e CIEE / IEL / Nube, a POK mapeia a trajetória acadêmica e de estágio do portador. Juntas, essas fontes permitem cruzar o impacto do certificado com dados estruturais de mercado.
   </div>
   <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:20px;">
@@ -710,7 +688,7 @@ tbody td { padding: 10px 8px; color: var(--ink); vertical-align: middle; font-si
 
           <div class="dim-row">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
-              <div style="font-size:13px; font-weight:600; color:#fff;">Velocidade <span style="font-size:11px; font-weight:400; color:#fff;">· LinkedIn · dias até a mudança</span></div>
+              <div style="font-size:13px; font-weight:600; color:#fff;">Velocidade <span style="font-size:11px; font-weight:400; color:#fff;">· LinkedIn · dias até impacto</span></div>
               <div style="font-size:13px; font-weight:700; color:#e6c24a;"><span class="dim-score">79</span><span style="font-size:10px; color:#fff; font-weight:400;"> /100 · peso 10%</span></div>
             </div>
             <div style="height:6px; background:rgba(255,255,255,0.1); border-radius:99px; overflow:hidden;"><div style="height:100%; width:79%; background:#4a6bc0; border-radius:99px;"></div></div>
@@ -745,7 +723,7 @@ tbody td { padding: 10px 8px; color: var(--ink); vertical-align: middle; font-si
       </div>
 
       <!-- Ranking rows scrollável -->
-      <div id="rankingList" style="max-height:320px; overflow-y:auto; display:flex; flex-direction:column; gap:2px;"></div>
+      <div id="rankingList" style="max-height:320px; overflow-y:auto; overflow-x:auto; display:flex; flex-direction:column; gap:2px;"></div>
 
       <div style="font-size:11px; color:#fff; margin-top:14px; text-align:center;" id="rankingFooter"></div>
     </div>
@@ -797,11 +775,11 @@ const shareIndex  = pastLabels.length; // index of the vertical marker
 
 const datasets = {
   cargos: {
-    label: 'Nº médio de mudanças de carreira acumuladas',
+    label: 'Nº médio de impactos acumulados',
     past:   [1, 1.2, 1.5, 1.8, 2.1, 2.4, 2.7, 3.0],
     share:  3.1,
     future: [3.2, 3.3, 3.35, 3.4, 3.5, 3.6],
-    yLabel: 'Mudanças acumuladas',
+    yLabel: 'Impactos acumulados',
     yMax: 6
   }
 };
@@ -956,39 +934,23 @@ function updateChart() {
 updateChart();
 
 // ─── TABLE ────────────────────────────────────────────────────────────────────
-let currentLang = 'pt';
-const VMAP = {
-  'Trilha de Dados':'Ruta de Datos',
-  'Trilha de Gestão':'Ruta de Gestión',
-  'Trilha Financeira':'Ruta Financiera',
-  'Tecnologia da Informação':'Tecnología de la Información',
-  'Administração':'Administración',
-  'Ciências Contábeis':'Ciencias Contables',
-  'Estatística':'Estadística',
-  'Analista de Dados':'Analista de Datos',
-  'Analista de BI Sênior':'Analista de BI Sénior',
-  'Analista de Dados Financeiros':'Analista de Datos Financieros',
-  'Cientista de Dados Jr':'Científico de Datos Jr'
-};
-function trVal(v){ return (currentLang==='es' && v && VMAP[v]) ? VMAP[v] : v; }
 const rows = [
-  {date:'10/30/25',program:'Tecnologia da Informação',trilha:'Trilha de Dados',competencia:'Analista de Dados',name:'Guilherme Carbonari',cargo:'Data Analyst',empresa:'Capgemini',impact:'novo',dias:32,shared:true,hasPost:true},
-  {date:'10/30/25',program:'Tecnologia da Informação',trilha:'Trilha de Dados',competencia:'Analista de Dados',name:'Yuri Oliveira',cargo:null,empresa:null,impact:'none',dias:null,shared:false,hasPost:true},
-  {date:'12/01/25',program:'Administração',trilha:'Trilha de Dados',competencia:'Analista de Dados',name:'André Baptista Vio',cargo:'Analista de BI Sênior',empresa:'Edenred Pay Brasil',impact:'promo',dias:31,shared:true,hasPost:true},
-  {date:'12/01/25',program:'Administração',trilha:'Trilha de Dados',competencia:'Analista de Dados',name:'Izabella Adamuccio',cargo:null,empresa:null,impact:'none',dias:null,shared:false,hasPost:true},
-  {date:'08/28/25',program:'Ciências Contábeis',trilha:'Trilha de Dados',competencia:'Analista de Dados',name:'Diogo Baum',cargo:'Analista de Dados Financeiros',empresa:'Serasa Experian',impact:'novo',dias:45,shared:true,hasPost:true},
-  {date:'08/28/25',program:'Ciências Contábeis',trilha:'Trilha de Dados',competencia:'Analista de Dados',name:'Carlos Geraldo',cargo:null,empresa:null,impact:'none',dias:null,shared:false,hasPost:true},
-  {date:'10/30/25',program:'Estatística',trilha:'Trilha de Dados',competencia:'Analista de Dados',name:'Danilo Pires',cargo:'Cientista de Dados Jr',empresa:'Itaú Unibanco',impact:'promo',dias:58,shared:true,hasPost:true},
-  {date:'10/30/25',program:'Estatística',trilha:'Trilha de Dados',competencia:'Analista de Dados',name:'Carolina Ferrés',cargo:null,empresa:null,impact:'none',dias:null,shared:false,hasPost:true},
-  {date:'08/28/25',program:'Tecnologia da Informação',trilha:'Trilha de Dados',competencia:'Analista de Dados',name:'Bruno Reis de Arruda Alves',cargo:null,empresa:null,impact:'none',dias:null,shared:false,hasPost:false},
-  {date:'12/01/25',program:'Administração',trilha:'Trilha de Dados',competencia:'Analista de Dados',name:'Jeferson Faes Bertolini',cargo:null,empresa:null,impact:'none',dias:null,shared:false,hasPost:false},
+  {date:'08/28/25',program:'Direito',name:'Diogo Baum',cargo:null,empresa:null,impact:'none',dias:null,shared:false,hasPost:true},
+  {date:'08/28/25',program:'Direito',name:'Jeferson Faes Bertolini',cargo:null,empresa:null,impact:'none',dias:null,shared:false,hasPost:false},
+  {date:'10/30/25',program:'Tecnologia da Informação',name:'Guilherme Carbonari',cargo:'Learning Content Developer',empresa:'Capgemini',impact:'novo',dias:32,shared:true,hasPost:true},
+  {date:'10/30/25',program:'Tecnologia da Informação',name:'Carolina Ferrés',cargo:null,empresa:null,impact:'none',dias:null,shared:false,hasPost:true},
+  {date:'10/30/25',program:'Tecnologia da Informação',name:'Carlos Geraldo',cargo:null,empresa:null,impact:'none',dias:null,shared:false,hasPost:true},
+  {date:'12/01/25',program:'Pedagogia',name:'André Baptista Vio',cargo:'Regional Head of Product Marketing',empresa:'Edenred Pay Brasil',impact:'promo',dias:31,shared:true,hasPost:true},
+  {date:'10/30/25',program:'Tecnologia da Informação',name:'Danilo Pires',cargo:null,empresa:null,impact:'none',dias:null,shared:false,hasPost:true},
+  {date:'10/30/25',program:'Tecnologia da Informação',name:'Izabella Adamuccio',cargo:null,empresa:null,impact:'none',dias:null,shared:false,hasPost:true},
+  {date:'08/28/25',program:'Direito',name:'Bruno Reis de Arruda Alves',cargo:null,empresa:null,impact:'none',dias:null,shared:false,hasPost:false},
+  {date:'10/30/25',program:'Tecnologia da Informação',name:'Yuri Oliveira',cargo:null,empresa:null,impact:'none',dias:null,shared:false,hasPost:true},
 ];
 
 function badge(i){
-  var es = currentLang === 'es';
-  if(i==='novo') return '<span class="badge badge-novo">'+(es?'Nuevo empleo':'Novo emprego')+'</span>';
-  if(i==='promo') return '<span class="badge badge-promo">'+(es?'Ascenso':'Promoção')+'</span>';
-  return '<span class="badge badge-none">'+(es?'Sin cambio aún':'Sem mudança ainda')+'</span>';
+  if(i==='novo') return '<span class="badge badge-novo">Novo emprego</span>';
+  if(i==='promo') return '<span class="badge badge-promo">Promoção</span>';
+  return '<span class="badge badge-none">Sem impacto ainda</span>';
 }
 
 function renderTable(data){
@@ -997,31 +959,29 @@ function renderTable(data){
   em.style.display='none';
   tb.innerHTML=data.map(r=>`<tr>
     <td class="td-muted">${r.date}</td>
-    <td class="td-muted">${trVal(r.trilha)}</td>
-    <td class="td-muted">${trVal(r.program)}</td>
-    <td><span class="td-muted">${trVal(r.competencia)}</span></td>
+    <td class="td-muted">${r.program}</td>
     <td>${r.name}</td>
-    <td>${r.cargo?`${trVal(r.cargo)}<br><span class="td-muted">${r.empresa}</span>`:'<span class="td-muted">–</span>'}</td>
+    <td>${r.cargo?`${r.cargo}<br><span class="td-muted">${r.empresa}</span>`:'<span class="td-muted">–</span>'}</td>
     <td>${badge(r.impact)}</td>
     <td>${r.dias?`${r.dias} dias`:'<span class="td-muted">–</span>'}</td>
     <td><div class="social-icons">
-      <div data-tip="${r.hasPost?(currentLang==='es'?'Abrir el perfil del portador en LinkedIn':'Abrir o perfil do portador no LinkedIn'):(currentLang==='es'?'Perfil del portador no localizado en LinkedIn':'Perfil do portador não localizado no LinkedIn')}" style="width:28px;height:28px;border-radius:8px;border:1.5px solid ${r.hasPost?'#5123a4':'#D8CEF0'};display:flex;align-items:center;justify-content:center;cursor:pointer;background:${r.hasPost?'#dff0fd':'#f5f3fc'};">
-        <svg width="16" height="16" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <div style="width:36px;height:36px;border-radius:10px;border:1.5px solid ${r.hasPost?'#5123a4':'#D8CEF0'};display:flex;align-items:center;justify-content:center;cursor:pointer;background:${r.hasPost?'#dff0fd':'#f5f3fc'};" title="${r.hasPost?'Ver perfil LinkedIn':'Sem perfil detectado'}">
+        <svg width="20" height="20" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="1" y="1" width="20" height="20" rx="5" stroke="${r.hasPost?'#5123a4':'#D8CEF0'}" stroke-width="1.5" fill="${r.hasPost?'#dff0fd':'#f5f3fc'}"/>
           <circle cx="11" cy="8.5" r="3" stroke="${r.hasPost?'#5123a4':'#D8CEF0'}" stroke-width="1.5" fill="none"/>
           <path d="M5.5 17.5c0-3 2.5-5 5.5-5s5.5 2 5.5 5" stroke="${r.hasPost?'#5123a4':'#D8CEF0'}" stroke-width="1.5" stroke-linecap="round" fill="none"/>
         </svg>
       </div>
-      <div data-tip="${r.shared?(currentLang==='es'?'Publicación sobre el certificado detectada en el feed de LinkedIn':'Publicação sobre o certificado detectada no feed do LinkedIn'):(currentLang==='es'?'Ninguna publicación sobre el certificado detectada en el feed':'Nenhuma publicação sobre o certificado detectada no feed')}" style="width:28px;height:28px;border-radius:8px;border:1.5px solid ${r.shared?'#5123a4':'#D8CEF0'};display:flex;align-items:center;justify-content:center;cursor:pointer;background:${r.shared?'#dff0fd':'#f5f3fc'};">
-        <svg width="16" height="16" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <div style="width:36px;height:36px;border-radius:10px;border:1.5px solid ${r.shared?'#5123a4':'#D8CEF0'};display:flex;align-items:center;justify-content:center;cursor:pointer;background:${r.shared?'#dff0fd':'#f5f3fc'};" title="${r.shared?'Post compartilhado no LinkedIn':'Sem post detectado'}">
+        <svg width="20" height="20" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="1" y="1" width="20" height="20" rx="5" stroke="${r.shared?'#5123a4':'#D8CEF0'}" stroke-width="1.5" fill="${r.shared?'#dff0fd':'#f5f3fc'}"/>
           <rect x="5" y="7" width="12" height="1.5" rx="0.75" fill="${r.shared?'#5123a4':'#D8CEF0'}"/>
           <rect x="5" y="10.5" width="8" height="1.5" rx="0.75" fill="${r.shared?'#5123a4':'#D8CEF0'}"/>
           <rect x="5" y="14" width="10" height="1.5" rx="0.75" fill="${r.shared?'#5123a4':'#D8CEF0'}"/>
         </svg>
       </div>
-      <div class="social-btn" data-tip="${currentLang==='es'?'Ver la trayectoria completa del portador':'Ver a trajetória completa do portador'}" onclick="openDrawer('${r.name}','${r.program}','${r.date}','${r.impact}')" style="cursor:pointer;">
-        <svg width="16" height="16" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <div class="social-btn" title="Ver trajetória do portador" onclick="openDrawer('${r.name}','${r.program}','${r.date}','${r.impact}')" style="cursor:pointer;">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="1" y="1" width="20" height="20" rx="4" stroke="#5123a4" stroke-width="1.5" fill="white"/>
           <rect x="5" y="13" width="3" height="4" rx="0.5" fill="#5123a4"/>
           <rect x="9.5" y="9" width="3" height="8" rx="0.5" fill="#5123a4"/>
@@ -1037,11 +997,7 @@ function filterTable(){
   const imp=document.getElementById('impactFilter').value;
   const so=document.getElementById('sharedOnly').checked;
   renderTable(rows.filter(r=>{
-    if(q){
-      const hay=[r.name,r.program,r.competencia,r.trilha,trVal(r.program),trVal(r.competencia),trVal(r.trilha)]
-        .filter(Boolean).join(' ').toLowerCase();
-      if(!hay.includes(q))return false;
-    }
+    if(q&&!r.name.toLowerCase().includes(q)&&!r.program.toLowerCase().includes(q))return false;
     if(imp&&r.impact!==imp)return false;
     if(so&&!r.shared)return false;
     return true;
@@ -1052,17 +1008,13 @@ renderTable(rows);
 // ─── TOOLTIP ─────────────────────────────────────────────────────────────────
 const gtip=document.getElementById('gtip');
 const garrow=document.getElementById('gtip-arrow');
-document.addEventListener('mouseover',e=>{
-  const el=e.target.closest('[data-tip]');
-  if(!el) return;
-  gtip.textContent=el.getAttribute('data-tip');
-  gtip.style.display='block'; garrow.style.display='block';
-  positionTip(el);
-});
-document.addEventListener('mouseout',e=>{
-  const el=e.target.closest('[data-tip]');
-  if(!el) return;
-  gtip.style.display='none'; garrow.style.display='none';
+document.querySelectorAll('.info-btn[data-tip]').forEach(btn=>{
+  btn.addEventListener('mouseenter',()=>{
+    gtip.textContent=btn.getAttribute('data-tip');
+    gtip.style.display='block'; garrow.style.display='block';
+    positionTip(btn);
+  });
+  btn.addEventListener('mouseleave',()=>{ gtip.style.display='none'; garrow.style.display='none'; });
 });
 function positionTip(btn){
   const r=btn.getBoundingClientRect(), tw=220, th=gtip.offsetHeight||60;
@@ -1158,7 +1110,7 @@ document.getElementById('calOverlay').addEventListener('click',function(e){if(e.
     <div class="drawer-cert-badge" id="drawerCertBadge">
       <span class="dot"></span>
       <span id="drawerCertName">–</span>
-      <span style="color:var(--ink-faint); font-weight:400;">· compartilhado em</span>
+      <span style="color:var(--ink-faint); font-weight:400;">· emitido em</span>
       <span id="drawerCertDate">–</span>
     </div>
   </div>
@@ -1167,11 +1119,11 @@ document.getElementById('calOverlay').addEventListener('click',function(e){if(e.
 
     <!-- GRÁFICO INDIVIDUAL -->
     <div class="drawer-section">
-      <div class="drawer-section-title"><span id="t-d1">Mudanças de carreira acumuladas</span></div>
+      <div class="drawer-section-title"><span id="t-d1">Impactos acumulados</span></div>
       <div style="position:relative; height:160px; margin-bottom:4px;">
         <canvas id="drawerChart"></canvas>
       </div>
-      <p style="font-size:11px; color:var(--ink); line-height:1.5; margin-top:6px;">Novos empregos e promoções acumulados deste portador – antes e após o compartilhamento do certificado. Antes: histórico anual reconstruído do perfil. Depois: detecção em leituras bimestrais.</p>
+      <p style="font-size:11px; color:var(--ink); line-height:1.5; margin-top:6px;">Impactos acumulados deste portador – antes e após o compartilhamento do certificado. Eixo X: anual antes, bimestral depois.</p>
     </div>
 
     <!-- TRAJETÓRIA PROFISSIONAL -->
@@ -1225,7 +1177,7 @@ document.getElementById('calOverlay').addEventListener('click',function(e){if(e.
           <div class="tl-dot cert"></div>
           <div class="tl-card cert-marker">
             <div class="tl-card-period" id="drawerCertDateTl">Out 2025</div>
-            <div class="tl-card-title" id="drawerCertNameTl"><span id="t-cert-marker">Certificado POK compartilhado</span></div>
+            <div class="tl-card-title" id="drawerCertNameTl"><span id="t-cert-marker">Certificado POK emitido</span></div>
             <div class="tl-card-sub" id="drawerCertProgramTl">AI Bootcamp 2025</div>
           </div>
         </div>
@@ -1373,7 +1325,7 @@ function openDrawer(name, program, date, impact) {
           legend: { display: false },
           tooltip: {
             callbacks: {
-              label: ctx => ctx.parsed.y + ' mudança(s)'
+              label: ctx => ctx.parsed.y + ' impacto(s)'
             }
           }
         },
@@ -1386,7 +1338,7 @@ function openDrawer(name, program, date, impact) {
             beginAtZero: true,
             ticks: { font: { size: 9, family: 'Poppins' }, color: '#1E1230', stepSize: 1 },
             grid: { color: 'rgba(216,206,240,0.4)' },
-            title: { display: true, text: 'Mudanças', font: { size: 9 }, color: '#1E1230' }
+            title: { display: true, text: 'Impactos', font: { size: 9 }, color: '#1E1230' }
           }
         }
       },
@@ -1412,36 +1364,25 @@ const translations = {
     'f2': 'Data de emissão',
     'f3': 'Data de compartilhamento',
     'f4': 'Todas as competências',
-    'f5': 'Todas as trilhas',
     'fn1': 'Compartilhamentos<br>no LinkedIn',
     'fn2': 'Publicações<br>detectadas',
     'fn3': 'Adicionado<br>ao perfil',
-    'fn4': 'Alguma mudança<br>detectada',
+    'fn4': 'Algum impacto<br>detectado',
     'fn5': 'Novo<br>emprego',
     'fn6': 'Promoção<br>detectada',
-    'kpi1': 'Tempo médio até a mudança',
+    'kpi1': 'Tempo médio até o impacto',
     'kpi2': 'Taxa de conversão geral',
     'kpi3': 'Novos empregos detectados',
     'kpi4': 'Promoções detectadas',
     'sl1': 'Funil de engajamento',
     'sl2': 'Métricas principais',
-    'metricas-sub': 'O desempenho do recorte em números',
-    'portadores-sub': 'Do agregado ao caso a caso',
-    'traj-sub': 'Trajetória do portador',
-    'shared': 'Ver só com postagem compartilhada',
-    'traj-desc': 'Clique no ícone de trajetória de um portador e veja seu percurso completo: a linha do tempo profissional, com cada cargo situado antes ou após o compartilhamento, além da formação e das habilidades declaradas. É o retrato completo de um egresso num só lugar, conectando formação, competência e evolução de carreira – a prova, no nível da pessoa, de que a credencial acompanha um percurso real.',
-    'metricas-desc': 'Leia as métricas agregadas do recorte: o tempo médio até a mudança, a taxa de conversão dos que compartilharam, e a quantidade de novos empregos e promoções. É uma leitura comparável do desempenho de uma trilha, curso ou competência, útil para avaliação institucional e para comunicação com o mercado.',
     'sl3': 'Evolução do perfil dos portadores de certificados',
     'sl4': 'Portadores individuais',
-    'funnel-title': 'Do certificado à mudança real',
-    'funnel-desc': 'Acompanhe, etapa a etapa, quantos egressos compartilharam o certificado, publicaram, adicionaram ao perfil e chegaram a uma mudança de carreira – novo emprego ou promoção. O funil mostra onde o engajamento se sustenta ou se perde ao longo do caminho, revelando quanto do potencial de cada turma se converte em impacto.',
-    'chart-desc': 'Acompanhe a curva de trajetória: de um lado do marco do compartilhamento, o histórico de carreira reconstruído; do outro, a evolução observada ao longo do tempo nas leituras periódicas. Cada novo emprego ou promoção conta como uma mudança. A curva situa a credencial na linha do tempo da carreira e mostra como o grupo evolui a partir do momento em que conquistou a competência.',
+    'funnel-title': 'Do certificado ao impacto real',
+    'funnel-desc': 'Cada etapa mostra quantos portadores de certificados avançaram no processo – do compartilhamento inicial até a mudança de carreira detectada no perfil.',
+    'chart-desc': 'Média de impactos acumulados pelos portadores de acordo com o filtro selecionado – cada novo vínculo profissional registrado no LinkedIn conta como um impacto. À esquerda do marco: dados históricos anteriores ao compartilhamento do certificado. À direita: evolução registrada após o compartilhamento do certificado.',
     'th3': 'Data de compartilhamento',
     'th2': 'Curso',
-    'th-trilha': 'Trilha',
-    'painel-intro': 'Filtre por trilha, curso, competência e/ou período, e o painel recorta a base de portadores conforme a seleção. Trilha, curso e competência são recortes independentes, então é possível acompanhar uma mesma competência certificada em portadores vindos de cursos diferentes. Isso permite ler a empregabilidade por aquilo que a pessoa sabe fazer, e não apenas pelo certificado – abrindo comparações que o recorte por trilha e curso sozinho não mostra.',
-    'th-comp': 'Competência',
-    'tbl-ctx': 'Desça ao caso a caso: para cada egresso, veja a trilha e o curso de origem, a competência certificada, o cargo atual detectado, o tipo de mudança e o tempo até ela acontecer. Busque ou filtre para ver as linhas correspondentes e acessar o perfil de cada pessoa no LinkedIn. A tabela leva a leitura do plano abstrato ao caso concreto, permitindo verificar histórias individuais e sustentar os números agregados com evidência. Nesta visão, o filtro de competência está aplicado em <strong>Analista de Dados</strong>.',
     'th6': 'Ações',
     'dev-title': 'O que este dashboard coleta e como',
     'dev-warn-label': '⚠ Aviso importante',
@@ -1451,7 +1392,7 @@ const translations = {
     'dev-warn-text': 'A leitura do perfil de um portador <strong style="color:#fff;">não é interrompida quando ele compartilha um novo certificado</strong> – de nenhum curso ou instituição. A leitura continua indefinidamente, de forma bimestral (ou qualquer outro intervalo definido pela POK), a partir do momento em que o primeiro certificado é compartilhado. Cada novo certificado compartilhado cria um novo marco na linha do tempo do portador, mas não encerra a leitura associada aos certificados anteriores. Todos os eventos de carreira detectados após o compartilhamento de um certificado continuam sendo associados a ele.',
     'dev-future': 'Futuramente, esta análise será complementada com dados de <strong style="color:#fff;">outras bases além do LinkedIn</strong>, lidas a partir do CPF do portador. Por isso, no Brasil, é essencial que todo certificado seja emitido com o número de CPF no campo ID.',
     'dev-trigger-text': 'A coleta é iniciada quando o portador <strong style="color:#fff;">compartilha o certificado POK no LinkedIn</strong>. Neste momento, a POK identifica o portador e lê o perfil público completo – incluindo todo o histórico retroativo já presente no perfil (Experience, Education, Certifications com suas datas originais). A partir daí, leituras bimestrais automáticas são agendadas e mantidas indefinidamente.',
-    'dev-exp-used': 'Usado em: cargo na tabela · linha do tempo do drawer · detecção de novo emprego e promoção · gráfico de mudanças de carreira acumuladas',
+    'dev-exp-used': 'Usado em: cargo na tabela · linha do tempo do drawer · detecção de novo emprego e promoção · gráfico de impactos acumulados',
     'dev-edu-used': 'Usado em: seção de formação no drawer · filtro por título',
     'dev-cert-used': 'Usado em: verificação se o certificado POK foi adicionado ao perfil · ícone de post na tabela',
     'dev-skills-used': 'Usado em: chips de habilidades no drawer',
@@ -1470,8 +1411,8 @@ const translations = {
     'dn11': 'Número de conexões exibido no cabeçalho',
     'dn-title': '⚙ Orientação ao desenvolvedor – campos LinkedIn utilizados',
     'dn-logic-label': 'Lógica antes/após',
-    'dn-logic': 'experience[].startDate é comparado com a data de compartilhamento do certificado POK (armazenada na plataforma). Experiências cujo startDate é anterior ao compartilhamento são classificadas como "antes"; posteriores como "após". Experiências em andamento (endDate ausente) na data do compartilhamento aparecem como "em curso no momento".',
-    'cert-marker': 'Certificado POK compartilhado',
+    'dn-logic': 'experience[].startDate é comparado com a data de emissão do certificado POK (armazenada na plataforma). Experiências cujo startDate é anterior à emissão são classificadas como "antes"; posteriores como "após". Experiências em andamento (endDate ausente) na data da emissão aparecem como "em curso no momento".',
+    'cert-marker': 'Certificado POK emitido',
     'tl-before': 'Antes do certificado',
     'g-exp1': '<code style="color:#a78bf0;">position</code> – título do cargo (texto livre)',
     'g-exp2': '<code style="color:#a78bf0;">companyName</code> – nome da empresa',
@@ -1501,8 +1442,8 @@ const translations = {
     'dn11': 'Número de conexiones mostrado en el encabezado',
     'dn-title': '⚙ Orientación al desarrollador – campos de LinkedIn utilizados',
     'dn-logic-label': 'Lógica antes/después',
-    'dn-logic': 'experience[].startDate se compara con la fecha de compartición del certificado POK (almacenada en la plataforma). Las experiencias cuyo startDate es anterior a la compartición se clasifican como "antes"; las posteriores como "después". Las experiencias en curso (endDate ausente) en la fecha de compartición aparecen como "en curso en ese momento".',
-    'cert-marker': 'Certificado POK compartilhado',
+    'dn-logic': 'experience[].startDate se compara con la fecha de emisión del certificado POK (almacenada en la plataforma). Las experiencias cuyo startDate es anterior a la emisión se clasifican como "antes"; las posteriores como "después". Las experiencias en curso (endDate ausente) en la fecha de emisión aparecen como "en curso en ese momento".',
+    'cert-marker': 'Certificado POK emitido',
     'tl-before': 'Antes del certificado',
     'g-exp1': '<code style="color:#a78bf0;">position</code> – título del cargo (texto libre)',
     'g-exp2': '<code style="color:#a78bf0;">companyName</code> – nombre de la empresa',
@@ -1527,16 +1468,16 @@ const translations = {
     'g-lang1': '<code style="color:#a78bf0;">name</code> – idioma',
     'g-lang2': '<code style="color:#a78bf0;">proficiency</code> – nivel declarado',
     'cal-title': 'Seleccionar período',
-    'chart-title': 'Trajetória agregada – mudanças de carreira acumuladas',
+    'chart-title': 'Trajetória agregada – impactos acumulados',
     'zone-past': '← Antes do compartilhamento',
     'zone-future': 'Após o compartilhamento →',
     'th1': 'Portador',
     'th2': 'Curso',
     'th3': 'Compartilhamento',
-    'th4': 'Mudança',
-    'th5': 'Dias até a<br>mudança',
+    'th4': 'Impacto',
+    'th5': 'Dias até impacto',
     'th6': 'Ações',
-    'd1': 'Mudanças de carreira acumuladas',
+    'd1': 'Impactos acumulados',
     'd2': 'Trajetória profissional',
     'd3': 'Formação acadêmica',
     'd4': 'Habilidades declaradas no LinkedIn',
@@ -1548,48 +1489,37 @@ const translations = {
     'f1': 'Todos los cursos',
     'f2': 'Fecha de emisión',
     'f3': 'Fecha de compartición',
-    'f4': 'Todas las competencias',
-    'f5': 'Todas las rutas',
+    'f4': 'Todos los títulos',
     'fn1': 'Compartidos<br>en LinkedIn',
     'fn2': 'Publicaciones<br>detectadas',
     'fn3': 'Agregado<br>al perfil',
-    'fn4': 'Algún cambio<br>detectado',
+    'fn4': 'Algún impacto<br>detectado',
     'fn5': 'Nuevo<br>empleo',
     'fn6': 'Ascenso<br>detectado',
-    'kpi1': 'Tiempo promedio hasta el cambio',
+    'kpi1': 'Tiempo promedio hasta impacto',
     'kpi2': 'Tasa de conversión general',
     'kpi3': 'Nuevos empleos detectados',
     'kpi4': 'Ascensos detectados',
     'sl1': 'Embudo de participación',
     'sl2': 'Métricas principales',
-    'metricas-sub': 'El desempeño del recorte en números',
-    'portadores-sub': 'Del agregado al caso a caso',
-    'traj-sub': 'Trayectoria del portador',
-    'shared': 'Ver solo con publicación compartida',
-    'traj-desc': 'Haga clic en el ícono de trayectoria de un portador y vea su recorrido completo: la línea de tiempo profesional, con cada cargo situado antes o después de la compartición, además de la formación y las habilidades declaradas. Es el retrato completo de un egresado en un solo lugar, conectando formación, competencia y evolución de carrera – la prueba, a nivel de la persona, de que la credencial acompaña un recorrido real.',
-    'metricas-desc': 'Lea las métricas agregadas del recorte: el tiempo promedio hasta el cambio, la tasa de conversión de quienes compartieron, y la cantidad de nuevos empleos y ascensos. Es una lectura comparable del desempeño de una ruta, curso o competencia, útil para la evaluación institucional y para la comunicación con el mercado.',
     'sl3': 'Evolución del perfil de los portadores de certificados',
     'sl4': 'Portadores individuales',
-    'funnel-title': 'Del certificado al cambio real',
-    'funnel-desc': 'Acompañe, etapa por etapa, cuántos egresados compartieron el certificado, publicaron, lo agregaron al perfil y llegaron a un cambio de carrera – nuevo empleo o ascenso. El embudo muestra dónde el engagement se sostiene o se pierde a lo largo del camino, revelando cuánto del potencial de cada promoción se convierte en impacto.',
-    'chart-desc': 'Acompañe la curva de trayectoria: de un lado del hito de la compartición, el historial de carrera reconstruido; del otro, la evolución observada a lo largo del tiempo en las lecturas periódicas. Cada nuevo empleo o ascenso cuenta como un cambio. La curva sitúa la credencial en la línea de tiempo de la carrera y muestra cómo el grupo evoluciona a partir del momento en que conquistó la competencia.',
+    'funnel-title': 'Del certificado al impacto real',
+    'funnel-desc': 'Cada etapa muestra cuántos portadores de certificados avanzaron en el proceso – desde la compartición inicial hasta el cambio de carrera detectado en el perfil.',
+    'chart-desc': 'Promedio de impactos acumulados por los portadores de acuerdo con el filtro seleccionado – cada nuevo vínculo profesional registrado en LinkedIn cuenta como un impacto. A la izquierda del hito: datos históricos anteriores a la compartición del certificado. A la derecha: evolución registrada después de la compartición.',
     'th3': 'Fecha de compartición',
     'th2': 'Curso',
-    'th-trilha': 'Ruta',
-    'painel-intro': 'Filtre por ruta, curso, competencia y/o período, y el panel recorta la base de portadores según la selección. Ruta, curso y competencia son recortes independientes, por lo que es posible acompañar una misma competencia certificada en portadores provenientes de cursos diferentes. Esto permite leer la empleabilidad por aquello que la persona sabe hacer, y no solo por el certificado – abriendo comparaciones que el recorte por ruta y curso por sí solo no muestra.',
-    'th-comp': 'Competencia',
-    'tbl-ctx': 'Baje al caso a caso: para cada egresado, vea la ruta y el curso de origen, la competencia certificada, el cargo actual detectado, el tipo de cambio y el tiempo hasta que ocurre. Busque o filtre para ver las líneas correspondientes y acceder al perfil de cada persona en LinkedIn. La tabla lleva la lectura del plano abstracto al caso concreto, permitiendo verificar historias individuales y sostener los números agregados con evidencia. En esta vista, el filtro de competencia está aplicado en <strong>Analista de Datos</strong>.',
     'th6': 'Acciones',
-    'chart-title': 'Trayectoria agregada – cambios de carrera acumulados',
+    'chart-title': 'Trayectoria agregada – impactos acumulados',
     'zone-past': '← Antes de la compartición',
     'zone-future': 'Después de la compartición →',
     'th1': 'Portador',
     'th2': 'Curso',
     'th3': 'Compartición',
-    'th4': 'Cambio',
-    'th5': 'Días hasta<br>el cambio',
+    'th4': 'Impacto',
+    'th5': 'Días hasta impacto',
     'th6': 'Acciones',
-    'd1': 'Cambios de carrera acumulados',
+    'd1': 'Impactos acumulados',
     'd2': 'Trayectoria profesional',
     'd3': 'Formación académica',
     'd4': 'Habilidades declaradas en LinkedIn',
@@ -1601,7 +1531,7 @@ const translations = {
     'dev-warn-text': 'La lectura del perfil de un portador <strong style="color:#fff;">no se interrumpe cuando comparte un nuevo certificado</strong> – de ningún curso o institución. La lectura continúa indefinidamente, de forma bimestral (o cualquier otro intervalo definido por POK), a partir del momento en que se comparte el primer certificado. Cada nuevo certificado compartido crea un nuevo hito en la línea de tiempo del portador, pero no cierra la lectura asociada a los certificados anteriores. Todos los eventos de carrera detectados después de la compartición de un certificado continúan siendo asociados a él.',
     'dev-future': 'En el futuro, este análisis será complementado con datos de <strong style="color:#fff;">otras bases además de LinkedIn</strong>, leídos a partir del CPF del portador. Por eso, en Brasil, es esencial que todo certificado sea emitido con el número de CPF en el campo ID.',
     'dev-trigger-text': 'La recopilación se inicia cuando el portador <strong style="color:#fff;">comparte el certificado POK en LinkedIn</strong>. En ese momento, POK identifica al portador y lee el perfil público completo – incluyendo todo el historial retroactivo ya presente en el perfil (Experience, Education, Certifications con sus fechas originales). A partir de ahí, se programan lecturas bimestrales automáticas y se mantienen indefinidamente.',
-    'dev-exp-used': 'Usado en: cargo en la tabla · línea de tiempo del panel · detección de nuevo empleo y ascenso · gráfico de cambios de carrera acumulados',
+    'dev-exp-used': 'Usado en: cargo en la tabla · línea de tiempo del panel · detección de nuevo empleo y ascenso · gráfico de impactos acumulados',
     'dev-edu-used': 'Usado en: sección de formación en el panel · filtro por título',
     'dev-cert-used': 'Usado en: verificación si el certificado POK fue agregado al perfil · ícono de publicación en la tabla',
     'dev-skills-used': 'Usado en: chips de habilidades en el panel',
@@ -1620,8 +1550,8 @@ const translations = {
     'dn11': 'Número de conexiones mostrado en el encabezado',
     'dn-title': '⚙ Orientación al desarrollador – campos de LinkedIn utilizados',
     'dn-logic-label': 'Lógica antes/después',
-    'dn-logic': 'experience[].startDate se compara con la fecha de compartición del certificado POK (almacenada en la plataforma). Las experiencias cuyo startDate es anterior a la compartición se clasifican como "antes"; las posteriores como "después". Las experiencias en curso (endDate ausente) en la fecha de compartición aparecen como "en curso en ese momento".',
-    'cert-marker': 'Certificado POK compartido',
+    'dn-logic': 'experience[].startDate se compara con la fecha de emisión del certificado POK (almacenada en la plataforma). Las experiencias cuyo startDate es anterior a la emisión se clasifican como "antes"; las posteriores como "después". Las experiencias en curso (endDate ausente) en la fecha de emisión aparecen como "en curso en ese momento".',
+    'cert-marker': 'Certificado POK emitido',
     'tl-before': 'Antes del certificado',
     'g-exp1': '<code style="color:#a78bf0;">position</code> – título del cargo (texto libre)',
     'g-exp2': '<code style="color:#a78bf0;">companyName</code> – nombre de la empresa',
@@ -1650,38 +1580,11 @@ const translations = {
 };
 
 function setLang(lang) {
-  currentLang = lang;
   const t = translations[lang];
   Object.keys(t).forEach(key => {
     const el = document.getElementById('t-' + key);
     if (el) el.innerHTML = t[key];
   });
-
-  // UI controls not covered by the t- span dictionary
-  var isEs = lang === 'es';
-  var si = document.getElementById('searchInput');
-  if (si) si.placeholder = isEs ? 'Buscar por curso, competencia o portador...' : 'Buscar por curso, competência ou portador...';
-  var em = document.getElementById('emptyState');
-  if (em) em.textContent = isEs ? 'Ningún portador encontrado con los filtros aplicados.' : 'Nenhum portador encontrado com os filtros aplicados.';
-  function setOptTexts(id, ptArr, esArr, startIdx){
-    var sel = document.getElementById(id); if (!sel) return;
-    var arr = isEs ? esArr : ptArr;
-    for (var i = 0; i < arr.length; i++){ var o = sel.options[i + (startIdx||0)]; if (o) o.textContent = arr[i]; }
-  }
-  setOptTexts('impactFilter',
-    ['Todas as mudanças','Novo emprego','Promoção','Sem mudança ainda'],
-    ['Todos los cambios','Nuevo empleo','Ascenso','Sin cambio aún'], 0);
-  setOptTexts('filterTrilha',
-    ['Trilha de Dados','Trilha de Gestão','Trilha Financeira'],
-    ['Ruta de Datos','Ruta de Gestión','Ruta Financiera'], 1);
-  setOptTexts('filterCert',
-    ['Tecnologia da Informação','Administração','Ciências Contábeis','Estatística'],
-    ['Tecnología de la Información','Administración','Ciencias Contables','Estadística'], 1);
-  setOptTexts('filterTitulo',
-    ['Analista de Dados'],
-    ['Analista de Datos'], 1);
-
-  if (typeof filterTable === 'function') filterTable();
   // Translate class-based labels
   document.querySelectorAll('.tl-before-label').forEach(el => {
     el.innerHTML = lang === 'es' ? 'Antes del certificado' : 'Antes do certificado';
