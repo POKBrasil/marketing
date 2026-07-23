@@ -659,10 +659,10 @@ tbody td { padding: 10px 8px; color: var(--ink); vertical-align: middle; font-si
     <div style="margin-bottom:40px;">
       <div style="display:inline-flex; align-items:center; gap:8px; background:rgba(230,194,74,0.15); border:1px solid rgba(230,194,74,0.3); border-radius:99px; padding:5px 14px; font-size:10px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:#e6c24a; margin-bottom:16px;">
         <span style="width:6px;height:6px;border-radius:50%;background:#e6c24a;display:inline-block;"></span>
-        Índice de Impacto POK
+        <span id="t-ps-eyebrow">Índice de Impacto POK</span>
       </div>
       <h2 style="font-size:28px; font-weight:900; color:#fff; letter-spacing:-0.02em; margin-bottom:10px;">POK Score</h2>
-      <p style="font-size:14px; color:#fff; line-height:1.7;">Índice ponderado de empregabilidade por curso ou competência, construído a partir de três fontes de dados — LinkedIn, Serasa e bases públicas — convergindo pelo CPF gravado no certificado.</p>
+      <p style="font-size:14px; color:#fff; line-height:1.7;" id="t-ps-desc">Índice ponderado de empregabilidade por curso ou competência, construído a partir de três fontes de dados – LinkedIn, Serasa e bases públicas – convergindo pelo CPF gravado no certificado.</p>
     </div>
 
     <!-- Score card principal -->
@@ -670,9 +670,9 @@ tbody td { padding: 10px 8px; color: var(--ink); vertical-align: middle; font-si
 
       <!-- Score número -->
       <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:20px; padding:32px 28px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;">
-        <div style="font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#e6c24a; margin-bottom:12px;">Score atual</div>
+        <div style="font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#e6c24a; margin-bottom:12px;"><span id="t-ps-atual">Score atual</span></div>
         <div style="font-size:72px; font-weight:900; color:#fff; line-height:1; margin-bottom:4px;" id="scoreTotal">74</div>
-        <div style="font-size:13px; color:#fff; margin-bottom:20px;">de 100 pontos</div>
+        <div style="font-size:13px; color:#fff; margin-bottom:20px;" id="t-ps-de100">de 100 pontos</div>
         <div style="width:100%; height:8px; background:rgba(255,255,255,0.1); border-radius:99px; overflow:hidden;">
           <div id="scoreTotalBar" style="height:100%; width:74%; background:linear-gradient(90deg,#e6c24a,#f0a500); border-radius:99px; transition:width 0.8s ease;"></div>
         </div>
@@ -681,12 +681,12 @@ tbody td { padding: 10px 8px; color: var(--ink); vertical-align: middle; font-si
 
       <!-- Dimensões -->
       <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:20px; padding:28px 32px;">
-        <div style="font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#fff; margin-bottom:20px;">Composição do score</div>
+        <div style="font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#fff; margin-bottom:20px;"><span id="t-ps-comp">Composição do score</span></div>
         <div style="display:flex; flex-direction:column; gap:16px;" id="dimensoesContainer">
 
           <div class="dim-row">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
-              <div style="font-size:13px; font-weight:600; color:#fff;">Inserção <span style="font-size:11px; font-weight:400; color:#fff;">· LinkedIn + CAGED + SINE</span></div>
+              <div style="font-size:13px; font-weight:600; color:#fff;"><span id="t-ps-d1">Inserção</span> <span style="font-size:11px; font-weight:400; color:#fff;"><span id="t-ps-s1">· LinkedIn + CAGED + SINE</span></span></div>
               <div style="font-size:13px; font-weight:700; color:#e6c24a;"><span class="dim-score">82</span><span style="font-size:10px; color:#fff; font-weight:400;"> /100 · peso 30%</span></div>
             </div>
             <div style="height:6px; background:rgba(255,255,255,0.1); border-radius:99px; overflow:hidden;"><div style="height:100%; width:82%; background:#5DCAA5; border-radius:99px;"></div></div>
@@ -694,7 +694,7 @@ tbody td { padding: 10px 8px; color: var(--ink); vertical-align: middle; font-si
 
           <div class="dim-row">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
-              <div style="font-size:13px; font-weight:600; color:#fff;">Progressão <span style="font-size:11px; font-weight:400; color:#fff;">· LinkedIn + Serasa Renda</span></div>
+              <div style="font-size:13px; font-weight:600; color:#fff;"><span id="t-ps-d2">Progressão</span> <span style="font-size:11px; font-weight:400; color:#fff;"><span id="t-ps-s2">· LinkedIn + Serasa Renda</span></span></div>
               <div style="font-size:13px; font-weight:700; color:#e6c24a;"><span class="dim-score">71</span><span style="font-size:10px; color:#fff; font-weight:400;"> /100 · peso 30%</span></div>
             </div>
             <div style="height:6px; background:rgba(255,255,255,0.1); border-radius:99px; overflow:hidden;"><div style="height:100%; width:71%; background:#8267be; border-radius:99px;"></div></div>
@@ -702,7 +702,7 @@ tbody td { padding: 10px 8px; color: var(--ink); vertical-align: middle; font-si
 
           <div class="dim-row">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
-              <div style="font-size:13px; font-weight:600; color:#fff;">Estabilidade <span style="font-size:11px; font-weight:400; color:#fff;">· Serasa + CNIS</span></div>
+              <div style="font-size:13px; font-weight:600; color:#fff;"><span id="t-ps-d3">Estabilidade</span> <span style="font-size:11px; font-weight:400; color:#fff;"><span id="t-ps-s3">· Serasa + CNIS</span></span></div>
               <div style="font-size:13px; font-weight:700; color:#e6c24a;"><span class="dim-score">68</span><span style="font-size:10px; color:#fff; font-weight:400;"> /100 · peso 20%</span></div>
             </div>
             <div style="height:6px; background:rgba(255,255,255,0.1); border-radius:99px; overflow:hidden;"><div style="height:100%; width:68%; background:#5123a4; border-radius:99px;"></div></div>
@@ -710,7 +710,7 @@ tbody td { padding: 10px 8px; color: var(--ink); vertical-align: middle; font-si
 
           <div class="dim-row">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
-              <div style="font-size:13px; font-weight:600; color:#fff;">Velocidade <span style="font-size:11px; font-weight:400; color:#fff;">· LinkedIn · dias até a mudança</span></div>
+              <div style="font-size:13px; font-weight:600; color:#fff;"><span id="t-ps-d4">Velocidade</span> <span style="font-size:11px; font-weight:400; color:#fff;"><span id="t-ps-s4">· LinkedIn · dias até a mudança</span></span></div>
               <div style="font-size:13px; font-weight:700; color:#e6c24a;"><span class="dim-score">79</span><span style="font-size:10px; color:#fff; font-weight:400;"> /100 · peso 10%</span></div>
             </div>
             <div style="height:6px; background:rgba(255,255,255,0.1); border-radius:99px; overflow:hidden;"><div style="height:100%; width:79%; background:#4a6bc0; border-radius:99px;"></div></div>
@@ -718,7 +718,7 @@ tbody td { padding: 10px 8px; color: var(--ink); vertical-align: middle; font-si
 
           <div class="dim-row">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
-              <div style="font-size:13px; font-weight:600; color:#fff;">Empreendedorismo <span style="font-size:11px; font-weight:400; color:#fff;">· Serasa CPF × CNPJ</span></div>
+              <div style="font-size:13px; font-weight:600; color:#fff;"><span id="t-ps-d5">Empreendedorismo</span> <span style="font-size:11px; font-weight:400; color:#fff;"><span id="t-ps-s5">· Serasa CPF × CNPJ</span></span></div>
               <div style="font-size:13px; font-weight:700; color:#e6c24a;"><span class="dim-score">55</span><span style="font-size:10px; color:#fff; font-weight:400;"> /100 · peso 10%</span></div>
             </div>
             <div style="height:6px; background:rgba(255,255,255,0.1); border-radius:99px; overflow:hidden;"><div style="height:100%; width:55%; background:#e6c24a; border-radius:99px;"></div></div>
@@ -731,17 +731,17 @@ tbody td { padding: 10px 8px; color: var(--ink); vertical-align: middle; font-si
     <!-- Ranking de cursos -->
     <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:20px; padding:28px 32px; margin-bottom:32px;">
       <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; flex-wrap:wrap; gap:12px;">
-        <div style="font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#fff;">Ranking por curso</div>
-        <div style="font-size:12px; color:#fff;">Mostrando todos os cursos · ordenados por POK Score</div>
+        <div style="font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#fff;"><span id="t-ps-rank">Ranking por curso</span></div>
+        <div style="font-size:12px; color:#fff;" id="t-ps-ranksub">Mostrando todos os cursos · ordenados por POK Score</div>
       </div>
 
       <!-- Header da tabela -->
       <div style="display:grid; grid-template-columns:40px 1fr 80px 120px 80px; gap:0; padding:8px 16px; border-bottom:1px solid rgba(255,255,255,0.1); margin-bottom:4px;">
         <div style="font-size:10px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#fff;">#</div>
-        <div style="font-size:10px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#fff;">Curso</div>
+        <div style="font-size:10px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#fff;"><span id="t-ps-hcurso">Curso</span></div>
         <div style="font-size:10px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#fff; text-align:center;">Score</div>
-        <div style="font-size:10px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#fff; text-align:center;">Variação</div>
-        <div style="font-size:10px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#fff; text-align:center;">Inserção</div>
+        <div style="font-size:10px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#fff; text-align:center;"><span id="t-ps-hvar">Variação</span></div>
+        <div style="font-size:10px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#fff; text-align:center;"><span id="t-ps-hins">Inserção</span></div>
       </div>
 
       <!-- Ranking rows scrollável -->
@@ -754,8 +754,8 @@ tbody td { padding: 10px 8px; color: var(--ink); vertical-align: middle; font-si
     <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:22px 28px; display:flex; gap:16px; align-items:flex-start;">
       <div style="font-size:18px; flex-shrink:0; margin-top:2px;">📐</div>
       <div>
-        <div style="font-size:12px; font-weight:700; color:#fff; margin-bottom:6px;">Metodologia do POK Score</div>
-        <div style="font-size:12px; color:#fff; line-height:1.7;">Score ponderado de 0 a 100, calculado a partir de métricas das três fontes de dados POK. Os pesos padrão são: Inserção 30% · Progressão 30% · Estabilidade 20% · Velocidade 10% · Empreendedorismo 10%. O score é calculado sobre portadores que compartilharam o certificado no LinkedIn + dados secundários via CPF verificado nas bases externas.</div>
+        <div style="font-size:12px; font-weight:700; color:#fff; margin-bottom:6px;"><span id="t-ps-metod">Metodologia do POK Score</span></div>
+        <div style="font-size:12px; color:#fff; line-height:1.7;" id="t-ps-metodtxt">Score ponderado de 0 a 100, calculado a partir de métricas das três fontes de dados POK. Os pesos padrão são: Inserção 30% · Progressão 30% · Estabilidade 20% · Velocidade 10% · Empreendedorismo 10%. O score é calculado sobre portadores que compartilharam o certificado no LinkedIn + dados secundários via CPF verificado nas bases externas.</div>
       </div>
     </div>
 
@@ -779,8 +779,8 @@ tbody td { padding: 10px 8px; color: var(--ink); vertical-align: middle; font-si
       <div><div class="cal-month-title" id="rightTitle"></div><div class="cal-grid" id="rightGrid"></div></div>
     </div>
     <div class="cal-actions">
-      <button class="cal-cancel" onclick="closeCal()">Cancelar</button>
-      <button class="cal-apply" onclick="applyCal()">Aplicar</button>
+      <button class="cal-cancel" onclick="closeCal()"><span id="t-cal-cancel">Cancelar</span></button>
+      <button class="cal-apply" onclick="applyCal()"><span id="t-cal-apply">Aplicar</span></button>
     </div>
   </div>
 </div>
@@ -1495,6 +1495,30 @@ const translations = {
     'g-id5': '<code style="color:#a78bf0;">verified</code> – conta verificada pelo LinkedIn (não é dado de empregabilidade)',
     'g-lang1': '<code style="color:#a78bf0;">name</code> – idioma',
     'g-lang2': '<code style="color:#a78bf0;">proficiency</code> – nível declarado',
+    'ps-eyebrow': 'Índice de Impacto POK',
+    'ps-desc': 'Índice ponderado de empregabilidade por curso ou competência, construído a partir de três fontes de dados – LinkedIn, Serasa e bases públicas – convergindo pelo CPF gravado no certificado.',
+    'ps-atual': 'Score atual',
+    'ps-de100': 'de 100 pontos',
+    'ps-comp': 'Composição do score',
+    'ps-d1': 'Inserção',
+    'ps-d2': 'Progressão',
+    'ps-d3': 'Estabilidade',
+    'ps-d4': 'Velocidade',
+    'ps-d5': 'Empreendedorismo',
+    'ps-s1': '· LinkedIn + CAGED + SINE',
+    'ps-s2': '· LinkedIn + Serasa Renda',
+    'ps-s3': '· Serasa + CNIS',
+    'ps-s4': '· LinkedIn · dias até a mudança',
+    'ps-s5': '· Serasa CPF × CNPJ',
+    'ps-rank': 'Ranking por curso',
+    'ps-ranksub': 'Mostrando todos os cursos · ordenados por POK Score',
+    'ps-hcurso': 'Curso',
+    'ps-hvar': 'Variação',
+    'ps-hins': 'Inserção',
+    'ps-metod': 'Metodologia do POK Score',
+    'ps-metodtxt': 'Score ponderado de 0 a 100, calculado a partir de métricas das três fontes de dados POK. Os pesos padrão são: Inserção 30% · Progressão 30% · Estabilidade 20% · Velocidade 10% · Empreendedorismo 10%. O score é calculado sobre portadores que compartilharam o certificado no LinkedIn + dados secundários via CPF verificado nas bases externas.',
+    'cal-cancel': 'Cancelar',
+    'cal-apply': 'Aplicar',
     'cal-title': 'Selecionar período',
     'dn9': 'Nombre mostrado en el encabezado del panel',
     'dn10': 'Ciudad y país mostrados debajo del nombre',
@@ -1645,6 +1669,30 @@ const translations = {
     'g-id5': '<code style="color:#a78bf0;">verified</code> – cuenta verificada por LinkedIn (no es dato de empleabilidad)',
     'g-lang1': '<code style="color:#a78bf0;">name</code> – idioma',
     'g-lang2': '<code style="color:#a78bf0;">proficiency</code> – nivel declarado',
+    'ps-eyebrow': 'Índice de Impacto POK',
+    'ps-desc': 'Índice ponderado de empleabilidad por curso o competencia, construido a partir de tres fuentes de datos – LinkedIn, Serasa y bases públicas – convergiendo por el CPF grabado en el certificado.',
+    'ps-atual': 'Score actual',
+    'ps-de100': 'de 100 puntos',
+    'ps-comp': 'Composición del score',
+    'ps-d1': 'Inserción',
+    'ps-d2': 'Progresión',
+    'ps-d3': 'Estabilidad',
+    'ps-d4': 'Velocidad',
+    'ps-d5': 'Emprendimiento',
+    'ps-s1': '· LinkedIn + CAGED + SINE',
+    'ps-s2': '· LinkedIn + Serasa Renta',
+    'ps-s3': '· Serasa + CNIS',
+    'ps-s4': '· LinkedIn · días hasta el cambio',
+    'ps-s5': '· Serasa CPF × CNPJ',
+    'ps-rank': 'Ranking por curso',
+    'ps-ranksub': 'Mostrando todos los cursos · ordenados por POK Score',
+    'ps-hcurso': 'Curso',
+    'ps-hvar': 'Variación',
+    'ps-hins': 'Inserción',
+    'ps-metod': 'Metodología del POK Score',
+    'ps-metodtxt': 'Score ponderado de 0 a 100, calculado a partir de métricas de las tres fuentes de datos POK. Los pesos estándar son: Inserción 30% · Progresión 30% · Estabilidad 20% · Velocidad 10% · Emprendimiento 10%. El score se calcula sobre portadores que compartieron el certificado en LinkedIn + datos secundarios vía CPF verificado en las bases externas.',
+    'cal-cancel': 'Cancelar',
+    'cal-apply': 'Aplicar',
     'cal-title': 'Seleccionar período',
   }
 };
