@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unicesumar · Material da campanha POK Egressos 2026</title>
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Material Unicesumar · Campanha POK Egressos 2026">
+<meta property="og:description" content="Peças visuais produzidas pela Unicesumar para a campanha de credenciais digitais POK – certificado, landing page, banners, e-mail, WhatsApp e LinkedIn.">
+<meta property="og:site_name" content="POK">
+<meta property="og:locale" content="pt_BR">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F3EFF9;
+    --surface: #FFFFFF;
+    --surface-alt: #EDE6F6;
+    --ink: #1E1230;
+    --ink-muted: #4a3d5e;
+    --ink-faint: #A899C2;
+    --accent: #5123a4;
+    --accent-dark: #3a1878;
+    --accent-light: #e4dcf7;
+    --border: #D8CEF0;
+    --radius: 10px;
+    --radius-lg: 16px;
+    --gold: #f1ce0a;
+    --gold-light: #fdf7c3;
+    --gold-ink: #5a4900;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem 5rem; }
+
+  /* ── Header ─────────────────────────────── */
+  .page-header {
+    background: var(--accent);
+    color: #fff;
+    padding: 3rem 0 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+  .page-header .wrap { padding-bottom: 0; }
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+  h1 {
+    font-size: 34px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 0.85rem;
+  }
+  .lead {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #E4DCF7;
+  }
+
+  /* ── Índice ─────────────────────────────── */
+  .toc { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 2.5rem; }
+  .toc a {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    color: var(--accent);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 7px 16px;
+    transition: background 0.15s, color 0.15s;
+  }
+  .toc a:hover, .toc a:focus-visible { background: var(--accent); color: #fff; }
+
+  /* ── Peça ───────────────────────────────── */
+  .piece { margin-bottom: 3rem; scroll-margin-top: 1.5rem; }
+  .piece-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 0.9rem; }
+  .piece-tag {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--gold-ink);
+    background: var(--gold-light);
+    border: 1px solid var(--gold);
+    border-radius: 6px;
+    padding: 3px 9px;
+    white-space: nowrap;
+  }
+  .piece-title { font-size: 19px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.3; }
+
+  .piece-body {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+  }
+
+  .files {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+  }
+  .files--single { grid-template-columns: 1fr; }
+  .files--two { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  .files--stack { grid-template-columns: 1fr; gap: 1.75rem; }
+
+  .file { display: flex; flex-direction: column; }
+  .file--logo .file-frame { max-width: 340px; }
+  .file--logo .file-frame--checker { display: flex; justify-content: flex-start; }
+  .file--logo .file-frame--checker img { padding: 1.1rem 1.4rem; max-height: 90px; width: auto; }
+
+  .file-frame {
+    position: relative;
+    display: block;
+    width: 100%;
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0;
+    cursor: zoom-in;
+    overflow: hidden;
+    line-height: 0;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .file-frame:hover, .file-frame:focus-visible {
+    border-color: var(--accent);
+    box-shadow: 0 4px 18px rgba(81,35,164,0.14);
+  }
+  .file-frame img { width: 100%; height: auto; display: block; }
+  .file-frame--checker { background:
+      linear-gradient(45deg, #e4dcf7 25%, transparent 25%),
+      linear-gradient(-45deg, #e4dcf7 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, #e4dcf7 75%),
+      linear-gradient(-45deg, transparent 75%, #e4dcf7 75%);
+    background-size: 16px 16px;
+    background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+  }
+  .file-frame--checker img { padding: 1.75rem; }
+
+
+  /* PDF */
+  .file-frame--pdf {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 150px;
+    cursor: pointer;
+  }
+  .file-frame--pdf span {
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .file-name {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: var(--accent);
+    margin-top: 0.7rem;
+    word-break: break-all;
+  }
+  .file-specs { font-size: 11px; color: var(--ink-faint); margin-top: 2px; font-weight: 500; }
+  .file-links { display: flex; gap: 14px; margin-top: 0.6rem; }
+  .file-links a {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-light);
+    padding-bottom: 1px;
+  }
+  .file-links a:hover, .file-links a:focus-visible { border-bottom-color: var(--accent); }
+
+  /* ── Certificados prontos ─────────────────── */
+  .cred-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 12px;
+  }
+  .cred-card {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-decoration: none;
+    background: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    transition: background 0.15s, border-color 0.15s, box-shadow 0.15s;
+  }
+  .cred-card:hover, .cred-card:focus-visible {
+    background: var(--accent-dark);
+    border-color: var(--accent-dark);
+    box-shadow: 0 4px 18px rgba(81,35,164,0.28);
+  }
+  .cred-curso {
+    font-size: 13.5px;
+    font-weight: 600;
+    line-height: 1.35;
+    color: #fff;
+  }
+  .cred-acao {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 2px;
+  }
+
+  .foot {
+    border-top: 1px solid var(--border);
+    padding-top: 1.5rem;
+    margin-top: 3rem;
+    font-size: 12px;
+    color: var(--ink-faint);
+    line-height: 1.7;
+  }
+  .foot a { color: var(--accent); text-decoration: none; font-weight: 600; }
+
+  /* ── Lightbox ───────────────────────────── */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(30,18,48,0.92);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem 1.5rem 4rem;
+    z-index: 50;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 6px;
+    background: #fff;
+  }
+  .lightbox-label {
+    position: absolute;
+    bottom: 1.4rem;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #E4DCF7;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 0 1.5rem;
+  }
+  .lightbox-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.25rem;
+    background: rgba(255,255,255,0.14);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    border-radius: 999px;
+    padding: 8px 18px;
+    cursor: pointer;
+  }
+  .lightbox-close:hover { background: rgba(255,255,255,0.25); }
+
+  @media (max-width: 640px) {
+    h1 { font-size: 26px; }
+    .page-header { padding: 2.25rem 0 2rem; }
+    .piece-body { padding: 1.1rem; }
+    .piece-head { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .files--two { grid-template-columns: 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; scroll-behavior: auto !important; }
+  }
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="wrap">
+    <div class="eyebrow">Campanha POK Egressos 2026</div>
+    <h1>Material Unicesumar</h1>
+    <p class="lead">Peças visuais produzidas pela Unicesumar para a campanha de credenciais digitais, organizadas por peça.</p>
+  </div>
+</header>
+
+<div class="wrap">
+  <nav class="toc" id="toc" aria-label="Índice das peças">
+    <a href="https://www.canva.com/design/DAHQrR4Y8AA/de8ASrVRuw7J1taESyKP5g/edit" target="_blank" rel="noopener">Planejamento ↗</a>
+    <a href="#certificados-prontos">Certificados prontos</a>
+  </nav>
+
+  <!-- ═══ Certificados prontos ═══ -->
+  <section class="piece" id="certificados-prontos">
+    <div class="piece-head">
+      <span class="piece-tag">Resultado</span>
+      <h2 class="piece-title">Certificados prontos</h2>
+    </div>
+
+    <div class="piece-body">
+      <div class="cred-grid">
+        <!-- conteúdo a incluir -->
+      </div>
+    </div>
+  </section>
+
+  <div id="pieces"></div>
+
+  <div class="foot">
+    Material recebido da Unicesumar e arquivado pela POK. Para substituir ou incluir peças, escreva para <a href="mailto:carolina@pok.tech">carolina@pok.tech</a>
+  </div>
+</div>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualização em tamanho real">
+  <button class="lightbox-close" type="button" id="lightboxClose">Fechar</button>
+  <img id="lightboxImg" src="" alt="">
+  <div class="lightbox-label" id="lightboxLabel"></div>
+</div>
+
+<script>
+/* ── Estrutura das peças ─────────────────────────────────────────── */
+var PECAS = [
+  {
+    id: "certificado",
+    tag: "Peça 1",
+    titulo: "Certificado",
+    layout: "files",
+    arquivos: [
+      { nome: "Certificado1.png",       specs: "PNG · RGB" },
+      { nome: "Certificado2.png",       specs: "PNG · RGB" },
+      { nome: "Certificado(Fundo).png", specs: "PNG · RGB" }
+    ]
+  },
+  {
+    id: "head",
+    tag: "Peça 2",
+    titulo: "Landing Page e POK Holder",
+    layout: "files files--stack",
+    arquivos: [
+      { nome: "CabecalhoLPLogo1440x336px.png",        specs: "1440 × 336 px · PNG · RGB", logo: true },
+      { nome: "CabecalhoLPePOKHolder-1440x336px.png", specs: "1440 × 336 px · PNG · RGB · especificação POK: 2880 × 320 px" }
+    ]
+  },
+  {
+    id: "banners",
+    tag: "Peça 3",
+    titulo: "Banners cross-sell",
+    layout: "files files--two",
+    arquivos: [
+      { nome: "Banner540x236px-1.png", specs: "540 × 236 px · PNG · RGB" },
+      { nome: "Banner540x236px-2.png", specs: "540 × 236 px · PNG · RGB" },
+      { nome: "Banner540x236px-3.png", specs: "540 × 236 px · PNG · RGB" },
+      { nome: "Banner540x236px-4.png", specs: "540 × 236 px · PNG · RGB" }
+    ]
+  },
+  {
+    id: "email",
+    tag: "Peça 4",
+    titulo: "E-mail",
+    layout: "files files--two",
+    arquivos: [
+      { nome: "TopoE-mailPOK.png",              specs: "Topo do e-mail · PNG · RGB" },
+      { nome: "E-mail1-ReforcodeValor.png",     specs: "E-mail 1 · reforço de valor" },
+      { nome: "E-mail1-ReforcodeValor-B.png",   specs: "E-mail 1 · versão B" },
+      { nome: "E-mail2POKHolder.png",           specs: "E-mail 2 · POK Holder" },
+      { nome: "E-mail3PadraoInternacional.png", specs: "E-mail 3 · padrão internacional" },
+      { nome: "E-mail3PadraoInternacionalB.png",specs: "E-mail 3 · versão B" },
+      { nome: "Email-KV-Homem.png",             specs: "Key visual · masculino" },
+      { nome: "Email-KV-Mulher.png",            specs: "Key visual · feminino" },
+      { nome: "Email-POK-Homem.png",            specs: "Aplicação POK · masculino" },
+      { nome: "Email-POK-Mulher.png",           specs: "Aplicação POK · feminino" }
+    ]
+  },
+  {
+    id: "whatsapp",
+    tag: "Peça 5",
+    titulo: "WhatsApp",
+    layout: "files files--two",
+    arquivos: [
+      { nome: "Whats-KV1-Homem.png",  specs: "Key visual 1 · masculino" },
+      { nome: "Whats-KV1-Mulher.png", specs: "Key visual 1 · feminino" },
+      { nome: "Whats-KV2-Homem.png",  specs: "Key visual 2 · masculino" },
+      { nome: "Whats-KV2-Mulher.png", specs: "Key visual 2 · feminino" },
+      { nome: "Whats-KV3.png",        specs: "Key visual 3" }
+    ]
+  },
+  {
+    id: "linkedin",
+    tag: "Peça 6",
+    titulo: "LinkedIn",
+    layout: "files files--single",
+    arquivos: [
+      { nome: "Post-LinkedIn.pdf", specs: "PDF" }
+    ]
+  }
+];
+
+/* ── Render ──────────────────────────────────────────────────────── */
+(function () {
+  function esc(t) {
+    return String(t).replace(/[&<>"]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+    });
+  }
+
+  var BASE = 'https://pokbrasil.github.io/clientes/Unicesumar/';
+  function url(nome) { return BASE + encodeURIComponent(nome); }
+
+  var toc = document.getElementById('toc');
+  var host = document.getElementById('pieces');
+
+  PECAS.forEach(function (peca) {
+    var a = document.createElement('a');
+    a.href = '#' + peca.id;
+    a.textContent = peca.titulo;
+    toc.appendChild(a);
+
+    var html = '<section class="piece" id="' + peca.id + '">' +
+      '<div class="piece-head">' +
+        '<span class="piece-tag">' + esc(peca.tag) + '</span>' +
+        '<h2 class="piece-title">' + esc(peca.titulo) + '</h2>' +
+      '</div>' +
+      '<div class="piece-body"><div class="' + peca.layout + '">';
+
+    peca.arquivos.forEach(function (arq) {
+      var src = url(arq.nome);
+      var pdf = /\.pdf$/i.test(arq.nome);
+      var classe = 'file' + (arq.logo ? ' file--logo' : '');
+      var frame;
+
+      if (pdf) {
+        frame = '<a class="file-frame file-frame--pdf" href="' + src + '" target="_blank" rel="noopener"><span>Abrir PDF</span></a>';
+      } else {
+        frame = '<button class="file-frame' + (arq.logo ? ' file-frame--checker' : '') + '"' +
+          ' data-src="' + src + '" data-label="' + esc(arq.nome) + '">' +
+          '<img src="' + src + '" alt="' + esc(arq.nome) + '" loading="lazy"></button>';
+      }
+
+      var links = '<div class="file-links">' +
+          '<a href="' + src + '" target="_blank" rel="noopener">Abrir</a>' +
+          '<a href="' + src + '" download>Baixar</a>' +
+        '</div>';
+
+      html += '<div class="' + classe + '">' + frame +
+        '<div class="file-name">' + esc(arq.nome) + '</div>' +
+        '<div class="file-specs">' + esc(arq.specs) + '</div>' +
+        links + '</div>';
+    });
+
+    html += '</div></div></section>';
+    host.insertAdjacentHTML('beforeend', html);
+  });
+
+  /* ── Lightbox ── */
+  var box = document.getElementById('lightbox');
+  var img = document.getElementById('lightboxImg');
+  var label = document.getElementById('lightboxLabel');
+  var closeBtn = document.getElementById('lightboxClose');
+  var lastFocus = null;
+
+  function open(src, text) {
+    lastFocus = document.activeElement;
+    img.src = src;
+    img.alt = text;
+    label.textContent = text;
+    box.classList.add('open');
+    closeBtn.focus();
+  }
+  function close() {
+    box.classList.remove('open');
+    img.src = '';
+    if (lastFocus) lastFocus.focus();
+  }
+
+  document.querySelectorAll('button.file-frame').forEach(function (btn) {
+    btn.addEventListener('click', function () { open(btn.dataset.src, btn.dataset.label); });
+  });
+  closeBtn.addEventListener('click', close);
+  box.addEventListener('click', function (e) { if (e.target === box) close(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && box.classList.contains('open')) close();
+  });
+})();
+</script>
+
+</body>
+</html>
