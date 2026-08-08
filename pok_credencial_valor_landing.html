@@ -287,41 +287,7 @@
       margin-bottom: 4px;
     }
 
-    /* ── CTA FINAL (roxo) ── */
-    .cta-final {
-      background: var(--roxo);
-      padding: 80px 56px;
-    }
-
-    .cta-final-inner {
-      max-width: 640px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .cta-final-title {
-      font-size: 30px;
-      font-weight: 800;
-      color: var(--white);
-      line-height: 1.2;
-      margin-bottom: 16px;
-    }
-
-    .cta-final-sub {
-      font-size: 16px;
-      color: rgba(255,255,255,0.85);
-      line-height: 1.75;
-      margin-bottom: 36px;
-    }
-
-    .cta-final-sub a {
-      color: var(--dourado);
-      font-weight: 600;
-      text-decoration: none;
-    }
-
-    .cta-final-sub a:hover { text-decoration: underline; }
-
+    /* ── CTA BOX (roxo) ── */
     .cta-box {
       background: var(--roxo);
       border-radius: 20px;
@@ -403,12 +369,13 @@
     }
 
     /* ── RESPONSIVE ──────────────────────────── */
-    @media (max-width: 768px) {
+    @media (max-width: 960px) {
       .nav { padding: 0 24px; }
 
       .hero { padding: 52px 24px 48px; }
-      h1 { font-size: 28px; }
+      h1 { font-size: 32px; }
       .hero-sub { font-size: 15px; }
+      .hero-inner { gap: 32px; }
 
       .pilares { padding: 56px 24px; }
       .pilares-grid { grid-template-columns: 1fr; }
@@ -418,15 +385,31 @@
       .ganhos-h2 { font-size: 24px; }
       .ganhos-list { grid-template-columns: 1fr; }
 
-      .cta-final { padding: 56px 24px; }
-      .cta-final-title { font-size: 24px; }
-
       footer {
         padding: 24px;
         flex-direction: column;
         gap: 10px;
         text-align: center;
       }
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 26px; }
+      .hero-inner { gap: 24px; }
+
+      .pilar-card { padding: 28px 20px 26px; }
+      .ganho-item { padding: 22px 18px; }
+
+      .cta-box { padding: 28px 20px; }
+      .cta-box-title { font-size: 19px; }
+
+      /* rodapé volta a quebrar: em linha única a frase estoura a tela */
+      .ft-line {
+        white-space: normal;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .ft-sep { display: none; }
     }
   </style>
 </head>

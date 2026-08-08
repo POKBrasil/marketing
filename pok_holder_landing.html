@@ -385,8 +385,21 @@
 
     @media (max-width: 480px) {
       h1 { font-size: 26px; }
+      .hero-inner { gap: 28px; }
+
       .download-badges { flex-direction: column; }
-      .download-badges img, .btn-web { height: 48px; }
+      .app-badge { height: 48px; }
+
+      .feature-card { padding: 28px 20px; }
+      .download-inner .download-sub { font-size: 15px; }
+
+      /* rodapé volta a quebrar: em linha única a frase estoura a tela */
+      .ft-line {
+        white-space: normal;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .ft-sep { display: none; }
     }
   </style>
 </head>

@@ -121,6 +121,13 @@
 
     h1 .hl { color: var(--roxo); }
 
+    h2 {
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1.25;
+      color: #111111;
+    }
+
     h2 .hl { color: var(--roxo); }
 
     .hero-sub {
@@ -244,10 +251,6 @@
 
     /* quebra controlada do título – some em telas menores, onde o texto já quebra sozinho */
     .brk { display: inline; }
-
-    @media (max-width: 960px) {
-      .brk { display: none; }
-    }
 
     .body-text {
       font-size: 16px;
@@ -576,7 +579,9 @@
 
     /* ── TABLET (≤960px) ─────────────────── */
     @media (max-width: 960px) {
-      .sobre-inner, .howto-grid {
+      .brk { display: none; }
+
+      .howto-grid {
         grid-template-columns: 1fr;
         gap: 32px;
       }
@@ -622,9 +627,20 @@
       .hero-inner { gap: 32px; }
       .sobre { padding-top: 48px; padding-bottom: 24px; }
 
-      .sobre-inner, .howto-grid { gap: 20px; }
+      .howto-grid { gap: 20px; }
 
       .how-card-body { padding: 16px 20px 24px; }
+
+      /* a redução de 76% deixa a imagem pequena demais num card estreito */
+      .how-card--post .how-card-img { max-width: 100%; }
+
+      /* rodapé volta a quebrar: em linha única a frase estoura a tela */
+      .ft-line {
+        white-space: normal;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .ft-sep { display: none; }
     }
 
     /* ── FADE IN ───────────────────────────── */
