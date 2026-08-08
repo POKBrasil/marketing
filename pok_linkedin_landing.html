@@ -127,7 +127,7 @@
       font-size: 16px;
       color: #111111;
       line-height: 1.75;
-      margin-bottom: 36px;
+      margin-bottom: 0;
     }
 
     .hero-sub strong { color: #111111; font-weight: 600; }
@@ -137,10 +137,10 @@
       background: var(--roxo);
       color: var(--white);
       font-family: 'Poppins', sans-serif;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 600;
-      padding: 15px 36px;
-      border-radius: 10px;
+      padding: 12px 28px;
+      border-radius: 8px;
       text-decoration: none;
       letter-spacing: 0.2px;
       transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
@@ -233,7 +233,7 @@
     }
 
     .sobre-inner {
-      max-width: 860px;
+      max-width: 1120px;
       margin: 0 auto;
       text-align: center;
     }
@@ -242,10 +242,22 @@
 
     .sobre-h2 { font-size: 28px; font-weight: 800; line-height: 1.18; margin-bottom: 20px; }
 
+    /* quebra controlada do título – some em telas menores, onde o texto já quebra sozinho */
+    .brk { display: inline; }
+
+    @media (max-width: 960px) {
+      .brk { display: none; }
+    }
+
     .body-text {
       font-size: 16px;
       color: #111111;
       line-height: 1.75;
+    }
+
+    .sobre .body-text {
+      max-width: 960px;
+      margin: 0 auto;
     }
 
     .body-text p + p { margin-top: 20px; }
@@ -297,7 +309,7 @@
       color: #111111;
       max-width: 100%;
       line-height: 1.75;
-      margin-bottom: 52px;
+      margin-bottom: 28px;
     }
 
     .howto-grid {
@@ -366,6 +378,12 @@
 
     .how-card--stacked .how-card-body {
       padding: 20px 32px 36px;
+    }
+
+    /* imagem do post: menor e centralizada dentro do box branco */
+    .how-card--post .how-card-img {
+      max-width: 76%;
+      margin: 0 auto;
     }
 
     .how-step {
@@ -484,10 +502,10 @@
       background: var(--dourado);
       color: var(--dark);
       font-family: 'Poppins', sans-serif;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 600;
-      padding: 15px 36px;
-      border-radius: 10px;
+      padding: 12px 28px;
+      border-radius: 8px;
       text-decoration: none;
       letter-spacing: 0.2px;
       transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
@@ -509,7 +527,25 @@
       justify-content: space-between;
     }
 
-    .ft-logo img { height: 32px; width: auto; }
+    .ft-logo { height: 32px; width: auto; }
+
+    .ft-line {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+    }
+
+    .ft-link {
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .ft-link:hover { text-decoration: underline; }
+
+    .ft-sep { color: rgba(255,255,255,0.55); font-size: 14px; }
 
     .ft-tagline { font-size: 14px; font-weight: 500; color: #ffffff; }
 
@@ -620,13 +656,6 @@
 <section class="hero">
   <div class="hero-inner">
 
-    <div class="hero-visual">
-      <img
-        src="https://pokbrasil.github.io/content/landing-linkedin.png"
-        alt="Mockup de perfil LinkedIn com certificados POK na seção Licenças e Certificações"
-      >
-    </div>
-
     <div class="hero-content">
       <div class="eyebrow">
         <div class="eyebrow-line"></div>
@@ -637,12 +666,19 @@
       <h1>Compartilhe seus <span class="hl">certificados e badges</span> no LinkedIn e aumente sua <span class="hl">visibilidade profissional</span></h1>
 
       <p class="hero-sub">
-        Seu certificado POK é <strong>verificável</strong> – qualquer recrutador pode confirmar sua conquista com um clique.
-        Quando você exibe no LinkedIn, passa a aparecer em mais buscas e se destaca para quem está contratando.
+        Sua credencial POK é <strong>verificável</strong> – qualquer recrutador confirma sua conquista com um clique.
+        No LinkedIn, você aparece em mais buscas e se destaca para quem está contratando.
       </p>
-
-      <a href="#como-compartilhar" class="btn-roxo">Como compartilhar agora</a>
     </div>
+
+    <div class="hero-visual">
+      <img
+        src="https://pokbrasil.github.io/content/landing-linkedin.png"
+        alt="Mockup de perfil LinkedIn com certificados POK na seção Licenças e Certificações"
+      >
+    </div>
+
+    <a href="#como-compartilhar" class="btn-roxo">Como compartilhar agora</a>
 
   </div>
 </section>
@@ -651,7 +687,7 @@
 <section class="stats">
   <div class="stats-inner">
     <div class="s-eyebrow">O que os dados mostram</div>
-    <h2 class="s-title">Visibilidade no LinkedIn não é acaso – é uma decisão estratégica</h2>
+    <h2 class="s-title">Visibilidade no LinkedIn é uma decisão estratégica de carreira</h2>
     <div class="stats-list">
 
       <div class="stat-item">
@@ -696,7 +732,7 @@
         <div class="eyebrow-diamond"></div>
         <span class="eyebrow-text">Por que compartilhar</span>
       </div>
-      <h2 class="sobre-h2">Seu perfil deixa de ser um <span class="hl">currículo</span> e passa a ser uma <span class="hl">evidência da sua jornada</span></h2>
+      <h2 class="sobre-h2">Seu perfil deixa de ser um <span class="hl">currículo</span><br class="brk"> e passa a ser a <span class="hl">evidência da sua jornada</span></h2>
       <div class="body-text">
         <p>O LinkedIn funciona hoje como a principal <strong>vitrine profissional</strong>. Recrutadores utilizam a plataforma para identificar competências, acompanhar trajetórias de aprendizagem e descobrir profissionais em evolução constante.</p>
         <p>Compartilhar suas certificações torna o <strong>perfil mais completo</strong>, mais atualizado e mais relevante. Cada nova certificação publicada comunica movimento, atualização e desenvolvimento de competências.</p>
@@ -720,7 +756,7 @@
 
     <div class="howto-grid">
 
-      <div class="how-card">
+      <div class="how-card how-card--stacked how-card--post">
         <div class="how-card-img-wrap">
           <img
             class="how-card-img"
@@ -776,10 +812,10 @@
     src="https://content.app-us1.com/m7A5p8/2026/03/11/ddc2f081-9fdc-422f-8da3-4992d80f2aca.png"
     alt="POK"
     class="ft-logo"
-    style="height:32px; width:auto;"
   >
-  <div style="display:flex; align-items:center; gap:24px;">
-    <a href="https://pok.tech" target="_blank" style="color:#ffffff; font-size:13px; font-weight:600; text-decoration:none;">pok.tech</a>
+  <div class="ft-line">
+    <a href="https://pok.tech" target="_blank" class="ft-link">pok.tech</a>
+    <span class="ft-sep">•</span>
     <span class="ft-tagline">Muito mais que certificados digitais</span>
   </div>
 </footer>
