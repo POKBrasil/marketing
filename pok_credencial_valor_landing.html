@@ -83,7 +83,16 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      gap: 0;
+      gap: 40px;
+    }
+
+    .hero-visual { width: 100%; }
+
+    .hero-visual img {
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+      display: block;
     }
 
     .eyebrow {
@@ -121,6 +130,7 @@
       color: #111111;
       line-height: 1.75;
       max-width: 720px;
+      margin: 0 auto;
     }
 
     .hero-sub strong { color: #111111; font-weight: 600; }
@@ -341,10 +351,10 @@
       background: var(--dourado);
       color: #111111;
       font-family: 'Poppins', sans-serif;
-      font-size: 14px;
-      font-weight: 700;
-      padding: 15px 36px;
-      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 8px;
       text-decoration: none;
       letter-spacing: 0.2px;
       transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
@@ -365,6 +375,26 @@
       align-items: center;
       justify-content: space-between;
     }
+
+    .ft-logo { height: 32px; width: auto; }
+
+    .ft-line {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+    }
+
+    .ft-link {
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .ft-link:hover { text-decoration: underline; }
+
+    .ft-sep { color: rgba(255,255,255,0.55); font-size: 14px; }
 
     .ft-tagline {
       font-size: 14px;
@@ -404,9 +434,9 @@
 
 <!-- ── NAV ──────────────────────────────── -->
 <nav class="nav">
-  <a href="https://pok.tech" target="_blank" class="nav-logo">
+  <a href="https://pok.tech" target="_blank" class="nav-logo" aria-label="POK">
     <img
-      src="https://content.app-us1.com/m7A5p8/2026/03/11/ddc2f081-9fdc-422f-8da3-4992d80f2aca.png"
+      src="https://content.app-us1.com/m7A5p8/2026/03/06/2ac7ad55-dbe9-497b-9632-bb21e1cae55f.png"
       alt="POK"
     >
   </a>
@@ -416,26 +446,26 @@
 <section class="hero">
   <div class="hero-inner">
 
-    <!-- IMAGEM HERO -->
-    <div class="hero-visual" style="width:100%; max-width:720px;">
+    <div class="hero-content">
+      <div class="eyebrow">
+        <div class="eyebrow-line"></div>
+        <div class="eyebrow-diamond"></div>
+        <span class="eyebrow-text">Para portadores de credenciais POK</span>
+      </div>
+
+      <h1>Por que sua credencial POK <span class="hl">vale mais</span> do que um certificado comum</h1>
+
+      <p class="hero-sub">
+        Você não recebeu apenas um comprovante de conclusão. Recebeu uma <strong>credencial digital verificável</strong>, construída sobre padrões internacionais e tecnologia blockchain – o que a torna confiável, portável e reconhecida em qualquer lugar do mundo.
+      </p>
+    </div>
+
+    <div class="hero-visual">
       <img
         src="https://pokbrasil.github.io/content/lp-nft.png"
         alt="Carteira digital POK com credencial verificável, badge NFT, padrões internacionais e autenticidade blockchain"
-        style="width:100%; display:block;"
       >
     </div>
-
-    <div class="eyebrow">
-      <div class="eyebrow-line"></div>
-      <div class="eyebrow-diamond"></div>
-      <span class="eyebrow-text">Para portadores de credenciais POK</span>
-    </div>
-
-    <h1>Por que sua credencial POK <span class="hl">vale mais</span> do que um certificado comum</h1>
-
-    <p class="hero-sub">
-      Você não recebeu apenas um comprovante de conclusão. Recebeu uma <strong>credencial digital verificável</strong>, construída sobre padrões internacionais e tecnologia blockchain – o que a torna confiável, portável e reconhecida em qualquer lugar do mundo.
-    </p>
 
   </div>
 </section>
@@ -577,10 +607,10 @@
     src="https://content.app-us1.com/m7A5p8/2026/03/11/ddc2f081-9fdc-422f-8da3-4992d80f2aca.png"
     alt="POK"
     class="ft-logo"
-    style="height:32px; width:auto;"
   >
-  <div style="display:flex; align-items:center; gap:24px;">
-    <a href="https://pok.tech" target="_blank" style="color:#ffffff; font-size:13px; font-weight:600; text-decoration:none;">pok.tech</a>
+  <div class="ft-line">
+    <a href="https://pok.tech" target="_blank" class="ft-link">pok.tech</a>
+    <span class="ft-sep">•</span>
     <span class="ft-tagline">Muito mais que certificados digitais</span>
   </div>
 </footer>
