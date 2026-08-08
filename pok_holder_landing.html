@@ -115,7 +115,7 @@
       font-size: 16px;
       color: #111111;
       line-height: 1.75;
-      margin-bottom: 36px;
+      margin-bottom: 0;
     }
 
     .hero-sub strong { color: #111111; font-weight: 600; }
@@ -125,10 +125,10 @@
       background: var(--roxo);
       color: var(--white);
       font-family: 'Poppins', sans-serif;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 600;
-      padding: 15px 36px;
-      border-radius: 10px;
+      padding: 12px 28px;
+      border-radius: 8px;
       text-decoration: none;
       letter-spacing: 0.2px;
       transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
@@ -296,7 +296,7 @@
     }
 
     .download-inner {
-      max-width: 720px;
+      max-width: 900px;
       margin: 0 auto;
       text-align: center;
     }
@@ -338,10 +338,26 @@
       justify-content: space-between;
     }
 
-    .ft-logo img { height: 32px; width: auto; }
+    .ft-logo { height: 32px; width: auto; }
 
-    .ft-right { display: flex; align-items: center; gap: 24px; }
-    .ft-right a { color: #ffffff; font-size: 13px; font-weight: 600; text-decoration: none; }
+    .ft-line {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+    }
+
+    .ft-link {
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .ft-link:hover { text-decoration: underline; }
+
+    .ft-sep { color: rgba(255,255,255,0.55); font-size: 14px; }
+
     .ft-tagline { font-size: 14px; font-weight: 500; color: #ffffff; }
 
     /* ── FADE IN ───────────────────────────── */
@@ -352,6 +368,7 @@
     .hero-inner > * { opacity: 0; animation: fadeUp 0.5s ease forwards; }
     .hero-inner > *:nth-child(1) { animation-delay: 0.08s; }
     .hero-inner > *:nth-child(2) { animation-delay: 0.18s; }
+    .hero-inner > *:nth-child(3) { animation-delay: 0.28s; }
 
     /* ── RESPONSIVE ───────────────────────── */
     @media (max-width: 960px) {
@@ -364,7 +381,6 @@
       }
       .nav { padding: 0 24px; }
       footer { padding: 24px; flex-direction: column; gap: 14px; text-align: center; }
-      .ft-right { flex-direction: column; gap: 10px; }
     }
 
     @media (max-width: 480px) {
@@ -387,14 +403,7 @@
 <section class="hero">
   <div class="hero-inner">
 
-    <div class="hero-visual">
-      <img
-        src="https://pokbrasil.github.io/content/landing-pokholder.png"
-        alt="Carteira digital POK Holder com credenciais organizadas"
-      >
-    </div>
-
-    <div>
+    <div class="hero-content">
       <div class="eyebrow">
         <div class="eyebrow-line"></div>
         <div class="eyebrow-diamond"></div>
@@ -406,9 +415,16 @@
       <p class="hero-sub">
         O POK Holder é o espaço onde suas conquistas ganham presença digital e passam a contar a história completa da sua trajetória de aprendizagem.
       </p>
-
-      <a href="https://holder.pok.tech/" target="_blank" class="btn-roxo">Acessar o POK Holder</a>
     </div>
+
+    <div class="hero-visual">
+      <img
+        src="https://pokbrasil.github.io/content/landing-pokholder.png"
+        alt="Carteira digital POK Holder com credenciais organizadas"
+      >
+    </div>
+
+    <a href="https://holder.pok.tech/" target="_blank" class="btn-roxo">Acessar o POK Holder</a>
 
   </div>
 </section>
@@ -423,7 +439,7 @@
     </div>
     <h2>Todos os seus certificados reunidos em <span class="hl">um só lugar</span></h2>
     <div class="intro-text">
-      <p>Disponível em versão web e aplicativo, o POK Holder funciona como uma <strong>carteira digital de credenciais</strong>. Em um único ambiente, você reúne todos os certificados emitidos por diferentes instituições e organiza sua jornada de aprendizagem de forma clara, estruturada e verificável.</p>
+      <p>Disponível em versão web e aplicativo, o POK Holder funciona como uma <strong>carteira digital de credenciais</strong>. Em um único ambiente, você reúne todos os certificados e organiza sua jornada de aprendizagem de forma clara, estruturada e verificável.</p>
       <p>Cada credencial armazenada carrega mais do que um título. Ela <strong>registra evidências da sua formação</strong> e apresenta dados que fortalecem sua trajetória.</p>
     </div>
   </div>
@@ -581,10 +597,10 @@
     src="https://content.app-us1.com/m7A5p8/2026/03/11/ddc2f081-9fdc-422f-8da3-4992d80f2aca.png"
     alt="POK"
     class="ft-logo"
-    style="height:32px; width:auto;"
   >
-  <div class="ft-right">
-    <a href="https://pok.tech" target="_blank">pok.tech</a>
+  <div class="ft-line">
+    <a href="https://pok.tech" target="_blank" class="ft-link">pok.tech</a>
+    <span class="ft-sep">•</span>
     <span class="ft-tagline">Muito mais que certificados digitais</span>
   </div>
 </footer>
