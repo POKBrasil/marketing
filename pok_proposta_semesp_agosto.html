@@ -1,0 +1,3004 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POK × Semesp – Proposta de Parceria | Certificadora Oficial 2026</title>
+<meta name="description" content="POK Certificadora Oficial Semesp – Microcredenciais em blockchain para todo o ecossistema Semesp. Proposta de Parceria 2026.">
+
+<!-- Open Graph / Facebook / LinkedIn / WhatsApp -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="POK Certificadora Oficial Semesp">
+<meta property="og:description" content="Microcredenciais em blockchain para todo o ecossistema Semesp. Proposta de Parceria 2026.">
+<meta property="og:image" content="https://pokbrasil.github.io/content/pok_semesp_og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="pt_BR">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="POK Certificadora Oficial Semesp">
+<meta name="twitter:description" content="Microcredenciais em blockchain para todo o ecossistema Semesp. Proposta de Parceria 2026.">
+<meta name="twitter:image" content="https://pokbrasil.github.io/content/pok_semesp_og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* ===== Paleta POK (primária – IDENTIDADE DA MARCA) ===== */
+    --pok-purple: #5123a4;
+    --pok-purple-deep: #3d1a7d;
+    --pok-purple-light: #7c4dd9;
+    --pok-purple-soft: #a985e8;
+    --pok-accent: #a985e8;
+    --pok-accent-light: #c9b0f0;
+    --pok-bg: #f7f5fb;
+    --pok-bg-card: #ffffff;
+    --pok-text: #000000;
+    --pok-text-muted: #6b5e85;
+    --pok-border: #e8e0f3;
+    --pok-lilas-bg: #e4dcf7;
+    --pok-lilas-suave: #f3eefb;
+    --pok-branco: #ffffff;
+    --shadow-sm: 0 2px 8px rgba(81, 35, 164, 0.06);
+    --shadow-md: 0 8px 24px rgba(81, 35, 164, 0.10);
+    --shadow-lg: 0 20px 60px rgba(81, 35, 164, 0.18);
+    --sombra-media: 0 8px 24px rgba(81, 35, 164, 0.12);
+
+    /* ===== Cor do parceiro (Semesp – uso pontual em detalhes) ===== */
+    --partner-semesp: #9e1326;
+    --partner-semesp-deep: #791628;
+    --partner-semesp-soft: #f6dbe0;
+  }
+
+  /* ===== Detalhes Semesp (cor do parceiro – uso pontual) ===== */
+  .semesp-accent-line {
+    display: inline-block;
+    width: 32px;
+    height: 3px;
+    background: var(--partner-semesp);
+    border-radius: 2px;
+    vertical-align: middle;
+    margin-right: 0.6rem;
+  }
+
+  .semesp-badge {
+    display: inline-block;
+    padding: 0.3rem 0.75rem;
+    background: var(--partner-semesp-soft);
+    color: var(--partner-semesp-deep);
+    border-radius: 100px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border: 1px solid var(--partner-semesp);
+  }
+
+  /* Eyebrow específico da seção Semesp – em carmim */
+  .section-eyebrow.semesp {
+    color: var(--partner-semesp-deep);
+  }
+  .section-eyebrow.semesp::before {
+    background: var(--partner-semesp);
+  }
+
+  /* Cards dos 5 pilares com faixa azul à esquerda e número azul */
+  .challenges-list.semesp-context li {
+    grid-template-columns: 60px 1fr;
+    padding: 1.5rem 1.5rem 1.5rem 1.25rem;
+    border-bottom: none;
+    margin-bottom: 1rem;
+    background: var(--pok-bg-card);
+    border-radius: 12px;
+    border-left: 4px solid var(--partner-semesp);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.25s ease;
+    align-items: start;
+  }
+
+  .challenges-list.semesp-context li:hover {
+    box-shadow: 0 8px 24px rgba(158, 19, 38, 0.15);
+    transform: translateX(2px);
+  }
+
+  .challenges-list.semesp-context .challenge-num {
+    color: white;
+    background: var(--partner-semesp);
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+    box-shadow: 0 4px 10px rgba(158, 19, 38, 0.3);
+  }
+
+  /* Bloco das instituições – fundo azul saturado e bordas evidentes */
+  .partners-block {
+    margin-top: 1.25rem;
+    background: white;
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 2px 12px rgba(158, 19, 38, 0.08);
+    border: 1px solid var(--partner-semesp-soft);
+    overflow: hidden;
+  }
+
+  .partners-block-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding: 0.75rem 1.25rem;
+    background: var(--partner-semesp);
+    color: white;
+  }
+
+  .partners-block-title {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: white;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  .partners-block-header .semesp-accent-line {
+    display: none;
+  }
+
+  .partners-block-count {
+    font-size: 0.7rem;
+    color: white;
+    font-weight: 500;
+    padding: 0.25rem 0.7rem;
+    background: rgba(255,255,255,0.18);
+    border-radius: 100px;
+    border: 1px solid rgba(255,255,255,0.35);
+  }
+
+  .partners-image-wrap {
+    background: white;
+    padding: 1rem 1.25rem 1.25rem;
+  }
+
+  .partners-list {
+    padding: 0.9rem 1.25rem 1rem;
+    background: var(--pok-bg);
+    border-top: 1px solid var(--partner-semesp-soft);
+    font-size: 0.72rem;
+    color: var(--pok-text-muted);
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+  }
+
+  .partners-list strong {
+    color: var(--partner-semesp-deep);
+    font-weight: 600;
+    margin-right: 0.4rem;
+  }
+
+  .partners-image-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+  }
+
+  /* Link da campanha – destaque visual */
+  .campaign-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--pok-purple);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid var(--pok-purple-soft);
+    padding-bottom: 1px;
+    transition: all 0.2s ease;
+  }
+
+  .campaign-link:hover {
+    color: var(--pok-purple-deep);
+    border-bottom-color: var(--pok-purple);
+  }
+
+  .campaign-link::after {
+    content: '↗';
+    font-size: 0.85em;
+    opacity: 0.7;
+  }
+
+  /* Botão de campanha – uso destacado em CTA dentro dos pilares */
+  .campaign-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 0.9rem;
+    padding: 0.7rem 1.25rem;
+    background: linear-gradient(135deg, var(--pok-purple) 0%, var(--pok-purple-deep) 100%);
+    color: white;
+    font-weight: 600;
+    font-size: 0.82rem;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(81, 35, 164, 0.2);
+    border: 1px solid transparent;
+  }
+
+  .campaign-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(81, 35, 164, 0.3);
+  }
+
+  .campaign-button::after {
+    content: '→';
+    font-size: 1em;
+    transition: transform 0.2s ease;
+  }
+
+  .campaign-button:hover::after {
+    transform: translateX(3px);
+  }
+
+  .campaign-button.secondary {
+    background: white;
+    color: var(--pok-purple);
+    border: 1px solid var(--pok-purple-soft);
+    box-shadow: 0 2px 6px rgba(81, 35, 164, 0.08);
+  }
+
+  .campaign-button.secondary:hover {
+    background: var(--pok-bg);
+    border-color: var(--pok-purple);
+  }
+
+  /* Nota de condicionalidade – destaca cláusula de contrapartida */
+  .conditionality-note {
+    margin-top: 1rem;
+    padding: 0.85rem 1rem 0.85rem 0.85rem;
+    background: linear-gradient(135deg, #f3edff 0%, #ebe2fa 100%);
+    border-left: 3px solid var(--pok-purple);
+    border-radius: 8px;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    font-size: 0.8rem;
+    color: var(--pok-purple-deep);
+    line-height: 1.55;
+  }
+
+  .conditionality-note strong {
+    color: var(--pok-purple-deep);
+    font-weight: 600;
+  }
+
+  .conditionality-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    background: var(--pok-purple);
+    color: white;
+    border-radius: 50%;
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--pok-bg);
+    color: var(--pok-text);
+    line-height: 1.6;
+    font-weight: 400;
+  }
+
+  /* ==================== SIDEBAR NAVIGATION ==================== */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100vh;
+    background: linear-gradient(180deg, var(--pok-purple) 0%, var(--pok-purple-deep) 100%);
+    padding: 2.5rem 1.5rem;
+    overflow-y: auto;
+    z-index: 100;
+    box-shadow: 4px 0 24px rgba(81, 35, 164, 0.15);
+  }
+
+  .sidebar-logo {
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+  }
+
+  .sidebar-logo svg {
+    width: 100%;
+    max-width: 140px;
+    height: auto;
+    display: block;
+  }
+
+  .nav-label {
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #ffffff;
+    margin-bottom: 0.6rem;
+    padding-left: 0.8rem;
+    font-weight: 600;
+  }
+
+  .nav-list { list-style: none; margin-bottom: 1.8rem; }
+
+  .nav-list a {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.5rem 0.9rem;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 400;
+    transition: all 0.2s ease;
+    margin-bottom: 0.15rem;
+    border-left: 2px solid transparent;
+  }
+
+  .nav-list a:hover {
+    background: rgba(255,255,255,0.08);
+    color: white;
+    border-left-color: var(--pok-accent);
+  }
+
+  .nav-list a.active {
+    background: rgba(255,255,255,0.12);
+    color: white;
+    border-left-color: var(--pok-accent);
+    font-weight: 500;
+  }
+
+  .nav-number {
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: var(--pok-accent-light);
+    min-width: 22px;
+  }
+
+  /* Subitens do menu (âncoras internas, ex: FNESP) */
+  .nav-sub a {
+    padding-left: 2rem;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: #ffffff;
+  }
+  .nav-sub a:hover {
+    color: #ffffff;
+  }
+  .nav-sub a::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--pok-accent);
+    margin-right: 0.7rem;
+    flex-shrink: 0;
+  }
+  .nav-sub .nav-number { display: none; }
+
+  /* Subitem em destaque dourado */
+  .nav-gold a {
+    color: #ffc629 !important;
+    font-weight: 600;
+  }
+  .nav-gold a::before {
+    background: #ffc629 !important;
+  }
+  .nav-gold a:hover {
+    color: #ffd45e !important;
+  }
+
+  /* ==================== EMPREGABILIDADE (Pesquisa de Egressos) ==================== */
+  /* Defesa Semesp / Workalove */
+  .semesp-defense {
+    margin-top: 1rem;
+  }
+  .semesp-defense-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+  .semesp-defense-title {
+    font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--pok-text);
+  }
+  .semesp-defense-title span {
+    color: #b89c00;
+  }
+  .semesp-defense-text p {
+    font-size: 0.8rem;
+    color: var(--pok-text);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+  .semesp-defense-text p:last-child { margin-bottom: 0; }
+  .semesp-defense-for {
+    margin-top: 2.5rem;
+  }
+  .semesp-defense-for-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--pok-text);
+    letter-spacing: -0.01em;
+  }
+  .empreg-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--pok-purple) 0%, var(--pok-purple-light) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    margin-bottom: 1rem;
+  }
+  .empreg-icon svg { width: 22px; height: 22px; }
+
+  @media (max-width: 760px) {
+    .semesp-defense-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+  }
+
+  .empreg-flow {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  .empreg-card {
+    background: var(--pok-bg-card);
+    border: 1px solid var(--pok-border);
+    border-top: 3px solid var(--pok-purple);
+    border-radius: 14px;
+    padding: 1.6rem 1.4rem;
+    transition: all 0.25s ease;
+  }
+  .empreg-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+  }
+  .empreg-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    background: var(--pok-lilas-bg);
+    color: var(--pok-purple);
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-bottom: 0.9rem;
+  }
+  .empreg-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--pok-purple);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+  .empreg-card p {
+    font-size: 0.72rem;
+    color: var(--pok-text);
+    line-height: 1.6;
+  }
+  .empreg-card-gold {
+    border-top-color: #f1ce0a;
+    background: linear-gradient(180deg, #fffdf0 0%, var(--pok-bg-card) 60%);
+  }
+  .empreg-card-gold .empreg-num {
+    background: #fdf7c3;
+    color: #8a7400;
+  }
+  .empreg-card-gold .empreg-title {
+    color: #8a7400;
+  }
+
+  /* Stats de impacto */
+  .empreg-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  .empreg-stat {
+    background: var(--pok-bg-card);
+    border: 1px solid var(--pok-border);
+    border-radius: 14px;
+    padding: 1.4rem 1.2rem;
+    text-align: center;
+  }
+  .empreg-stat-num {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--pok-purple);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.4rem;
+  }
+  .empreg-stat-label {
+    font-size: 0.72rem;
+    color: #000000;
+    line-height: 1.4;
+  }
+  .empreg-stat-gold {
+    background: linear-gradient(180deg, #fffdf0 0%, var(--pok-bg-card) 70%);
+    border-color: #f0e08a;
+  }
+  .empreg-stat-gold .empreg-stat-num { color: #b89c00; }
+
+  /* Prova social – universidades parceiras */
+  .empreg-partners {
+    margin-top: 1.5rem;
+    padding: 1.3rem 1.5rem;
+    background: var(--pok-lilas-suave);
+    border: 1px solid var(--pok-lilas-bg);
+    border-radius: 14px;
+  }
+  .empreg-partners-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--pok-purple);
+    margin-bottom: 0.9rem;
+  }
+  .empreg-partners-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    align-items: center;
+  }
+  .empreg-partners-list span {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--pok-purple-deep);
+    background: #fff;
+    border: 1px solid var(--pok-border);
+    padding: 0.4rem 0.9rem;
+    border-radius: 100px;
+  }
+  .empreg-partners-list .empreg-partner-more {
+    font-weight: 500;
+    font-style: normal;
+    color: var(--pok-text-muted);
+    background: transparent;
+    border: none;
+    padding: 0.4rem 0.3rem;
+  }
+
+  /* Box "A proposta" – pitch */
+  .empreg-ask {
+    position: relative;
+    background: linear-gradient(135deg, #fff8d6 0%, #fce9a0 100%);
+    border: 1px solid #ecd06a;
+    border-radius: 16px;
+    padding: 1.5rem 1.6rem;
+    margin-top: 2.5rem;
+    box-shadow: 0 12px 30px rgba(184, 156, 0, 0.18);
+    overflow: hidden;
+  }
+  .empreg-ask::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.45);
+    pointer-events: none;
+  }
+  .empreg-ask-badge {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #5a4900;
+    background: rgba(255,255,255,0.7);
+    border: 1px solid #ecd06a;
+    padding: 0.25rem 0.7rem;
+    border-radius: 100px;
+    margin-bottom: 0.7rem;
+  }
+  .empreg-ask h3 {
+    position: relative;
+    z-index: 1;
+    font-size: clamp(1rem, 1.6vw, 1.25rem);
+    font-weight: 800;
+    color: var(--pok-text);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.6rem;
+  }
+  .empreg-ask p {
+    position: relative;
+    z-index: 1;
+    font-size: 0.78rem;
+    color: var(--pok-text);
+    line-height: 1.6;
+    max-width: 760px;
+  }
+  .empreg-ask strong { color: var(--pok-text); font-weight: 700; }
+  .empreg-ask-cta {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    margin-top: 1rem;
+    padding: 0.6rem 1.15rem;
+    background: var(--pok-purple);
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.76rem;
+    text-decoration: none;
+    border-radius: 9px;
+    transition: all 0.2s ease;
+    box-shadow: 0 6px 16px rgba(81, 35, 164, 0.25);
+  }
+  .empreg-ask-cta:hover {
+    background: var(--pok-purple-deep);
+    transform: translateY(-1px);
+  }
+  .empreg-ask-cta-alt {
+    background: #fff;
+    color: var(--pok-purple);
+    border: 1px solid var(--pok-purple-soft);
+    box-shadow: 0 4px 12px rgba(81, 35, 164, 0.12);
+  }
+  .empreg-ask-cta-alt:hover {
+    background: var(--pok-lilas-suave);
+  }
+
+  @media (max-width: 860px) {
+    .empreg-flow { grid-template-columns: 1fr; }
+    .empreg-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+  .empreg-flow.flow-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @media (max-width: 980px) {
+    .empreg-flow.flow-4 { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .empreg-flow.flow-4 { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    .empreg-stats { grid-template-columns: 1fr; }
+  }
+
+  /* Item de menu com destaque (ex: FNESP) */
+  .nav-strong {
+    font-weight: 700 !important;
+    letter-spacing: 0.04em;
+    color: #ffffff !important;
+  }
+  .nav-strong .nav-number {
+    color: var(--pok-accent-light);
+  }
+
+  /* ==================== MAIN CONTENT ==================== */
+  .main {
+    margin-left: 280px;
+    min-height: 100vh;
+  }
+
+  section {
+    padding: 5rem 4rem;
+    max-width: 1200px;
+    scroll-margin-top: 0;
+  }
+  /* Faz o título da seção ficar perto do topo ao usar âncoras do menu */
+  section[id] {
+    scroll-margin-top: -3rem;
+  }
+  section.micro-section[id] {
+    scroll-margin-top: -3rem;
+  }
+
+  /* ==================== HERO SECTION ==================== */
+  .hero {
+    background: linear-gradient(135deg, var(--pok-purple) 0%, var(--pok-purple-deep) 100%);
+    color: white;
+    padding: 6rem 4rem 5rem;
+    max-width: none;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(169, 133, 232, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(124, 77, 217, 0.15) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .hero-grid-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.06;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1000px;
+  }
+
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--pok-accent-light);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    padding: 0.4rem 1rem;
+    border: 1px solid rgba(169, 133, 232, 0.3);
+    border-radius: 100px;
+    background: rgba(169, 133, 232, 0.08);
+  }
+
+  .hero h1 {
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 .accent {
+    background: linear-gradient(135deg, var(--pok-accent-light) 0%, var(--pok-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+    color: #ffffff;
+    max-width: 580px;
+    margin-bottom: 3rem;
+    line-height: 1.65;
+  }
+
+  .hero-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    max-width: 800px;
+  }
+
+  .hero-meta-item .label {
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+  }
+
+  .hero-meta-item .value {
+    font-size: 0.82rem;
+    color: white;
+    font-weight: 500;
+  }
+
+  /* ===== Grade de escopo da parceria (4 cards no hero) ===== */
+  .hero-scope-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.85rem;
+    margin-top: 2rem;
+    max-width: 1100px;
+  }
+
+  @media (max-width: 900px) {
+    .hero-scope-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 520px) {
+    .hero-scope-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .hero-scope-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(169, 133, 232, 0.25);
+    border-radius: 12px;
+    padding: 1.1rem 1rem 1rem;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-scope-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--partner-semesp);
+  }
+
+  .hero-scope-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(169, 133, 232, 0.5);
+    transform: translateY(-2px);
+  }
+
+  .hero-scope-num {
+    font-size: 0.62rem;
+    font-weight: 700;
+    color: var(--partner-semesp);
+    letter-spacing: 0.15em;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-scope-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: white;
+    line-height: 1.3;
+    margin-bottom: 0.45rem;
+  }
+
+  .hero-scope-text {
+    font-size: 0.74rem;
+    color: #ffffff;
+    line-height: 1.5;
+  }
+
+  /* ==================== SECTION HEADERS ==================== */
+  .section-header {
+    margin-bottom: 3rem;
+    max-width: 800px;
+  }
+
+  .section-eyebrow {
+    display: inline-block;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--pok-purple);
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .section-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 2px;
+    background: var(--pok-accent);
+    vertical-align: middle;
+    margin-right: 0.7rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--pok-text);
+    margin-bottom: 1rem;
+  }
+
+  .section-intro {
+    font-size: 0.82rem;
+    color: var(--pok-text);
+    line-height: 1.65;
+    max-width: 700px;
+  }
+
+  /* ==================== ABOUT SECTION ==================== */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .stats-card {
+    background: linear-gradient(135deg, var(--pok-purple) 0%, var(--pok-purple-deep) 100%);
+    padding: 3rem 2.5rem;
+    border-radius: 24px;
+    color: white;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .stats-card::before {
+    content: '';
+    position: absolute;
+    top: -50%; right: -30%;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(169, 133, 232, 0.2) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .stat-item .number {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--pok-accent-light);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.3rem;
+  }
+
+  .stat-item .label {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.85);
+    font-weight: 400;
+  }
+
+  .about-text p {
+    font-size: 0.92rem;
+    color: var(--pok-text);
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+  }
+
+  .about-text strong {
+    color: var(--pok-purple);
+    font-weight: 600;
+  }
+
+  /* ==================== FEATURES GRID ==================== */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .feature-card {
+    background: var(--pok-bg-card);
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid var(--pok-border);
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--pok-purple-soft);
+  }
+
+  .feature-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--pok-purple) 0%, var(--pok-purple-light) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.2rem;
+    color: white;
+  }
+
+  .feature-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--pok-purple);
+    margin-bottom: 0.6rem;
+    letter-spacing: -0.01em;
+  }
+
+  .feature-card p {
+    font-size: 0.85rem;
+    color: var(--pok-text-muted);
+    line-height: 1.6;
+  }
+
+  /* ==================== MICRO-CREDENTIALS SECTION ==================== */
+  .micro-section {
+    background: var(--pok-bg);
+    color: var(--pok-text);
+    padding: 5rem 4rem;
+    max-width: none;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .micro-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 80% 20%, rgba(169, 133, 232, 0.08) 0%, transparent 60%);
+  }
+
+  .micro-section .section-eyebrow { color: var(--pok-purple); }
+  .micro-section .section-eyebrow::before { background: var(--pok-purple); }
+  .micro-section .section-title { color: var(--pok-text); }
+  .micro-section .section-intro { color: var(--pok-text); }
+
+  .micro-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+  }
+
+  .micro-text {
+    font-size: 0.92rem;
+    color: var(--pok-text);
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+    max-width: 800px;
+  }
+
+  .micro-text strong { color: var(--pok-purple); font-weight: 600; }
+
+  /* Cycle diagram – cards roxos sólidos como destaque sobre o fundo claro */
+  .cycle-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.2rem;
+    margin-top: 3rem;
+  }
+
+  .cycle-card {
+    background: linear-gradient(135deg, var(--pok-purple) 0%, var(--pok-purple-deep) 100%);
+    border: 1px solid var(--pok-purple-deep);
+    padding: 1.8rem;
+    border-radius: 14px;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    z-index: 2;
+  }
+
+  .cycle-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .cycle-card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .cycle-num {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.15);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+    border: 1px solid rgba(255,255,255,0.25);
+  }
+
+  .cycle-card h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--pok-accent-light);
+    font-weight: 600;
+  }
+
+  .cycle-card p {
+    font-size: 0.74rem;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.55;
+  }
+
+  .flow-4col {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .eventos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  .evento-card {
+    background: var(--pok-bg-card);
+    border: 1px solid var(--pok-border);
+    border-left: 3px solid var(--pok-accent);
+    border-radius: 12px;
+    padding: 1.25rem 1.4rem;
+    transition: all 0.2s ease;
+  }
+  .evento-card:hover {
+    border-left-color: var(--pok-purple);
+    box-shadow: var(--shadow-sm);
+    transform: translateY(-2px);
+  }
+  .evento-num {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--pok-purple);
+    margin-bottom: 0.5rem;
+  }
+  .evento-card p {
+    font-size: 0.82rem;
+    color: var(--pok-text);
+    line-height: 1.55;
+  }
+  @media (max-width: 860px) {
+    .eventos-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .eventos-grid { grid-template-columns: 1fr; }
+  }
+  .flow-4col .cycle-card {
+    background: var(--pok-lilas-suave);
+    border: 1px solid var(--pok-lilas-bg);
+    box-shadow: var(--shadow-sm);
+  }
+  .flow-4col .cycle-card .cycle-num {
+    background: var(--pok-lilas-bg);
+    color: var(--pok-purple);
+    border: 1px solid var(--pok-purple-soft);
+  }
+  .flow-4col .cycle-card h4 {
+    color: var(--pok-purple);
+  }
+  .flow-4col .cycle-card p {
+    color: var(--pok-text);
+  }
+  @media (max-width: 900px) {
+    .flow-4col { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .flow-4col { grid-template-columns: 1fr; }
+  }
+
+  /* ==================== CHECK LIST ==================== */
+  .check-list { list-style: none; margin-top: 1.5rem; }
+
+  .check-list li {
+    display: flex;
+    gap: 1rem;
+    padding: 1.1rem 0;
+    border-bottom: 1px solid var(--pok-border);
+    align-items: flex-start;
+  }
+
+  .check-list li:last-child { border-bottom: none; }
+
+  .check-icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--pok-purple) 0%, var(--pok-purple-light) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+
+  .check-icon svg { width: 12px; height: 12px; color: white; }
+
+  .check-list .content strong {
+    display: block;
+    color: var(--pok-purple);
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+    font-size: 0.93rem;
+  }
+
+  .check-list .content span {
+    color: var(--pok-text-muted);
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  /* ==================== TWO COLUMN ==================== */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 2rem;
+  }
+
+  .col-card {
+    background: var(--pok-bg-card);
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 1px solid var(--pok-border);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .col-card h3 {
+    font-size: 1.3rem;
+    color: var(--pok-purple);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  /* ==================== CHALLENGES (numbered) ==================== */
+  .challenges-list { list-style: none; }
+
+  .challenges-list li {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    gap: 1.2rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px dashed var(--pok-border);
+  }
+
+  .challenges-list li:last-child { border-bottom: none; }
+
+  .challenge-num {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--pok-accent);
+    line-height: 1;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: -0.03em;
+  }
+
+  .challenge-body > strong {
+    display: block;
+    color: var(--pok-purple);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .challenge-body > span {
+    color: var(--pok-text-muted);
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  /* Na seção da parceria Semesp, o título do pilar usa a cor do parceiro */
+  .challenges-list.semesp-context .challenge-body > strong {
+    color: var(--partner-semesp-deep);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  /* ==================== OPPORTUNITIES ==================== */
+  .opp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .opp-item {
+    background: var(--pok-bg-card);
+    padding: 1.1rem 1.3rem;
+    border-radius: 12px;
+    border: 1px solid var(--pok-border);
+    border-left: 3px solid var(--pok-accent);
+    font-size: 0.85rem;
+    color: var(--pok-text);
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .opp-item:hover {
+    border-left-color: var(--pok-purple);
+    transform: translateX(4px);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .opp-item::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--pok-purple);
+    flex-shrink: 0;
+  }
+
+  /* ==================== COMMERCIAL PROPOSAL ==================== */
+  .proposal-section {
+    background: var(--pok-bg-card);
+  }
+
+  /* ===== Cards de modelo POK (idêntico ao layout Vitru) ===== */
+  .pok-model-card {
+    background: var(--pok-branco);
+    border: 2px solid var(--pok-lilas-bg);
+    border-radius: 18px;
+    padding: 36px;
+    margin-bottom: 24px;
+    transition: all 0.3s ease;
+  }
+
+  .pok-model-card:hover {
+    border-color: var(--pok-purple);
+    box-shadow: var(--sombra-media);
+    transform: translateY(-4px);
+  }
+
+  .pok-model-header {
+    margin-bottom: 12px;
+  }
+
+  .pok-model-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--pok-purple);
+    margin-bottom: 12px;
+  }
+
+  .pok-model-title {
+    font-size: 24px;
+    color: var(--pok-purple);
+    margin-bottom: 20px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  .pok-model-desc {
+    font-size: 13.5px;
+    color: var(--pok-text);
+    line-height: 1.65;
+    margin-bottom: 24px;
+  }
+
+  .pok-model-desc strong {
+    color: var(--pok-purple-deep);
+    font-weight: 700;
+  }
+
+  /* ===== Tabelas POK (idêntico ao Vitru) ===== */
+  .pok-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 12px;
+  }
+
+  .pok-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--pok-lilas-bg);
+    font-size: 13px;
+  }
+
+  .pok-table thead th {
+    background: var(--pok-lilas-suave);
+    color: var(--pok-purple);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--pok-lilas-bg);
+  }
+
+  .pok-table thead th:not(:first-child) {
+    text-align: right;
+  }
+
+  .pok-table tbody td {
+    padding: 13px 16px;
+    color: var(--pok-text);
+    font-weight: 500;
+    border-bottom: 1px solid var(--pok-lilas-suave);
+  }
+
+  .pok-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .pok-table tbody td:first-child {
+    font-weight: 700;
+    color: var(--pok-purple);
+  }
+
+  .pok-table tbody td:not(:first-child) {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .pok-table tbody tr:hover {
+    background: var(--pok-lilas-suave);
+  }
+
+  .pok-table tbody tr.pok-table-highlight {
+    background: linear-gradient(90deg, var(--pok-lilas-suave) 0%, rgba(255, 198, 41, 0.1) 100%);
+  }
+
+  .pok-table tbody tr.pok-table-highlight td {
+    font-weight: 700;
+    color: var(--pok-purple-deep);
+  }
+
+  .pok-table tbody tr.pok-table-highlight:hover {
+    background: linear-gradient(90deg, var(--pok-lilas-bg) 0%, rgba(255, 198, 41, 0.18) 100%);
+  }
+
+  /* ===== Bloco de revenue share ===== */
+  .revshare-block {
+    margin-top: 3rem;
+    padding: 2.5rem;
+    background: linear-gradient(135deg, var(--pok-purple-deep) 0%, var(--pok-purple) 100%);
+    border-radius: 20px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .revshare-block::before {
+    content: '';
+    position: absolute;
+    top: -50%; right: -20%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(158, 19, 38, 0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .revshare-header {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 2rem;
+    max-width: 720px;
+  }
+
+  .revshare-eyebrow {
+    display: inline-block;
+    padding: 0.35rem 0.85rem;
+    background: rgba(158, 19, 38, 0.2);
+    color: white;
+    border-radius: 100px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(158, 19, 38, 0.4);
+  }
+
+  .revshare-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    margin-bottom: 1rem;
+  }
+
+  .revshare-intro {
+    font-size: 0.92rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.65;
+  }
+
+  .revshare-intro strong {
+    color: white;
+    font-weight: 600;
+  }
+
+  .revshare-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 1.5rem;
+    align-items: stretch;
+    position: relative;
+    z-index: 1;
+  }
+
+  .revshare-card {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 2rem 1.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.25s ease;
+  }
+
+  .revshare-card-semesp {
+    background: rgba(158, 19, 38, 0.18);
+    border-color: rgba(158, 19, 38, 0.5);
+    box-shadow: 0 6px 24px rgba(158, 19, 38, 0.15);
+  }
+
+  .revshare-card-pok {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.18);
+  }
+
+  .revshare-percent {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    margin-bottom: 0.5rem;
+  }
+
+  .revshare-card-semesp .revshare-percent {
+    color: var(--partner-semesp);
+  }
+
+  .revshare-card-pok .revshare-percent {
+    color: var(--pok-accent-light);
+  }
+
+  .revshare-party {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+  }
+
+  .revshare-desc {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.55;
+  }
+
+  .revshare-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.5);
+    padding: 0 0.5rem;
+  }
+
+  @media (max-width: 700px) {
+    .revshare-grid {
+      grid-template-columns: 1fr;
+    }
+    .revshare-divider {
+      transform: rotate(90deg);
+      padding: 0.5rem 0;
+    }
+  }
+
+  /* ==================== COMMERCIAL PROPOSAL (legado) ==================== */
+
+  .plans-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .plan-card {
+    background: var(--pok-bg-card);
+    border: 2px solid var(--pok-border);
+    border-radius: 20px;
+    padding: 2.5rem;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .plan-card:hover {
+    border-color: var(--pok-purple);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-4px);
+  }
+
+  .plan-card.featured {
+    background: linear-gradient(135deg, var(--pok-purple) 0%, var(--pok-purple-deep) 100%);
+    color: white;
+    border-color: var(--pok-purple);
+  }
+
+  .plan-badge {
+    position: absolute;
+    top: -12px;
+    right: 2rem;
+    background: white;
+    color: var(--pok-purple);
+    padding: 0.35rem 1rem;
+    border-radius: 100px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+
+  .plan-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--pok-border);
+  }
+
+  .plan-card.featured .plan-header { border-bottom-color: rgba(255,255,255,0.2); }
+
+  .plan-name {
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--pok-text-muted);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .plan-card.featured .plan-name { color: var(--pok-accent-light); }
+
+  .plan-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--pok-purple);
+    letter-spacing: -0.02em;
+  }
+
+  .plan-card.featured .plan-title { color: white; }
+
+  .plan-credits {
+    font-size: 0.9rem;
+    color: var(--pok-text-muted);
+    text-align: right;
+  }
+
+  .plan-card.featured .plan-credits { color: #ffffff; }
+
+  .plan-credits strong {
+    display: block;
+    font-size: 1.4rem;
+    color: var(--pok-purple);
+    font-weight: 700;
+  }
+
+  .plan-card.featured .plan-credits strong { color: var(--pok-accent-light); }
+
+  .plan-details { margin-bottom: 1.8rem; }
+
+  .plan-details li {
+    list-style: none;
+    padding: 0.55rem 0;
+    font-size: 0.85rem;
+    color: var(--pok-text-muted);
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+  }
+
+  .plan-card.featured .plan-details li { color: rgba(255,255,255,0.85); }
+
+  .plan-details li::before {
+    content: '✓';
+    color: var(--pok-purple);
+    font-weight: 700;
+    font-size: 1rem;
+  }
+
+  .plan-card.featured .plan-details li::before { color: var(--pok-accent); }
+
+  .plan-price {
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--pok-border);
+  }
+
+  .plan-card.featured .plan-price { border-top-color: rgba(255,255,255,0.2); }
+
+  .price-total {
+    font-size: 0.8rem;
+    color: var(--pok-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.3rem;
+    font-weight: 500;
+  }
+
+  .plan-card.featured .price-total { color: rgba(255,255,255,0.6); }
+
+  .price-amount {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--pok-purple);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .plan-card.featured .price-amount { color: white; }
+
+  .price-currency { font-size: 1.2rem; font-weight: 500; vertical-align: top; }
+
+  .price-installments {
+    font-size: 0.9rem;
+    color: var(--pok-text-muted);
+  }
+
+  .plan-card.featured .price-installments { color: rgba(255,255,255,0.75); }
+
+  /* ==================== PAYMENT INFO ==================== */
+  .payment-info {
+    background: linear-gradient(135deg, var(--pok-bg) 0%, #efe9f7 100%);
+    padding: 2.5rem;
+    border-radius: 20px;
+    margin-top: 3rem;
+    border: 1px solid var(--pok-border);
+  }
+
+  /* ==================== VOLUME / DIMENSIONAMENTO CARD ==================== */
+  .volume-card {
+    background: linear-gradient(135deg, #f7f5fb 0%, #efe9f7 100%);
+    border: 1px solid var(--pok-border);
+    border-radius: 16px;
+    padding: 1.5rem 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .volume-header {
+    margin-bottom: 1rem;
+  }
+
+  .volume-grid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    padding: 0.8rem 0 0.4rem;
+    border-top: 1px solid var(--pok-border);
+  }
+
+  .volume-item {
+    text-align: center;
+    flex: 1;
+    min-width: 80px;
+  }
+
+  .volume-number {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--pok-purple);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.3rem;
+  }
+
+  .volume-total .volume-number {
+    color: var(--pok-purple);
+    font-size: 1.55rem;
+  }
+
+  .volume-total {
+    background: white;
+    border-radius: 10px;
+    padding: 0.7rem 0.4rem;
+    border: 1.5px solid var(--pok-purple);
+  }
+
+  .volume-label {
+    font-size: 0.62rem;
+    color: var(--pok-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+  }
+
+  .volume-divider {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--pok-accent);
+    flex-shrink: 0;
+    opacity: 0.6;
+  }
+
+  /* ==================== SINGLE PLAN LAYOUT ==================== */
+  .plans-single {
+    grid-template-columns: 1fr !important;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ==================== STRATEGIC NOTE ==================== */
+  .strategic-note {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 1.2rem;
+    background: linear-gradient(135deg, #f7f5fb 0%, #efe9f7 100%);
+    color: var(--pok-text);
+    padding: 2rem 2.2rem;
+    border-radius: 16px;
+    margin-top: 2.5rem;
+    border: 1px solid var(--pok-border);
+  }
+
+  .strategic-icon {
+    width: 44px;
+    height: 44px;
+    background: white;
+    border: 1px solid var(--pok-border);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--pok-purple);
+    flex-shrink: 0;
+  }
+
+  .strategic-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .strategic-content h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.7rem;
+    color: var(--pok-purple);
+    letter-spacing: -0.01em;
+  }
+
+  .strategic-content p {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: var(--pok-text);
+    margin-bottom: 0.8rem;
+  }
+
+  .strategic-content p:last-child { margin-bottom: 0; }
+
+  .strategic-content strong {
+    color: var(--pok-purple);
+    font-weight: 600;
+  }
+
+  @media (max-width: 640px) {
+    .volume-grid { flex-direction: column; gap: 0.8rem; }
+    .volume-divider { display: none; }
+    .strategic-note { grid-template-columns: 1fr; }
+    .coverage-note { grid-template-columns: 1fr; }
+  }
+
+  /* ==================== COVERAGE NOTE ==================== */
+  .coverage-note {
+    display: grid;
+    grid-template-columns: 16px 1fr;
+    gap: 0.6rem;
+    align-items: start;
+    padding: 0.8rem 0 0;
+    margin-top: 1rem;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    border-top: 1px solid var(--pok-border);
+  }
+
+  .coverage-icon {
+    color: var(--pok-text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2px;
+    opacity: 0.6;
+  }
+
+  .coverage-icon svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .coverage-text {
+    font-size: 0.75rem;
+    line-height: 1.55;
+    color: var(--pok-text-muted);
+  }
+
+  .coverage-text strong {
+    color: var(--pok-text-muted);
+    font-weight: 500;
+  }
+
+  .payment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+  }
+
+  .payment-block h4 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--pok-purple);
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--pok-accent);
+    display: inline-block;
+  }
+
+  .payment-block p {
+    font-size: 0.85rem;
+    color: var(--pok-text);
+    line-height: 1.75;
+  }
+
+  .payment-block p strong {
+    color: var(--pok-purple);
+    font-weight: 600;
+  }
+
+  .payment-block .data-line {
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  /* Selo de status de pagamento (pago / em andamento) */
+  .pay-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.7rem;
+    padding: 0.25rem 0.7rem;
+    background: #e7f6ec;
+    color: #1f7a44;
+    border: 1px solid #b8e3c6;
+    border-radius: 100px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
+  .pay-status svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  /* ==================== CONTACT SECTION ==================== */
+  .contact-section {
+    background: linear-gradient(135deg, var(--pok-purple) 0%, var(--pok-purple-deep) 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-section::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(228, 220, 247, 0.12) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .contact-section::after {
+    content: '';
+    position: absolute;
+    bottom: -120px;
+    left: -120px;
+    width: 360px;
+    height: 360px;
+    background: radial-gradient(circle, rgba(255, 198, 41, 0.06) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .contact-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .contact-section .section-eyebrow {
+    background: rgba(228, 220, 247, 0.15);
+    color: #e4dcf7;
+    padding: 0.4rem 0.85rem;
+    border-radius: 100px;
+    display: inline-block;
+    border: none;
+  }
+
+  .contact-section .section-eyebrow::before { display: none; }
+
+  .contact-title {
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 700;
+    color: white;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 0;
+  }
+
+  .contato-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 64px;
+    align-items: center;
+    margin-top: 48px;
+    max-width: 880px;
+  }
+
+  .contato-qr {
+    background: white;
+    padding: 24px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+  }
+
+  .contato-qr img {
+    width: 200px;
+    height: 200px;
+    display: block;
+    border-radius: 8px;
+  }
+
+  .contato-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .contato-cargo {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 4px;
+  }
+
+  .contato-info h3 {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.1;
+    color: white;
+    letter-spacing: -1px;
+    margin-bottom: 4px;
+  }
+
+  .contato-email {
+    font-size: 18px;
+    color: #e4dcf7;
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(228, 220, 247, 0.4);
+    align-self: flex-start;
+    transition: all 0.2s ease;
+    padding-bottom: 2px;
+  }
+
+  .contato-email:hover {
+    color: var(--partner-semesp);
+    border-bottom-color: var(--partner-semesp);
+  }
+
+  @media (max-width: 700px) {
+    .contato-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+      max-width: 100%;
+    }
+    .contato-info h3 { font-size: 28px; }
+    .contato-qr img { width: 180px; height: 180px; }
+  }
+
+  /* ==================== FOOTER ==================== */
+  footer {
+    background: var(--pok-purple-deep);
+    color: #ffffff;
+    padding: 2rem 4rem;
+    margin-left: 280px;
+    font-size: 0.85rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  footer a { color: #ffffff; text-decoration: none; }
+
+  /* ==================== RESPONSIVE ==================== */
+  @media (max-width: 1024px) {
+    .sidebar {
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+    }
+    .sidebar.open { transform: translateX(0); }
+    .main, footer { margin-left: 0; }
+    .menu-toggle {
+      display: flex;
+      position: fixed;
+      top: 1rem; left: 1rem;
+      z-index: 200;
+      background: var(--pok-purple);
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.95);
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25), 0 2px 6px rgba(81, 35, 164, 0.4);
+    }
+    /* Ajusta o scroll-margin-top das âncoras para que o título da seção
+       não fique escondido atrás do hambúrguer flutuante */
+    section, .hero, .micro-section, .contact-section {
+      scroll-margin-top: 4rem;
+    }
+  }
+
+  @media (min-width: 1025px) { .menu-toggle { display: none; } }
+
+  @media (max-width: 768px) {
+    section, .hero, .micro-section, .contact-section, footer {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+    .about-grid, .two-col, .plans-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .home-selo-grid {
+      grid-template-columns: 1fr !important;
+    }
+    .hero { padding-top: 5rem; }
+
+    /* Espaço para o hamburger não sobrepor conteúdo */
+    section { padding-top: 4rem; }
+    .micro-section, .contact-section { padding-top: 5rem; }
+
+    /* Cards dos pilares – número e título lado a lado, espaço para o hamburger */
+    .challenges-list.semesp-context li {
+      grid-template-columns: 48px 1fr;
+      gap: 0.85rem;
+      padding: 1.25rem 1rem;
+    }
+    .challenges-list.semesp-context .challenge-num {
+      width: 40px;
+      height: 40px;
+      font-size: 0.95rem;
+    }
+    .challenges-list.semesp-context .challenge-body > strong {
+      font-size: 0.95rem;
+      line-height: 1.3;
+    }
+
+    /* Nota de condicionalidade: ícone menor + texto mais respirável */
+    .conditionality-note {
+      padding: 0.75rem 0.85rem;
+      gap: 0.55rem;
+      font-size: 0.78rem;
+    }
+    .conditionality-icon {
+      width: 24px;
+      height: 24px;
+      font-size: 0.85rem;
+    }
+
+    /* Tabelas POK – valores monetários nunca quebram */
+    .pok-table {
+      font-size: 12.5px;
+    }
+    .pok-table thead th,
+    .pok-table tbody td {
+      padding: 11px 10px;
+      white-space: nowrap;
+    }
+    .pok-model-card {
+      padding: 24px 18px;
+    }
+
+    /* Bloco de revenue share mais compacto no mobile */
+    .revshare-block {
+      padding: 1.75rem 1.25rem;
+    }
+    .revshare-title { font-size: 1.25rem; }
+    .revshare-percent { font-size: 2.8rem; }
+    .revshare-card { padding: 1.5rem 1.25rem; }
+
+    /* Botões CTA não estouram a largura no mobile */
+    .campaign-button,
+    .campaign-button.secondary {
+      width: 100%;
+      justify-content: center;
+      margin-left: 0 !important;
+    }
+    .campaign-button.secondary {
+      margin-top: 0.6rem;
+    }
+
+    /* Hero scope cards um por linha + título do hero quebra melhor */
+    .hero-scope-grid {
+      grid-template-columns: 1fr;
+    }
+    .hero h1 {
+      font-size: 1.7rem;
+    }
+    .hero-subtitle { font-size: 0.88rem; }
+
+    /* Bloco das parceiras – padding interno menor para dar mais espaço aos logos */
+    .partners-image-wrap {
+      padding: 0.85rem 0.7rem;
+    }
+    .partners-block-header {
+      padding: 0.7rem 0.95rem;
+    }
+    .partners-block-title {
+      font-size: 0.7rem;
+    }
+    .partners-block-count {
+      font-size: 0.62rem;
+      padding: 0.2rem 0.55rem;
+    }
+    .partners-list {
+      font-size: 0.7rem;
+      padding: 0.8rem 0.95rem;
+    }
+
+    /* Sidebar logo POK × Semesp mais compacto */
+    .sidebar-logo > div {
+      gap: 0.4rem !important;
+    }
+  }
+
+  /* Ajustes para viewports muito estreitos (Android <380px) */
+  @media (max-width: 400px) {
+    .pok-table {
+      font-size: 11.5px;
+    }
+    .pok-table thead th {
+      padding: 9px 7px;
+      font-size: 9.5px;
+      letter-spacing: 0.8px;
+    }
+    .pok-table tbody td {
+      padding: 9px 7px;
+    }
+    .pok-model-card {
+      padding: 20px 14px;
+    }
+  }
+
+  /* ==================== PRINT ==================== */
+  @media print {
+    .sidebar, .menu-toggle { display: none; }
+    .main, footer { margin-left: 0; }
+    body { background: white; }
+  }
+
+  /* Subtle fade-in on scroll */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+  /* ==================== BOTÃO SALVAR PDF + PRINT ==================== */
+  .save-pdf-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7rem;
+    margin-top: 3rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--pok-border);
+  }
+  .save-pdf-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.9rem 1.7rem;
+    background: var(--pok-purple);
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 0.92rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 6px 18px rgba(81, 35, 164, 0.22);
+  }
+  .save-pdf-button:hover {
+    background: var(--pok-purple-deep);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(81, 35, 164, 0.3);
+  }
+  .save-pdf-button svg {
+    width: 18px;
+    height: 18px;
+  }
+  .save-pdf-hint {
+    font-size: 0.78rem;
+    color: var(--pok-text-muted);
+    margin: 0;
+  }
+
+  /* Regras de impressão: gera um PDF limpo da proposta */
+  @media print {
+    @page { size: A4 portrait; margin: 12mm 14mm; }
+    .no-print, .sidebar, .menu-toggle, footer { display: none !important; }
+    .main { margin-left: 0 !important; }
+    html, body { background: #ffffff !important; color: #1a1033 !important; }
+
+    /* Seções fluem entre páginas; só apertam espaçamento */
+    section {
+      padding: 0.8rem 0 1.2rem !important;
+      max-width: 100% !important;
+    }
+    .micro-section { padding: 0.8rem 0 1.2rem !important; }
+    .micro-content { padding: 0 !important; }
+
+    /* Cada seção começa em uma página nova */
+    section[id] {
+      page-break-before: always;
+      break-before: page;
+    }
+    /* A primeira seção (hero) não precisa quebrar antes */
+    .hero {
+      page-break-before: avoid !important;
+      break-before: avoid !important;
+    }
+
+    /* Subseções relevantes do FNESP também começam em nova página */
+    #fnesp-cowork, #fnesp-painel, #fnesp-empregabilidade, #fnesp-site {
+      page-break-before: always;
+      break-before: page;
+    }
+
+    .hero {
+      background: #ffffff !important;
+      color: #1a1033 !important;
+      padding: 0.5rem 0 1.5rem !important;
+    }
+    .hero h1, .hero p, .hero .hero-eyebrow,
+    .hero-meta-item .label, .hero-meta-item .value,
+    .hero-scope-title, .hero-scope-text, .hero-scope-num {
+      color: #1a1033 !important;
+    }
+    .hero h1 span { color: var(--pok-purple) !important; }
+    .hero-scope-card {
+      background: #ffffff !important;
+      border: 1px solid #e5e5ec !important;
+    }
+    .cycle-card {
+      background: #ffffff !important;
+      border: 1px solid #e5e5ec !important;
+    }
+    .cycle-card h4, .cycle-card p, .cycle-card .cycle-num {
+      color: #1a1033 !important;
+    }
+
+    /* Não separar título do conteúdo seguinte */
+    h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+
+    /* Proteger apenas unidades pequenas (cards individuais) */
+    .empreg-card, .evento-card, .cycle-card, .opp-item,
+    .empreg-stat, .volume-item, .payment-block, .strategic-note {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    /* Reduzir margens internas grandes que geram espaços vazios */
+    .section-header { margin-bottom: 0.8rem !important; }
+    .empreg-ask, .strategic-note { margin-top: 1rem !important; padding: 1.2rem 1.4rem !important; }
+    .save-pdf-row { display: none !important; }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto !important; }
+
+    /* Bloco home + selo: manter duas colunas, imagens enquadradas */
+    .home-selo-grid {
+      display: grid !important;
+      grid-template-columns: 1.6fr 1fr !important;
+      gap: 1rem !important;
+    }
+    .home-selo-grid > div {
+      padding: 0.6rem !important;
+      box-shadow: none !important;
+    }
+    .home-selo-grid img {
+      width: 100% !important;
+      height: auto !important;
+      max-height: 240px !important;
+      object-fit: contain !important;
+      display: block !important;
+    }
+    /* Card do selo: layout vertical compacto, sem esticar */
+    .home-selo-grid > div:last-child {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 0.5rem !important;
+    }
+    .home-selo-grid > div:last-child img {
+      max-width: 140px !important;
+      max-height: 140px !important;
+    }
+
+    /* Bloco Experiência do usuário: imagem em altura controlada */
+    section img[alt*="Experiência"], section img[alt*="experiencia"] {
+      max-height: 200px !important;
+      width: auto !important;
+      margin: 0 auto !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- Mobile menu toggle -->
+<button class="menu-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open')">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+</button>
+
+<!-- ==================== SIDEBAR ==================== -->
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 197.3" aria-label="POK" style="width: 64px; height: auto;">
+        <path fill="#ffffff" d="M131.4,27.2c0-5.4-4.4-9.9-9.9-9.9H5.9c-3.3,0-5.9,2.6-5.9,5.9v115.6c0,5.5,4.4,9.9,9.9,9.9s9.9-4.4,9.9-9.9V42.3c0-2.9,2.3-5.2,5.2-5.2h96.6c5.3,0,9.8-4.4,9.8-9.9ZM164.8,60.6c-5.4,0-9.9,4.4-9.9,9.9v96.6c0,2.9-2.3,5.2-5.2,5.2H53.1c-5.4,0-9.9,4.4-9.9,9.9s4.4,9.9,9.9,9.9h115.6c3.3,0,5.9-2.6,5.9-5.9v-115.7c0-5.5-4.4-9.9-9.8-9.9ZM103.7,76l-23.9,35.8c-.9,1.4-2.8,1.6-4,.4l-9.9-9.9c-3.5-3.5-9.1-3.5-12.5,0-3.5,3.5-3.5,9.1,0,12.5l20.1,20.1c3.8,3.8,10.1,3.2,13.1-1.3l31.9-47.8c2.7-4.1,1.6-9.6-2.5-12.3-4.1-2.6-9.6-1.5-12.3,2.5ZM329.1,49.1c-7.4-4.8-15.9-7.2-25.5-7.2-6,0-11.9,1.2-17.5,3.5-5.5,2.3-10.1,5.3-14,9-1.1,1-2,2.1-2.9,3.2l-.2-13.9h-24.7v153.6h25.3v-58.3c.5.5.9,1,1.4,1.5,4,4,8.8,7.2,14.6,9.7,5.9,2.5,12,3.7,18.3,3.7,9.5,0,17.9-2.4,25.3-7.2,7.5-4.9,13.4-11.6,17.7-19.9,4.2-8.5,6.4-18.2,6.4-29s-2.2-20.4-6.6-28.8c-4.1-8.4-10-15.1-17.6-19.9ZM325.2,115.3c-2.6,5.1-6.2,9-10.7,11.9s-9.7,4.3-15.4,4.3c-6,0-11.3-1.4-15.8-4.3-4.5-2.9-8.1-6.9-10.7-11.9-2.6-5.1-3.9-10.9-3.9-17.5s1.3-12.4,3.9-17.5,6.2-9,10.7-11.9,9.8-4.3,15.8-4.3,11.1,1.5,15.6,4.5c4.5,2.9,8,6.9,10.5,11.9,2.6,4.9,3.9,10.7,3.9,17.3s-1.3,12.5-3.9,17.5ZM449.9,48.9c-8.5-4.9-18.1-7.4-28.8-7.4s-20.5,2.5-29,7.4c-8.5,4.8-15.2,11.4-20.1,19.9-4.8,8.5-7.2,18.2-7.2,29s2.4,20.5,7.2,29c4.9,8.5,11.6,15.2,20.1,20.1,8.5,4.8,18.2,7.2,29,7.2s20.3-2.4,28.8-7.2c8.5-4.9,15.1-11.6,19.9-20.1,4.9-8.5,7.4-18.2,7.4-29s-2.5-20.5-7.4-29c-4.7-8.4-11.4-15.1-19.9-19.9ZM447.9,115.3c-2.6,5.1-6.2,9.1-10.9,12.1-4.7,2.9-9.9,4.3-15.8,4.3s-11.2-1.4-16-4.3c-4.7-3-8.3-7.1-10.9-12.1-2.6-5.2-3.9-11-3.9-17.5s1.3-12.2,3.9-17.3c2.6-5.2,6.2-9.3,10.9-12.1,4.8-3,10.1-4.5,16-4.5s11.2,1.4,15.8,4.3c4.7,2.9,8.3,6.9,10.9,12.1,2.7,5.1,4,10.9,3.9,17.5.1,6.5-1.2,12.3-3.9,17.5ZM548.8,91.2l50.6-47.5h-33.5l-45,45V0h-25.1v152.1h25.1v-34.6l10.9-10.2,37,44.9h31.2l-51.2-61Z"/>
+      </svg>
+      <span style="color: rgba(255,255,255,0.4); font-weight: 300; font-size: 1.4rem;">×</span>
+      <span style="color: #ffffff; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1.15rem; letter-spacing: 0.02em;">Semesp</span>
+    </div>
+  </div>
+
+  <div class="nav-label">Parceria</div>
+  <ul class="nav-list">
+    <li><a href="#inicio" class="active"><span class="nav-number">01</span>Apresentação</a></li>
+    <li><a href="#semesp"><span class="nav-number">02</span>Parceria POK + Semesp</a></li>
+    <li><a href="#semesp-eventos"><span class="nav-number">03</span>Semesp Eventos</a></li>
+    <li><a href="#uc"><span class="nav-number">04</span>Universidade Corporativa</a></li>
+    <li><a href="#fnesp" class="nav-strong"><span class="nav-number">05</span>FNESP</a></li>
+    <li class="nav-sub"><a href="#fnesp-cowork"><span class="nav-number"></span>Espaço Coworking</a></li>
+    <li class="nav-sub"><a href="#fnesp-painel"><span class="nav-number"></span>Painel sobre Microcredenciais</a></li>
+    <li class="nav-sub nav-gold"><a href="#fnesp-empregabilidade"><span class="nav-number"></span>Apresentação Pesquisa de Egressos e Empregabilidade</a></li>
+    <li class="nav-sub"><a href="#fnesp-site"><span class="nav-number"></span>Site FNESP</a></li>
+  </ul>
+
+  <div class="nav-label">Comercial</div>
+  <ul class="nav-list">
+    <li><a href="#proposta"><span class="nav-number">06</span>Créditos &amp; Patrocínio</a></li>
+    <li><a href="#contato"><span class="nav-number">07</span>Contato</a></li>
+  </ul>
+</aside>
+
+<main class="main">
+
+  <!-- ==================== HERO / APRESENTAÇÃO ==================== -->
+  <section class="hero" id="inicio">
+    <div class="hero-grid-pattern"></div>
+    <div class="hero-content">
+      <span class="hero-eyebrow">Proposta de Parceria · 2026</span>
+      <h1>POK Certificadora Oficial <br><span style="color: #ffffff;">POK</span> × <span style="color: #ffffff; font-weight: 800; letter-spacing: 0.01em;">SEMESP</span></h1>
+      <p class="hero-subtitle">
+        O objetivo da parceria é criar uma experiência real de uso de microcredenciais e certificados POK através das experiências e jornadas de aprendizado do Semesp – transformando cada evento, curso e programa em prova verificável de participação e competência.
+      </p>
+
+      <div class="hero-scope-grid">
+        <div class="hero-scope-card">
+          <div class="hero-scope-num">01</div>
+          <div class="hero-scope-title">Certificadora Oficial</div>
+          <div class="hero-scope-text">A POK passa a emitir todas as credenciais dos eventos do Semesp, com selo "POK Certificadora Oficial" e integração ao sistema.</div>
+        </div>
+        <div class="hero-scope-card">
+          <div class="hero-scope-num">02</div>
+          <div class="hero-scope-title">Emissão por CPF</div>
+          <div class="hero-scope-text">O participante insere o CPF na home de cada portal, visualiza e emite as credenciais às quais tem direito.</div>
+        </div>
+        <div class="hero-scope-card">
+          <div class="hero-scope-num">03</div>
+          <div class="hero-scope-title">Ecossistema completo</div>
+          <div class="hero-scope-text">Semesp, Universidade Corporativa e FNESP sob uma mesma camada de credenciais.</div>
+        </div>
+        <div class="hero-scope-card">
+          <div class="hero-scope-num">04</div>
+          <div class="hero-scope-title">Marca + experiência</div>
+          <div class="hero-scope-text">Mais que presença de marca: a POK demonstra experiência operacional emitindo em escala nos eventos do setor.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 02 · PARCERIA POK + SEMESP ==================== -->
+  <section id="semesp">
+    <div class="section-header">
+      <span class="section-eyebrow semesp">02 · Certificadora Oficial</span>
+      <h2 class="section-title">Parceria POK + Semesp</h2>
+    </div>
+
+    <div class="home-selo-grid" style="display: grid; grid-template-columns: 1.7fr 1fr; gap: 1.5rem; align-items: stretch; margin-bottom: 2rem;">
+      <div style="background: var(--pok-bg-card); border: 1px solid var(--pok-border); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-sm);">
+        <img src="https://pokbrasil.github.io/content/SemespHome.png" alt="Home do Semesp com o selo POK Certificadora Oficial" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      </div>
+      <div style="background: var(--pok-bg-card); border: 1px solid var(--pok-border); border-radius: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.1rem; padding: 2rem; box-shadow: var(--shadow-sm);">
+        <img src="https://pokbrasil.github.io/content/SeloPOKSemesp.png" alt="Selo POK Certificadora Oficial Semesp" style="width: 100%; max-width: 200px; height: auto; display: block;">
+        <div style="text-align: center;">
+          <div style="font-size: 0.92rem; font-weight: 700; color: var(--pok-text); margin-bottom: 0.5rem;">POK Certificadora Oficial Semesp</div>
+          <p style="font-size: 0.8rem; color: var(--pok-text-muted); line-height: 1.55;">O selo aparece no rodapé da home do site do Semesp e leva o usuário diretamente para o site da POK (<a href="https://pok.tech" target="_blank" style="color: var(--pok-purple); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--pok-purple-soft);">pok.tech</a>).</p>
+          <div style="display: inline-flex; align-items: center; gap: 6px; margin-top: 1.8rem; padding: 10px 16px; background: #e5f6ec; border: 1px solid #b8e3c8; border-radius: 10px; font-size: 0.68rem; font-weight: 600; color: #1a7a42; letter-spacing: 0.04em;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width: 16px; height: 16px; flex-shrink: 0;"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg>
+            Atualizações no site do Semesp até 30/07/2026
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 03 · SEMESP EVENTOS ==================== -->
+  <section id="semesp-eventos">
+    <div class="section-header">
+      <span class="section-eyebrow semesp">03 · Certificadora Oficial</span>
+      <h2 class="section-title">Semesp Eventos</h2>
+      <p class="section-intro">
+        A POK realiza a integração ao sistema do Semesp para que todos os certificados dos eventos sejam emitidos pela POK. O objetivo é demonstrar experiência, além da marca.
+      </p>
+    </div>
+
+    <div class="home-selo-grid" style="display: grid; grid-template-columns: 1.4fr 1fr; gap: 1.5rem; align-items: stretch;">
+      <div style="background: var(--pok-bg-card); border: 1px solid var(--pok-border); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-sm);">
+        <img src="https://pokbrasil.github.io/content/SemespEventos.png" alt="Semesp Eventos – emissão de certificados POK" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      </div>
+      <div style="display: flex; flex-direction: column; justify-content: center; gap: 0.6rem;">
+        <span class="section-eyebrow semesp" style="margin-bottom: 0;">Como funciona</span>
+        <p style="font-size: 0.82rem; color: var(--pok-text); line-height: 1.7;">Dentro do site do Semesp, o item Certificados é inserido no submenu de Eventos.</p>
+        <div style="display: inline-flex; align-items: center; gap: 6px; margin-top: 1.8rem; padding: 10px 16px; background: #fce8ec; border: 1px solid #f0c4cc; border-radius: 10px; font-size: 0.68rem; font-weight: 600; color: #9e1326; letter-spacing: 0.04em;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width: 11px; height: 11px;"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Data alterada para 31/08/2026
+        </div>
+      </div>
+    </div>
+
+    <div class="section-header" style="margin-top: 2.5rem; margin-bottom: 1.5rem;">
+      <span class="section-eyebrow semesp">Experiência do usuário</span>
+    </div>
+    <div style="background: var(--pok-bg-card); border: 1px solid var(--pok-border); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-sm); margin-bottom: 2rem;">
+      <img src="https://pokbrasil.github.io/content/ExperienciaSemesp.png" alt="Experiência do usuário POK + Semesp" style="width: 100%; height: auto; display: block;">
+    </div>
+
+    <div class="cycle-grid flow-4col" style="margin-top: 1rem;">
+      <div class="cycle-card">
+        <div class="cycle-card-header"><div class="cycle-num">01</div><h4>Selo na home</h4></div>
+        <p>O usuário clica em Certificados na aba Eventos.</p>
+      </div>
+      <div class="cycle-card">
+        <div class="cycle-card-header"><div class="cycle-num">02</div><h4>Inserção do CPF</h4></div>
+        <p>O selo leva o usuário à tela onde insere seu CPF para localizar suas inscrições e certificados.</p>
+      </div>
+      <div class="cycle-card">
+        <div class="cycle-card-header"><div class="cycle-num">03</div><h4>Visualizar</h4></div>
+        <p>O participante visualiza a lista de certificados disponíveis vinculados ao seu CPF.</p>
+      </div>
+      <div class="cycle-card">
+        <div class="cycle-card-header"><div class="cycle-num">04</div><h4>Emitir</h4></div>
+        <p>Seleciona a inscrição desejada e emite a credencial em blockchain de forma instantânea.</p>
+      </div>
+    </div>
+
+    <!-- Projetos cobertos pelo pacote Semesp -->
+    <div class="section-header" style="margin-top: 3.5rem; margin-bottom: 1.5rem;">
+      <span class="section-eyebrow semesp">Eventos incluídos</span>
+    </div>
+    <div class="eventos-grid">
+      <div class="evento-card"><span class="evento-num">01</span><p>Jornadas Regionais · 10/06</p></div>
+      <div class="evento-card"><span class="evento-num">02</span><p>3ª Conferência de Marketing Educacional · 18/06</p></div>
+      <div class="evento-card"><span class="evento-num">03</span><p>2º Encontro de Rede de Procuradores Institucionais · 20/08</p></div>
+      <div class="evento-card"><span class="evento-num">04</span><p>8º Encontro Nacional Hub Redes de Cooperação · 15/09</p></div>
+      <div class="evento-card"><span class="evento-num">05</span><p>Encontro Nacional da MetaRed TIC Brasil · 22/10</p></div>
+      <div class="evento-card"><span class="evento-num">06</span><p>Reconhecimento de Boas Práticas EAD · 09/11</p></div>
+    </div>
+  </section>
+
+  <!-- ==================== 03 · UNIVERSIDADE CORPORATIVA ==================== -->
+  <section id="uc" class="micro-section">
+    <div class="micro-content">
+      <div class="section-header">
+        <span class="section-eyebrow semesp">04 · Certificadora Oficial</span>
+        <h2 class="section-title">Universidade Corporativa</h2>
+        <p class="section-intro">
+          A POK realiza a integração ao sistema do Semesp para que todos os certificados dos cursos sejam emitidos pela POK. O objetivo é demonstrar experiência, além da marca.
+        </p>
+      </div>
+
+      <div class="home-selo-grid" style="display: grid; grid-template-columns: 1.4fr 1fr; gap: 1.5rem; align-items: stretch;">
+        <div style="background: var(--pok-bg-card); border: 1px solid var(--pok-border); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-sm);">
+          <img src="https://pokbrasil.github.io/content/SemespUC.png" alt="Universidade Corporativa Semesp – emissão de certificados POK" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        </div>
+        <div style="display: flex; flex-direction: column; justify-content: center; gap: 0.6rem;">
+          <span class="section-eyebrow semesp" style="margin-bottom: 0;">Como funciona</span>
+          <p style="font-size: 0.82rem; color: var(--pok-text); line-height: 1.7;">Dentro do site do Semesp, o item Certificados é inserido no submenu de Cursos.</p>
+          <div style="display: inline-flex; align-items: center; gap: 6px; margin-top: 1.8rem; padding: 10px 16px; background: #e5f6ec; border: 1px solid #b8e3c8; border-radius: 10px; font-size: 0.68rem; font-weight: 600; color: #1a7a42; letter-spacing: 0.04em;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width: 16px; height: 16px; flex-shrink: 0;"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg>
+            Atualizações no site do Semesp até 30/07/2026
+          </div>
+        </div>
+      </div>
+
+      <div class="section-header" style="margin-top: 2.5rem; margin-bottom: 1.5rem;">
+        <span class="section-eyebrow semesp">Experiência do usuário</span>
+      </div>
+      <div style="background: var(--pok-bg-card); border: 1px solid var(--pok-border); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-sm); margin-bottom: 2rem;">
+        <img src="https://pokbrasil.github.io/content/ExperienciaSemesp.png" alt="Experiência do usuário POK + Semesp" style="width: 100%; height: auto; display: block;">
+      </div>
+
+      <div class="cycle-grid flow-4col" style="margin-top: 1rem;">
+        <div class="cycle-card">
+          <div class="cycle-card-header"><div class="cycle-num">01</div><h4>Selo na home</h4></div>
+          <p>O usuário clica em Certificados na aba Cursos.</p>
+        </div>
+        <div class="cycle-card">
+          <div class="cycle-card-header"><div class="cycle-num">02</div><h4>Inserção do CPF</h4></div>
+          <p>O selo leva o usuário à tela onde insere seu CPF para localizar suas inscrições e certificados.</p>
+        </div>
+        <div class="cycle-card">
+          <div class="cycle-card-header"><div class="cycle-num">03</div><h4>Visualizar</h4></div>
+          <p>O participante visualiza a lista de certificados disponíveis vinculados ao seu CPF.</p>
+        </div>
+        <div class="cycle-card">
+          <div class="cycle-card-header"><div class="cycle-num">04</div><h4>Emitir</h4></div>
+          <p>Seleciona a inscrição desejada e emite a credencial em blockchain de forma instantânea.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FNESP ==================== -->
+  <section id="fnesp">
+
+    <!-- Subseção: Espaço Coworking -->
+    <div class="section-header" style="margin-bottom: 1rem; scroll-margin-top: 2rem;" id="fnesp-cowork">
+      <span class="section-eyebrow semesp">Espaço Coworking</span>
+    </div>
+    <p class="section-intro">Customização e presença de marca no Espaço de Coworking, localizado logo na entrada do FNESP 2026.</p>
+    <p class="section-intro" style="margin-top: 1rem;">Um ambiente de alta circulação e permanência, ideal para visibilidade contínua, encontros espontâneos e associação da marca a produtividade, inovação e colaboração.</p>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.5rem;">
+      <a href="https://pokbrasil.github.io/content/pok_logo_png.zip" download class="campaign-button">Baixar logo POK · PNG</a>
+      <a href="https://pokbrasil.github.io/content/pok_logo_svg.zip" download class="campaign-button secondary">Baixar logo POK · SVG</a>
+    </div>
+
+    <!-- Subseção: Painel sobre Microcredenciais -->
+    <div class="section-header" style="margin-top: 3.5rem; margin-bottom: 1rem; scroll-margin-top: 2rem;" id="fnesp-painel">
+      <span class="section-eyebrow semesp">Painel sobre Microcredenciais</span>
+    </div>
+    <p class="section-intro">Participação em painel no FNESP com o tema <strong>microcredenciais no Brasil e no mundo</strong>. A POK irá ao palco com casos de uso reais em LATAM e nos Estados Unidos — mostrando como a credencial em blockchain já está sendo emitida e adotada em diferentes ecossistemas educacionais e corporativos fora do Brasil.</p>
+
+    <div class="empreg-flow flow-4" style="margin-top: 2rem;">
+      <div class="empreg-card">
+        <div class="empreg-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20"/><path d="M12 2a15 15 0 0 0 0 20"/></svg>
+        </div>
+        <h4 class="empreg-title">Brasil</h4>
+        <p>O ecossistema POK no país, com universidades, eventos do Semesp e empresas emitindo credenciais em blockchain em escala.</p>
+      </div>
+      <div class="empreg-card">
+        <div class="empreg-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h4 class="empreg-title">LATAM</h4>
+        <p>Casos de uso na América Latina, mostrando como a credencial verificável atravessa fronteiras institucionais e geográficas.</p>
+      </div>
+      <div class="empreg-card">
+        <div class="empreg-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h20"/><path d="M12 2v20"/><circle cx="12" cy="12" r="10"/></svg>
+        </div>
+        <h4 class="empreg-title">Estados Unidos</h4>
+        <p>Casos de uso nos EUA — referência global em microcredenciais e em adoção institucional de credenciais em blockchain.</p>
+      </div>
+      <div class="empreg-card empreg-card-gold">
+        <div class="empreg-icon" style="background: linear-gradient(135deg, #b89c00 0%, #f1ce0a 100%);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9v.01"/><path d="M9 12v.01"/><path d="M9 15v.01"/><path d="M9 18v.01"/></svg>
+        </div>
+        <h4 class="empreg-title">Painel no FNESP</h4>
+        <p>A POK leva esses casos para o palco do FNESP, posicionando o Semesp ao lado da conversa global sobre microcredenciais.</p>
+      </div>
+    </div>
+
+    <!-- Subseção: Apresentação Pesquisa de Egressos e Empregabilidade -->
+    <div class="section-header" style="margin-top: 3.5rem; margin-bottom: 1rem; scroll-margin-top: 2rem;" id="fnesp-empregabilidade">
+      <span class="section-eyebrow semesp">Apresentação Pesquisa de Egressos e Empregabilidade</span>
+    </div>
+
+    <!-- Defesa Semesp / Workalove -->
+    <div class="semesp-defense">
+      <div class="semesp-defense-grid">
+        <h3 class="semesp-defense-title">Por que acompanhar <span>a empregabilidade dos egressos</span> se tornou importante</h3>
+        <div class="semesp-defense-text">
+          <p>Acompanhar a trajetória dos egressos é essencial para que as instituições de ensino compreendam o impacto da formação acadêmica no mercado de trabalho e fortaleçam seus indicadores institucionais.</p>
+          <p>A Pesquisa de Empregabilidade dos Egressos reúne dados sobre empregabilidade, renda, área de atuação e continuidade acadêmica, apoiando as IES na tomada de decisão, no planejamento estratégico e na geração de evidências alinhadas às novas exigências do setor educacional.</p>
+        </div>
+      </div>
+
+      <div class="semesp-defense-for">
+        <div class="semesp-defense-for-label">Para quem é</div>
+        <div class="empreg-flow" style="margin-top: 1rem;">
+          <div class="empreg-card">
+            <div class="empreg-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91 0z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+            </div>
+            <p>IES que desejam acompanhar a trajetória dos egressos e <strong>fortalecer indicadores institucionais</strong> com dados estratégicos e atualizados.</p>
+          </div>
+          <div class="empreg-card">
+            <div class="empreg-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>
+            </div>
+            <p>Áreas de carreira, relacionamento com egressos e gestão acadêmica que <strong>buscam apoiar decisões com base em evidências</strong>.</p>
+          </div>
+          <div class="empreg-card">
+            <div class="empreg-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            </div>
+            <p>IES que desejam fortalecer reputação, empregabilidade e <strong>ações institucionais alinhadas às novas exigências</strong> do setor educacional.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Transição: a proposta da POK -->
+    <div class="section-header" style="margin-top: 3.5rem; margin-bottom: 1rem;">
+      <span class="section-eyebrow semesp">A proposta da POK</span>
+    </div>
+    <p class="section-intro">O Instituto Semesp convidou a POK a integrar a Pesquisa de Empregabilidade de Egressos, conduzida com a Workalove e apresentada no FNESP. Em parceria com a Vitru Educação, a POK soma à pesquisa trazendo <strong>dado real, verificável e em escala</strong>, levantado através das credenciais em blockchain, das informações públicas de LinkedIn dos portadores e de outras bases de informação.</p>
+
+    <!-- Stats de impacto -->
+    <div class="empreg-stats">
+      <div class="empreg-stat">
+        <div class="empreg-stat-num">21.481</div>
+        <div class="empreg-stat-label">Certificados enviados a egressos</div>
+      </div>
+      <div class="empreg-stat">
+        <div class="empreg-stat-num">Vitru</div>
+        <div class="empreg-stat-label">Parceira da pesquisa</div>
+      </div>
+      <div class="empreg-stat">
+        <div class="empreg-stat-num">Nacional</div>
+        <div class="empreg-stat-label">Alcance da pesquisa</div>
+      </div>
+      <div class="empreg-stat empreg-stat-gold">
+        <div class="empreg-stat-num">FNESP</div>
+        <div class="empreg-stat-label">Palco da apresentação</div>
+      </div>
+    </div>
+
+    <div class="empreg-ask">
+      <div class="empreg-ask-badge">A proposta</div>
+      <h3>Levar o método POK para o palco do FNESP</h3>
+      <p>Inserir o método POK na Pesquisa de Empregabilidade do Instituto Semesp como <strong>fonte de dado real</strong> – e subir ao palco do FNESP ao lado do Semesp e da Workalove, apresentando, com mais de 21 mil certificados em circulação, a empregabilidade dos egressos de diferentes cursos.</p>
+      <div style="position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 1.4rem;">
+        <a href="https://pokbrasil.github.io/empregabilidade/pok-campanha-egressos-empregabilidade.html" target="_blank" class="empreg-ask-cta" style="margin-top: 0;">Campanha POK Empregabilidade →</a>
+      </div>
+    </div>
+
+    <!-- Subseção: Site -->
+    <div class="section-header" style="margin-top: 3.5rem; margin-bottom: 1rem; scroll-margin-top: 2rem;" id="fnesp-site">
+      <span class="section-eyebrow semesp">Site FNESP</span>
+    </div>
+
+    <div class="home-selo-grid" style="display: grid; grid-template-columns: 1.7fr 1fr; gap: 1.5rem; align-items: stretch; margin-bottom: 2rem;">
+      <div style="background: var(--pok-bg-card); border: 1px solid var(--pok-border); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-sm);">
+        <img src="https://pokbrasil.github.io/content/FnespHome.png" alt="Home do FNESP com o selo POK Certificadora Oficial" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      </div>
+      <div style="background: var(--pok-bg-card); border: 1px solid var(--pok-border); border-radius: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.1rem; padding: 2rem; box-shadow: var(--shadow-sm);">
+        <img src="https://pokbrasil.github.io/content/SeloPOKSemesp.png" alt="Selo POK Certificadora Oficial Semesp" style="width: 100%; max-width: 200px; height: auto; display: block;">
+        <div style="text-align: center;">
+          <div style="font-size: 0.92rem; font-weight: 700; color: var(--pok-text); margin-bottom: 0.5rem;">POK Certificadora Oficial Semesp</div>
+          <p style="font-size: 0.8rem; color: var(--pok-text-muted); line-height: 1.55;">O selo aparece no rodapé da home do site do FNESP e leva o usuário diretamente para o site da POK (<a href="https://pok.tech" target="_blank" style="color: var(--pok-purple); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--pok-purple-soft);">pok.tech</a>).</p>
+          <div style="display: inline-flex; align-items: center; gap: 6px; margin-top: 1.8rem; padding: 10px 16px; background: #e5f6ec; border: 1px solid #b8e3c8; border-radius: 10px; font-size: 0.68rem; font-weight: 600; color: #1a7a42; letter-spacing: 0.04em;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width: 16px; height: 16px; flex-shrink: 0;"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg>
+            Atualizações no site do FNESP até 30/07/2026
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CRÉDITOS & PATROCÍNIO ==================== -->
+  <section id="proposta" class="proposal-section">
+    <div class="section-header">
+      <span class="section-eyebrow">Comercial</span>
+      <h2 class="section-title">Créditos &amp; Patrocínio</h2>
+      <p class="section-intro">Consolidação do volume de credenciais blockchain e dos patrocínios por frente, com as formas de pagamento pactuadas.</p>
+    </div>
+
+    <!-- Dimensionamento -->
+    <div class="volume-card">
+      <div class="volume-header">
+        <span class="section-eyebrow semesp" style="margin-bottom:0;">Volume total</span>
+      </div>
+      <div class="volume-grid">
+        <div class="volume-item"><div class="volume-number">1.000</div><div class="volume-label">Eventos Semesp</div></div>
+        <div class="volume-divider">+</div>
+        <div class="volume-item"><div class="volume-number">2.500</div><div class="volume-label">FNESP</div></div>
+        <div class="volume-divider">+</div>
+        <div class="volume-item"><div class="volume-number">1.500</div><div class="volume-label">UC</div></div>
+        <div class="volume-divider">+</div>
+        <div class="volume-item"><div class="volume-number">200</div><div class="volume-label">Sthem</div></div>
+        <div class="volume-divider">=</div>
+        <div class="volume-item volume-total"><div class="volume-number">5.200</div><div class="volume-label">Total/ano</div></div>
+      </div>
+    </div>
+
+    <!-- Tabela resumo -->
+    <div class="pok-model-card">
+      <div class="pok-model-header">
+        <span class="pok-model-label">Resumo</span>
+        <h3 class="pok-model-title">Certificados e patrocínio por frente</h3>
+      </div>
+      <div class="pok-table-wrap">
+        <table class="pok-table">
+          <thead>
+            <tr>
+              <th>Evento</th>
+              <th>Certificados blockchain</th>
+              <th>Patrocínio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Eventos Semesp</td><td>1.000</td><td>R$ 10.000</td></tr>
+            <tr><td>FNESP + Espaço Coworking</td><td>2.500</td><td>R$ 75.000</td></tr>
+            <tr><td>Universidade Corporativa</td><td>1.500</td><td>R$ 75.000</td></tr>
+            <tr><td>Sthem Eric Mazur</td><td>200</td><td>R$ 10.000</td></tr>
+            <tr class="pok-table-highlight"><td>Total</td><td>5.200</td><td>R$ 170.000</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Forma de pagamento -->
+    <div class="payment-info">
+      <div class="section-header" style="margin-bottom: 1.5rem;">
+        <span class="section-eyebrow semesp" style="margin-bottom:0;">Forma de pagamento</span>
+      </div>
+      <div class="payment-grid">
+        <div class="payment-block">
+          <h4>Universidade Corporativa</h4>
+          <p><span class="data-line">Contrato já em andamento</span><strong>12× R$ 6.250</strong></p>
+          <span class="pay-status"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>Em andamento</span>
+        </div>
+        <div class="payment-block">
+          <h4>Sthem Evento Eric Mazur</h4>
+          <p><span class="data-line">À vista</span><strong>R$ 10.000</strong></p>
+          <span class="pay-status"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>Pago</span>
+        </div>
+        <div class="payment-block">
+          <h4>FNESP + Semesp</h4>
+          <p><span class="data-line">Parcelado</span><strong>3× de R$ 28.333</strong></p>
+          <span class="pay-status"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>Em andamento</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 09 · CONTATO ==================== -->
+  <section id="contato" class="contact-section">
+    <div class="contact-content">
+      <div class="section-header">
+        <span class="section-eyebrow">06 · Comercial</span>
+        <h2 class="contact-title">Fale Conosco</h2>
+      </div>
+
+      <div class="contato-grid">
+        <div class="contato-qr">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAcIAAAHCCAIAAADzel4SAAAKNElEQVR4nO3dMY4bSxJF0emBPO1/qbLruzIGCYzuT0UU+xy3QbLYJC/Keciv53n+A8Cf+u/0BQC8m4wCJDIKkMgoQCKjAImMAiQyCpDIKEAiowCJjAIkMgqQyChAIqMAiYwCJDIKkMgoQCKjAImMAiQyCpD8KA/++fPnv3UdS/z69evw1/P7PT/2rDzzvcdOmfpPFm983c/75hTlM3I3CpDIKEAiowCJjAIkMgqQyChAIqMAiYwCJDIKkKQV09m95UZR1hf33tHU2uTeUmVqAzO1gHrjt33q+zzl3rfO3ShAIqMAiYwCJDIKkMgoQCKjAImMAiQyCpDIKEByccV0tnPHUnze6TRn5f88tZ4qj3Vy0b/l83777kYBEhkFSGQUIJFRgERGARIZBUhkFCCRUYBERgGSsRXTG+3cokxtQu5tjcrr3jt9aOfGyXpqA3ejAImMAiQyCpDIKEAiowCJjAIkMgqQyChAIqMAiRXTv2Zq5XJvx2ID87up/8bO5RW/czcKkMgoQCKjAImMAiQyCpDIKEAiowCJjAIkMgqQjK2YbCR+d29rZB/1d0zthe6d43TP5/323Y0CJDIKkMgoQCKjAImMAiQyCpDIKEAiowCJjAIkF1dMn7dUueeN5zi98bFnO6/5jWcxfbffvrtRgERGARIZBUhkFCCRUYBERgESGQVIZBQgkVGAJK2YPu9MlSlvXH3s3Pycfd7/ubi3j/pu3I0CJDIKkMgoQCKjAImMAiQyCpDIKEAiowCJjAIkX8/z/PGD753lcu91d+5Y3njuzdTnezb1n9y56tn5bS/ufb7lmd2NAiQyCpDIKEAiowCJjAIkMgqQyChAIqMAiYwCJOkspjeaWpucFxT39jNvXAQVZakytX+bWgPu3KGVZy6fb+FuFCCRUYBERgESGQVIZBQgkVGAREYBEhkFSGQUILl4FlPxxhN17p0QtXOnNGXnSVw7X/ds6htb7Lxmd6MAiYwCJDIKkMgoQCKjAImMAiQyCpDIKEAiowCJs5j+knsLip3v6Gzqmu9tje59vlNXtfN1d26r3I0CJDIKkMgoQCKjAImMAiQyCpDIKEAiowCJjAIkF1dMO89TeuOpOFOve29bVV535+e7cwG183WLe59v4W4UIJFRgERGARIZBUhkFCCRUYBERgESGQVIZBQg+XqeZ/oa/oc3nuXy3bYoU3uSN65rphZuZ9/tu3HvM3I3CpDIKEAiowCJjAIkMgqQyChAIqMAiYwCJDIKkKSzmHaei3I2dWbOzq3Rzk3X+bFvPLfqjWdPFW+85sLdKEAiowCJjAIkMgqQyChAIqMAiYwCJDIKkMgoQJLOYtq5zDnbuTWa8nm7rLOpdzR1ntLOc5ymdmj3uBsFSGQUIJFRgERGARIZBUhkFCCRUYBERgESGQVI0llMZzu3Cm9cquy0c8dSznGaOk/p7I2rrSlTzXE3CpDIKEAiowCJjAIkMgqQyChAIqMAiYwCJDIKkFxcMU3Zub64t2PZ+X53bm/KxunsjRu2qXOczsr3eeq34G4UIJFRgERGARIZBUhkFCCRUYBERgESGQVIZBQg+Xqe59JTf95ZTDt3HVN7ofLMU6be0dQJYN/tLKaze+/X3ShAIqMAiYwCJDIKkMgoQCKjAImMAiQyCpDIKEAydhbTveXGvde998xvXNfcO9do5zuaet3zY6fe0ZSduyx3owCJjAIkMgqQyChAIqMAiYwCJDIKkMgoQCKjAMnFFdPUuUZTO4epBcXUWUw79yT37Fz1nO08a+vzfvvuRgESGQVIZBQgkVGAREYBEhkFSGQUIJFRgERGAZKv53n++MFWLr+bOgXojcurs51nbe38fN+4nbtn6hvrbhQgkVGAREYBEhkFSGQUIJFRgERGARIZBUhkFCC5eBbT1M7hjYuRqXOrzqZWalPn/LxxO/fddkqFs5gAlpJRgERGARIZBUhkFCCRUYBERgESGQVIZBQgSWcx3fPGU552vu6UqSXS2c6d0tTubsrU79eKCWApGQVIZBQgkVGAREYBEhkFSGQUIJFRgERGAZKlK6azz9s4ne3c3ky59+kXO9c15XXPdl7V2b1rdjcKkMgoQCKjAImMAiQyCpDIKEAiowCJjAIkMgqQ/Lj31Ds3ElNrk6nX3bmQuXfNU+93ytQ5TlNbo52nS7kbBUhkFCCRUYBERgESGQVIZBQgkVGAREYBEhkFSC6umKZ83r5i567j3l7o3vudWtZNfUb3PoWze5/RzjOv3I0CJDIKkMgoQCKjAImMAiQyCpDIKEAiowCJjAIkacV078ycN65NPu+cn2LnbmfnQqb8FnYu66auauokLnejAImMAiQyCpDIKEAiowCJjAIkMgqQyChAIqMAydfzPNPX8H+bWsh8N5+3CDq7t3K5946mHnu2c0noLCaApWQUIJFRgERGARIZBUhkFCCRUYBERgESGQVI0opp6qSXe3aeIHT2edf8xvVU8cbTls52fietmACWklGAREYBEhkFSGQUIJFRgERGARIZBUhkFCD5UR48tTUq3njCzM5r3rlUOfu8T6G8bvl8p377O5vjbhQgkVGAREYBEhkFSGQUIJFRgERGARIZBUhkFCBJK6YpU7uOYuqUmLOpM5Hu7aPK/+qNW6N773fnb+Fs6nfkbhQgkVGAREYBEhkFSGQUIJFRgERGARIZBUhkFCBJK6apnUN57NQJQsXnXfPUPured+ONK7WpZ57aZd3jbhQgkVGAREYBEhkFSGQUIJFRgERGARIZBUhkFCD5ep5n+hpeY+fKZerkojde85TPOz2s2PnfKO/X3ShAIqMAiYwCJDIKkMgoQCKjAImMAiQyCpDIKECy9CymKTsXMlN7oZ1nIk3tdna+7tQ1T50utZO7UYBERgESGQVIZBQgkVGAREYBEhkFSGQUIJFRgCStmM52Lhk+7+SinafxTC1zpr51O9dE9+z8dZ/du2Z3owCJjAIkMgqQyChAIqMAiYwCJDIKkMgoQCKjAMnFFdPZzu3N2Ru3KFPLq7OdOyWnLf2dZ55y73vlbhQgkVGAREYBEhkFSGQUIJFRgERGARIZBUhkFCAZWzG90c4tyr1Vz9R+ZufyqrzuPZ/3Gd17rLOYAJaSUYBERgESGQVIZBQgkVGAREYBEhkFSGQUILFi+kvurS/urafOj51aBE3tZ86+28Lt3jdn6tN3FhPAGBkFSGQUIJFRgERGARIZBUhkFCCRUYBERgGSsRXTvX3FG33eGUFvXLkUO89iOpvaR937X019Cu5GARIZBUhkFCCRUYBERgESGQVIZBQgkVGAREYBkosrpqlFwT3f7YygKTuXV2f31lPfbdP1xpOp3I0CJDIKkMgoQCKjAImMAiQyCpDIKEAiowCJjAIkX8/zTF8DwIu5GwVIZBQgkVGAREYBEhkFSGQUIJFRgERGARIZBUhkFCCRUYBERgESGQVIZBQgkVGAREYBEhkFSGQUIJFRgOQf7jif0R8BY3oAAAAASUVORK5CYII=" alt="QR Code de contato – Carolina Ferrés">
+        </div>
+
+        <div class="contato-info">
+          <div class="contato-cargo">Contato POK</div>
+          <h3>Carolina Ferrés</h3>
+          <a href="mailto:carolina@pok.tech" class="contato-email">carolina@pok.tech</a>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div>© 2026 POK · Proof of Knowledge · Proposta dedicada POK × Semesp</div>
+  <div><a href="https://www.pok.tech" target="_blank">www.pok.tech</a></div>
+</footer>
+
+<script>
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-list a');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { rootMargin: '-40% 0px -50% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 1024) {
+        document.querySelector('.sidebar').classList.remove('open');
+      }
+    });
+  });
+
+  const fadeEls = document.querySelectorAll('.feature-card, .cycle-card, .plan-card, .opp-item, .check-list li');
+  fadeEls.forEach(el => el.classList.add('fade-in'));
+
+  const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 40);
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  fadeEls.forEach(el => fadeObserver.observe(el));
+</script>
+
+</body>
+</html>
