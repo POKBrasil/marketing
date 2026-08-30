@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal da credencial POK – Escolha seu próximo passo</title>
+  <meta name="description" content="Sua credencial POK abre três caminhos: entenda o valor, acesse sua carteira digital e compartilhe suas conquistas no LinkedIn.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Portal da credencial POK – Escolha seu próximo passo">
+  <meta property="og:description" content="Sua credencial POK abre três caminhos: entenda o valor, acesse sua carteira digital e compartilhe suas conquistas no LinkedIn.">
+  <meta property="og:image" content="https://pokbrasil.github.io/content/og-portal.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://pokbrasil.github.io/marketing/pok_portal_landing.html">
+  <meta property="og:site_name" content="POK">
+  <meta property="og:locale" content="pt_BR">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Portal da credencial POK – Escolha seu próximo passo">
+  <meta name="twitter:description" content="Sua credencial POK abre três caminhos: entenda o valor, acesse sua carteira digital e compartilhe suas conquistas no LinkedIn.">
+  <meta name="twitter:image" content="https://pokbrasil.github.io/content/og-portal.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --roxo:      #5123a4;
+      --roxo-h:    #6333c5;
+      --roxo-pale: #F3EFF9;
+      --roxo-mid:  #ece7f7;
+      --dourado:   #f1ce0a;
+      --dourado-dk:#c8a900;
+      --dark:      #111111;
+      --white:     #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--white);
+      color: #111111;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+
+    /* ── NAV ──────────────────────────────── */
+    .nav {
+      background: var(--white);
+      height: 68px;
+      display: flex;
+      align-items: center;
+      padding: 0 56px;
+      border-bottom: 1.5px solid var(--roxo-mid);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo img { height: 34px; width: auto; }
+
+    /* ── HERO ──────────────────────────────── */
+    .hero {
+      background: var(--white);
+      padding: 64px 56px 28px;
+    }
+
+    .hero-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 26px;
+    }
+
+    .hero-content .eyebrow { margin-bottom: 0; }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow-line  { width: 36px; height: 2px; background: var(--roxo); }
+    .eyebrow-diamond { width: 7px; height: 7px; background: var(--dourado); transform: rotate(45deg); }
+
+    .eyebrow-text {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--roxo);
+    }
+
+    h1 {
+      font-size: clamp(30px, 4vw, 44px);
+      font-weight: 800;
+      line-height: 1.18;
+      color: #111111;
+      text-wrap: balance;
+      max-width: 24ch;
+    }
+
+    h1 .hl { color: var(--roxo); }
+
+    h2 {
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1.25;
+      color: #111111;
+    }
+
+    .hero-sub {
+      font-size: 16px;
+      color: #111111;
+      line-height: 1.75;
+      max-width: 680px;
+    }
+
+    .hero-sub strong { color: #111111; font-weight: 600; }
+
+    .btn-roxo {
+      display: inline-block;
+      background: var(--roxo);
+      color: var(--white);
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      letter-spacing: 0.2px;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-roxo:hover {
+      background: var(--roxo-h);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(81,35,164,0.28);
+    }
+
+    /* ── CAMINHOS (fundo branco → texto preto) ── */
+    .caminhos {
+      background: var(--white);
+      padding: 0 56px 96px;
+    }
+
+    .section-inner { max-width: 1160px; margin: 0 auto; }
+
+    .section-inner .eyebrow { justify-content: center; }
+
+    .caminhos-head { text-align: center; max-width: 900px; margin: 0 auto 28px; }
+    .caminhos-head h2 { font-size: clamp(22px, 2.4vw, 28px); white-space: nowrap; }
+
+    .sec-sub {
+      font-size: 15px;
+      color: #111111;
+      line-height: 1.75;
+      margin-top: 14px;
+    }
+
+    .caminhos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .path-card {
+      background: var(--roxo-pale);
+      border-radius: 24px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .path-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(81,35,164,0.16);
+    }
+
+    .path-card-img-wrap {
+      width: calc(100% - 32px);
+      margin: 16px 16px 0;
+      background: var(--white);
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 168px;
+    }
+
+    .path-card-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .path-card-body {
+      padding: 22px 24px 28px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .path-step {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--roxo);
+      margin-bottom: 10px;
+    }
+
+    .path-title {
+      font-size: 19px;
+      font-weight: 700;
+      color: #111111;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .path-desc {
+      font-size: 13.5px;
+      color: #111111;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      flex: 1;
+    }
+
+    .path-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--roxo);
+      color: var(--white);
+      font-size: 11.5px;
+      font-weight: 600;
+      padding: 9px 18px;
+      border-radius: 8px;
+      letter-spacing: 0.2px;
+      align-self: flex-start;
+      transition: background 0.2s;
+    }
+
+    .path-card:hover .path-tag { background: var(--roxo-h); }
+
+    .path-tag-arrow { transition: transform 0.2s; }
+    .path-card:hover .path-tag-arrow { transform: translateX(3px); }
+
+    /* ── FOOTER (fundo roxo → texto branco) ─── */
+    footer {
+      background: var(--roxo);
+      border-top: 1px solid rgba(255,255,255,0.15);
+      padding: 32px 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .ft-logo { height: 32px; width: auto; }
+
+    .ft-line {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+    }
+
+    .ft-link {
+      color: #ffffff;
+      font-size: 12.5px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .ft-link:hover { text-decoration: underline; }
+
+    .ft-sep { color: rgba(255,255,255,0.55); font-size: 12.5px; }
+
+    .ft-tagline { font-size: 12.5px; font-weight: 500; color: #ffffff; }
+
+    /* ── RESPONSIVE ───────────────────────── */
+    @media (max-width: 960px) {
+      .caminhos-grid { grid-template-columns: 1fr; }
+
+      h1 { font-size: 32px; }
+      h2 { font-size: 26px; }
+      .caminhos-head h2 { white-space: normal; }
+
+      .hero, .caminhos { padding-left: 24px; padding-right: 24px; }
+      .hero { padding-top: 40px; padding-bottom: 40px; }
+      .caminhos { padding-top: 8px; padding-bottom: 64px; }
+
+      .nav { padding: 0 24px; }
+      footer { padding: 24px; flex-direction: column; gap: 10px; text-align: center; }
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 26px; }
+      .hero-inner { gap: 20px; }
+
+      .ft-line {
+        white-space: normal;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .ft-sep { display: none; }
+    }
+
+    /* ── FADE IN ───────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-content > * {
+      opacity: 0;
+      animation: fadeUp 0.5s ease forwards;
+    }
+    .hero-content > *:nth-child(1) { animation-delay: 0.08s; }
+    .hero-content > *:nth-child(2) { animation-delay: 0.18s; }
+    .hero-content > *:nth-child(3) { animation-delay: 0.28s; }
+    .hero-content > *:nth-child(4) { animation-delay: 0.38s; }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ──────────────────────────────────────── -->
+<nav class="nav">
+  <a href="https://pok.tech" class="nav-logo" aria-label="POK">
+    <img src="https://content.app-us1.com/m7A5p8/2026/03/06/2ac7ad55-dbe9-497b-9632-bb21e1cae55f.png" alt="POK">
+  </a>
+</nav>
+
+<!-- ── HERO ─────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="eyebrow">
+        <div class="eyebrow-line"></div>
+        <div class="eyebrow-diamond"></div>
+        <span class="eyebrow-text">Para portadores de credenciais POK</span>
+      </div>
+
+      <h1>O que é <span class="hl">uma credencial verificável</span> e porque ela é útil para sua jornada profissional</h1>
+
+      <p class="hero-sub">
+        Você irá receber ou já recebeu por e-mail uma credencial verificável <strong>Open Badge 3.0 em blockchain</strong>, uma releitura do seu diploma focada nas competências desenvolvidas durante sua graduação. Entenda porque isso é legal e o que pode te trazer de vantagens na sua jornada profissional.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ── CAMINHOS (fundo branco → texto preto) ────── -->
+<section class="caminhos" id="caminhos">
+  <div class="section-inner">
+
+    <div class="caminhos-head">
+      <h2>Entenda as vantagens das credenciais verificáveis</h2>
+    </div>
+
+    <div class="caminhos-grid">
+
+      <a href="pok_credencial_valor_landing.html" class="path-card">
+        <div class="path-card-img-wrap">
+          <img
+            class="path-card-img"
+            src="https://pokbrasil.github.io/content/lp-nft.png"
+            alt="Credencial POK verificável em padrão Open Badge 3.0 e blockchain"
+          >
+        </div>
+        <div class="path-card-body">
+          <div class="path-step">Entenda o valor</div>
+          <h3 class="path-title">Por que sua credencial vale mais</h3>
+          <p class="path-desc">
+            Descubra por que sua credencial não é apenas um comprovante de conclusão — é um ativo digital verificável, portável e reconhecido em qualquer lugar do mundo.
+          </p>
+          <span class="path-tag">Ler agora <span class="path-tag-arrow">→</span></span>
+        </div>
+      </a>
+
+      <a href="pok_holder_landing.html" class="path-card">
+        <div class="path-card-img-wrap">
+          <img
+            class="path-card-img"
+            src="https://pokbrasil.github.io/content/landing-pokholder.png"
+            alt="Carteira digital POK Holder com credenciais organizadas"
+          >
+        </div>
+        <div class="path-card-body">
+          <div class="path-step">Carteira digital</div>
+          <h3 class="path-title">Acesse o POK Holder</h3>
+          <p class="path-desc">
+            Reúna todas as suas conquistas em um só lugar. O POK Holder organiza sua jornada de educação continuada em uma carteira de credenciais verificáveis.
+          </p>
+          <span class="path-tag">Acessar o Holder <span class="path-tag-arrow">→</span></span>
+        </div>
+      </a>
+
+      <a href="pok_linkedin_landing.html" class="path-card">
+        <div class="path-card-img-wrap">
+          <img
+            class="path-card-img"
+            src="https://pokbrasil.github.io/content/landing-linkedin.png"
+            alt="Mockup de perfil LinkedIn com certificados POK na seção Licenças e Certificações"
+          >
+        </div>
+        <div class="path-card-body">
+          <div class="path-step">Compartilhe no LinkedIn</div>
+          <h3 class="path-title">Aumente sua visibilidade</h3>
+          <p class="path-desc">
+            Publique seus certificados e badges no LinkedIn, apareça em mais buscas de recrutadores e destaque-se para quem está contratando.
+          </p>
+          <span class="path-tag">Ver como compartilhar <span class="path-tag-arrow">→</span></span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER (fundo roxo → texto branco) ───── -->
+<footer>
+  <img
+    src="https://content.app-us1.com/m7A5p8/2026/03/11/ddc2f081-9fdc-422f-8da3-4992d80f2aca.png"
+    alt="POK"
+    class="ft-logo"
+  >
+  <div class="ft-line">
+    <a href="https://pok.tech" target="_blank" class="ft-link">pok.tech</a>
+    <span class="ft-sep">•</span>
+    <span class="ft-tagline">Muito mais que certificados digitais</span>
+  </div>
+</footer>
+
+</body>
+</html>
