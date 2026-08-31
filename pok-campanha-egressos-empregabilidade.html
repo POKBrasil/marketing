@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POK · Do diploma às credenciais verificáveis por competências</title>
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Do diploma às credenciais verificáveis por competências: o que sua instituição entrega ao mercado · POK">
+<meta property="og:description" content="Credenciais verificáveis para egressos: o que são, como se conectam ao diploma digital do MEC e o que mudam para estudantes e instituições.">
+<meta property="og:site_name" content="POK">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://pokbrasil.github.io/empregabilidade/pok-campanha-egressos-empregabilidade.html">
+<meta property="og:image" content="https://pokbrasil.github.io/content/pok-campanha-egressos-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Do diploma às credenciais verificáveis por competências – POK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://pokbrasil.github.io/content/pok-campanha-egressos-og.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F3EFF9;
+    --surface: #FFFFFF;
+    --surface-alt: #EDE6F6;
+    --ink: #1E1230;
+    --ink-muted: #4a3d5e;
+    --ink-faint: #A899C2;
+    --accent: #5123a4;
+    --accent-dark: #3a1878;
+    --accent-light: #e4dcf7;
+    --border: #D8CEF0;
+    --radius: 10px;
+    --radius-lg: 16px;
+    --gold: #f1ce0a;
+    --gold-light: #fdf7c3;
+    --gold-ink: #5a4900;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  img, svg { max-width: 100%; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    overflow-wrap: break-word;
+  }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem 2.5rem; }
+
+  /* ── Header ─────────────────────────────── */
+  .page-header {
+    background: var(--accent);
+    color: #fff;
+    padding: 3rem 0 3.5rem;
+    margin-bottom: 3rem;
+  }
+  .page-header .wrap { padding-bottom: 0; }
+  .logo-wrap { margin-bottom: 2rem; }
+  .logo {
+    display: block;
+    width: 128px;
+    height: auto;
+  }
+  .logo path { fill: #fff; }
+
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+  h1 {
+    font-size: 50px;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.08;
+    max-width: 1000px;
+  }
+  h1 .destaque { color: var(--gold); }
+
+  .page-lede {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #FFFFFF;
+    max-width: 640px;
+    margin-top: 1.4rem;
+  }
+
+  /* ── Índice ─────────────────────────────── */
+  .toc {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 7px;
+    margin-top: 2.5rem;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+  .toc::-webkit-scrollbar { display: none; }
+  .toc a {
+    display: inline-flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 7px;
+    flex: 1 1 auto;
+    text-decoration: none;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(241,206,10,0.55);
+    border-radius: 999px;
+    padding: 7px 13px;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .toc-num {
+    font-size: 9.5px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+  }
+  .toc-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: #fff;
+    white-space: nowrap;
+  }
+  .toc a:hover, .toc a:focus-visible {
+    background: var(--gold);
+    border-color: var(--gold);
+  }
+  .toc a:hover .toc-num, .toc a:focus-visible .toc-num { color: var(--gold-ink); }
+  .toc a:hover .toc-label, .toc a:focus-visible .toc-label { color: var(--accent-dark); }
+
+  @media (max-width: 900px) {
+    .toc { flex-wrap: wrap; overflow-x: visible; }
+    .toc a { flex: 0 1 auto; }
+  }
+
+  /* ── Seção ──────────────────────────────── */
+  .piece { margin-bottom: 3rem; scroll-margin-top: 1.5rem; }
+  .piece:last-of-type { margin-bottom: 0; }
+
+  .piece-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 0.9rem;
+  }
+  .piece-tag {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--gold-ink);
+    background: var(--gold-light);
+    border: 1px solid var(--gold);
+    border-radius: 6px;
+    padding: 3px 9px;
+    white-space: nowrap;
+  }
+  .piece-title {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+  .piece-note {
+    font-size: 13px;
+    line-height: 1.7;
+    color: #000000;
+    max-width: none;
+    text-wrap: pretty;
+    margin-bottom: 1.25rem;
+  }
+
+  .piece-note a {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-light);
+    transition: border-color 0.15s;
+  }
+  .piece-note a:hover, .piece-note a:focus-visible { border-bottom-color: var(--accent); }
+
+  .piece-body {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+  }
+
+  /* ── Blocos reutilizáveis ─────────────────── */
+  .block-head {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+  .piece-body > .block-head:first-child { margin-top: 0; }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 0.9rem;
+  }
+  .card-grid--two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .card-grid--four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  @media (max-width: 900px) {
+    .card-grid, .card-grid--four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 640px) {
+    .card-grid, .card-grid--two, .card-grid--four { grid-template-columns: 1fr; }
+  }
+
+  .card-grid--casos { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .card-grid--casos > * { grid-column: span 2; }
+  .card-grid--casos > *:nth-child(4),
+  .card-grid--casos > *:nth-child(5) { grid-column: span 3; }
+  @media (max-width: 900px) {
+    .card-grid--casos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .card-grid--casos > *,
+    .card-grid--casos > *:nth-child(4),
+    .card-grid--casos > *:nth-child(5) { grid-column: span 1; }
+  }
+  @media (max-width: 640px) {
+    .card-grid--casos { grid-template-columns: 1fr; }
+  }
+
+  .card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.15rem 1.2rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .card--destaque {
+    background: var(--gold-light);
+    border-color: var(--gold);
+  }
+  .card--medio {
+    background: #cfc0ee;
+    border-color: #b8a3e4;
+  }
+  .card--medio .card-icon { background: rgba(81,35,164,0.16); color: var(--accent-dark); }
+
+  .card--roxo {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+  .card--roxo .card-title,
+  .card--roxo .card-desc { color: #fff; }
+  .card--roxo .card-eyebrow { color: var(--gold); }
+  .card--roxo .card-num { background: var(--gold); color: var(--gold-ink); }
+  .card-num {
+    width: 24px; height: 24px;
+    border-radius: 7px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.7rem;
+  }
+  .card--destaque .card-num { background: var(--gold); color: var(--gold-ink); }
+  .card-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: var(--accent-light);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.85rem;
+  }
+  .card-icon svg { width: 20px; height: 20px; display: block; }
+  .card--roxo .card-icon { background: rgba(255,255,255,0.14); color: var(--gold); }
+
+  .card-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.35rem;
+  }
+  .card--destaque .card-eyebrow { color: var(--gold-ink); }
+  .card-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.3;
+    margin-bottom: 0.45rem;
+  }
+  .card-desc {
+    font-size: 0.8rem;
+    line-height: 1.6;
+    color: #000000;
+    flex: 1;
+  }
+
+  .texto {
+    font-size: 13px;
+    line-height: 1.75;
+    color: #000000;
+    text-wrap: pretty;
+  }
+  .texto + .texto { margin-top: 0.7rem; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: var(--accent);
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    border: 1px solid var(--accent);
+    transition: background 0.15s, transform 0.12s;
+  }
+  .btn::after { content: '↗'; font-size: 12px; font-weight: 700; }
+  .btn:hover, .btn:focus-visible {
+    background: var(--accent-dark);
+    border-color: var(--accent-dark);
+    transform: translateY(-1px);
+  }
+  .btn-row { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 10px; }
+
+  .btn--claro {
+    background: transparent;
+    color: var(--accent);
+    border-color: var(--border);
+  }
+  .btn--claro:hover, .btn--claro:focus-visible {
+    background: var(--accent-light);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* ── Cards com imagem ─────────────────────── */
+  .img-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    text-decoration: none;
+    transition: border-color 0.15s, box-shadow 0.15s, transform 0.12s;
+  }
+  .img-card:hover, .img-card:focus-visible {
+    border-color: var(--accent);
+    box-shadow: 0 6px 22px rgba(81,35,164,0.16);
+    transform: translateY(-2px);
+  }
+  .img-card-frame {
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    line-height: 0;
+  }
+  .img-card-frame img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .img-card-body {
+    padding: 1.15rem 1.2rem 1.3rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .img-card-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.3;
+    margin-bottom: 0.45rem;
+  }
+  .img-card-desc {
+    font-size: 0.8rem;
+    line-height: 1.6;
+    color: #000000;
+    flex: 1;
+  }
+  .img-card-acao {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-top: 0.9rem;
+  }
+  .img-card-acao::after { content: ' ↗'; }
+
+  /* ── Painel ───────────────────────────────── */
+  .painel {
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    background: var(--surface);
+    margin-top: 1.6rem;
+  }
+  .painel-head {
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0.85rem 1.3rem;
+  }
+  .painel-head svg { width: 20px; height: 20px; color: var(--gold); flex-shrink: 0; }
+  .painel-titulo {
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.01em;
+  }
+  .painel-body { padding: 1.4rem 1.4rem 1.6rem; }
+  .painel-filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 0.9rem;
+  }
+  .chip {
+    flex: 1 1 auto;
+    min-width: max-content;
+    text-align: center;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: #ffffff;
+    background: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    padding: 5px 11px;
+  }
+  .painel-divisor {
+    border-top: 1px solid var(--border);
+    margin: 1.75rem 0 0;
+    padding-top: 1.4rem;
+  }
+  @media (max-width: 640px) {
+    .painel-head { flex-wrap: wrap; }
+    .painel-body { padding: 1.1rem; }
+  }
+
+  /* ── Aviso ────────────────────────────────── */
+  .aviso {
+    display: flex;
+    gap: 1.1rem;
+    align-items: flex-start;
+    background: var(--gold-light);
+    border: 1px solid var(--gold);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.35rem 1.35rem;
+    margin-top: 1.25rem;
+  }
+  .aviso-icone {
+    width: 68px;
+    height: 68px;
+    flex-shrink: 0;
+    border-radius: 16px;
+    background: var(--gold);
+    color: var(--gold-ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(241,206,10,0.45);
+  }
+  .aviso-icone svg { width: 40px; height: 40px; display: block; }
+  .aviso-selo {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold-ink);
+    border: 1px solid var(--gold-ink);
+    border-radius: 999px;
+    padding: 3px 10px;
+    margin-bottom: 0.6rem;
+  }
+  .aviso-titulo {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.3;
+    margin-bottom: 0.4rem;
+  }
+  .aviso-texto {
+    font-size: 0.83rem;
+    line-height: 1.7;
+    color: #000000;
+    text-wrap: pretty;
+  }
+  @media (max-width: 640px) {
+    .aviso { flex-direction: column; gap: 0.9rem; }
+  }
+
+  .aviso--claro {
+    background: var(--surface-alt);
+    border-color: var(--border);
+  }
+  .aviso--claro .aviso-icone {
+    background: var(--accent);
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(81,35,164,0.28);
+  }
+  .aviso--claro .aviso-selo {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  /* ── Números ──────────────────────────────── */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 0.9rem;
+  }
+  @media (max-width: 760px) {
+    .stat-grid { grid-template-columns: 1fr; }
+  }
+  .stat {
+    background: var(--gold-light);
+    border: 1px solid var(--gold);
+    border-radius: var(--radius);
+    padding: 1.1rem 1.2rem 1.2rem;
+  }
+  .stat-num {
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--gold-ink);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .stat-desc {
+    font-size: 0.8rem;
+    line-height: 1.55;
+    color: #000000;
+  }
+  .fonte {
+    font-size: 11px;
+    line-height: 1.6;
+    color: #000000;
+    margin-top: 0.7rem;
+  }
+
+  .lista { list-style: none; display: grid; gap: 8px; }  .lista li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--ink);
+  }
+  .lista li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 9px;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  /* tabela comparativa */
+  .tabela { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .tabela th, .tabela td {
+    text-align: left;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--border);
+    line-height: 1.6;
+    vertical-align: top;
+  }
+  .tabela thead th {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--surface-alt);
+    border-bottom: 1px solid var(--border);
+  }
+  .tabela tbody th {
+    font-weight: 600;
+    color: #000000;
+    width: 26%;
+  }
+  .tabela-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius); }
+  .tabela tbody tr:last-child th, .tabela tbody tr:last-child td { border-bottom: none; }
+
+  /* placeholder de conteúdo */
+  .todo {
+    border: 1px dashed var(--ink-faint);
+    border-radius: var(--radius);
+    background: var(--surface-alt);
+    color: #000000;
+    font-size: 12px;
+    line-height: 1.7;
+    padding: 1rem 1.15rem;
+  }
+  .todo-label {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold-ink);
+    background: var(--gold-light);
+    border: 1px solid var(--gold);
+    border-radius: 5px;
+    padding: 2px 8px;
+    margin-bottom: 0.6rem;
+  }
+  .todo + .todo { margin-top: 0.75rem; }
+  .block-head + .todo { margin-top: 0.5rem; }
+
+  /* ── Rodapé ─────────────────────────────── */
+  .foot {
+    background: var(--accent);
+    margin-top: 0;
+    padding: 2.25rem 1.5rem;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: #ffffff;
+  }
+
+  @media (max-width: 900px) {
+    h1 { font-size: 46px; }
+  }
+
+  @media (max-width: 640px) {
+    h1 { font-size: 34px; }
+    .page-header { padding: 2.25rem 0 2.5rem; }
+    .logo { width: 100px; }
+    .logo-wrap { margin-bottom: 1.5rem; }
+    .piece-body { padding: 1.15rem; }
+    .piece-head { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .piece-title { font-size: 19px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; scroll-behavior: auto !important; }
+  }
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="wrap">
+    <div class="logo-wrap">
+      <svg class="logo" role="img" aria-label="POK" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 197.3">
+        
+        <path d="M131.4,27.2c0-5.4-4.4-9.9-9.9-9.9H5.9c-3.3,0-5.9,2.6-5.9,5.9v115.6c0,5.5,4.4,9.9,9.9,9.9s9.9-4.4,9.9-9.9V42.3c0-2.9,2.3-5.2,5.2-5.2h96.6c5.3,0,9.8-4.4,9.8-9.9ZM164.8,60.6c-5.4,0-9.9,4.4-9.9,9.9v96.6c0,2.9-2.3,5.2-5.2,5.2H53.1c-5.4,0-9.9,4.4-9.9,9.9s4.4,9.9,9.9,9.9h115.6c3.3,0,5.9-2.6,5.9-5.9v-115.7c0-5.5-4.4-9.9-9.8-9.9ZM103.7,76l-23.9,35.8c-.9,1.4-2.8,1.6-4,.4l-9.9-9.9c-3.5-3.5-9.1-3.5-12.5,0-3.5,3.5-3.5,9.1,0,12.5l20.1,20.1c3.8,3.8,10.1,3.2,13.1-1.3l31.9-47.8c2.7-4.1,1.6-9.6-2.5-12.3-4.1-2.6-9.6-1.5-12.3,2.5ZM329.1,49.1c-7.4-4.8-15.9-7.2-25.5-7.2-6,0-11.9,1.2-17.5,3.5-5.5,2.3-10.1,5.3-14,9-1.1,1-2,2.1-2.9,3.2l-.2-13.9h-24.7v153.6h25.3v-58.3c.5.5.9,1,1.4,1.5,4,4,8.8,7.2,14.6,9.7,5.9,2.5,12,3.7,18.3,3.7,9.5,0,17.9-2.4,25.3-7.2,7.5-4.9,13.4-11.6,17.7-19.9,4.2-8.5,6.4-18.2,6.4-29s-2.2-20.4-6.6-28.8c-4.1-8.4-10-15.1-17.6-19.9ZM325.2,115.3c-2.6,5.1-6.2,9-10.7,11.9s-9.7,4.3-15.4,4.3c-6,0-11.3-1.4-15.8-4.3-4.5-2.9-8.1-6.9-10.7-11.9-2.6-5.1-3.9-10.9-3.9-17.5s1.3-12.4,3.9-17.5,6.2-9,10.7-11.9,9.8-4.3,15.8-4.3,11.1,1.5,15.6,4.5c4.5,2.9,8,6.9,10.5,11.9,2.6,4.9,3.9,10.7,3.9,17.3s-1.3,12.5-3.9,17.5ZM449.9,48.9c-8.5-4.9-18.1-7.4-28.8-7.4s-20.5,2.5-29,7.4c-8.5,4.8-15.2,11.4-20.1,19.9-4.8,8.5-7.2,18.2-7.2,29s2.4,20.5,7.2,29c4.9,8.5,11.6,15.2,20.1,20.1,8.5,4.8,18.2,7.2,29,7.2s20.3-2.4,28.8-7.2c8.5-4.9,15.1-11.6,19.9-20.1,4.9-8.5,7.4-18.2,7.4-29s-2.5-20.5-7.4-29c-4.7-8.4-11.4-15.1-19.9-19.9ZM447.9,115.3c-2.6,5.1-6.2,9.1-10.9,12.1-4.7,2.9-9.9,4.3-15.8,4.3s-11.2-1.4-16-4.3c-4.7-3-8.3-7.1-10.9-12.1-2.6-5.2-3.9-11-3.9-17.5s1.3-12.2,3.9-17.3c2.6-5.2,6.2-9.3,10.9-12.1,4.8-3,10.1-4.5,16-4.5s11.2,1.4,15.8,4.3c4.7,2.9,8.3,6.9,10.9,12.1,2.7,5.1,4,10.9,3.9,17.5.1,6.5-1.2,12.3-3.9,17.5ZM548.8,91.2l50.6-47.5h-33.5l-45,45V0h-25.1v152.1h25.1v-34.6l10.9-10.2,37,44.9h31.2l-51.2-61Z"/>
+      </svg>
+    </div>
+
+    <div class="eyebrow">POK · Campanha de Egressos e Empregabilidade</div>
+    <h1>Do diploma às credenciais verificáveis por <span class="destaque">competências</span>: o que sua instituição entrega ao <span class="destaque">mercado</span></h1>
+
+    <nav class="toc" aria-label="Índice das seções">
+      <a href="#campanha"><span class="toc-num">01</span><span class="toc-label">A campanha</span></a>
+      <a href="#credencial"><span class="toc-num">02</span><span class="toc-label">Credencial verificável</span></a>
+      <a href="#beneficios-estudantes"><span class="toc-num">03</span><span class="toc-label">Estudantes e egressos</span></a>
+      <a href="#beneficios-instituicoes"><span class="toc-num">04</span><span class="toc-label">Instituições</span></a>
+      <a href="#pok-mec"><span class="toc-num">05</span><span class="toc-label">POK + diploma MEC</span></a>
+      <a href="#casos-latam"><span class="toc-num">06</span><span class="toc-label">Casos de uso Latam</span></a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- ═══ 1 · Campanha ═══ -->
+  <section class="piece" id="campanha">
+    <div class="piece-head">
+      <span class="piece-tag">01</span>
+      <h2 class="piece-title">O que é a campanha de egressos e empregabilidade</h2>
+    </div>
+    <p class="piece-note" style="font-size: 14px;">A campanha de Egressos e Empregabilidade é uma ação da <a href="https://pok.tech/" target="_blank" rel="noopener">POK – Proof of Knowledge</a> – junto a instituições de ensino para reconectar cada instituição aos seus egressos através do envio de credenciais verificáveis. A credencial reconhece a formação já concluída e faz uma releitura a partir da <strong>competência profissional</strong> desenvolvida na graduação. Ela chega ao egresso e passa a circular no mercado de trabalho, com verificação aberta a qualquer empregador.</p>
+
+    <div class="piece-body">
+      <div class="block-head">Como funciona</div>
+      <div class="card-grid">
+        <div class="card card--roxo">
+          <div class="card-num">1</div>
+          <div class="card-title">Escolha dos cursos e desenho da credencial</div>
+          <p class="card-desc">POK e instituição selecionam um ou mais cursos cujos egressos receberão a credencial. Cada credencial é uma releitura do diploma: além do título obtido, ela explicita as competências adquiridas ao longo da graduação.</p>
+        </div>
+        <div class="card card--roxo">
+          <div class="card-num">2</div>
+          <div class="card-title">Campanha e envio à base de egressos</div>
+          <p class="card-desc">As duas equipes montam uma campanha com ações antes, durante e depois do envio das credenciais. O objetivo é que o egresso receba, aceite e compartilhe a credencial em suas redes profissionais.</p>
+        </div>
+        <div class="card card--roxo">
+          <div class="card-num">3</div>
+          <div class="card-title">Leitura de dados de empregabilidade</div>
+          <p class="card-desc">A partir do compartilhamento, os dados de empregabilidade dos egressos – novas posições, promoções e mudanças de trajetória – ficam disponíveis na conta da instituição na plataforma POK, com atualização contínua.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 2 · Credencial verificável ═══ -->
+  <section class="piece" id="credencial">
+    <div class="piece-head">
+      <span class="piece-tag">02</span>
+      <h2 class="piece-title">O que é uma credencial verificável</h2>
+    </div>
+    <p class="piece-note" style="font-size: 14px;">Uma credencial verificável é um registro digital de uma conquista educacional que carrega dentro de si a prova de que é autêntico. Ela vai além do nome do curso: descreve as <strong>competências profissionais</strong> que a pessoa desenvolveu, os critérios usados para reconhecê-las e quem as atestou. Qualquer pessoa que receba a credencial consegue checar, em segundos, quem emitiu, para quem, quando e se continua válida.</p>
+
+    <div class="piece-body">
+      <div class="block-head">Os três papéis</div>
+      <div class="card-grid">
+        <div class="card card--roxo">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M12 3 21 8H3l9-5Z"/><path d="M6 8v13"/><path d="M10 8v13"/><path d="M14 8v13"/><path d="M18 8v13"/></svg></div>
+          <div class="card-eyebrow">Emissor</div>
+          <div class="card-title">A instituição que reconhece</div>
+          <p class="card-desc">A universidade, a escola ou a organização que atesta a formação. É ela quem define o que a credencial afirma e assina esse registro digitalmente.</p>
+        </div>
+        <div class="card card--roxo">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2.5"/><path d="M3 10.5h18"/><circle cx="16.5" cy="15.5" r="1.5"/></svg></div>
+          <div class="card-eyebrow">Portador</div>
+          <div class="card-title">A pessoa que recebe e guarda</div>
+          <p class="card-desc">O egresso recebe a credencial em sua carteira digital e decide o que fazer com ela – guardar, compartilhar em uma rede profissional ou enviar a um empregador específico.</p>
+        </div>
+        <div class="card card--roxo">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v6c0 4.2 3 7.6 7.5 9 4.5-1.4 7.5-4.8 7.5-9V6L12 3Z"/><path d="M9 12.2l2.1 2.1L15.3 10"/></svg></div>
+          <div class="card-eyebrow">Verificador</div>
+          <div class="card-title">Quem confere sem depender de ninguém</div>
+          <p class="card-desc">Empregadores, plataformas de recrutamento e outras instituições checam a autenticidade da credencial de forma direta, sem precisar entrar em contato com quem emitiu.</p>
+        </div>
+      </div>
+
+      <div class="block-head">Padrões abertos</div>
+      <p class="texto">As credenciais emitidas pela POK seguem o Open Badge 3.0, do consórcio 1EdTech, e o padrão W3C Verifiable Credentials – as mesmas especificações adotadas internacionalmente por universidades, governos e plataformas de contratação. Isso significa que a credencial não fica presa a um único fornecedor: ela é legível por qualquer sistema compatível, no Brasil ou fora dele, e continua verificável mesmo que o portador mude de plataforma.</p>
+
+      <div class="block-head">O que muda na prática</div>
+      <div class="card-grid card-grid--four">
+        <div class="card">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3 1.8"/></svg></div>
+          <div class="card-title">Verificação imediata</div>
+          <p class="card-desc">A checagem é feita pelo próprio documento, em segundos, sem intermediários e sem espera por confirmação.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M7.5 10.5 9.8 12.5 7.5 14.5"/><path d="M12.5 15h4"/></svg></div>
+          <div class="card-title">Legível por máquina</div>
+          <p class="card-desc">Competências e critérios vêm em campos estruturados, que sistemas de recrutamento conseguem ler automaticamente.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z"/><path d="M4.5 20.3a7.5 7.5 0 0 1 15 0"/></svg></div>
+          <div class="card-title">Controle do portador</div>
+          <p class="card-desc">É o egresso quem guarda a credencial e decide quando compartilhar, com quem e em quais canais.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v6c0 4.2 3 7.6 7.5 9 4.5-1.4 7.5-4.8 7.5-9V6L12 3Z"/><path d="M9 12.2l2.1 2.1L15.3 10"/></svg></div>
+          <div class="card-title">Validade permanente</div>
+          <p class="card-desc">A credencial segue verificável ao longo do tempo e pode ser revogada pelo emissor caso necessário.</p>
+        </div>
+      </div>
+
+      <div class="btn-row" style="justify-content:center;">
+        <a class="btn" href="https://certificates.the-world-university.com/c/5b7dd714-80e5-4c21-8beb-13130c3d0478" target="_blank" rel="noopener">Veja um exemplo de credencial verificável</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 3 · Benefícios para estudantes e egressos ═══ -->
+  <section class="piece" id="beneficios-estudantes">
+    <div class="piece-head">
+      <span class="piece-tag">03</span>
+      <h2 class="piece-title">Credenciais verificáveis: benefícios para os estudantes e egressos</h2>
+    </div>
+    <p class="piece-note" style="font-size: 14px;">Para quem recebe, a credencial verificável muda a natureza do documento: ela vira uma <strong>prova ativa de competência</strong>, que circula, é verificada por terceiros e acompanha a pessoa ao longo da carreira.</p>
+
+    <div class="piece-body">
+      <div class="card-grid">
+        <a class="img-card" href="https://pokbrasil.github.io/marketing/pok_linkedin_landing.html" target="_blank" rel="noopener">
+          <div class="img-card-frame">
+            <img src="https://pokbrasil.github.io/content/landing-linkedin.png" alt="Perfil do LinkedIn com credenciais POK na seção Licenças e Certificações">
+          </div>
+          <div class="img-card-body">
+            <div class="img-card-title">Visibilidade onde o recrutador procura</div>
+            <p class="img-card-desc">A credencial entra na seção Licenças e Certificações do LinkedIn e também pode ser publicada como post. O perfil deixa de ser um currículo e passa a mostrar evidências verificáveis da trajetória.</p>
+            <span class="img-card-acao">Como compartilhar no LinkedIn</span>
+          </div>
+        </a>
+
+        <a class="img-card" href="https://pokbrasil.github.io/marketing/pok_holder_landing.html" target="_blank" rel="noopener">
+          <div class="img-card-frame">
+            <img src="https://pokbrasil.github.io/content/landing-pokholder.png" alt="Carteira digital POK Holder com credenciais organizadas">
+          </div>
+          <div class="img-card-body">
+            <div class="img-card-title">Todas as conquistas em uma carteira</div>
+            <p class="img-card-desc">O POK Holder reúne credenciais de diferentes instituições em um só ambiente, na web e em aplicativo. Cada credencial pode ser pública ou privada – é o portador quem decide o que exibir e com quem compartilhar.</p>
+            <span class="img-card-acao">Conheça a POK Holder</span>
+          </div>
+        </a>
+
+        <a class="img-card" href="https://pokbrasil.github.io/marketing/pok_credencial_valor_landing.html" target="_blank" rel="noopener">
+          <div class="img-card-frame">
+            <img src="https://pokbrasil.github.io/content/lp-nft.png" alt="Credencial verificável POK com padrões internacionais e verificação pública">
+          </div>
+          <div class="img-card-body">
+            <div class="img-card-title">Uma credencial que é sua de verdade</div>
+            <p class="img-card-desc">Construída sobre Open Badge 3.0 e Europass, a credencial tem URL pública de verificação e não fica presa ao portal da instituição. Qualquer recrutador confirma a conquista com um clique, no Brasil ou no exterior.</p>
+            <span class="img-card-acao">Por que a credencial vale mais</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="block-head">Por que a visibilidade profissional importa</div>
+      <div class="stat-grid">
+        <div class="stat">
+          <div class="stat-num">87%</div>
+          <p class="stat-desc">dos recrutadores utilizam o LinkedIn para encontrar candidatos</p>
+        </div>
+        <div class="stat">
+          <div class="stat-num">33×</div>
+          <p class="stat-desc">mais contatos de recrutadores ao listar habilidades verificadas</p>
+        </div>
+        <div class="stat">
+          <div class="stat-num">21×</div>
+          <p class="stat-desc">mais visualizações em perfis completos, com foto e credenciais</p>
+        </div>
+      </div>
+      <p class="fonte">Fontes: Jobscan (2024) · ResumeGo / Fortune (2019) · LinkedIn / CNBC (2023)</p>
+
+    </div>
+  </section>
+
+  <!-- ═══ 4 · Benefícios para as instituições ═══ -->
+  <section class="piece" id="beneficios-instituicoes">
+    <div class="piece-head">
+      <span class="piece-tag">04</span>
+      <h2 class="piece-title">Credenciais verificáveis: benefícios para as instituições</h2>
+    </div>
+    <p class="piece-note" style="font-size: 14px;">Para a instituição, a credencial verificável deixa de ser um item de encerramento do curso e passa a ser um canal permanente: mantém o vínculo com o aluno ou egresso, leva a marca ao mercado e devolve dados sobre o que aconteceu depois da formatura.</p>
+
+    <div class="piece-body">
+      <div class="card-grid">
+        <div class="card card--roxo">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16"/><path d="M6.5 19.5v-5"/><path d="M11 19.5V9"/><path d="M15.5 19.5v-7"/><path d="M20 19.5V5.5"/></svg></div>
+          <div class="card-title">Dados de empregabilidade</div>
+          <p class="card-desc">A partir do compartilhamento das credenciais, a instituição acompanha na própria conta a trajetória dos egressos – novas posições, promoções e mudanças de carreira – com atualização contínua.</p>
+        </div>
+        <div class="card card--roxo">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5a8.5 8.5 0 1 0 8.5 8.5"/><path d="M12 8a4 4 0 1 0 4 4"/><path d="M12 12l7-7"/><path d="M16.5 5.2 19 5l-.2 2.5"/></svg></div>
+          <div class="card-title">Marketing institucional orgânico</div>
+          <p class="card-desc">Cada credencial compartilhada leva a marca da instituição ao feed e ao perfil do egresso, com verificação pública. É alcance qualificado, gerado por quem já se formou.</p>
+        </div>
+        <div class="card card--roxo">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 7.5a3.5 3.5 0 1 0-7 0 3.5 3.5 0 0 0 7 0Z"/><path d="M4 20a8 8 0 0 1 12.5-6.6"/><path d="M15.5 18.5l2 2 3.5-4"/></svg></div>
+          <div class="card-title">Reconexão com a base de egressos</div>
+          <p class="card-desc">A campanha reabre o contato com quem já se formou e devolve motivo de retorno – atualização cadastral, novas ofertas de pós-graduação e educação continuada.</p>
+        </div>
+        <div class="card card--roxo">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v6c0 4.2 3 7.6 7.5 9 4.5-1.4 7.5-4.8 7.5-9V6L12 3Z"/><path d="M9 12.2l2.1 2.1L15.3 10"/></svg></div>
+          <div class="card-title">Integridade e fim da validação manual</div>
+          <p class="card-desc">A verificação acontece de forma pública e automática. Empresas e outras instituições deixam de acionar a secretaria acadêmica para confirmar documentos, e a falsificação perde espaço.</p>
+        </div>
+        <div class="card card--roxo">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 5.5h15"/><path d="M4.5 5.5v10.5c0 1.9 1.6 3.5 3.5 3.5h8c1.9 0 3.5-1.6 3.5-3.5V5.5"/><path d="M9 9.5h6"/><path d="M9 13h4"/></svg></div>
+          <div class="card-title">Competências explicitadas no currículo</div>
+          <p class="card-desc">Descrever competências em campos estruturados aproxima a emissão das Diretrizes Curriculares por competências e gera insumo concreto para revisão de PPC e processos de avaliação.</p>
+        </div>
+        <div class="card card--destaque">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h5v5.5a1.6 1.6 0 1 0 0 3.2V18a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 4 18V5.5Z"/><path d="M13.5 4h5A1.5 1.5 0 0 1 20 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-5"/></svg></div>
+          <div class="card-title">Credencial e diploma em um produto só</div>
+          <p class="card-desc">A partir de novembro de 2026, a mesma emissão atende à obrigação legal do diploma digital e à comunicação de competências ao mercado. Um fornecedor, um fluxo, um documento.</p>
+        </div>
+      </div>
+
+      <div class="painel">
+        <div class="painel-head">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="16" rx="2.5"/>
+            <path d="M3 9h18"/><path d="M9 20V9"/>
+            <path d="M12.5 16.5l2.2-2.6 1.8 1.4 2-3"/>
+          </svg>
+          <span class="painel-titulo">Painel de empregabilidade</span>
+        </div>
+
+        <div class="painel-body">
+          <p class="texto">Os dados da campanha chegam à instituição em um painel interativo, dentro da própria conta na plataforma POK. A leitura é construída a partir dos perfis públicos do LinkedIn dos portadores que compartilharam suas credenciais, relidos periodicamente para detectar novos empregos e promoções. Os resultados podem ser recortados por diferentes filtros e exportados em CSV para cruzamento com as bases internas.</p>
+
+          <div class="painel-filtros">
+            <span class="chip">Trilha</span>
+            <span class="chip">Curso</span>
+            <span class="chip">Competência</span>
+            <span class="chip">Ano de emissão</span>
+            <span class="chip">Mudança profissional</span>
+            <span class="chip">Modelo de trabalho</span>
+            <span class="chip">Localização</span>
+          </div>
+
+          <div class="card-grid card-grid--four" style="margin-top:1.3rem">
+        <div class="card card--medio">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16"/><path d="M6.5 19.5v-5"/><path d="M11 19.5V9"/><path d="M15.5 19.5v-7"/><path d="M20 19.5V5.5"/></svg></div>
+          <div class="card-title">Visão executiva</div>
+          <p class="card-desc">Volume de credenciais no recorte, taxa de mobilidade profissional, novos empregos, promoções e tempo médio até a mudança.</p>
+        </div>
+        <div class="card card--medio">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.2V12l3.2 1.9"/></svg></div>
+          <div class="card-title">Jornada profissional</div>
+          <p class="card-desc">Linha do tempo acumulada das transições em janelas de 60 a 365 dias, com composição das mudanças, empresas de destino e cargos mais frequentes.</p>
+        </div>
+        <div class="card card--medio">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 5.5h15"/><path d="M4.5 5.5v10.5c0 1.9 1.6 3.5 3.5 3.5h8c1.9 0 3.5-1.6 3.5-3.5V5.5"/><path d="M9 9.5h6"/><path d="M9 13h4"/></svg></div>
+          <div class="card-title">Cursos e competências</div>
+          <p class="card-desc">Comparação de mobilidade entre cursos e competências certificadas, sempre com o tamanho da amostra visível para leitura honesta do dado.</p>
+        </div>
+        <div class="card card--medio">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 7.5a3.5 3.5 0 1 0-7 0 3.5 3.5 0 0 0 7 0Z"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></svg></div>
+          <div class="card-title">Trilha, curso e competência</div>
+          <p class="card-desc">Todas as leituras acima podem ser recortadas por trilha formativa, curso ou competência certificada, para comparar a mobilidade entre eles.</p>
+        </div>
+          </div>
+
+          <div class="painel-divisor">
+            <div class="block-head" style="margin-top:0">Leituras ocupacionais através da parceria com a Serasa Experian</div>
+            <p class="texto">Além dos sinais profissionais do LinkedIn, o painel incorpora indicadores agregados de ocupação formal e faixa de renda estimada em base de dados de mercado de trabalho. Todas as leituras são consolidadas por trilha, curso ou competência – nunca em nível individual identificável.</p>
+
+            <div class="card-grid card-grid--four">
+        <div class="card card--medio">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.3l2.3 2.3 4.7-5.2"/></svg></div>
+          <div class="card-title">Ocupação registrada</div>
+          <p class="card-desc">Por trilha, curso ou competência: quantos egressos aparecem com ocupação formal registrada em base de dados de mercado de trabalho.</p>
+        </div>
+        <div class="card card--medio">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17.5 9 12l3.5 3.5L20 7"/><path d="M15.5 7H20v4.5"/><path d="M4 20.5h16"/></svg></div>
+          <div class="card-title">Progressão de renda</div>
+          <p class="card-desc">Por trilha, curso ou competência: quantos egressos subiram ao menos uma faixa de renda estimada desde a emissão da credencial.</p>
+        </div>
+        <div class="card card--medio">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 19.5h15"/><path d="M7 19.5v-6.5h4.5v6.5"/><path d="M12.5 19.5v-10H17v10"/><path d="M9.2 9.2 12.2 6l3 3"/></svg></div>
+          <div class="card-title">Empreendedorismo após a credencial</div>
+          <p class="card-desc">Por trilha, curso ou competência: quantos egressos abriram MEI ou se tornaram sócios de empresa depois de receber a credencial.</p>
+        </div>
+        <div class="card card--medio">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8l6 6 4-4 6 7"/><path d="M20 12v5h-5"/></svg></div>
+          <div class="card-title">Ocupação abaixo do nível da formação</div>
+          <p class="card-desc">Por trilha, curso ou competência: quantos egressos com ocupação registrada atuam em nível inferior ao da própria formação.</p>
+        </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ 5 · POK + diploma digital MEC ═══ -->
+  <section class="piece" id="pok-mec">
+    <div class="piece-head">
+      <span class="piece-tag">05</span>
+      <h2 class="piece-title">POK: credencial verificável + diploma digital MEC</h2>
+    </div>
+    <p class="piece-note" style="font-size: 14px;">O diploma digital e a credencial verificável resolvem problemas diferentes. O diploma digital é o registro com validade jurídica, obrigatório para os cursos de graduação do Sistema Federal de Ensino desde julho de 2025, conforme a Portaria MEC nº 70/2025. A credencial verificável é a camada que comunica ao mercado o que a pessoa sabe fazer. A partir de novembro de 2026, essas duas camadas passam a caber em um mesmo documento na POK</p>
+
+    <div class="piece-body">
+      <div class="block-head">Duas camadas, funções distintas</div>
+      <div class="card-grid card-grid--two">
+        <div class="card">
+          <div class="card-eyebrow">Diploma digital</div>
+          <div class="card-title">O registro que comprova a formação</div>
+          <p class="card-desc">Documento acadêmico de existência exclusivamente eletrônica, assinado com certificado ICP-Brasil e carimbo de tempo, nos padrões definidos pelo MEC. Responde à pergunta jurídica: esta pessoa concluiu este curso nesta instituição.</p>
+        </div>
+        <div class="card card--destaque">
+          <div class="card-eyebrow">Credencial verificável</div>
+          <div class="card-title">O registro que comunica competências</div>
+          <p class="card-desc">Registro em padrões abertos que descreve o que a pessoa desenvolveu ao longo do curso, em campos que sistemas de recrutamento conseguem ler. Responde à pergunta do mercado: o que esta pessoa sabe fazer.</p>
+        </div>
+      </div>
+
+      <div class="block-head">A partir de novembro de 2026</div>
+      <p class="texto">As credenciais verificáveis emitidas pela POK poderão ter valor de diploma digital, validadas pelo MEC. Na prática, o mesmo documento que o egresso compartilha no LinkedIn passa a ser também o diploma dele – sem duplicidade de sistemas, de processos ou de fornecedores.</p>
+
+      <div class="block-head">O que isso muda para a instituição</div>
+      <div class="card-grid card-grid--four">
+        <div class="card card--roxo">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h5v5.5a1.6 1.6 0 1 0 0 3.2V18a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 4 18V5.5Z"/><path d="M13.5 4h5A1.5 1.5 0 0 1 20 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-5"/></svg></div>
+          <div class="card-title">Um serviço no lugar de dois</div>
+          <p class="card-desc">A instituição deixa de manter uma solução para emitir diplomas e outra para emitir credenciais. Emissão, registro e compartilhamento acontecem no mesmo ambiente.</p>
+        </div>
+        <div class="card card--roxo">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h9A1.5 1.5 0 0 1 16 5.5V13"/><path d="M4 5.5V17a2.5 2.5 0 0 0 2.5 2.5h5"/><path d="M7.5 8h5"/><path d="M7.5 11h3"/><circle cx="17" cy="16.5" r="3"/><path d="M15.4 19v3l1.6-1 1.6 1v-3"/></svg></div>
+          <div class="card-title">Diploma que mostra competências</div>
+          <p class="card-desc">O aluno recebe seu diploma em formato de credencial verificável, com destaque para as competências adquiridas ao longo da graduação, e não apenas para o título obtido.</p>
+        </div>
+        <div class="card card--roxo">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16"/><path d="M6.5 19.5v-5"/><path d="M11 19.5V9"/><path d="M15.5 19.5v-7"/><path d="M20 19.5V5.5"/></svg></div>
+          <div class="card-title">Empregabilidade a partir do diploma</div>
+          <p class="card-desc">Como o diploma passa a circular como credencial, os dados de empregabilidade dos egressos ficam disponíveis na conta da instituição a partir da emissão regular.</p>
+        </div>
+        <div class="card card--roxo">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="6.5" r="2.2"/><circle cx="12" cy="17.5" r="2.2"/><circle cx="18.5" cy="6.5" r="2.2"/><path d="M7.7 6.5h8.6"/><path d="M6.4 8.6l4.5 7.1"/><path d="M17.6 8.6l-4.5 7.1"/></svg></div>
+          <div class="card-title">Trilhas formativas completas</div>
+          <p class="card-desc">A instituição pode reconhecer competências ao longo de toda a jornada do aluno, com credenciais intermediárias, e fechar a trilha com a credencial final equivalente ao diploma.</p>
+        </div>
+      </div>
+
+      <div class="aviso">
+        <div class="aviso-icone" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="11" width="16" height="21" rx="2.5"/>
+            <path d="M8.5 17.5h7"/><path d="M8.5 22h5"/><path d="M8.5 26.5h7"/>
+            <path d="M23.5 21.5h7.5"/><path d="M28 18.5l3.5 3-3.5 3"/>
+            <circle cx="37.5" cy="27" r="7"/>
+            <path d="M34 33v9l3.5-2.4L41 42v-9"/>
+            <path d="M35.4 27.1l1.7 1.7 3.1-3.4"/>
+          </svg>
+        </div>
+        <div>
+          <span class="aviso-selo">A partir de 2027</span>
+          <div class="aviso-titulo">Conversor de diploma digital em credencial verificável</div>
+          <p class="aviso-texto">A POK está desenvolvendo uma ferramenta que transforma diplomas digitais já emitidos em credenciais verificáveis. A instituição poderá oferecê-la como serviço aos seus alunos e egressos, sem reemitir documentos nem alterar o que já está registrado.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 6 · Casos de uso Latam ═══ -->
+  <section class="piece" id="casos-latam">
+    <div class="piece-head">
+      <span class="piece-tag">06</span>
+      <h2 class="piece-title">Casos de Uso Latam</h2>
+    </div>
+    <p class="piece-note" style="font-size: 14px;">A campanha brasileira se apoia em uma infraestrutura já rodando na América Latina. Universidades públicas e privadas, programas corporativos e iniciativas de desenvolvimento territorial usam a POK para reconhecer competências e acompanhar o que acontece depois da formação.</p>
+
+    <div class="piece-body">
+      <div class="stat-grid">
+        <div class="stat">
+          <div class="stat-num">1.100+</div>
+          <p class="stat-desc">instituições emitindo credenciais na plataforma</p>
+        </div>
+        <div class="stat">
+          <div class="stat-num">19</div>
+          <p class="stat-desc">países com implementações ativas</p>
+        </div>
+        <div class="stat">
+          <div class="stat-num">1,5M+</div>
+          <p class="stat-desc">credenciais digitais já emitidas</p>
+        </div>
+      </div>
+
+      <div class="block-head">Casos</div>
+      <div class="card-grid card-grid--casos">
+        <a class="img-card" href="https://pokbrasil.github.io/marketing/POK-CasoSucesso-UABC.pdf" target="_blank" rel="noopener">
+          <div class="img-card-body">
+            <div class="card-eyebrow">México</div>
+            <div class="img-card-title">Universidad Autónoma de Baja California</div>
+            <p class="img-card-desc">Primeira instituição pública do México a desenhar uma estratégia integral de microcredenciais. A universidade criou uma tipologia própria por carga horária – curta, intermediária e estendida – aplicada a habilidades digitais, idiomas, saúde, competências socioemocionais e formação docente. São mais de 135 microcredenciais ativas, 1.200 estudantes alcançados e meta de superar 15 mil credenciais emitidas.</p>
+            <span class="img-card-acao">Ler o caso completo</span>
+          </div>
+        </a>
+
+        <a class="img-card" href="https://pokbrasil.github.io/marketing/POK-CasoSucesso-UniversidadEan.pdf" target="_blank" rel="noopener">
+          <div class="img-card-body">
+            <div class="card-eyebrow">Colômbia</div>
+            <div class="img-card-title">Universidad Ean</div>
+            <p class="img-card-desc">Antes da POK, a certificação era um PDF assinado, validado manualmente por e-mail, um pedido de cada vez. A universidade substituiu isso por um ecossistema de reconhecimento: emissão de coortes inteiras em uma operação, verificação em um clique e credenciais em inteligência artificial, empreendedorismo, sustentabilidade e indústrias criativas. Um dos programas reúne participantes de Colômbia, México e Equador sob a mesma credencial.</p>
+            <span class="img-card-acao">Ler o caso completo</span>
+          </div>
+        </a>
+
+        <a class="img-card" href="https://pokbrasil.github.io/marketing/POK-CasoSucesso-UniversidadSantoTomas.pdf" target="_blank" rel="noopener">
+          <div class="img-card-body">
+            <div class="card-eyebrow">Colômbia</div>
+            <div class="img-card-title">Universidad Santo Tomás · Seccional Tunja</div>
+            <p class="img-card-desc">A primeira universidade da Colômbia construiu o SantotoUP, um modelo institucional com instrutivo próprio que regula validação, aprovação, emissão, custódia e verificação. As credenciais são acumuláveis em três níveis – nanocredencial, microcredencial e macrocredencial – e homologáveis em graduação e pós. Mais de 800 credenciais emitidas, 9 rotas certificadas e 200 carteiras digitais de graduados.</p>
+            <span class="img-card-acao">Ler o caso completo</span>
+          </div>
+        </a>
+
+        <a class="img-card" href="https://pokbrasil.github.io/marketing/POK-CasoSucesso-NestleESPOL.pdf" target="_blank" rel="noopener">
+          <div class="img-card-body">
+            <div class="card-eyebrow">Equador · Nestlé e ESPOL</div>
+            <div class="img-card-title">Herederos del Campo · cadeia do cacau</div>
+            <p class="img-card-desc">Programa de sucessão geracional no agronegócio cacaueiro. As competências dos jovens produtores – técnicas de cultivo, gestão de custos, liderança associativa e práticas ambientais – são avaliadas em campo, com fotografia, geolocalização e dados de rendimento, e transformadas em credenciais verificáveis por compradores, bancos e órgãos públicos.</p>
+            <span class="img-card-acao">Ler o caso completo</span>
+          </div>
+        </a>
+
+        <a class="img-card" href="https://pokbrasil.github.io/marketing/POK-CasoSucesso-UniversidadInsurgentes.pdf" target="_blank" rel="noopener">
+          <div class="img-card-body">
+            <div class="card-eyebrow">México</div>
+            <div class="img-card-title">Universidad Insurgentes</div>
+            <p class="img-card-desc">A UIN começou reconhecendo os próprios docentes, com trilhas ligadas ao seu modelo de avaliação e excelência docente, e depois estendeu o modelo aos estudantes. Ao fim de 2025 eram mais de mil insígnias emitidas, 430 docentes de 20 unidades, 85% de credenciais baixadas, 47% publicadas no LinkedIn e mais de 2.300 visualizações em redes profissionais.</p>
+            <span class="img-card-acao">Ler o caso completo</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<div class="foot">POK • muito mais que credenciais verificáveis</div>
+
+</body>
+</html>
