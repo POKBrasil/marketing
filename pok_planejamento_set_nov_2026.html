@@ -325,6 +325,7 @@
   .chip-fe  { background: #ECE7E1; color: #6B5B4A; }
   .chip-rl  { background: #ECE7E1; color: #6B5B4A; }
   .chip-pt  { background: #FFE8CC; color: #A34E00; }
+  .chip-hs  { background: #F3E1FA; color: #7C2D92; }
   .chip-more {
     font-size: 9.5px;
     color: var(--ink-faint);
@@ -735,12 +736,13 @@
   <div class="leg-item"><div class="leg-dot" style="background:#0F7A63"></div>Envio Vitru</div>
   <div class="leg-item"><div class="leg-dot" style="background:#B3125F"></div>Envio Anima</div>
   <div class="leg-item"><div class="leg-dot" style="background:#9A6B00"></div>Levantamento de dados</div>
-  <div class="leg-item"><div class="leg-dot" style="background:#B5540A"></div>Material impresso</div>
+  <div class="leg-item"><div class="leg-dot" style="background:#B5540A"></div>Material FNESP</div>
   <div class="leg-item"><div class="leg-dot" style="background:#06607A"></div>Aula UC Semesp</div>
   <div class="leg-item"><div class="leg-dot" style="background:#A3123C"></div>Masterclass Vitru</div>
   <div class="leg-item"><div class="leg-dot" style="background:#1D7A4F"></div>Produção de material</div>
   <div class="leg-item"><div class="leg-dot" style="background:#4A3A7A"></div>Assessoria de imprensa</div>
-  <div class="leg-item"><div class="leg-dot" style="background:#A34E00"></div>Pitch</div>
+  <div class="leg-item"><div class="leg-dot" style="background:#A34E00"></div>Material Intern Hub</div>
+  <div class="leg-item"><div class="leg-dot" style="background:#7C2D92"></div>Onboarding/Mkt HSM</div>
   <div class="leg-item"><div class="leg-dot" style="background:#6B5B4A"></div>Realocado</div>
   <div class="leg-item"><div class="leg-dot" style="background:#5123a4"></div>Evento</div>
   <div class="leg-item"><div class="leg-dot" style="background:#5123a4"></div>✓ Concluído</div>
@@ -864,36 +866,41 @@ function routineFor(colIdx) {
 // extras: dia -> { event, extraTasks:[...] }
 const SEP_EXTRAS = {
   1:  { skip:['li'] },
+  3:  { skip:['li'], extraTasks:[{t:'Onboarding/Mkt HSM',c:'hs'}] },
   4:  { extraTasks:[
           {t:'Post no LinkedIn — realocado da terça 01/09',c:'li'},
-          {t:'Enviar materiais para impressão — prazo de 4 dias úteis (gráfica)',c:'im'}
+          {t:'Enviar material do FNESP para impressão — prazo de 4 dias úteis (gráfica)',c:'im'}
         ] },
   7:  { event:'Feriado', skip:['o2o'], extraTasks:[{t:'Independência — sem envios. E-mail 1:1 remarcado para terça 08/09',c:'rl'}] },
-  8:  { extraTasks:[
+  8:  { skip:['li','nli'], extraTasks:[
           {t:'E-mail one to one (50 por semana) — realocado do feriado de 07/09',c:'o2o'},
-          {t:'Disparo Vitru — envio de credenciais (14 cursos Uniasselvi/UniCesumar)',c:'vt'}
+          {t:'Disparo Vitru — envio de credenciais (14 cursos Uniasselvi/UniCesumar)',c:'vt'},
+          {t:'Post no LinkedIn — HSM / Rock in Rio Academy',c:'li'},
+          {t:'Post no LinkedIn — Painel de Empregabilidade',c:'li'}
         ] },
-  9:  { extraTasks:[{t:'Disparo Vitru — envio de credenciais',c:'vt'}] },
-  10: { extraTasks:[{t:'Disparo Vitru — envio de credenciais',c:'vt'}] },
-  11: { extraTasks:[{t:'Disparo Vitru — envio de credenciais',c:'vt'},{t:'Retirada/conferência do material impresso',c:'im'}] },
+  9:  { skip:['li','alt'], extraTasks:[
+          {t:'Disparo Vitru — envio de credenciais',c:'vt'},
+          {t:'Newsletter por LinkedIn — realocada da terça 08/09',c:'nli'}
+        ] },
+  10: { skip:['nl'], extraTasks:[{t:'Disparo Vitru — envio de credenciais',c:'vt'}] },
+  11: { extraTasks:[
+          {t:'Disparo Vitru — envio de credenciais',c:'vt'},
+          {t:'Newsletter por e-mail — realocada da quinta 10/09',c:'nl'},
+          {t:'Retirada/conferência do material FNESP impresso',c:'im'}
+        ] },
   14: { extraTasks:[{t:'Levantamento de dados para o painel de empregabilidade (dia 1 de 2)',c:'lv'}] },
   15: { extraTasks:[{t:'Levantamento de dados — fechamento dos dados para a apresentação no FNESP',c:'lv'}] },
-  16: { event:'FNESP', extraTasks:[
-          {t:'Painel: Microcredenciais no Brasil e no Mundo',c:'ev'},
-          {t:'Apresentação: Pesquisa POK Egressos e Empregabilidade',c:'ev'},
-          {t:'Proposta: POK como Certificadora Oficial do FNESP',c:'ev'}
+  16: { event:'FNESP' },
+  17: { event:'FNESP', skip:['nl'] },
+  18: { extraTasks:[
+          {t:'Preparar material para a conversa com o Intern Hub (22/09)',c:'pt'},
+          {t:'Newsletter por e-mail — realocada da quinta 17/09',c:'nl'}
         ] },
-  17: { event:'FNESP', extraTasks:[
-          {t:'Espaço Coworking POK',c:'ev'},
-          {t:'Stand Santander — cursos certificados pela POK',c:'ev'}
-        ] },
-  18: { extraTasks:[{t:'Preparar pitch da conversa com o Internationalization Hub (22/09)',c:'pt'}] },
   21: { extraTasks:[
           {t:'Disparo Anima — envio de credenciais (6 instituições)',c:'an'},
           {t:'Briefing com a UC Semesp: campanha de matrículas do Programa POK de Trilhas Formativas (início 08/10)',c:'au'}
         ] },
   22: { event:'Intern Hub', extraTasks:[
-          {t:'Carolina Ferrés em conversa com o Intern Hub',c:'ev'},
           {t:'Disparo Anima — envio de credenciais',c:'an'},
           {t:'Briefing com a Vitru: Masterclass Carreira 5.0 (UniCesumar 08/10 e Uniasselvi 22/10)',c:'mc'}
         ] },
@@ -1115,8 +1122,8 @@ const FREE_CARDS = {
   ]
 };
 
-const CHIP_CLS = { nl:'chip-nl', nli:'chip-nli', li:'chip-li', em:'chip-em', o2o:'chip-o2o', alt:'chip-alt', vt:'chip-vt', an:'chip-an', lv:'chip-lv', im:'chip-im', ev:'chip-ev', ca:'chip-ca', au:'chip-au', mc:'chip-mc', pd:'chip-pd', pr:'chip-pr', fe:'chip-fe', rl:'chip-rl', pt:'chip-pt' };
-const CHIP_LBL = { nl:'NL E-mail', nli:'NL LinkedIn', li:'Post LinkedIn', em:'E-mail', o2o:'E-mail 1:1', alt:'E-mail alternativo', vt:'Envio Vitru', an:'Envio Anima', lv:'Levantamento', im:'Material impresso', ev:'Evento', ca:'Canal', au:'Aula UC Semesp', mc:'Masterclass', pd:'Produção', pr:'PR', fe:'Feriado', rl:'Realocado', pt:'Pitch' };
+const CHIP_CLS = { nl:'chip-nl', nli:'chip-nli', li:'chip-li', em:'chip-em', o2o:'chip-o2o', alt:'chip-alt', vt:'chip-vt', an:'chip-an', lv:'chip-lv', im:'chip-im', ev:'chip-ev', ca:'chip-ca', au:'chip-au', mc:'chip-mc', pd:'chip-pd', pr:'chip-pr', fe:'chip-fe', rl:'chip-rl', pt:'chip-pt', hs:'chip-hs' };
+const CHIP_LBL = { nl:'NL E-mail', nli:'NL LinkedIn', li:'Post LinkedIn', em:'E-mail', o2o:'E-mail 1:1', alt:'E-mail alternativo', vt:'Envio Vitru', an:'Envio Anima', lv:'Levantamento', im:'Material FNESP', ev:'Evento', ca:'Canal', au:'Aula UC Semesp', mc:'Masterclass', pd:'Produção', pr:'PR', fe:'Feriado', rl:'Realocado', pt:'Material Intern Hub', hs:'Onboarding/Mkt HSM' };
 
 let state = {};
 let currentMonth = 'sep';
