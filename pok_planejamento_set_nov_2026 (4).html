@@ -306,27 +306,21 @@
     display: block;
     width: fit-content;
   }
-  .chip-nl  { background: #DDE8F9; color: #2A5BAD; }
-  .chip-nli { background: #DDE8F9; color: #2A5BAD; }
-  .chip-li  { background: #F0EBFF; color: #5123a4; }
-  .chip-em  { background: var(--green-light); color: var(--green); }
-  .chip-o2o { background: var(--amber-light); color: var(--amber); }
-  .chip-alt { background: #FDECEA; color: #C0392B; }
-  .chip-vt  { background: var(--teal-light); color: var(--teal); }
-  .chip-an  { background: var(--pink-light); color: var(--pink); }
-  .chip-lv  { background: #FFF4DE; color: #9A6B00; }
-  .chip-im  { background: #FFE9D6; color: #B5540A; }
+  /* Post LinkedIn */
+  .chip-li, .chip-rp { background: #F0EBFF; color: #5123a4; }
+  /* Newsletter */
+  .chip-nl, .chip-nli { background: #DDE8F9; color: #2A5BAD; }
+  /* E-mail */
+  .chip-o2o, .chip-alt, .chip-em { background: #F9EDD8; color: #7A4F10; }
+  /* Campanha de credenciais */
+  .chip-vt, .chip-an, .chip-lv { background: #DAF3EE; color: #0F7A63; }
+  /* Aulas e masterclasses */
+  .chip-au, .chip-mc { background: #FDE8F0; color: #B3125F; }
+  /* Parcerias, eventos e produção */
+  .chip-pd, .chip-im, .chip-pt, .chip-hs, .chip-pr, .chip-ca { background: #E2F4EB; color: #1D7A4F; }
+  /* Realocado / feriado */
+  .chip-rl, .chip-fe { background: #ECE7E1; color: #6B5B4A; }
   .chip-ev  { background: #5123a4; color: #fff; font-weight: 700; }
-  .chip-ca  { background: var(--amber-light); color: var(--amber); }
-  .chip-au  { background: #D9F2FF; color: #06607A; }
-  .chip-mc  { background: #FFE1E8; color: #A3123C; }
-  .chip-pd  { background: var(--green-light); color: var(--green); }
-  .chip-pr  { background: #E5E0F0; color: #4A3A7A; }
-  .chip-fe  { background: #ECE7E1; color: #6B5B4A; }
-  .chip-rl  { background: #ECE7E1; color: #6B5B4A; }
-  .chip-pt  { background: #FFE8CC; color: #A34E00; }
-  .chip-hs  { background: #F3E1FA; color: #7C2D92; }
-  .chip-rp  { background: #E6E0F8; color: #3D1A7A; }
   .chip-more {
     font-size: 9.5px;
     color: var(--ink-faint);
@@ -694,6 +688,24 @@
     font-weight: 600;
   }
 
+  /* ── status das ações ── */
+  .status {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.03em;
+    padding: 3px 9px; border-radius: 99px; white-space: nowrap; flex-shrink: 0;
+  }
+  .st-concluido  { background: #E2F4EB; color: #1D7A4F; }
+  .st-andamento  { background: #e4dcf7; color: #5123a4; }
+  .st-definicao  { background: #F9EDD8; color: #7A4F10; }
+  .st-iniciar    { background: #DDE8F9; color: #2A5BAD; }
+  .st-aguardando { background: #E6EEF2; color: #3E5C6B; }
+  .st-adiado     { background: #FDECEA; color: #C0392B; }
+  .st-backlog    { background: #ECE7E1; color: #6B5B4A; }
+  .st-preencher  { background: #FFF4DE; color: #9A6B00; }
+  .acao-when { font-size: 11px; font-weight: 600; color: var(--accent); margin: -2px 0 6px; }
+  .acao-task::before { content: '→'; color: var(--accent); font-weight: 700; flex-shrink: 0; }
+  .email-line { font-size: 12px; color: #000; line-height: 1.55; }
+  .email-line strong { color: var(--accent); }
+
   @media (max-width: 700px) {
     .page-header, .toolbar, .legend-bar, .calendar-wrap, .acoes-section,
     .rotina-section, .email-types-section, .funil-section, .month-heading {
@@ -714,7 +726,7 @@
     <div>
       <div class="header-badge">POK Proof of Knowledge</div>
       <h1 class="header-title">Planejamento Marketing <span>· Setembro a Novembro 2026</span></h1>
-      <p class="header-sub">Baseado no planejamento POK — atualizado com as datas da UC Semesp e das Masterclasses Vitru</p>
+      <p class="header-sub">Calendário de execução alinhado ao documento de planejamento · atualizado em 28/09/2026</p>
     </div>
   </div>
 </header>
@@ -739,24 +751,13 @@
 <!-- ── LEGEND ── -->
 <div class="legend-bar">
   <span class="legend-lbl">Legenda</span>
-  <div class="leg-item"><div class="leg-dot" style="background:#2A5BAD"></div>NL E-mail / LinkedIn</div>
   <div class="leg-item"><div class="leg-dot" style="background:#5123a4"></div>Post LinkedIn</div>
-  <div class="leg-item"><div class="leg-dot" style="background:#7A4F10"></div>E-mail 1:1</div>
-  <div class="leg-item"><div class="leg-dot" style="background:#C0392B"></div>E-mail alternativo</div>
-  <div class="leg-item"><div class="leg-dot" style="background:#0F7A63"></div>Envio Vitru</div>
-  <div class="leg-item"><div class="leg-dot" style="background:#B3125F"></div>Envio Anima</div>
-  <div class="leg-item"><div class="leg-dot" style="background:#9A6B00"></div>Levantamento de dados</div>
-  <div class="leg-item"><div class="leg-dot" style="background:#B5540A"></div>Material FNESP</div>
-  <div class="leg-item"><div class="leg-dot" style="background:#06607A"></div>Aula UC Semesp</div>
-  <div class="leg-item"><div class="leg-dot" style="background:#A3123C"></div>Masterclass Vitru</div>
-  <div class="leg-item"><div class="leg-dot" style="background:#1D7A4F"></div>Produção de material</div>
-  <div class="leg-item"><div class="leg-dot" style="background:#4A3A7A"></div>Assessoria de imprensa</div>
-  <div class="leg-item"><div class="leg-dot" style="background:#A34E00"></div>Material Intern Hub</div>
-  <div class="leg-item"><div class="leg-dot" style="background:#3D1A7A"></div>Repost LinkedIn</div>
-  <div class="leg-item"><div class="leg-dot" style="background:#7C2D92"></div>Onboarding/Mkt HSM</div>
-  <div class="leg-item"><div class="leg-dot" style="background:#6B5B4A"></div>Realocado</div>
-  <div class="leg-item"><div class="leg-dot" style="background:#5123a4"></div>Evento</div>
-  <div class="leg-item"><div class="leg-dot" style="background:#5123a4"></div>✓ Concluído</div>
+  <div class="leg-item"><div class="leg-dot" style="background:#2A5BAD"></div>Newsletter</div>
+  <div class="leg-item"><div class="leg-dot" style="background:#7A4F10"></div>E-mail</div>
+  <div class="leg-item"><div class="leg-dot" style="background:#0F7A63"></div>Campanha de credenciais</div>
+  <div class="leg-item"><div class="leg-dot" style="background:#B3125F"></div>Aula e masterclass</div>
+  <div class="leg-item"><div class="leg-dot" style="background:#1D7A4F"></div>Parcerias e produção</div>
+  <div class="leg-item"><div class="leg-dot" style="background:#6B5B4A"></div>Realocado ou feriado</div>
 </div>
 
 <!-- ── CALENDAR ── -->
@@ -776,43 +777,41 @@
   </div>
 </div>
 
-<!-- ── AÇÕES E CAMPANHAS DO MÊS ── -->
+<!-- ── AÇÕES DO MÊS ── -->
 <div class="acoes-section">
-  <div class="kits-title">Campanhas e eventos com data (do mês selecionado)</div>
-  <div class="acoes-grid" id="acoes-datadas"></div>
-  <div class="kits-title">Outras ações do mês (sem data fixa no planejamento)</div>
-  <div class="acoes-grid" id="acoes-livres"></div>
+  <div class="kits-title">Ações do mês · numeração do documento de planejamento</div>
+  <div class="acoes-grid" id="acoes"></div>
 </div>
 
 <!-- ── ROTINA DIGITAL ── -->
 <div class="rotina-section">
-  <div class="kits-title">Rotina virtual de campanha (todas as semanas)</div>
+  <div class="kits-title">Rotina semanal de marketing digital</div>
   <div class="rotina-grid">
     <div class="rotina-card">
-      <div class="rotina-day">Segunda-feira</div>
+      <div class="rotina-day">Segunda</div>
       <ul class="rotina-list">
-        <li><span class="rotina-chip chip-o2o">E-mail 1:1</span> E-mail one to one (50 por semana)</li>
+        <li><span class="rotina-chip chip-o2o">E-mail 1:1</span> até 50 por disparo</li>
       </ul>
     </div>
     <div class="rotina-card">
-      <div class="rotina-day">Terça-feira</div>
+      <div class="rotina-day">Terça</div>
       <ul class="rotina-list">
-        <li><span class="rotina-chip chip-li">Post LinkedIn</span> Post no LinkedIn</li>
-        <li><span class="rotina-chip chip-nli">NL LinkedIn</span> Newsletter por LinkedIn</li>
+        <li><span class="rotina-chip chip-li">Post LinkedIn</span></li>
+        <li><span class="rotina-chip chip-nli">NL LinkedIn</span></li>
       </ul>
     </div>
     <div class="rotina-card">
-      <div class="rotina-day">Quarta-feira</div>
+      <div class="rotina-day">Quarta</div>
       <ul class="rotina-list">
-        <li><span class="rotina-chip chip-alt">E-mail alternativo</span> E-mail alternativo para a base toda</li>
-        <li><span class="rotina-chip chip-li">Post LinkedIn</span> Post no LinkedIn</li>
+        <li><span class="rotina-chip chip-alt">E-mail alternativo</span> toda a base</li>
+        <li><span class="rotina-chip chip-li">Post LinkedIn</span></li>
       </ul>
     </div>
     <div class="rotina-card">
-      <div class="rotina-day">Quinta-feira</div>
+      <div class="rotina-day">Quinta</div>
       <ul class="rotina-list">
-        <li><span class="rotina-chip chip-nl">NL E-mail</span> Newsletter por e-mail (mesmo conteúdo da Newsletter LinkedIn, usa o e-mail alternativo)</li>
-        <li><span class="rotina-chip chip-li">Post LinkedIn</span> Post no LinkedIn</li>
+        <li><span class="rotina-chip chip-nl">NL E-mail</span> mesmo conteúdo da NL LinkedIn</li>
+        <li><span class="rotina-chip chip-li">Post LinkedIn</span></li>
       </ul>
     </div>
   </div>
@@ -820,30 +819,24 @@
 
 <!-- ── TIPOS DE ENVIO DE E-MAILS ── -->
 <div class="email-types-section">
-  <div class="kits-title">Tipos de envio de e-mails</div>
+  <div class="kits-title">Remetentes de e-mail</div>
   <div class="email-types-grid">
     <div class="email-type-card">
       <div class="email-type-title">Newsletter</div>
       <div class="email-type-address">novidades@brasil.pok.tech</div>
-      <div class="email-type-desc">Sai do e-mail novidades e quando respondem cai no e-mail do <strong>Marcos</strong> (brasil@pok.tech).</div>
+      <div class="email-line">Respostas chegam em <strong>brasil@pok.tech</strong> (Marcos).</div>
     </div>
     <div class="email-type-card">
       <div class="email-type-title">E-mail alternativo</div>
       <div class="email-type-address">carolina@brasil.pok.tech</div>
-      <div class="email-type-desc">Sai uma comunicação como se fosse um e-mail massivo, porém vem marcações de nome da Lista que a pessoa faz parte. (Este é o que mais usamos, pois tem um alcance maior. Aqui, não conseguimos configurar muita coisa, apenas o básico). É um e-mail que usamos para enviar para toda a base. Quando o cliente responde cai no e-mail oficial da Carolina (carolina@pok.tech).</div>
+      <div class="email-line">Envio para toda a base, com o nome da lista. Respostas chegam em <strong>carolina@pok.tech</strong>.</div>
     </div>
     <div class="email-type-card">
       <div class="email-type-title">E-mail one to one</div>
       <div class="email-type-address">carolina@pokbrasil.tech</div>
-      <div class="email-type-desc">Sai do meu e-mail com um domínio pokbrasil.tech. Limitamos de 50 disparos por vez, pois o Outlook bloqueia e começa a voltar. Este é como se eu enviasse individualmente para ações com clientes estratégicos. É um e-mail que usamos para mandar mensagens personalizadas, um por um. Quando o cliente responde cai no e-mail oficial da Carolina (carolina@pok.tech).</div>
+      <div class="email-line">Mensagens personalizadas para clientes estratégicos, até 50 por disparo. Respostas chegam em <strong>carolina@pok.tech</strong>.</div>
     </div>
   </div>
-</div>
-
-<!-- ── FUNIL DE VENDAS ── -->
-<div class="funil-section">
-  <div class="kits-title">Funil de vendas</div>
-  <div class="funil-placeholder">Conteúdo ainda será analisado.</div>
 </div>
 
 <div class="overlay" id="overlay" onclick="overlayClick(event)">
@@ -881,279 +874,240 @@ function routineFor(colIdx) {
 }
 
 // extras: dia -> { event, extraTasks:[...] }
+const T1 = (s) => ({t:'E-mail 1:1 — convite para o Programa POK de Trilhas Formativas, ' + s, c:'o2o', s:'1:1 · Trilhas'});
+const ARTIGO = (s) => ({t:'Entrega de artigo para a HSM Management' + s, c:'hs', s:'Artigo HSM'});
+
 const SEP_EXTRAS = {
   1:  { skip:['li'] },
-  3:  { skip:['li'], extraTasks:[{t:'Onboarding/Mkt HSM',c:'hs'}] },
+  3:  { skip:['li'], extraTasks:[{t:'Onboarding e marketing integrado com a HSM',c:'hs',s:'HSM · Onboarding'}] },
   4:  { extraTasks:[
           {t:'Post no LinkedIn — realocado da terça 01/09',c:'li'},
-          {t:'Enviar material do FNESP para impressão — prazo de 4 dias úteis (gráfica)',c:'im'}
+          {t:'Material do FNESP enviado para impressão',c:'im',s:'FNESP · Impressão'}
         ] },
-  7:  { event:'Feriado', skip:['o2o'], extraTasks:[{t:'Independência — sem envios. E-mail 1:1 remarcado para terça 08/09',c:'rl'}] },
+  7:  { event:'Feriado', skip:['o2o'], extraTasks:[{t:'Independência — sem envios. E-mail 1:1 foi para 08/09',c:'fe',s:'Sem envios'}] },
   8:  { skip:['li','nli'], extraTasks:[
-          {t:'E-mail one to one (50 por semana) — realocado do feriado de 07/09',c:'o2o'},
-          {t:'Post no LinkedIn — HSM / Rock in Rio Academy',c:'li'},
-          {t:'Post no LinkedIn — Painel de Empregabilidade',c:'li'}
+          {t:'E-mail 1:1 — realocado do feriado de 07/09',c:'o2o'},
+          {t:'Post no LinkedIn — Rock in Rio Academy com a HSM',c:'li',s:'Post · Rock in Rio'},
+          {t:'Post no LinkedIn — painel de empregabilidade',c:'li',s:'Post · Painel'}
         ] },
   9:  { skip:['li','alt'], extraTasks:[
-          {t:'Disparo Vitru — envio de credenciais',c:'vt'},
-          {t:'Newsletter por LinkedIn — realocada da terça 08/09',c:'nli'}
+          {t:'Disparo de credenciais Vitru',c:'vt',s:'Disparo Vitru'},
+          {t:'Newsletter por LinkedIn — realocada de 08/09',c:'nli'}
         ] },
-  10: { skip:['nl'], extraTasks:[{t:'Disparo Vitru — envio de credenciais',c:'vt'}] },
+  10: { skip:['nl'], extraTasks:[{t:'Disparo de credenciais Vitru',c:'vt',s:'Disparo Vitru'}] },
   11: { extraTasks:[
-          {t:'Newsletter por e-mail — realocada da quinta 10/09',c:'nl'},
-          {t:'Retirada/conferência do material FNESP impresso',c:'im'}
+          {t:'Newsletter por e-mail, com nota sobre o Rock in Rio Academy — realocada de 10/09',c:'nl'},
+          {t:'Retirada do material impresso do FNESP',c:'im',s:'FNESP · Retirada'}
         ] },
-  14: { extraTasks:[{t:'Levantamento de dados para o painel de empregabilidade (dia 1 de 2)',c:'lv'}] },
-  15: { extraTasks:[{t:'Levantamento de dados — fechamento dos dados para a apresentação no FNESP',c:'lv'}] },
+  14: { extraTasks:[{t:'Levantamento de dados para o painel de empregabilidade',c:'lv'}] },
+  15: { extraTasks:[{t:'Fechamento dos dados do painel para o FNESP',c:'lv'}] },
   16: { event:'FNESP' },
   17: { event:'FNESP', skip:['nl'] },
   18: { extraTasks:[
-          {t:'Preparar material para a conversa com o Intern Hub (22/09)',c:'pt'},
-          {t:'Newsletter por e-mail — realocada da quinta 17/09',c:'nl'}
+          {t:'Material para a conversa com o Intern Hub',c:'pt'},
+          {t:'Newsletter por e-mail — realocada de 17/09',c:'nl'}
         ] },
   21: { skip:['o2o'], extraTasks:[
           {t:'E-mail alternativo — no lugar do e-mail 1:1',c:'alt'},
           {t:'Newsletter por LinkedIn',c:'nli'},
-          {t:'Repost no LinkedIn — Mini Curso Intern Hub',c:'rp'}
+          {t:'Repost no LinkedIn — mini curso Intern Hub',c:'rp',s:'Repost · Intern Hub'}
         ] },
   22: { event:'Intern Hub', skip:['li','nli'], extraTasks:[
-          {t:'Post no LinkedIn — overview do FNESP',c:'li'},
-          {t:'Briefing com a Vitru: Masterclass Carreira 5.0 (UniCesumar 08/10 e Uniasselvi 22/10)',c:'mc'}
+          {t:'Post no LinkedIn — vídeo overview do FNESP',c:'li',s:'Post · Overview FNESP'},
+          {t:'Briefing com a Vitru: Masterclass Carreira 5.0',c:'mc',s:'Briefing Masterclass'}
         ] },
   23: { skip:['alt','li'], extraTasks:[
-          {t:'Repost no LinkedIn — Semesp, Programa POK de Trilhas Formativas',c:'rp'},
-          {t:'Disparo Anima — envio de credenciais',c:'an'}
+          {t:'Repost no LinkedIn — Semesp, Programa POK de Trilhas Formativas',c:'rp',s:'Repost · Semesp'}
         ] },
-  24: { extraTasks:[{t:'Disparo Anima — envio de credenciais',c:'an'}] },
-
   28: { skip:['o2o'], extraTasks:[
-          {t:'E-mail 1:1 — convite para o Programa POK de Trilhas Formativas',c:'o2o'},
-          {t:'Post no LinkedIn — vídeo do Vinicius, Plataforma A+',c:'li'}
+          T1('início do disparo em lotes de 50 até 05/10'),
+          {t:'Post no LinkedIn — vídeo Jorge Dau reforçando a microcertificação',c:'li',s:'Post · Jorge Dau'}
         ] },
-  29: { extraTasks:[{t:'Abre a divulgação de matrículas do Programa POK de Trilhas Formativas (UC Semesp)',c:'au'}] },
-  30: { extraTasks:[{t:'Divulgação de matrículas (UC Semesp) — e-mail para toda a base',c:'au'}] },
+  29: { skip:['li','nli'], extraTasks:[
+          {t:'Post no LinkedIn — vídeo do Vinicius, Plataforma A: entrega de valor com as certificações por competências',c:'li',s:'Post · Vinicius'},
+          {t:'Newsletter por LinkedIn — parceria com a Vitru',c:'nli',s:'NL LinkedIn · Vitru'},
+          {t:'Primeira reunião do evento POK + Semesp: formato e planejamento',c:'pd',s:'Reunião · Evento Semesp'},
+          T1('continuação')
+        ] },
+  30: { skip:['alt','li'], extraTasks:[
+          {t:'Post no LinkedIn — vídeo da Carolina chamando para as Trilhas',c:'li',s:'Post · Carolina'},
+          T1('continuação'),
+          {t:'E-mail alternativo — realocado para sexta 02/10',c:'rl'}
+        ] },
 };
 
 const OUT_EXTRAS = {
-  1:  { extraTasks:[{t:'Peças da Masterclass UniCesumar (08/10) enviadas para aprovação da Vitru',c:'pd'}] },
-  2:  { extraTasks:[{t:'Ativar PR: kick-off com a assessoria contratada em setembro',c:'pr'}] },
-  5:  { extraTasks:[
-          {t:'Abre a divulgação da Masterclass Carreira 5.0 · UniCesumar (08/10, 19h)',c:'mc'},
-          {t:'Last call de matrículas do Programa POK de Trilhas Formativas',c:'au'}
+  1:  { skip:['nl','li'], extraTasks:[
+          {t:'Newsletter por e-mail — parceria com a Vitru (mesmo conteúdo da NL LinkedIn de 29/09)',c:'nl',s:'NL E-mail · Vitru'},
+          {t:'Post no LinkedIn — Masterclasses Vitru (em definição)',c:'li',s:'Post · Masterclasses'},
+          T1('continuação')
         ] },
-  6:  { extraTasks:[{t:'Post + newsletter: abertura do Programa POK de Trilhas Formativas',c:'au'}] },
-  7:  { extraTasks:[{t:'E-mail de véspera: Aula 1 (UC Semesp) e Masterclass UniCesumar',c:'pd'}] },
+  2:  { extraTasks:[
+          {t:'E-mail alternativo para toda a base — Trilhas Formativas, chamada de últimos dias',c:'alt',s:'E-mail alt. · Trilhas'},
+          T1('continuação')
+        ] },
+  5:  { skip:['o2o'], extraTasks:[
+          T1('último lote'),
+          {t:'Post no LinkedIn — vídeo Regina Tavares sobre dados de egressos',c:'li',s:'Post · Regina Tavares'},
+          {t:'Last call de matrículas do Programa POK de Trilhas Formativas',c:'au',s:'Last call Trilhas'}
+        ] },
+  6:  { skip:['li'], extraTasks:[
+          {t:'Post no LinkedIn — vídeo Marcio Sanches (Semesp) com link para as Trilhas',c:'li',s:'Post · Marcio Sanches'}
+        ] },
+  7:  { skip:['li'], extraTasks:[
+          {t:'Post no LinkedIn — "É amanhã", chamada para as Trilhas',c:'li',s:'Post · É amanhã'},
+          {t:'E-mail de véspera da Aula 1 para os matriculados',c:'au',s:'Véspera Aula 1'},
+          ARTIGO(' — mote: internacionalização')
+        ] },
   8:  { event:'Aula 1 + Masterclass', extraTasks:[
-          {t:'Aula 1 UC Semesp — Da Matriz Curricular ao Mapa de Competências (15h às 17h, ao vivo/Zoom)',c:'au'},
-          {t:'Masterclass Carreira 5.0 · UniCesumar (19h)',c:'mc'}
+          {t:'Aula 1 UC Semesp — Da Matriz Curricular ao Mapa de Competências (15h às 17h, Zoom)',c:'au',s:'Aula 1 · 15h'},
+          {t:'Masterclass Carreira 5.0 · UniCesumar (19h) — em definição',c:'mc',s:'Masterclass · em definição'}
         ] },
-  9:  { extraTasks:[{t:'Pós-evento: gravação, credencial de participação e follow-up (Aula 1 + Masterclass UniCesumar)',c:'pd'}] },
-  12: { event:'Feriado', skip:['o2o'], extraTasks:[{t:'N. Sra. Aparecida — sem envios. E-mail 1:1 antecipado para sexta 09/10',c:'rl'}] },
-  13: { extraTasks:[{t:'Adaptar as peças da Masterclass para a Uniasselvi (22/10) e enviar para aprovação',c:'pd'}] },
-  14: { extraTasks:[{t:'Lembrete da Aula 2 (assíncrona) para os matriculados',c:'au'}] },
-  15: { extraTasks:[{t:'Aula 2 UC Semesp — Definição e Desenvolvimento das Trilhas (assíncrona, LXP)',c:'au'}] },
-  19: { extraTasks:[{t:'Abre a divulgação da Masterclass Carreira 5.0 · Uniasselvi (22/10, 19h)',c:'mc'}] },
-  21: { extraTasks:[{t:'E-mail de véspera: Aula 3 (UC Semesp) e Masterclass Uniasselvi',c:'pd'}] },
+  9:  { extraTasks:[{t:'E-mail 1:1 — antecipado da segunda 12/10 (feriado)',c:'o2o'}] },
+  12: { event:'Feriado', skip:['o2o'], extraTasks:[{t:'N. Sra. Aparecida — sem envios. E-mail 1:1 foi para 09/10',c:'fe',s:'Sem envios'}] },
+  14: { extraTasks:[{t:'Lembrete da Aula 2 (assíncrona) para os matriculados',c:'au',s:'Lembrete Aula 2'}] },
+  15: { extraTasks:[{t:'Aula 2 UC Semesp — Definição e Desenvolvimento das Trilhas (assíncrona, LXP)',c:'au',s:'Aula 2 · LXP'}] },
+  21: { extraTasks:[
+          {t:'E-mail de véspera da Aula 3 para os matriculados',c:'au',s:'Véspera Aula 3'},
+          ARTIGO('')
+        ] },
   22: { event:'Aula 3 + Masterclass', extraTasks:[
-          {t:'Aula 3 UC Semesp — Operando a Plataforma POK: badges e emissão (15h às 17h, ao vivo/Zoom)',c:'au'},
-          {t:'Masterclass Carreira 5.0 · Uniasselvi (19h)',c:'mc'}
+          {t:'Aula 3 UC Semesp — Operando a Plataforma POK: badges e emissão (15h às 17h, Zoom)',c:'au',s:'Aula 3 · 15h'},
+          {t:'Masterclass Carreira 5.0 · Uniasselvi (19h) — em definição',c:'mc',s:'Masterclass · em definição'}
         ] },
-  23: { extraTasks:[{t:'Pós-evento: gravação, credencial de participação e follow-up (Aula 3 + Masterclass Uniasselvi)',c:'pd'}] },
-  26: { extraTasks:[{t:'Produzir peças do lançamento Credencial Verificável + Diploma Digital MEC (novembro)',c:'pd'}] },
-  28: { extraTasks:[{t:'Lembrete da Aula 4 (assíncrona) para os matriculados',c:'au'}] },
-  29: { extraTasks:[{t:'Aula 4 UC Semesp — Marketing, Compartilhamento e Métricas (assíncrona, LXP)',c:'au'}] },
+  26: { extraTasks:[{t:'Produção das peças do lançamento Credencial Verificável + Diploma Digital MEC',c:'pd',s:'Peças · Diploma digital'}] },
+  28: { event:'AI Bootcamp', extraTasks:[
+          {t:'Lembrete da Aula 4 (assíncrona) para os matriculados',c:'au',s:'Lembrete Aula 4'},
+          {t:'AI Bootcamp HSM Singularity — certificação e ativação da POK',c:'hs',s:'AI Bootcamp'}
+        ] },
+  29: { event:'AI Bootcamp', extraTasks:[
+          {t:'Aula 4 UC Semesp — Marketing, Compartilhamento e Métricas (assíncrona, LXP)',c:'au',s:'Aula 4 · LXP'},
+          {t:'AI Bootcamp HSM Singularity — certificação e ativação da POK',c:'hs',s:'AI Bootcamp'}
+        ] },
 };
 
 const NOV_EXTRAS = {
-  2:  { event:'Feriado', skip:['o2o'] },
-  5:  { extraTasks:[{t:'Lembrete da Aula 5 de encerramento (12/11) para os matriculados',c:'au'}] },
-  11: { extraTasks:[{t:'E-mail de véspera: Aula 5 UC Semesp',c:'pd'}] },
+  2:  { event:'Feriado', skip:['o2o'], extraTasks:[{t:'Finados — sem e-mail 1:1',c:'fe',s:'Sem e-mail 1:1'}] },
+  4:  { extraTasks:[ARTIGO(' — última do cronograma')] },
+  5:  { extraTasks:[{t:'Lembrete da Aula 5 para os matriculados',c:'au',s:'Lembrete Aula 5'}] },
+  11: { extraTasks:[{t:'E-mail de véspera da Aula 5',c:'au',s:'Véspera Aula 5'}] },
   12: { event:'Aula 5 UC Semesp', extraTasks:[
-          {t:'Aula 5 — Consolidação e Certificação (15h às 17h, ao vivo/Zoom)',c:'au'},
-          {t:'Entrega da certificação do programa e leitura dos painéis de métricas ao vivo',c:'au'}
+          {t:'Aula 5 — Consolidação e Certificação (15h às 17h, Zoom): leitura dos painéis e entrega da certificação final',c:'au',s:'Aula 5 · 15h'}
         ] },
-  13: { extraTasks:[{t:'Pós-programa: trilhas criadas pelos participantes, depoimentos e material para PR',c:'pd'}] },
+  13: { extraTasks:[{t:'Registrar as trilhas criadas e os depoimentos para PR e vendas',c:'pd',s:'Pós-programa'}] },
 };
 
 const MONTHS = {
-  sep: {
-    key:'sep', name:'Setembro', label:'Setembro de 2026',
-    startCol: 2,     // 1º de setembro de 2026 = Terça-feira
-    daysInMonth: 30,
-    extras: SEP_EXTRAS,
-    note: 'Campanha Egressos e Empregabilidade (Vitru + Anima), FNESP e conversa com o Intern Hub',
-  },
-  out: {
-    key:'out', name:'Outubro', label:'Outubro de 2026',
-    startCol: 4,     // 1º de outubro de 2026 = Quinta-feira
-    daysInMonth: 31,
-    extras: OUT_EXTRAS,
-    note: 'Programa POK de Trilhas Formativas (UC Semesp) e as duas Masterclasses Carreira 5.0',
-  },
-  nov: {
-    key:'nov', name:'Novembro', label:'Novembro de 2026',
-    startCol: 0,     // 1º de novembro de 2026 = Domingo
-    daysInMonth: 30,
-    extras: NOV_EXTRAS,
-    note: 'Encerramento do Programa UC Semesp e lançamento da Credencial Verificável + Diploma Digital MEC',
-  }
+  sep: { key:'sep', name:'Setembro', label:'Setembro de 2026', startCol: 2, daysInMonth: 30, extras: SEP_EXTRAS,
+         note: 'Vitru, FNESP, HSM e início da divulgação das Trilhas Formativas' },
+  out: { key:'out', name:'Outubro', label:'Outubro de 2026', startCol: 4, daysInMonth: 31, extras: OUT_EXTRAS,
+         note: 'Trilhas Formativas UC Semesp, Masterclasses Vitru, HSM Singularity e novos pilotos' },
+  nov: { key:'nov', name:'Novembro', label:'Novembro de 2026', startCol: 0, daysInMonth: 30, extras: NOV_EXTRAS,
+         note: 'Encerramento das Trilhas, lançamento do diploma digital e evento POK + Semesp' }
 };
 
-// Cards com data (aparecem acima do calendário)
-const DATED_CARDS = {
-  sep: [
-    {
-      date: '08 a 11/09 · dados 14 e 15/09',
-      title: '1 · Campanha Egressos e Empregabilidade — Vitru Educação',
-      desc: 'Disparo de 21.481 credenciais para 14 cursos da Uniasselvi e UniCesumar. Levantamento de dados para o painel de empregabilidade em 14 e 15/09, fechando na véspera do FNESP. Mais sobre a campanha: <a href="https://pokbrasil.github.io/empregabilidade/pok-campanha-egressos-empregabilidade.html" target="_blank">pokbrasil.github.io/empregabilidade</a>.',
-      tasks: ['Trabalhar conteúdo em conjunto com a Vitru', 'Usar para comunicação com a base via e-mail e LinkedIn']
-    },
-    {
-      date: '16 e 17/09',
-      title: '3 · FNESP 2026',
-      desc: 'A POK patrocina o Espaço Coworking, participa do painel "Microcredenciais no Brasil e no Mundo" e apresenta a pesquisa POK Egressos e Empregabilidade — base de 21.481 egressos de 14 cursos de bacharelado e tecnólogo, em parceria com a Vitru (Uniasselvi e Unicesumar). Os dados são capturados por curso (não por egresso): mobilidade profissional, novos empregos, promoções, tempo médio até a mudança, empresas de destino, cargos, competências certificadas, ocupação formal, progressão de renda, empreendedorismo — apresentados em painel interativo. Também vamos propor que a POK seja a Certificadora Oficial do FNESP. Painel interativo: <a href="https://pokbrasil.github.io/empregabilidade/pokscore_empregabilidade.html" target="_blank">pokbrasil.github.io/empregabilidade/pokscore</a>.',
-      tasks: ['Preparar material para o painel sobre microcredenciais', 'Criar certificado para o FNESP', 'Definir materiais impressos para o evento (1ª semana) e enviar para impressão com 4 dias úteis de prazo (2ª semana)', 'Trabalhar conteúdo em conjunto com o Semesp para comunicação via e-mail e LinkedIn']
-    },
-    {
-      date: '16 e 17/09 (durante o FNESP)',
-      title: '4 · Certificação para Curso Santander',
-      desc: 'A UC Semesp fechou parceria com cursos do Santander e haverá um stand no FNESP. Os cursos serão certificados pela POK — vamos avaliar se conseguimos divulgar isso no próprio FNESP, no stand do Santander.',
-      tasks: ['Trabalhar conteúdo e usar para comunicação com a base via e-mail e LinkedIn']
-    },
-    {
-      date: '21 a 25/09',
-      title: '5 · Campanha Egressos e Empregabilidade — Anima',
-      desc: 'Disparo de 30.000 credenciais para 6 instituições da Anima: Unisul, São Judas, Anhembi Morumbi, IBMR, Unifacs e Una. Levantamento de dados para o painel de empregabilidade, voltado ao marketing digital pós-FNESP.',
-      tasks: ['Criar campanha e trabalhar conteúdo em conjunto com as instituições', 'Comunicação com a base via e-mail e LinkedIn']
-    },
-    {
-      date: '22/09 · material em 18/09',
-      title: '6 · Conversa com o Intern Hub',
-      desc: 'Carolina Ferrés participa de uma conversa com o <a href="https://www.linkedin.com/company/internationalization-hub/" target="_blank">Internationalization Hub</a>. A preparação do material fica em 18/09, na sexta seguinte ao FNESP, o que permite reaproveitar o conteúdo apresentado no evento. <em>A confirmar: horário, formato, tema e idioma.</em>',
-      tasks: [
-        'Preparar o pitch da conversa em 18/09',
-        'Confirmar formato, duração e se haverá divulgação conjunta',
-        'Alinhar com o Hub a comunicação de anúncio e o material pós-conversa'
-      ]
-    },
-  ],
-  out: [
-    {
-      date: '08/10 a 12/11',
-      title: 'Programa POK de Trilhas Formativas Micro-Certificadas por Competências — UC Semesp',
-      desc: 'Jornada híbrida de 10 horas em 5 aulas, gratuita para associados e assinantes institucionais do Semesp. Cada participante traz o Projeto Pedagógico do próprio curso e constrói uma trilha real, com emissão de micro-credenciais Open Badge 3.0 na plataforma POK.<br><br><strong>Aula 1 · 08/10, 15h-17h (ao vivo, Zoom):</strong> Da Matriz Curricular ao Mapa de Competências.<br><strong>Aula 2 · 15/10 (assíncrona, LXP):</strong> Definição e Desenvolvimento das Trilhas.<br><strong>Aula 3 · 22/10, 15h-17h (ao vivo, Zoom):</strong> Operando a Plataforma POK — badges e emissão.<br><strong>Aula 4 · 29/10 (assíncrona, LXP):</strong> Marketing, Compartilhamento e Métricas.<br><strong>Aula 5 · 12/11, 15h-17h (ao vivo, Zoom):</strong> Consolidação e Certificação.<br><br>Público: coordenadores de curso, gestores acadêmicos, equipes pedagógicas e de inovação, times de marketing e empregabilidade, educação corporativa. Página do programa: <a href="https://www.semesp.org.br/uc/programa/programa-pok-de-micro-certificacoes/" target="_blank">semesp.org.br/uc</a>.',
-      tasks: [
-        'Briefing com a UC Semesp em 21/09 — definir peças, responsabilidades e canais',
-        'Peças da campanha de matrículas para aprovação em 24/09',
-        'Divulgação de matrículas abre em 29/09 (post + newsletter) e 30/09 (e-mail para a base)',
-        'Last call de matrículas em 05/10 e e-mail de véspera em 07/10',
-        'Lembretes das aulas assíncronas (14/10 e 28/10) para os matriculados',
-        'Pós-aula ao vivo: gravação, credencial de participação e follow-up (09/10 e 23/10)'
-      ]
-    },
-    {
-      date: '08/10 · 19h',
-      title: 'Masterclass Carreira 5.0 — UniCesumar (Vitru)',
-      desc: 'Competências, Posicionamento, Oportunidades. Primeira das duas masterclasses da parceria com a Vitru, voltada à base da UniCesumar. Comunicação a ser produzida em conjunto com a instituição.',
-      tasks: [
-        'Briefing com a Vitru em 22/09 — palestrante, formato, peças e divisão de responsabilidades',
-        'Produção das peças (roteiro, card, e-mail, página de inscrição) na semana de 28/09',
-        'Envio para aprovação da Vitru em 01/10',
-        'Divulgação abre em 05/10, com e-mail de véspera em 07/10',
-        'Emitir credencial POK de participação e enviar gravação no follow-up de 09/10'
-      ]
-    },
-    {
-      date: '22/10 · 19h',
-      title: 'Masterclass Carreira 5.0 — Uniasselvi (Vitru)',
-      desc: 'Mesmo conteúdo da masterclass da UniCesumar, adaptado para a base da Uniasselvi. As peças da primeira edição servem de base, com ajuste de marca, exemplos e cursos citados.',
-      tasks: [
-        'Adaptar as peças para a Uniasselvi e enviar para aprovação em 13/10',
-        'Divulgação abre em 19/10, com e-mail de véspera em 21/10',
-        'Emitir credencial POK de participação e enviar gravação no follow-up de 23/10',
-        'Comparar desempenho das duas edições para calibrar a comunicação de novembro'
-      ]
-    },
-  ],
-  nov: [
-    {
-      date: '12/11 · 15h-17h',
-      title: 'Aula 5 — Consolidação e Certificação (UC Semesp)',
-      desc: 'Encerramento ao vivo do Programa POK de Trilhas Formativas: apresentação e feedback das trilhas construídas pelos participantes, leitura dos painéis de métricas ao vivo, carta de intenção e entrega da certificação final.',
-      tasks: [
-        'Lembrete para os matriculados em 05/11 e e-mail de véspera em 11/11',
-        'Registrar as trilhas criadas e colher depoimentos para material de PR e vendas',
-        'Comunicar os certificados emitidos como prova de conceito da plataforma'
-      ]
-    },
-  ]
-};
+// Ações do mês, com a numeração do documento de planejamento.
+// status: concluido | andamento | definicao | iniciar | aguardando | adiado | backlog | preencher
+const ST_LBL = { concluido:'Concluído', andamento:'Em andamento', definicao:'Em definição', iniciar:'A iniciar',
+                 aguardando:'Aguardando resposta', adiado:'Adiado', backlog:'Backlog', preencher:'A preencher' };
+const L = (url, txt) => '<a href="' + url + '" target="_blank">' + txt + '</a>';
+const URL_TRILHAS = 'https://www.semesp.org.br/uc/programa/programa-pok-de-micro-certificacoes/';
 
-// Cards sem data fixa
-const FREE_CARDS = {
+const ACOES = {
   sep: [
-    {
-      title: '2 · Curso de Trilhas Formativas — Universidade Corporativa Semesp',
-      desc: 'Novo curso em parceria com a UC Semesp.',
-      tasks: ['Trabalhar conteúdo e usar para comunicação com a base via e-mail e LinkedIn', 'Trabalhar material para colocar em outros cursos da UC Semesp']
-    },
-    {
-      title: '6 · Rock in Rio Academy (com HSM)',
-      desc: 'Ação de marketing junto ao evento Rock in Rio Academy, em parceria com a HSM.',
-      tasks: ['Criar passo a passo de uso das credenciais para o time da HSM', 'Criar textos para HSM Management', 'Criar campanha e trabalhar conteúdo em conjunto com a HSM para comunicação via e-mail e LinkedIn']
-    },
-    {
-      title: '7 · Assessoria de Imprensa',
-      desc: 'Trabalhar a contratação/estruturação em setembro, para lançar em outubro. Pautas para a assessoria de imprensa: <a href="https://docs.google.com/document/d/1xm4mAO-psF0QxTbtnyvPYa9mYEhzGhUrreWxIrsDLxE/edit?tab=t.0#heading=h.bye6t9nj5prs" target="_blank">documento de pautas</a>.',
-      tasks: ['Pesquisa de assessoria de imprensa', 'Desenvolver e revisar as pautas do documento']
-    },
-    {
-      title: '8 · Parceria com Rubrix',
-      desc: 'Startup que vai criar um mockup da POK adicionando diploma digital validado pelo MEC. POK Brasil (Marcos) encarregado: mockup de credencial com valor de certificado MEC, verificador frente ao Gov.br e, se possível, conversor de diploma em credencial verificável.',
-      tasks: ['Criar material para comunicação sobre credenciais com valor de diploma digital']
-    },
-    {
-      title: '10 · Revisão de processo CRM POK Brasil',
-      desc: 'POK Brasil (Marcos) está levantando informações sobre o funil de vendas e como o Hubspot é alimentado, principalmente com base de dados do Semesp e da UC Semesp.',
-      tasks: ['Revisão de envio de e-mails para prospects (funil de abordagem até conversão para reunião e follow-up posterior)']
-    },
+    { n:1, title:'Campanha Egressos e Empregabilidade · Vitru', when:'Disparo 9 e 10/09 · dados 14 e 15/09', status:'concluido',
+      desc:'21.481 credenciais para 14 cursos da Uniasselvi e UniCesumar. Painel de empregabilidade apresentado no FNESP. ' +
+           L('https://pokbrasil.github.io/empregabilidade/pok-campanha-egressos-empregabilidade.html','Campanha') + ' · ' +
+           L('https://drive.google.com/file/d/1wdzkJDFr2qp3riYhJT5qJxyS6NZGYx-K/view?usp=drive_link','Dados') + ' · ' +
+           L('https://docs.google.com/document/d/1NcWdbp7ijs_NkcRFdYuFVvX_3nunO-uB3Ja36kPJDJM/edit?usp=drive_link','Documentação do painel'),
+      tasks:['Documentar e divulgar o conteúdo do painel'] },
+    { n:2, title:'Trilhas Formativas · UC Semesp', when:'Divulgação desde 28/09', status:'andamento',
+      desc:'Programa de 5 aulas, de 08/10 a 12/11, gratuito para associados do Semesp. Briefing em 21/09 e repost do Semesp em 23/09. ' + L(URL_TRILHAS,'Página do programa'),
+      tasks:['Material para outros cursos da UC Semesp'] },
+    { n:3, title:'FNESP', when:'16 e 17/09', status:'concluido',
+      desc:'Espaço Coworking, Certificadora Oficial, painel sobre microcredenciais e apresentação do painel de empregabilidade. Vídeo overview com 699 impressões e 401 membros alcançados, mais 4 depoimentos de parceiros. Negócios abertos: IED, Vitru, Grupo Ânima, Yduqs e UTFPR.' },
+    { n:4, title:'Certificação para Curso Santander', when:'Durante o FNESP', status:'preencher',
+      desc:'Cursos do Santander na UC Semesp certificados pela POK, com informação no stand do Santander.' },
+    { n:5, title:'Campanha Egressos e Empregabilidade · Anima', when:'Previsto 23 e 24/09', status:'adiado',
+      desc:'O disparo de 30.000 credenciais não ocorreu. Segue para outubro, com nova data a definir.' },
+    { n:6, title:'Parceria Estratégica · HSM Singularity', when:'03, 08 e 11/09', status:'andamento',
+      desc:'POK certificadora oficial do Rock in Rio Academy. Onboarding com passo a passo para a equipe da HSM em 03/09, post em 08/09 e nota na newsletter de 11/09. Artigos para a HSM Management a partir de 07/10.' },
+    { n:7, title:'Assessoria de Imprensa', status:'backlog',
+      desc:'Dois orçamentos enviados. ' +
+           L('https://drive.google.com/file/d/1cLV-Op_zK3dT3eknIz0pjW_bq4FBwihI/view?usp=drive_link','Orçamento') + ' · ' +
+           L('https://pages.qwilr.com/02-09-26-Proposta-Pine-POK-tech-Projeto-Especial-4-meses-EH7uvvVWR5Gt','Proposta Pine') + ' · ' +
+           L('https://docs.google.com/document/d/1xm4mAO-psF0QxTbtnyvPYa9mYEhzGhUrreWxIrsDLxE/edit?tab=t.0#heading=h.bye6t9nj5prs','Pautas') },
+    { n:8, title:'Parceria com Rubrix', status:'andamento',
+      desc:'Mockup de credencial com valor de diploma MEC, verificador frente ao Gov.br e conversor de diploma. Marcos à frente; lançamento em novembro.' },
+    { n:10, title:'Revisão de processo CRM', status:'andamento',
+      desc:'Marcos levanta o funil de vendas e a alimentação do Hubspot. A análise do funil segue para outubro.' },
+    { n:11, title:'Conversa com o Intern Hub', when:'22/09', status:'concluido',
+      desc:'A pauta de internacionalização vira o mote do próximo artigo para a HSM Management.' },
   ],
   out: [
-    {
-      title: 'Ativar PR',
-      desc: 'Ativação da assessoria de imprensa estruturada em setembro (ver Ação 7 de setembro). Kick-off em 02/10.',
-      tasks: ['Levar as pautas do documento para a assessoria', 'Usar os dados do FNESP e da campanha Vitru como primeira pauta']
-    },
-    {
-      title: 'Preparação do lançamento de novembro',
-      desc: 'Credencial Verificável + Diploma Digital MEC, em parceria com a Rubrix. Produção das peças a partir de 26/10 para lançar em novembro.',
-      tasks: ['Produzir material de comunicação sobre credencial com valor de diploma digital', 'Alinhar com a assessoria a pauta de lançamento']
-    },
+    { n:1, title:'Trilhas Formativas · UC Semesp', when:'Aulas 08, 15, 22 e 29/10', status:'andamento',
+      desc:'Aulas 1 e 3 ao vivo no Zoom, das 15h às 17h. Aulas 2 e 4 assíncronas no LXP. ' + L(URL_TRILHAS,'Página do programa'),
+      tasks:['Fechar a divulgação de matrículas até 07/10','Lembrete das aulas assíncronas em 14/10 e 28/10'] },
+    { n:2, title:'Masterclasses Vitru · Carreira 5.0', when:'08/10 UniCesumar · 22/10 Uniasselvi · 19h', status:'definicao',
+      desc:'Competências, Posicionamento, Oportunidades. Formato, datas e peças em definição com a Vitru.',
+      tasks:['Produzir as peças e enviar para aprovação da Vitru','Sincronizar os posts com o calendário da Vitru e disparar e-mail para toda a base'] },
+    { n:3, title:'Campanha Egressos e Empregabilidade · Anima', when:'Data a definir', status:'adiado',
+      desc:'30.000 credenciais para Unisul, São Judas, Anhembi Morumbi, IBMR, Unifacs e Una.',
+      tasks:['Criar a campanha com as instituições','Levantamento de dados depois do disparo'] },
+    { n:4, title:'Case FMU e Unirios · egressos', status:'iniciar',
+      desc:'Case da campanha de egressos, construído com a Regina Tavares.',
+      tasks:['Consolidar os dados com a Regina Tavares','Montar a campanha de divulgação'] },
+    { n:5, title:'Piloto UTFPR Apucarana', when:'1ª reunião na 1ª semana de outubro', status:'iniciar',
+      desc:'Extensão micro-certificada em dois cursos de Engenharia, para docentes e comunidade. Contratação por inexigibilidade. Sponsors: Sarah Tamura e Juliana Merli.',
+      tasks:['Resumo executivo do piloto','Material mostrando o valor para os professores aderirem'] },
+    { n:6, title:'Trilhas Formativas · IED', when:'Proposta enviada em 23/09', status:'aguardando',
+      desc:'Trilhas em três formatos: graduação, pós-graduação e curso livre.',
+      tasks:['Follow-up da proposta'] },
+    { n:7, title:'Parceria Estratégica · HSM Singularity', when:'Artigos 07 e 21/10 · AI Bootcamp 28 e 29/10', status:'andamento',
+      desc:'Artigo de 07/10 com o mote de internacionalização. Certificação e ativação da POK no AI Bootcamp.',
+      tasks:['Definir a ativação no AI Bootcamp'] },
+    { n:8, title:'Evento POK + Semesp', when:'1ª reunião 29/09 · evento em novembro', status:'definicao',
+      desc:'Apresentar a POK a todos os integrantes do Semesp e falar sobre o diploma digital.',
+      tasks:['Planejamento com o Semesp','Convite para os integrantes do Semesp'] },
+    { n:9, title:'Lançamento Diploma Digital · preparação', when:'Peças a partir de 26/10', status:'andamento',
+      desc:'Credencial Verificável + Diploma Digital MEC, com a Rubrix.',
+      tasks:['Material sobre credencial com valor de diploma digital','Alinhar o lançamento com o evento POK + Semesp'] },
+    { n:10, title:'Assessoria de Imprensa', status:'backlog',
+      desc:'Quando voltar, a primeira pauta usa os dados do FNESP e da campanha Vitru.' },
+    { n:12, title:'Revisão de processo CRM', status:'andamento',
+      desc:'Análise do funil de vendas com o Marcos.',
+      tasks:['Revisar os e-mails para prospects com o guia de e-mail one to one'] },
   ],
   nov: [
-    {
-      title: 'Lançamento Credencial Verificável + Diploma Digital MEC',
-      desc: 'Resultado da parceria com a Rubrix: mockup de credencial com valor de certificado MEC, verificador frente ao Gov.br e, se possível, conversor de diploma em credencial verificável. Data de lançamento ainda a definir.',
-      tasks: ['Definir data e formato do lançamento', 'Campanha de e-mail e LinkedIn para toda a base', 'Acionar a assessoria de imprensa']
-    },
-    {
-      title: 'Ativar PR',
-      desc: 'Ativação de imprensa em torno do lançamento e dos resultados das campanhas de empregabilidade.',
-      tasks: []
-    },
-  ]
+    { n:1, title:'Encerramento das Trilhas · UC Semesp', when:'12/11 · 15h às 17h', status:'iniciar',
+      desc:'Aula 5: Consolidação e Certificação, com leitura dos painéis de métricas e entrega da certificação final.',
+      tasks:['Lembrete em 05/11 e véspera em 11/11','Registrar trilhas e depoimentos para PR e vendas'] },
+    { n:2, title:'Lançamento Credencial Verificável + Diploma Digital MEC', when:'Data a definir', status:'definicao',
+      desc:'Resultado da parceria com a Rubrix.',
+      tasks:['Definir data e formato, avaliando o evento POK + Semesp','Campanha de e-mail e LinkedIn para toda a base'] },
+    { n:3, title:'Evento POK + Semesp', when:'Data a definir', status:'definicao',
+      desc:'Apresentação da POK e do diploma digital para os integrantes do Semesp.',
+      tasks:['Convite, apresentação e pós-evento'] },
+    { n:4, title:'Parceria Estratégica · HSM Singularity', when:'Artigo 04/11', status:'andamento',
+      desc:'Última entrega do cronograma de artigos.',
+      tasks:['Divulgar os artigos e o resultado do AI Bootcamp'] },
+    { n:5, title:'Campanha Egressos e Empregabilidade · Anima', when:'Depende do disparo', status:'adiado',
+      desc:'Levantamento de dados para o painel de empregabilidade.' },
+    { n:6, title:'Assessoria de Imprensa', status:'backlog',
+      desc:'Pautas: lançamento do diploma digital e resultados das campanhas de empregabilidade.' },
+  ],
 };
 
 const CHIP_CLS = { nl:'chip-nl', nli:'chip-nli', li:'chip-li', em:'chip-em', o2o:'chip-o2o', alt:'chip-alt', vt:'chip-vt', an:'chip-an', lv:'chip-lv', im:'chip-im', ev:'chip-ev', ca:'chip-ca', au:'chip-au', mc:'chip-mc', pd:'chip-pd', pr:'chip-pr', fe:'chip-fe', rl:'chip-rl', pt:'chip-pt', hs:'chip-hs', rp:'chip-rp' };
-const CHIP_LBL = { nl:'NL E-mail', nli:'NL LinkedIn', li:'Post LinkedIn', em:'E-mail', o2o:'E-mail 1:1', alt:'E-mail alternativo', vt:'Envio Vitru', an:'Envio Anima', lv:'Levantamento', im:'Material FNESP', ev:'Evento', ca:'Canal', au:'Aula UC Semesp', mc:'Masterclass', pd:'Produção', pr:'PR', fe:'Feriado', rl:'Realocado', pt:'Material Intern Hub', hs:'Onboarding/Mkt HSM', rp:'Repost LinkedIn' };
+const CHIP_LBL = { nl:'NL E-mail', nli:'NL LinkedIn', li:'Post LinkedIn', em:'E-mail', o2o:'E-mail 1:1', alt:'E-mail alternativo', vt:'Disparo Vitru', an:'Disparo Anima', lv:'Levantamento', im:'FNESP', ev:'Evento', ca:'Canal', au:'Aula UC Semesp', mc:'Masterclass', pd:'Produção', pr:'PR', fe:'Feriado', rl:'Realocado', pt:'Intern Hub', hs:'HSM', rp:'Repost' };
 
 let state = {};
 let currentMonth = 'sep';
 let currentFilter = 'all';
 let currentDayKey = null;
 
-// dias já concluídos em 21/09/2026: aparecem marcados mesmo num navegador novo
-const CONCLUIDOS_BASE = [1,2,3,4,8,9,10,11,14,15,16,17,18,21].map(d => 'sep_' + d);
+// dias já concluídos em 28/09/2026: aparecem marcados mesmo num navegador novo
+const CONCLUIDOS_BASE = [1,2,3,4,8,9,10,11,14,15,16,17,18,21,22,23,24,25].map(d => 'sep_' + d);
 
 function load() {
   try { state = JSON.parse(localStorage.getItem('pok_set_out_26') || '{}'); } catch(e) { state = {}; }
@@ -1263,7 +1217,8 @@ function renderCal() {
     info.tasks.slice(0, MAX_CHIPS).forEach(task => {
       const chip = document.createElement('div');
       chip.className = 'chip ' + (CHIP_CLS[task.c] || '');
-      chip.textContent = CHIP_LBL[task.c] || task.t;
+      chip.textContent = task.s || CHIP_LBL[task.c] || task.t;
+      chip.title = task.t;
       card.appendChild(chip);
     });
     if (info.tasks.length > MAX_CHIPS) {
@@ -1277,44 +1232,35 @@ function renderCal() {
   }
 }
 
-// ── RENDER AÇÕES / CAMPANHAS ──
+// ── RENDER AÇÕES ──
 function renderAcoes() {
-  const datedWrap = document.getElementById('acoes-datadas');
-  const freeWrap = document.getElementById('acoes-livres');
-  datedWrap.innerHTML = '';
-  freeWrap.innerHTML = '';
-
-  const dated = DATED_CARDS[currentMonth] || [];
-  if (dated.length === 0) {
-    const p = document.createElement('div');
-    p.className = 'acao-desc';
-    p.textContent = 'Nenhuma campanha com data específica registrada no planejamento para este mês.';
-    datedWrap.appendChild(p);
-  } else {
-    dated.forEach(item => datedWrap.appendChild(buildAcaoCard(item, true)));
-  }
-
-  const free = FREE_CARDS[currentMonth] || [];
-  free.forEach(item => freeWrap.appendChild(buildAcaoCard(item, false)));
+  const wrap = document.getElementById('acoes');
+  wrap.innerHTML = '';
+  (ACOES[currentMonth] || []).forEach(item => wrap.appendChild(buildAcaoCard(item)));
 }
 
-function buildAcaoCard(item, dated) {
+function buildAcaoCard(item) {
   const card = document.createElement('div');
-  card.className = 'acao-card' + (dated ? ' dated' : '');
+  card.className = 'acao-card' + (item.when ? ' dated' : '');
 
   const top = document.createElement('div');
   top.className = 'acao-top';
   const title = document.createElement('div');
   title.className = 'acao-title';
-  title.textContent = item.title;
+  title.textContent = item.n + ' · ' + item.title;
+  const st = document.createElement('span');
+  st.className = 'status st-' + item.status;
+  st.textContent = ST_LBL[item.status];
   top.appendChild(title);
-  if (dated && item.date) {
-    const badge = document.createElement('div');
-    badge.className = 'acao-date';
-    badge.textContent = item.date;
-    top.appendChild(badge);
-  }
+  top.appendChild(st);
   card.appendChild(top);
+
+  if (item.when) {
+    const when = document.createElement('div');
+    when.className = 'acao-when';
+    when.textContent = item.when;
+    card.appendChild(when);
+  }
 
   const desc = document.createElement('div');
   desc.className = 'acao-desc';
@@ -1327,13 +1273,7 @@ function buildAcaoCard(item, dated) {
     item.tasks.forEach(t => {
       const row = document.createElement('div');
       row.className = 'acao-task';
-      const tag = document.createElement('span');
-      tag.className = 'mk-tag';
-      tag.textContent = 'Marketing';
-      const txt = document.createElement('span');
-      txt.textContent = t;
-      row.appendChild(tag);
-      row.appendChild(txt);
+      row.textContent = t;
       tasksWrap.appendChild(row);
     });
     card.appendChild(tasksWrap);
@@ -1432,7 +1372,7 @@ function markAllDone() {
 }
 
 function clearAll() {
-  if (confirm('Limpar todo o progresso salvo (Setembro e Outubro)? Essa ação não pode ser desfeita.')) {
+  if (confirm('Limpar todo o progresso salvo (setembro a novembro)? Essa ação não pode ser desfeita.')) {
     state = {}; save(); renderCal();
   }
 }
