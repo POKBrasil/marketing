@@ -1107,12 +1107,13 @@ let currentFilter = 'all';
 let currentDayKey = null;
 
 // dias já concluídos em 28/09/2026: aparecem marcados mesmo num navegador novo
-const CONCLUIDOS_BASE = [1,2,3,4,8,9,10,11,14,15,16,17,18,21,22,23,24,25].map(d => 'sep_' + d);
+const CONCLUIDOS_BASE = Array.from({length: 28}, (_, i) => 'sep_' + (i + 1));
 
 function load() {
   try { state = JSON.parse(localStorage.getItem('pok_set_out_26') || '{}'); } catch(e) { state = {}; }
   CONCLUIDOS_BASE.forEach(k => {
-    if (!state[k]) state[k] = { tasks:{}, done:true, notes:'' };
+    if (!state[k]) state[k] = { tasks:{}, done:false, notes:'' };
+    state[k].done = true;
   });
 }
 function save() {
