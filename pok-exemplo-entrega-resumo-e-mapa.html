@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exemplo de Resumo e Mapa</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap">
+<style>
+/* Layout: coluna única de documento; faixa do curso no topo, Parte 1 em linhas (carga horária à esquerda), Parte 2 com matriz eixo x bloco e fichas de eixo em duas colunas. Identidade do curso: tema claro único, por escolha. */
+:root{
+  --roxo:#5123a4;
+  --roxo-escuro:#2a1260;
+  --laranja:#f03f0f;
+  --fundo:#f4f0fc;
+  --lilas:#e4dbf8;
+  --papel:#ffffff;
+  --tinta:#1c1035;
+  --fonte:'Poppins',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--fundo);color:var(--tinta);font-family:var(--fonte);font-size:13.5px;line-height:1.6;margin:0}
+.wrap{max-width:1020px;margin:0 auto;padding-inline:20px;padding-block:28px 56px;display:flex;flex-direction:column;gap:44px}
+h1,h2,h3,p,ul{margin:0}
+ul{padding:0;list-style:none}
+h1,h2,h3{text-wrap:balance;line-height:1.15}
+
+/* topo */
+.topo{display:flex;flex-direction:column;gap:20px}
+.faixa{display:block;width:100%;height:auto;border-radius:14px}
+.selo{align-self:flex-start;background:var(--roxo);color:var(--papel);font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:7px 16px;border-radius:999px;display:flex;align-items:center;gap:9px}
+.selo::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--laranja)}
+.capa{position:relative;container-type:inline-size}
+h1{position:absolute;left:4.2cqw;right:4.2cqw;top:3cqw;font-size:4.6cqw;font-weight:800;color:var(--roxo);letter-spacing:-.02em;white-space:nowrap;line-height:1.15}
+h1 em{font-style:normal;color:var(--laranja)}
+.lead{font-size:13.5px;color:#000}
+.ficha{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:var(--lilas);border:1px solid var(--lilas);border-radius:12px;overflow:hidden}
+.ficha div{background:var(--papel);padding:13px 16px;min-width:0}
+.ficha dt{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--roxo)}
+.ficha dd{margin:3px 0 0;font-weight:400;color:#000;font-size:13px;line-height:1.35}
+dl{margin:0}
+
+/* seções */
+section{display:flex;flex-direction:column;gap:20px}
+.rotulo{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--laranja)}
+h2{font-size:clamp(20px,3vw,28px);font-weight:800;color:var(--roxo);letter-spacing:-.015em}
+.cab{display:flex;flex-direction:column;gap:8px;border-bottom:2px solid var(--roxo);padding-bottom:14px}
+.texto{max-width:none}
+.chamada{font-weight:600;color:var(--roxo)}
+
+/* Parte 1: blocos */
+.blocos{display:flex;flex-direction:column}
+.bloco{display:grid;grid-template-columns:132px minmax(0,1fr);gap:8px 28px;padding-block:22px;border-bottom:1px solid var(--lilas)}
+.bloco:last-child{border-bottom:0}
+.carga{display:flex;flex-direction:column;gap:2px}
+.carga b{font-size:26.5px;font-weight:800;color:var(--roxo);line-height:1;font-variant-numeric:tabular-nums}
+.carga span{font-size:10.5px;font-weight:600;color:var(--roxo-escuro)}
+.corpo{display:flex;flex-direction:column;gap:10px;min-width:0}
+h3{font-size:16.5px;font-weight:700;color:#000}
+h3 small{font-size:11.5px;font-weight:600;color:var(--roxo)}
+.itens{display:flex;flex-wrap:wrap;gap:7px}
+.itens li{background:var(--papel);border:1px solid var(--lilas);border-radius:7px;padding:4px 10px;font-size:11.5px;font-weight:500}
+.constroi{font-weight:600;color:var(--roxo-escuro)}
+.total{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;background:var(--roxo);color:var(--papel);border-radius:12px;padding:14px 20px;font-weight:600}
+.total b{font-weight:800;font-variant-numeric:tabular-nums}
+
+/* Parte 2: matriz */
+.rolagem{overflow-x:auto;background:var(--papel);border:1px solid var(--lilas);border-radius:12px}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:12px}
+th,td{padding:11px 12px;text-align:center;border-bottom:1px solid var(--lilas)}
+tr:last-child td,tr:last-child th{border-bottom:0}
+thead th{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--roxo);font-weight:700;background:var(--fundo)}
+tbody th{text-align:left;font-weight:400;color:var(--tinta)}
+.ex{display:flex;align-items:center;gap:8px}
+.ex span{margin-right:0;flex:none;width:12px}
+.ex em{font-style:normal;flex:1;min-width:0}
+.ex .tag.t{flex:none;background:var(--fundo);box-shadow:inset 0 0 0 1px var(--lilas)}
+tbody th span{color:var(--laranja);font-weight:800;margin-right:8px;font-variant-numeric:tabular-nums}
+.pt{display:inline-block;width:13px;height:13px;background:var(--roxo);clip-path:polygon(25% 4%,75% 4%,100% 50%,75% 96%,25% 96%,0 50%)}
+.tag{display:inline-block;font-style:normal;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:3px 10px;white-space:nowrap}
+.tag.t{background:var(--lilas);color:var(--roxo)}
+.tag.ok{background:var(--roxo);color:var(--papel)}
+.tag.parc{background:var(--papel);color:var(--laranja);box-shadow:inset 0 0 0 1.5px var(--laranja)}
+.legenda{font-size:11.5px;color:var(--roxo-escuro);display:flex;flex-wrap:wrap;gap:8px 22px;align-items:center}
+.legenda span{display:inline-flex;align-items:center;gap:7px}
+
+/* Parte 2: fichas de eixo */
+.eixos{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:18px}
+.eixo{background:var(--papel);border-radius:12px;border-top:3px solid var(--laranja);padding:20px 22px 22px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.eixo.parcial{border-top-style:dashed;grid-column:1/-1}
+.eixo header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.num{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--laranja)}
+.eixo h3{font-size:15px;margin-top:3px}
+.onde{font-size:11px;color:var(--roxo-escuro);background:var(--fundo);border-radius:8px;padding:9px 12px;line-height:1.5}
+.onde b{color:var(--roxo);font-weight:700}
+.comp{display:flex;flex-direction:column;gap:8px}
+.comp li{position:relative;padding-left:20px;font-size:12.5px;line-height:1.5}
+.comp li::before{content:"";position:absolute;left:0;top:.5em;width:9px;height:9px;background:var(--roxo);clip-path:polygon(25% 4%,75% 4%,100% 50%,75% 96%,25% 96%,0 50%)}
+.comp li b{font-weight:600;color:var(--roxo)}
+
+/* fecho */
+.duas{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:18px}
+.caixa{background:var(--papel);border:1px solid var(--lilas);border-radius:12px;padding:20px 22px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.caixa h3{font-size:14px}
+.caixa ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.caixa ol li::marker{color:var(--laranja);font-weight:700}
+.caixa ul{display:flex;flex-direction:column;gap:6px}
+.caixa ul li{padding-left:16px;position:relative}
+.caixa ul li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--laranja)}
+footer{display:flex;justify-content:space-between;gap:10px 24px;flex-wrap:wrap;border-top:1px solid var(--lilas);padding-top:16px;font-size:11px;color:var(--roxo);font-weight:500}
+footer b{font-weight:700}
+
+@media (max-width:620px){
+  .ex{flex-wrap:wrap;row-gap:2px}
+  .ex em{flex:1 1 calc(100% - 20px)}
+  .ex .tag.t{margin-left:20px}
+  .bloco{grid-template-columns:1fr}
+  .carga{flex-direction:row;align-items:baseline;gap:10px}
+}
+</style>
+<style>
+.btn-pdf{position:fixed;top:14px;right:14px;z-index:10;display:inline-flex;align-items:center;gap:8px;font:600 12.5px var(--fonte);color:var(--papel);background:var(--roxo);border:0;border-radius:999px;padding:9px 16px;cursor:pointer;box-shadow:0 4px 14px rgba(42,18,96,.25)}
+.btn-pdf:hover{background:var(--roxo-escuro)}
+.btn-pdf:focus-visible{outline:2px solid var(--laranja);outline-offset:2px}
+.btn-pdf svg{width:14px;height:14px}
+@page{size:A4;margin:0}
+@media print{
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  html,body{background:var(--fundo)}
+  body{padding-block:13mm;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+  .btn-pdf{display:none}
+  .wrap{zoom:.8;max-width:none;gap:30px;padding-block:0;padding-inline:44px}
+  .rolagem{overflow:visible}
+  .eixo,.bloco,.caixa,tr,.total,.ficha,.cab,.rolagem,.topo{break-inside:avoid}
+  .cab,h2,h3,.texto,.chamada{break-after:avoid}
+  section+section{break-before:page}
+}
+</style>
+</head>
+<body>
+
+<button class="btn-pdf" type="button" onclick="window.print()"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v8M4.5 7 8 10.5 11.500 7M2.500 13.500h11"/></svg>Gerar PDF</button>
+
+<div class="wrap">
+
+<div class="topo">
+  <div class="capa">
+    <img class="faixa" alt="" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBAUEBAYFBQUGBgYHCQ4JCQgICRINDQoOFRIWFhUSFBQXGiEcFxgfGRQUHScdHyIjJSUlFhwpLCgkKyEkJST/2wBDAQYGBgkICREJCREkGBQYJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCT/wAARCAHEBkADASIAAhEBAxEB/8QAHAABAQADAQEBAQAAAAAAAAAAAAECAwQFBgcI/8QASBABAAIBAgQCBgYIBAQEBgMAAAECAwQRBRIhMUFRBhMyYXGBFCIzUrHBByNCYnKRodEVJDSCQ0R04RZT8PEnNTeistI2c8L/xAAbAQEBAQEBAQEBAAAAAAAAAAAAAQIDBAcFBv/EADERAQEAAgEDAwIEBgICAwAAAAABAhEDEiExBEFRImEFE3GBMpGhsdHwFCPB4UJS8f/aAAwDAQACEQMRAD8A/psB3UAAAFAAAAAAAARRAUQBUAAAAAAAAAAAQAFAAAQQVAAAAAABQAAAAAAAAEAUQBUAAAAAAAAABAABAABRAUAABAAAAQAAFBAFQAAABBQAAAAAAAAEAUQBQAAAFQBRAFEUAAFEEFAAABRCQAQFEFCQQBFQBFRQQAEABAUEABAAQAEBQQAGFeu8+cradqzPkVjasR7lFQEBAVQEEAFBjedq9O89IZMJ63iPLqDKI5YiI8AQFQNwBAFEAUQBRAVTdFEFQBRFBRFAABRFAVBBQAURUBUAVUAVUAUAHpAOKAICiKAAAIAogAAAAAAAAAeIAAAAAAAACCAAAAAoAAAAAAeJ4AACAoigCAAAAAAAAAAAAAAgB4AACAoAAgAAiioAAgKACAgKAACAKgKAICiAAAAAG4ICiAKIKKIAoigAAKgCiCCiAKACiAKIoCoAqAACAAAAAgCiAgCKgAIoAgAIACAAigCAAgMb9YiPOVSfbr7t5VQQBQEEAFBAAYU6xNvOd1vO1ZWI2iI8gBAAEBRBVAAAAFQBRAFVBEURQURQFQBQAURQFQQUAFEVFFRRBUAVUAekqDiiiACoAKigAAAAAAgqAAAAAAAAAAAAAACAAoAACCCoAAAAAAKAAAAAAAAAgCoAKgAAAAAAAAAIqAdAQAAUQFAABAAAAT5AAAKAgB0AAADoIKAAAABsAAAJPZFnsxBRBRRAFGr1s36Yo5v3p7R/djNsuOek+u84iNpg0N7Hmm3sx857MaWrl6zO8x3r22+TYCRfbpaNvwZJ36Sx5Zr7M9PKQZjGLxM7dp8pUFABRAFEVAVAFQABAABQEAVAAQAQBRAAQABABAFBABAAQEBjHW8+6IZMa97T71UAAEBQQAEWUBjfrNY9+6se+T4QyAQFUEAAQFEAUQBRFAVAFABRFBRFRFEAVUAVUAUABUVAABQEVRFEURQekA4oAAAAeCooAIAqAAAAAAAAAAAAAAAAAAAggAAAAKAAAAAAB4AAAAIAogAAAAAAAAAAAAAIoIAAICgACAACKKgAAgKgAAgoAACAqAoAACAAAAAAIoogBPZFnsxBRAGN8nLPLETa09YiGM0m0b5p3j7le3/c/wCY/wBn5sr9o+MKLETMdfqx5QyiIiNojZFQY3x1v1neLR2tHeGPPfF9pHNX70R2+MNjDN9lf+GfwWDOJ3jdWNPYr8IVAmsW7wn1q/vR/VSewLE7xEx2VhT2K/BkCiAKACiCCoAAIoqAACAqAAioAiooAgAIAiooIqAIqAIACAKxp2n3zKsaexDJUEVAARQBAEVAYx7VvlCpXvb4qqiAAI4tTqMlc01raaxXyWTY7RhhvOTFW095hkgqAAqALuIoCoAqoAoigohvtG89AZDDHlx5Ymcd6226TtO7NBRFEGrVZ50+LmiN5mdobWOXFXNSaXjeJTLeuzWNm5ty6PW5MuX1eTad+0xDuc+DSY8FptXebec+DoZwlk+prluNy+kAbc1EVAVAVVQBVQRHpgOLIAKAACKAAAAAeAAeIAAAAAAICiAgAAAAAoAIoAqAAHgAAIxvkis7dbW+7HcGaRaLRO0xPwlr5LZPtJ2j7sfms4q96/UtHjUVsTwa/WWp0yR0+9Hb/s2RO8bx2EAAAAAAAAAAAQFRUBUAAAAAUBAAAEBQBAAAEAAEFVAABAAFAEBUAAEUUQAAAAAEAUQAnsiz2Ygogow/5j/Z+bK/aPjDD/mP9n5s79o+MAyAQGOb7K/8MsmGX7K/8MrBlT2K/CGTGnsV+EKgoh4AmP2K/Bkxx+xX4MgURQFQBRFAQAAQFQAAABBRUABAAQAEVAQBQQAQAEBBQEVEp7FfgrGnsV+DJRAAEABBAAQVjTtPxlkxp7M/GVUEVAGu+HHkne1ImWxAOwIoogCiAKACiKgKigKgCteoxTnwXxRO02jbdsAcXDtDk0lr3yWrvaNoiruBbbbuigMooAKACgAKigAIKIqKoCo9MQcGVEAAAVUhRQAEFAQUBBUANgAAAAAAAAAAANgEEUFRQETZUAAAErStd9oiN+sqKAAGyVpWkbViIj3KAJERHZQUNgAAEQ2UBNjYADYANjYAAAAAAANk2UBNoNgFTaDaFQQ2hNlBU29xtAKJNYnube5QE2g2jyADaE2hUA2g2jyADaPJNo8lBU2g2gANo8jaPIATaPI2jyBQ2jyNo8gA2jyNo8gA2jyNo8gA2jyTaPJQDaE2jyUBrmd0QaFEJnaN5kGN8cXmJ6xaO1o7w1Zc04KxOaY5d4+vH5wz9bbJ0xR0+/Pb5eZ6qI+tO97+c/kv6jZW1b1i1bRas9pjrEq5p08Rab6e/qrz3rt9WfjH5wsZMtp5M0Rh99Z35vhPgaG2+WKzyxva33YT1dsnXLPT7kdvn5sqUrSNqxsyQUQBTwGNrRHTvPlALj9ivwZMaRtWInwhQUBBRAFAARUAAABAVAUAABAAAEABAFEABAQBFQBFRQRUBjj9iGTGnsslEcWv1d8ExTH0mY3mXa5tXpI1MRMW5bR4+cLjrfcadDrMmXJ6vJO+8bxLucuk0Uae03taLWmNo2js6TLW+yiKiIIqKrGnafjKpXvb4qCAAgCggAIqAoigKigAAoCCiKCiKAqKAqKgKiiCooCooAAKAgKgKqoCPTAcGQBQABYVI7KiggCiAAAAAAAAAAAAAAAAAgIAqAAAoAAAAAAAAAAAgKIAogAAAAAAAAAAAAAACAAIAoCAAKAIAAAICgAAgACAqAAAoCAKIAAAAAAiiiANYgorTjp66tb5J5t+sV8IbWGn+xp8FGwBBJrFvj5pO+0xeOavnsyAatvVTTktvS07cs9dvg3NOav1scx0nnj8JZxfbpaNvf4KM0m0VjeZY8029mPnKxWInfvPnKB9a37sf1ZREVjpAAoigAAoioAAAAAgoAAAgKgAAAIqAAgAIoIqAIqAIACAoIAMadp+MqlelrR791UEVAEVAEVBUAUYR0vb5SyljPS8e+GQIACAKIKgAAAACooAAKAgKigKgCqgCqigKggqoCKACgAKCAAKoCD0wHJkBBFEAZR2COwigAAAB4AB4gCAAoAAAICAKgAAKAAAAAAAAAAAxtatI3tMRHvY73yezE0r5z3kVnurV6im3TeLfe36nPfH7cb1+9H5waG1CJi0bxMTHuBAAAAAAAAAAAABFQAAAAAABAFARQAAQAAQVUAAEAAAEFAABAAAABFFQAAAAAAQFEAaxBRWvT/Y0+DNr09o9XWu/wBasbTHjCjaAgKgDDL3x/xx+EtjVktFslKxO8xbeYjwhtUAEFEAUAFEAUABUAVAAAABAAAAAEAAABFRQRUARUBAAQAVAFRAAY9sk++FS3S1Z+SqCKgCKgIAqoADC/TafKWSWjeswlZ3rEgoAIOTiXF9Bwmlb63U0wxadqxPWZ+ER1dGDPi1OKubBkplx261vSd4lrV1vQzRRBBTaZ7dQQXaY7xMfIAAAABQAFRUBUAUAFABQEFAEUAFAAVBBQAURRXpAOLAAAACxPQm23hM/BiIq+s/dt/RYtv7mIDLeDePNgAz5o8zmhgAz5oOaGAGmfNBzQwAZ80JzQxA0z5o805o82LltxClNbXS8luafHw3WS3wadnNBzQxENMuaPM5o82IpplzR5nNDFA0z5oa8mW9ZiK4rXjxmLRH4qoMuaJOaGAGme8HNDADTXlz6it5jHpovXwt6yI3botvEb9J8kRJGrZfZnvBvDEVljFY9ba8xv0jl9zKb/u2kAOf9y39Fi28+zMIAxrXlyzMRtWY/qzmdomY6z4QgDhw24lGeLZK1nHM9a7x0h05suel9sWnjJXbvzxDaMzHXu6ZZ7u7Iwvkyxii1cPNk8ac223zMOTLeJ9bi9Vt2+tvuzGtMbmtaXc3QVF3N0AXc3QBd4N0AJttPaZ+Cc8/dt/RRNBFt/CY+JvCC6F3g5oYhoZc0HNDFDQy5oOaGIC80HNDEUZc0JzQxBWXNBzQwDQy5/i0ay+o9XEaaIm0z1mdukfNtRLNrjdXbToranltGqiN49menX+Tp5oYISamjK7u2fNHmc0MEXSM+aPM5oYC6GfNCc0ebANDPmg5oYIaGznjzTmjzYC6GfNBzx5sENDZzwnPDANDPnjzOePNrDQ2c8eZzw1hobOePM5482oNDbzx5nPDUGhs548znhrDQogorG+Ot+/eO0x3hVBr5r4/ajnr96I6x8YZ1tF43rMTHuVhbFEzzVmaWnxjxBlfJWntT37R4yw2yZO++OvlHef7MqY60nfrNp72nvLICta0jasbQoAoggoACoAoACoAoAAACKgAAAACAAAAAAgKCACAAgAIioqgAiAKMcns7+XVSY3jZKTvWP5AqKgCK13yxWeWsTe/3Y/PyFZSb79Ya/VTk65Z3j7sdv8Auk4pp1xTy/uz7M/2UbBhXLEzy3jkt5T4/CWYIxr0m0fNlPSHy/G/TnSaHLGm4dSdfrJnliuPrSJ+Md/l/NvDjyzusYsm30eo1GHSYbZtRlpixV73vO0Q+Q1/ptquJZraL0c0ts1+1tRevSvviJ6R8Z/k5qej/FPSDNXVekOqvWkda6XHO3L/AC6R8uvvfR6XR6fQ4a4NNhphxx2rWNv/AHd5jhx+e9/p/wC17R8/ovQ6mXJbVcaz31+pv7UTaeWPn3n8Gq3AuLejuW2p4Bqb5MUzvbS5J33/ACn+kvqMubHgrzZb1pE9I3llExasWrMTE9pjxa/Oy9/H9DdedwT040XELxptbWdBrInlmmTpWZ90z2+EvpHznFuA6HjNNtTi/WRG1ctOl6/Px+EvFx5fSD0P9mZ4nw2v7M782OPxj+sM3jxz/g7X4NS+Hv8Apd6Wab0V0Vcl6eu1OXeMOHfbm85mfCIfkXFvS/jfGstranX5q0memLFaaUr8o/Nl6X8dt6RcdzauIvGKIjHipbrNaxHbp795ebxDhmt4VnjBr9Jm0uWaxeKZaTWZrPafg+c/i/4jzc3LlhjbMMbr/wDX1D8C/B/T+l4cM85LyZTff+0/T3bNHxvifD8kZNJxDVYbR93LO38u0v030H/SHPGc9OGcUilNZbpizVjauafKY8Lf0l8d6C+hGb0r1l82otOm4VpvranUTO0bR15azPjt3nwjr5Ob0u4hwi/pDOb0a00aPSaeK1xWpMx6y9f+JG/bfp8dt/Fy9F6n1Ho8Zz9X02+L7/Ov8un4j6T0n4hyZek6frk31Sfw32lv3+Ph+6Dk4Trf8S4XpNbtt9Iw0yTHvmOv9XW+gY5TKTKe75XnhcMrjl5gqK0yAICgAqKAACgAoCCgCKACiKAACgICoor0gHFgEBQEBRAUAQAAAAAAAQFEAE5K83Nyxzee3VRQAAAAAAAAAAAAAAAAAAVAFEBFAUAAAAAQFEAVAAAARUAAFQABAUEVAEVFAEABAAAEAAEUAAQABAABAVAUAQAAAEBRAFEAUQBRFAVAFAAVAFAAVBBQAFQBQAFQBQQAAAABFQAAAABFRQABAAQAEABEVFUAEQVFBhXpa0fNmwt0tWfkDJFQGvUTMYbTEzE+74sq0rSOWsREMNT9jb5fi2SvsoioCWrW8bWiJifCXicV9KeHcBwzXU5pyZ4mYrhpO9+/Tfy+byvSDjfGNZxvJwHhPq9PNaRa+ebfW22iZ6+Hfw6nA/RPRcP/AMxn31mr5pmcuWN4id/CPznq9OPFjjN8l/ZqT5cOSfSD0w65rTwzhtu1I35rx8O8/PaPc9vhfAdDwjFNNLhiLTG1stut7fP8oels576qJtOPBX12SO+0/Vr8ZW8lynTO0Ns+aIpNrTFYjvM9oaPX5NR001dq/wDm3jp8o8fwWNJNskX1NvWzPau21Kz8PH4y6dmO0RoxaWmO03nfJknve/Wf+3yYW0k45m+mtGKZ6zSY3pb5eHydWxsm6OamqjmjHmrOHJPaJnpb4T4t+2xfHXLSaXrFqz3iYaPVZtN9jM5cf/l3nrHwn8pXyPx70v0V+HekuuptyxbL66kx06W6xMf+vB9vwb0l4P8ApD4bj4F6WZK6fiGL/TcQiYrNvnPSLecT0t8XX6WejeH0q00X01q4uIaePqxk6Tav3bflL8s1/DNZwzLOHW6XLgvHhkrtE/Ce0v4D8Q9Pzeg9Rnl0748v5X7X7z2fS/w/m9P+K+lwwuXTy4eLPMs7bnzL7zx7PtPTz0x0kaOvor6NRGHhGm+plyUn/UWjvG/jXfrM/tT7nwda2taK1iZtPSIjxlcWK+e8Y8NLZL26RWkc0z8ofefoy9FMes12Tieuj/RXiMeGY/4n3p+G3bzeLh4Of8R5vpnb+mMfo8vN6b8H9Nd3v5++V+f1vvfZ+k8E0VuG8H0Ojt7WDBTHb4xHX+rtUfRMMZjjMZ4j5LyZ3PK55eb3AFYAAUABUUBUAUAFAQUARQAFRQAAUBAVFB6IDigIAACgCAAD53V8V1OTPb1eS2OlZ2iI/N63C9ZbWaebZIjnrPLMx4ubVcErmzTkx5eSLTvNZjf+Tu0mlpo8MYqbz4zM95l5+PHkmduXh7ObPivHJhO7egPQ8YAACAu4gKogCiCioAgAKAA5uIaz6Fg54rzWtPLWJ7OTh3FsmpzxhzVr9b2ZrG3V26zS01mGcdpmOu8WjwlzaHhNdJl9bbJz2jpXaNohxymfXNeHpwvF+XZl5egA7PKAAKgCiALuIAoigAAogqAAAAAAAAAAEoSCiKgAIACKAAIAoIACAAioACKAACAACAAgACgIAAgKgACAKIAogCiAKACiAKACiKAACiKAqAKAgKgCgAqAAAAACAAAAAKIAAACAAgAIioKIqKAAiAAMbRzVmGTTqNVj00RzbzM9ogtk71cZbdRsrPNWJGjTarHntatd4nvtLeSy94ZY2XVa9REzhttEz8PiyreuSOasxMMmu+GLTzVmaX+9Hj8fNoZo1+ttj6ZY2j78dv+xOWb9MUc370+zH9zQ+Ni1a/pF11rTER9HjrPwo+iwRPJ2mN7TPX4vnMOP/4ja2bTz2jT95+FH1ER1h6uX/4/pGq4sdcmupGTJeaYbdsdJ6zHvn8odNMdcdYpSsVrHaIjaGrh/wDosXwn8ZdDnle+kYWrvGxWd49/iz2YTHLO/hPSUF2Nl2NkGOzh41xvh/o9w/JxDieprp9NTaJtMbzMz2iIjrM+6G3ivFNHwTh2fiHEM9cGmwV5r3n8Ijxme0R4vw+9+Nfps9KopTn0fB9JPxrgpPjPhbJb/wBdIev03p/zN5Z3WM81rHHfe+H7ZpNRoeO6HBr9JlrnwZq8+LNjnadvdPePgz5betrptRGPPS0TatrVjfp5x28e5wnhWk4Jw3T8O0OL1Wm09IpSu+87ecz4zM9ZbMsf57B/Bf8AJ57q2yeE337MsGlwae2+HBixT+5SK/g8P9HX2fFv+q//AGfRRHWPi+d/R19nxb/qv7tYSTiyk+y227tfYAPMwAAKAAAKAAqKACgAIKAIoACooAAKAAqKivQAcUAAEVAAEAAAQFVAABAUQBRAAAAAAEtaKRvaYiPeCjV6289a45mvvnaZ+EM6ZK39mesd4nvC6GQAAAAAAACoAogIogCiKAACiCiiKAAIAAAAAgoCAAAICggAIAAIoAgAIAAoIAAIAACAAICgCAAgAACAAIAAAAA5NXxGumv6uKc9vHrtEN2l1VdVjm1YmJidpifBxa/h+TLmnLiiLc3eN9tnTw/SW0uO3PMTa07zEeDpZj0q6gHNFEUBUAUAFEUAAFAAVAFAQURQAAAAQAAAABQRUAAAABAAQAERQERRVQAQRUAedxLBe165K1m0bbTt4PRGc8eqab487hdx5ehwXrk9das1isbdY7vSWWNOm9fL8Fwx6ZpeTO53dVFGnNE7R0UFfFY//qNrv+mj/wDGj6aI6w+YremP9Iuum9q1j6NHedv2aPczcW0uDb617zvttSu718st6dfEarLh8f5LF8J/GXHxz0o4N6Nzpo4txDFpJ1N+TFz7/Wnxnp2iN43mejLh+sy20WL1Wky26T1t08ZfO+nHoRl9O+HVx6jDi0ms0+86bPFt+XfvW0eNZ2j4d148MLya5LqEk33fZ1mL1i1bRasxvExO8THmTG/d+F+inpxxv9H/ABOPRf0ltfDo8VuWt715508T2ms/tY593bw8n7PSmp1WnrlwcRx2x5KxamTHEWraJ7TE+MNc/psuG972vi/K5Y6dlek8s/L3w1a3W6bh2kzazV5qYNPhrN8mS87RWseLmzYc2m09s2o4lGOmKs3vltEVrWIjrM+UPxL0h49xn9KvpBT0e4Jly34bW/NE3jlraI75b+VY8I/OV9P6b82+dSeaY47ZcX4pxj9M/pPThfDK30/CNNbmibx9XHXt63J52nwr8vOX7P6O+jug9F+FYeGcOxcmHHG82n2slvG1p8Zl5vo16F19EuFU4fwvU1p1582W2P62a/3p/KPCHt+r19e2bDb412b9TzzOTj4+2E/3dMst9p4dWznyx/nsH8GT8mrHfidY/W4tPed/2J2aM2u1FOIaeuTQ5duS/wBas7+TyzHuy9SI6x8Xzv6O/Y4t/wBV/wDs9iOKaau05LWxbT+1V4n6OMuO+Pis1vWd9VvG0/FuSzjy/ZfZ9kKPKyigAAAoAAAoACooAKgAAoAgoAAAoCACivQQHFAAAEBRBFAQFEAVAABAUQBUAFY3yVxxvadvzWezVgpHJXJPW9o3m09wXfLk6x+rjw3jeZIzck7ZY5J+9+zLY1ZKxky1paN6zWZmvhKwX1s36Yo5v3p7R/da4oiea8ze3nPh8IY46xjyzSu8U5YmI8I6+DaUGN8db9Z3i0drR3hkINfPfH7cc1fvRH4wzraLRExMTHnCtVqxTLSa9OaZ327T0UbQEABQAAABRAFEAUAQABRBRRFAABRFARUBUVAEJFBFQAEABAAFBABAAEVFAEAAAQAEVAEVFAEAAAQAEVAEVBQBUEAFEAUAFEUUVBEUABUUAAFAAVAFABRFAAQUAAAEAAAAAUBAAAAAEABAAQAEAUQABFQABRGN+kxby6T8GTDLkpipNslorXzkGTDLmx4Kc+W9aV87Ts4I1+q1OX1Okwfq4jrnv0j5Q2RwrFlmL6u06i8Tv9btHya6dfxLovxLn3rpcN89/Dwqwx4eI6im+ozUwb/s4us/zehWsVjlrEViPCA6pPEHwWm4dgr+kXWxaJyT9H33vO/hR9fjx0x7RSta/CNnzWD/AOo2u/6b8qPqY7w9HNben9I1XJw+P8li+E/jLo2aOHR/ksPwn8ZdDll5ZfNem3oNw7024b9H1URh1WKJnT6qsb2xT5e+s+Mfm/KvRf0t41+ifjVvR30jw5L8Mm28cv1vVxM/aYp8aT41/Ce/71s8P0u9D+GemfDJ0PEccxau84c9I/WYbecfnHaXs9P6qYz8rlm8L/T7xvHL2vh+TenXprr/ANI/GMXor6LVvl0N77WvG9fpMx3tbyx179e/fyh+n+hPoTovQnhNdLptsuqybW1OomNpzW93lWPCPzlh6C/o/wCHeg2jyU09p1Osz/baq9drWjwrEeFY8vGX1Gx6n1ONx/J4e2M/r96ZZe08MYmJjeF2SYms7xHxhlHWN47PEwx2aMn+uwfwZPydOznyR/nsH8GT8lg22x0ydL1raJ8Jjd8r6AaHT5qcW5se0xqtoms7bd310R1j4vmf0d+zxf8A6r+7rhb+Xl+zU8V9BTQanTWtODWXvWesUy9YgtxDUaa9a6jSXms98mPrEO8cOr5Z21YdVhz/AGeSJny7S2ubU8O0+qrMXpyzP7VJ2lrrg1mkrEYsv0ikfs5Pa/mal8DtVw4OKY7zNM+LJprxO22SOk/N21mLRExMTE+MJZZ5FAQFAAFABy63iWm0ERGW0zkt7OKkb3t8IZyymM3WscMs704zddTTj12lzZ7afHqMd8tO9It1h5lqa7in+ptOj00/8HHP17R+9bw+ENl+EaK+GuKMFccU60tT6tqz5xPdxvLle+M7fd6Jw4Y9s8u/276/z+383rDx66rX8M6Z4trtNH/ErH62ke+P2npaXWYNbi9bp8tclfHbw+MeDeHLMu3i/DlycOWE6vM+Z/vb928B0cVAABQAAFQ32jeeyD0ARxFQBQEBRBAAAEAAAAAABQAEntLDB9jj/hhn4NVefBERtz0jtMd4/uDc1z9vX+GfxhlW9bxvWYmGm+WI1MVpHPblnpHh1jusGcf6if4I/FsYUpaLTe9om0xttHaGaUAAGGT7TF8Z/Bm15PtMXxn8CDYAAAIAAKgoogCiAKAAACiCiiKIKgCiAKAAACAAICggAIqKAIACAAAgCgioAioAACAAIqKCKgAIAACAAgCqIoIgAAAqgCAAqgIgqKAACgAKgCgAoigKigAAKggoAIAAAoAAgKCAAAAgAIACAAgCqgAAAiE9O7Tq9Zh0WKcma20eER1mfg5Ypn4nWLZYtg09o+z/AGrR72pj7mmd+IRlt6vR1jPftNo9mvzYYOGW9ZbNrM1tReZ6Vn2a/CHXg0+LS4oxYaRSkeENi9WvC7YWryxE1j2fCPJlExMbx2VhH1bbeE9mUZIoK+LwbR+kfWxMxvOn2j3/AFaPqdnk+kHodpeM5Z1mLLfSa6Nts1JnaZjtvH5w8enH+MejOWun4/prajTzO1dXj6zPz7T89peu4zlk6b3k8NeX0s6W+CZtpbxWJ6zit7M/DyZYtVW9/V3rOLL9y/j8J8TQ8Q0nE8EZ9Hnpmxz41nrHumPBty4ceenJkpFq+/wcb8Vllsmzn5NRpfYmdRi+7afr1+E+PzbsOfHniZx23mO9Z6TX4x4JoZbGzLY2QY7MLRyb2jt3mGGXVVpecWOs5cv3K+HxnwYxpLZ55tVaLx3jFX2I+Pn82tfIx+lW1HTSVi8dpy26Uj+/yZ4dLGO/rL3tlyzG3PbwjyiPCG7k2612jbw8Hl8Y9JuH8FrMajJzZ9umCnW/z8o98rjLldYxXqx0mHzH6O9ppxaY6xOq8P8Ac5qaX0g9MdrZ5nhfDLfsRvzZI/GfntD6rg3A9FwLTTg0dJiLTE3tad7Xnzl0y1hhcbe9XxHcoPMyAAxvjpkry3rFo8phxW4VFM3rtLny4bbezvvWfk7xZbPA4Mmr1mjrzZtNOeu/tYu/8m/DxDT5u2Tkt92/SXS1ZdNhzxtkx1t75jqu5fMGyJ3jeOsecK4MfCcenifo2bNh3nfbm3gnHxTFkjlzYMuPbrFo2k1PajvVwZNbq8Nd76C99v8Ay53ZV4pj2icmHPj38LV7HTTTXxjUZ8NdNi0+SMVtRmjFN9t5rG09Y96aTh+DRzN6RN8tvay3ne9vm4eK8W0efNw+KZZ+pqo5t6zG3SXdPEtHWI5tTjrv5zs8twt5LbPH+Hs3ceLGT33v793Srlw8T0OoxRlw6vBkxz2vW8TE/Nc3EtHp9Ll1WTU4q4MNea9+beKwu5rq9nPoy6unXd0uLU8Npa86nT3tptTEb+sx/te60dpfM8IjXemXF8PG9RObS8I0l+bRYN9pzWj9u3u/9vN9lf2LfCfwebi5Jz43LXb2+/3+32evn4b6XOYdX1e8+Ptfn7/yOE6rJreG6fUZeXnyV3ttHTfd1vO9Hf8A5Jo/4Pzl6T18Vtwxt+I8PqJMeXKT5v8AcAdHEVFBy6nXV09+SKze3j122bsGauoxxevTwmJ8HLq9BfNlnJjtXr3iW/TYY0uLkmea0zvOzVk12VvmYiN5YxE2ne3bwhYrvO9u/l5MmB3AjiKgAAiCiAAAAAoCAqAAAAAAIAwvhpeebrWZ7zWdt2O1MWWkREVryzEfFtJiLRtMRMT4SuxRq5L4/s55q/dtP4Syplrfp1i0d6z3hNDMRL3rSN7Tt+YMmq9onLjrE9YmZmPLofrMnnjr/wDdP9mdKVpG1Y2XwMhBBRFAAA8AFAAQAAABRAFAUAAFQEUQBVQBRAAEUAQABRAAEABFQAEUAAQABFQAEAAUQABFQBFQAEAABAFUAEEUBFABo+lc8zXBjnLt0m0TtWPn/ZMm+py2wxMxip7cx+1P3f7t31MWPeeWlKR8IrDO7fDpqTz5a/8ANT4aePd9aUnPlx9cuHevjbHPNt8u7zMvpjwLFknHOvraY6b0pa0fziHqaPXabiGGM2kz482Of2qTvt8fJzw5cM7rDLd/WOufDy8c6uTCyfeWNtL1yVi9LRas9phk5stPo1p1GKOnfJSPGPOPe6ImLRExO8T1ifN0l9q4ZT3nhVQVlQAFRQAAUABUAUAFEUABBRFBAAAFAAAAEAAABAAQAEABBUVRFadRqsWmrvkvET4R4yTuNrz9VxDJNvU6HFGbLM7Tb9mvvY2xaviV62tedPpo6zSPau78OHHgpyY6xWPxb7TyOfT6GKW9bnt63NPjPaPg6lRm3aCKAiWrFo2lQGNZ36T3juqWifajvH9SJiY3gVWvNhx58dsWbHTJjvG1q3jeJ+TYgPkOIehGXR5513o7qraTPHWcM2+rb3RP5TvDHh/pnbT5/oPH9NbQ6mOnrOX6lvfMeHxjeH2Lk4lwrRcWweo1uCmWnhM96++J7w9E5plNck39/dd/LLHemWlcmO9b0tG8WrO8THulrzaXHmmLTvXJHbJWdrQ+Vy+j/G/Ra9s/A89tZpN97aXJ1mPl4/GNpenwX0w0HFrRgy76PV77TiyztEz7p/KepeK66sLuGvh6frc+n6ZqTlr4ZMVevzr/AGPV6jU/aTODH9ys/Xn4z4fJ1sMuSmHHbJlvWlKxva1p2iI98ue0Y4sNMNIpjpFa+UNGv4lpOF4Jz6zPTDTw37290R3l8/r/AEzyavP9B9HtLbW6ienrZr9SvviPH4ztDPh3oRfU5413pDqba3UT19VFvqV90z4/CNodfyunvyXX9118uW/HeNelGS2n4Fp7aXS77W1WTpP8/D4RvL1uC+hWg4XaNRnmdZrN+ac2SN4ifOIn8Z3l7+PFTDjrjxUrjpWNq1rG0RHuhmzlzXXTh2hv4Yc0xO1v5+DIY8s19nt5S4oyEi0TO3afKVAFARQAAABQAEHlcbpSc3Dt6166qN+nulvvpNNljbJp8Vo99IYcZwZ8ldNmwYpyzp80ZbUidptG09veaTX4NbExitPPX2sdo2tX4w829cll9/8AD2at4sbPbe/t3fGcQ4Rn9CNXk4lw3T/TOC5J31WinrOD96nu/wDafOJpNJ/491sZq4LaX0c099649uW2svHjP7sf+uvb7yYiYmJ6xPRMeOmHHXHjpWlKxtWtY2iI8oiHj/4PfomX/X56fbf+Pt/4foz8VvT13H/t8dfvr51/9vaZedffutKVx0rSla0pWIitaxtER4RBf2LfCfwVx6viOLFedPirbUam0bRixRvMfHyj4vbllMZ3fl4Y5Z3s2+jv/wAk0f8AB+cvScXB9Lk0fDNPp80RGTHTa207xvu7XTilnHjL8Rz9RZeXKz5v9wB0cRWM2iJ27z5Qcs29rt5QBzb9K/z8FrWK++fNY6CCgCu0BxBAQAABFFBAAAAQBUAAAAAAAAQBWN6VvH1o+E+MKA17ZY+rFqzH3p7x/dlTHFZ5utrfenuyDaqICKIxvlrj2iZ3me1Y6zIMxp9Zlj61sX1fKs72hspkrkjesxMKrIAQAAAAABRARRFAAAAUUQBRFEAAURQEVFBFQBFRQABAAEABFRQBAAAQABFQABRAAQABFQAAEABAJmKxvMxEecqoObNxHS4KzN81Z27xXq1U4rXPWLafT58kT2+rs1MaO4cEajiWTJMRo8eOnha9+pkwcTyxHLqsOGd/Cu50/NNO9LTy1m0x2jdx/QtTb29dk/2xs1xwfbHettZqck2ifat7jU+Sadejryaekz7Vo55+M9Xw/wCkDjOW+rjheK81w46xfLET7dp6xE+6IfVabg+my4sOW1s02isR7b4P064PGj4zOXltOHUUi1ZmfGI2mP8A15vy/wAUtx9N9F+N/o/c/BMMMvWfX5m9fr/u3g7vR4DxnNwXiOPUY7T6uZiuWm/S9fH/ALPKjBjiNtp/m3aLhn07V4tNhpNsma0UiN/N/M8eWWOcuHl/Z82OGXHceTxru/a4tWY3i0TE+/u06P6uKce+/q7zSPh4fi57cD0V8dcdq3mKxERteYYaXhWmtXJaIybWyW22t4R0/J/cWTcfM5/DXprtPlLz8fBdNiiYpbPG87+2W4Nitkrf1+pia+EX6Nax+WHobSOG3C+as1jV6iu/jFinDs2OsRXX5528bdTU+R3K8+ui11ck2/xG1qz2rNOxkwcUiv6rVYZnf9uh0z5HoDi34lWPZ09/6MMeq4lET67Q0336cl9906TT0Fefbit8eStMmg1Mb/tRG8QytxjS46zbJ6ykR50OimncRaJ7TE/BwZOI6bPg3xZ6zE9evTeDQ5K3yzyZKTER12tDFtl1pqYbx29ABWBUAUABUEFRUAAAAAB4d82o9Is2TDpstsHDcduTJnpO188x3rWfCvnLeOOx2avj/DNFecebWY/WR3pTe9o+UbuePSvhW/18ufHH3r4LxH89ndoeGaPhuOKaTT48UecR9afjPeXVPWNp6xPmu8Pir2aNLrdLrsfrNLqMWekd5pbfZueXrfR/T5cn0rRT9B1kda5sUbRM+Vq9phnwrid9VbLpNXjrh12D7SkdrR4Xr7pLjNbxR6KAwCKgCK059Vg00b5stMe/bmnrK6VtY3vXHWbXtFax4y4r67PnraNFg5p8L5OlVxcPveK31uX1+SPCOlY+TXTryMK8RvrZtTQ0mYrO05bxtX5M8HDMWLPOoyzObPPe1u0fCHZWsVjlrEREdohTq+BAGUEUBAFEFQBhP1J5o7T3/uzAQY+xO37M/wBGQoioA8fjnotw7jtZtnxer1G3TPj6W+fn83sDWOVxu8aPhZzekvoh+ry4/wDFdD7NLxvM18o84+E7w2YfRzjXpPkrqOPai2l02+9dLj6T/Lw+M7y+27Dt/wAi+ZJv5XqcvD+GaPhWCMGj09MNPHbvb3zPeXSo4W296iAAAAk1iY2mN02tXtO8eUsgGMXjfaek+9kTG/SYY8m3szMfgDITe0d67/Ai9d++3x6AqgAAACoDj13C9Prpi94tjzV9nNjna9fn4uwZyxmU1Y1hnlherG6rxrZ9bwzpraTqMEf8xir1r/FX84bsnFNHiwVzzqKWpb2eWd5t7ojzem5sXDNHg1FtTj02KmW3e0V/Dycbx5ztje33/wB7/wC93onNx5d853+3v/j9v5OCmHiHFOtubQaafD/i3j//AC9LR6HT6DH6vT4opE957zaffPi3pz17b7/BvDimN35rlyc+WU6Z2nxP97shjvae1dvicm/tTM+7tDq4rN47R1nyhNrW7zyx5QyiIiNojZQSIisdI2UAAEFAFdgDgAIAAKAACAAAAICiAqoAAAAAAgCiAKIArG160jmtMRHnKtUxE6mN432pvG/h1ILzZMvsR6uv3pjrPwhlTHXH7MdZ7zPWZZBsVhfFW080TNb/AHo/PzZANfrbY+mWOn369vn5NsTE9YncasERW2WIjaIv0j5Qo2gCKIAogCgAAAogIoCgAAAAqAigKAACAoIAAIAACAKIAAioAACAAIqKCKAgAIAAioAOfPr9Np7TS+SJv9yvWzmyZeI6qa/R8dNPj363ydbbe6GpjV07smWmGk3yXrSseNp2cn+KYsv+mpfUTPjWOi14ZhtPNqLW1Fp7889P5OulK46xSla1rHaIjaF+mDgpHE89resnDpqeHL9ay24PhzXrfUZMua1e29to/k7w677G2rHpsGL2MVK/JsBnewAEAAc9J+jZpxW6Y8k70nynxr+bHiXC9LxfSzptXj56T1iY6TWfOJ8JdGTHTLSaXrFqz4S1RGowdI/X08N52vH5S55YzXTlNx2xzsszxuso+Qy/o1ickzi4ltj8r4t5/pL3uBei+i4Fvkx82bUWjac1+8R5RHg9L6V56fURPlybk5M+SNseL1f72Se3yh5uL0np+PLrwx7/ALvZzfiHq+bDo5M+37T+3ldRlmsRjx9ct+lY8vfPuhsxY64sdcde1Y2hhhwRi3tvN729q9u8/wDZteuS+a8Fs1qACsqAIAAoABMRaNpiJj3ig1W0uC/tYcc/7YaP8H0PNa9cHLa3eazMOwWZWDgycIi23qtXqcO0/s2ZTpNbSJ9Xrd58Oeu7tVeqrtwYv8Vx1/WfRss+deifTtbTLy34dea7e3S28PQDq+yODJxemGvNm0+opH8O7ZTi2kvET6y1d/vVmHYxtjpf2qVn4wbnwNGLiWjzbxTU45279W6M+Ke2XHO/70NX0DSbz/lsUTPfau27Xk4Pocs1tbBG9e0xMwfSOyJie0xK7e5w24RpbRMR6yu/3bymPg+PFSK01Opjbzvumsfkd6OCOF5a5ZvXiGpiNvZ8DJoNZNdsfEclZ85ruup8jvHFGl10RH+e3nbvNGGPTcTrNubXY7xM9P1e2x0z5NNfpFqMmPQV0+C3Lm1mSunpaO8c3eflG7v0umxaPT49Phry48VYrWPdD5/jeLiUcT4LP0jBy/Sp71/a5Z2/N69sfE+WeXPg326b1buOsZNq0ca49i4TFaRT1ue0bxTfaIjzl4+D0z1EZP1+mxWx+PJMxMfzeN6QY+J14tm+kZcM3naYmK9Jjbps8zk13P8Aa4eX4dXq4/T4dPdqYx+qabU4tZp6Z8NubHeN4l5fpBX6HbTcXp0vpbxTJt+1itO1on4d3n+i+Dis8Jt6vU4scTlmazNd+nTf+ro9JdNq/wDw/rpzazePVdYrXbed4eeYTHk1tnXd9B37dWNr0p7V61+M7PO0vCsvqafSNdqMszWvTfbbo2TwXRWvW96WvavbmtLnrH5GzNxPSYKzNs0Tt35Y3aacTtqaxbS6bLeJ7TaOWHZTTYcXsYqV+TNNz4Hh6jJxa+otS+bFgxR2jHG9v5uzS8O02SlMuTH63JH7V+vV2ZMGPLMTeu8x4s4rFYiKxERDVz7djZ27IowIAIgqAAAgCgACAAkxv3Yx9Sdp9nwnyZpMRMbSAMetOk+z4T5MhRFAQVAAAAFBFAEUAAANt+/UAY8lfCNvgcsx2vPz6sgGP1/3ZXe33Y/myEGPNb7k/wAzmn7lv6MgGPNb7k/zXe33Y/mqiMfr/uwcsz3vPyhkAx9XXxjf4soiIUAAAVFAAQFRQABXYgOAACgICoAAICoAoCAogCoAoAAIAogCiAKIAu7V/wAz/s/Nsa/+Z/2fmQbRAFEBFa8Xt5v4/wAoZteL2838f5QsG0BBy8S4npuFaW2p1NpisTy1rWN7XtPasR4y8umH0g4x+sy6mOD6e3WuLFWL5pj9609In4HDqf41xnUcTzfW0+jyTp9JSe0Wj27/AB36Q9vNnx6bFbLmvXHjrG82t2h2/g7Sdzw8f/wzkjrHHuMRf73ro/DZhkz8a4FHrNRaOLaKPbvSkVz4489o6Whup6WcMtl5OfLWPv2p9X+72K3resXpaLVmN4mJ6TC3LKfxw/Vr0mrwa7TY9TpslcuHJG9bR4trwMNP8C9Ia4Mf1dFxPmtWnhjzxG87eUWh77GeOr28CiDCKIoAAgqCiiAKAAAqKgAAKIAAioACABMxETMzERHWZnweDqvSadRltpeC4I12avS2aZ2wYp99vGfdDeOFy8Ej3R4ek9JYxZq6TjGD6BqLdK3md8OX+G3h8Je5HWNzLG4+SwRUZAEAAARUUEVAAJnaN5BBxZ+LYcWWuDFW+fLbtXHG8R8ZYZdJqtfTl1GWcGOf2MU9Z+MtdPyum7UcQw4J5Y3yZPClOstGONfra75ojSUn9ms72mHXp9Lh0tIripFdo237zPzbV3J4HNp+HabS2m+PFHrJ73t1mXSDNtvlEAQABUFRQAAAEAUVFAAAQBQAEAAFAAABQAFRQAAURQAEFEUAABFAeX6R6XLqOHet09ebUaa9dRjjzmvWY+cbuzQ6zFxDSYtVhnfHlrFo93u+Te8XNo9VwTUZNXw7FOfS5bc2bSV6TWfG+P8AOHTH6p0q6eL8EwcWpWbzOPLTpXJWPDymPGHk4PQvbJE59ZFqeVKbTPzl7Gh45w/iHTDqaVyR7WLJPJevumJdls+KlZtbLjrWOu83iIamfJh9JuxMGDHpsNMOKkUx0jatY8Hkcft9P1Ok4Pj6zmvGbP8AuYqzv1+M9Geo9IaZrzpuEY/p+pnpzV+yx++1vyh0cK4X9AjJmzZPpGszzzZs0xtze6PKseEElx+rLyeHeijkiIoCAAgAoiioiKCoAIIoCAKCKAgAJMbsetPfX8GYCdxjyzXrXt4wyiYtG8AACoKAgoCCgICggoCKAAAAAAKIAAAoAAAKAAAAgoAoADrAcFBAAABAABBVQAAQVRAAAABAEFFEAUQBRAFarxauSMla80bbTEd+7Ywy58WH7TJSvumSDKmSuSN6zv5+5k8vUcTxWvWNPp8+bJPSLY422+Mls3FLVmLUxYI8Mm2+3xhvopp6jG2XHT2slK/GYh59dFl9VFtVxC+Tfxr0iUx8G01sk5IxWrM97XtM2n5eB0z3o3anjOh0kfrNRWZntWvWZYYuKYfrW2yWm8821azO3R04tFpsFdseDHHv5d5n5t8dO3T4G8fYefj4vOaJmmi1XSdvrV2L8Q1vNEY+G5LRMe1NttnobnjudU+B8z6J59dX0c084dHS8zN56323nnndzel2q4nbSaWuTS46Vte02iL79Yjp+b0uBX/wziGs4Lk+rte2p03lfHad5iPhO71tdocHEdPbT5670nrEx3rPnDveSY8nVZ9z3flsZddzTE6fHy+E877L0Z1XFf8AB6xTR48kVyWivNfbp/77s6ehWKMkTfWXnHv2ikRP8930OnwYtLhphw0imOkbViG+fnxympFtfOekmfXc3CbTpaReuvx8m1+87T0evj1nEZifWcPivXptffdxai/+Lekmn0+P62Dhm+bNbw9bMbVr8YjeXuuOd1JLErgtr9bW9a/4ZktE97Rfst+I56Vm08Pzzt4R4u4c+qfCOGnFbTSLX0Wppv4TVK8b085Jxzi1FZjzp0ehubm8fgcVuNaLHG+TLam87day3V4hpL9s9PnOzbbHS8bWpW3xiJYW0env3wY5/wBq/SjKmow5Y3x5cdv4bRLZ3cUcH0NYnk08U3nf6szDXbguGclcmPPqMc18K36GsfkeiOC+h1lazGHiF4nw567lK8UxViLZMGaY7zttudP3HePPrrdfW9ozcPnljtal99y/GsGGaxmw58fNO3sbr0VNPQVy14lpLf8AHrH8XRux58WWN8eXHeP3bRKasGwBEBFUQAEAAeXxP0h0nDssaakX1est7OmwRzX+fhWPi6uKXtj4bq70tNbVw3mJidpieWXjejWkwafg+lyYsVa5M2Kt8l/2r2mOszPeXXDGa6qsjXfh2v41PPxnNGPT940OntMV/wB9u9vh2erhw4tNiriw46Y8dY2rSkbRDMauVvYa9Rp8Oqw2w58dMuO0bTS8bxLy6aHiPBPrcJzfSNNHWdFqLdI/gv3j4T0eu5cXFdBqOIZ+G4tZgya3T1rfNgreJvjrbtMx4brjb+ytvDOP6TieScH19Pq6+3ps8ct4+HnHvh6T5r0p0uHNwbU5746zmwY5viydrUmPGJ7w9/R2m2jwWtMzM4qzMz4ztDGeM11RLG4BzRAJ6dZ6QAjTk1umxRvbNT5Tv+Dmji3rslsem0ufLNf2prtVqY2mne1Z9Rh01JvmyVpEdesuPLg4lquXfUU0td+sUjeZj4t2PhmnpPNes5bed53XUnmjVXik6qP8lhtlif27RtVjTh+pz3tfW6qb1ntix9Kw9GIisRERERHaIF6teDbXiw48FeXHStY9zNUZBrvlis8sRNr/AHY/9dEtzZMs44ty1iImZjvO/wCDOlK442rG0AwjNtMVy15JntO+8T82wmItExMbxPhLTas4Nppb6kzETWfDfyFbkUREAFAFQBqy6nDgmIyZK1mfCSK2iRMWiJiYmJ7TCiAAoAAAAqKAAgACKAAACgAKgCgAKigAAKioAAAACKA5dXwvQ6//AFWkwZp870iZ/n3clfRfg1Lc0cOwT/FvMR/OXqjUzynaU214sOPBSMeLHTHSO1aRER/KGYIIACAAgAIKgoiiiAAgqAAKgigIAAigIKgDGa9d46T+LIBjFt52mNp8vNSYiY2mGP1q/vR/UGQRMWjeJ3BQAAAAAAAAAAa51GKM0YZt9efBtBFAQAAFAAABLXrSN7TER72vfJl9mJx1857z8vAVnfLXH0nrae1Y6zLHkyZfbnkr92s9fnLLHirj35Y6z3me8sxGr9Zi88lf/uj+7OmSuSN6zv8AkyYXxVvPN1raP2o7gzVp9ZfF9rG9fv1j8YbYmLRvExMT4wKoCACg6kBwUBAABQQAAARry6jFh2i9tpntWOsz8mv6Vee2k1Ex57RH4yuqroGiusxzaKXi+K09oyV23+E9m9LAE3AVAABjOTrtWOa3u8AZdmNclbTtE7ynJNut5393hDK1YtG0wCjD69P34/rC+spyzabRFY7zM7bAyHFbiummdsMznt22x9f6tcW4nqcs71x6XDt0nveWum+66dubPi09ebLkpjjw5p23cuTifPFo0mC+e/h4R/NY4TprXrfPE57x13yTv/R2ViKxtWIiPKD6YODHh4jqaROoy0wb964+s/zZ4OD6TBktk5JyZLd7Xnd2h132ErEVjasREeUKDKMa4cdbc0UiLebNAFN0UAQBw8X4TTimKk1y20+pw258Gop7WO35xPjDgp6Qarhv6njehy4+Xp9L09Jviv75iOtXur5umOfbWU3B40+mPAorv/iFZ90UtM/y2a8nE+I8Yj1XCdNl0uG3S2t1NOXaP3KT1mffL24pWJ5orWJ84iN2W69WM8T+Y5eGcNwcJ0ldNgi0xEza17Tva9p72mfGZdaDFtt3UURUQABRFUFQBRARTv3AGrJpsGWJi+HHbfzrDR/hGiiNqYIpH7szDsGplYPP/wAHpXL6zHqtTj6bbRfeFyaLXRXbDxCYn9+u7vGuujiinE6RG+XBknx3rswx5uKxNvWaXBMRPTlv3egHV9keffXa7Hasf4be8T3mluzK3EslImbaHUdPCI3dwbnwPPx8YpekWnTamnutRP8AHNL62cc1zRbbf2Ho7obx+B43GOM6OnCtXzWvG+G8R9Sfuy4OA8T0scE0ETkmJjBT9mfJ7nF6xPCtbvET+oyeH7svM4DSk8E0G9a/YU8Pc7Y3Ho/dZ4cuT0y4Di4nh4Xk4liprc9Ztiw2iYm8R5dNvk7bcY0NJiLaiIm3bpLyfTL0G4Z6Z8OjT6mv0fVYp59NrMURGTBfzjzjzj8JfCz+kP0i9FsOT0Y4zwWdf6TRNcXDs+OkTj1sTO0Xn4d527+O3V6OP0+PLj/1+fef+f0+fhqY78PpPTv9IccHri4PwCsazj+t+rhx7fVwVn/iX90eEfPs3egnAOGeinDsmS2rnXcU1lvWa3W2rM2zX7zETPXlie3n3Z+gXoLHo3iz8S4rlrr+P6/6+s1VuvLv19XT92P67eUQ+tilI7UrHwg5OTDHH8rj8e9+f/XwWydo8H0j4vpbcF1+Gs5JvOC3ak7PY03FqY9Bp5rptTk/VUjatP3YcnpL/wDx/iH/APRZ7Wh/0Om6/wDCp/8AjDz5WdE7e6Xw0Rrs94iaaHN1+9OzCmfimSbc2lw4Y36TN93oI5dU+GXn30vEst6zOtpirHetKd2VuE48tZjUZs2aJ7xNtncL10258HD9LpqxXFgpXbzjef6t/uVE3vyACCAAIANdf9Rk/hr+bY1W5seW1+WbVtERO3eNvczret43rMTHuWiteo9iP46/i2TMREzPSGm1pz7RjjesWiZtPbpPh5kVuAQQUEQBVHh8R0+aNXe00taLTvWYjd7g1jl00lc3DsWTFpKVyRtPWdp8IdIM27uwARABVBQABEABRr1GoppsfPffbfaIjxbGvPp6amnJeJ233iY7wmW9dlx1udXhcGemoxxkpvt26+DY14MFNPjilI6R5+LYTeu5lrd6fAqCsqAACgAAKigAAKggoAAAAAAAIAogqAIqAIqAAAgAqCoAiiiACACgioAAAACCoAADGadd4naTmmvtRt747MgAY8m3szt+BzTHtRt7/AGSLHXrACCgqKAgADXODHOWMs0jnj9psAAABQAAAABqpWLZslpjeazERv4dG5rx/a5v4o/CGwoAATMRG89mumoxZLctbbyyy09ZjtTfbeNt3Jp9Jkpmi1toivXv3WaV3NNaxTUTFY2ia7zEdt925r/5n/Z+aDYHbux59/Zjf3+CDJObf2Y39/gcm/tTv7vBkDpBHBQAUQAAQUadTmtjitMcROXJO1YntHnM+6G5z4/r63Nef2K1pHz6z+SwZ4NPXBvO82yW9q9u9v8A15ODP6T8F02WcOXiWnreJ2mImbbT8YjZ4n6QeM5tHpsOgwXmk6iJtktWdp5I6bfOfwfndslMcRzWrXy3nZ7eD0n5mPVlWpjt+248un12ni+O+LPhvHSazFqy145tpctcNrTbFfpjtPes/dn8n5j6IekH+FcWxY5zx9G1FoplpM9OvSLfGJfpGs12kyaTJNNTjmaxzRMTvtMdXHm4Lx5dPmVLNO8cUcY0MzWPpFOa0RPLG6ZeNaPFWbTe8xH3ay49GXwadw4K8XpkrFsWDPeJ7fV2Smv1uW1opw7JSI7WyW23OimnZ1va0TO1YnbaPFnEREbRG0e55kxxbLafVzp8Mc3XfrLbbh+fNExm1uSYmO1Oh0/NHZkzY8Ub5Mla/GXHbjOmnLOHDGTNkjwpXp/NdPwjSaesRyWyTHjktu7K0rSNqVise6Nj6YODLfimoiIwUxaaJnrN+s7LPCMeWebU5cma/vnaP5O8Ou+w06XDjwUnHix0xxWdvqxtu3MKd7/xM2aAAAAAAKICKAAAAAAqCiiAigAogIoCgqAKAAAIqAooigAKgACAA5+IYb6jQanDjiJvkxXpWJnbrMTEPn+BcRxYcGn4Vqq30utwY60nDmjlm+0d6z2tHwfUOTiHDNHxXB6nWYKZaeG/es+cT3iXXDOSaqytbC2HFfJTLbHjtkx78l5rE2rv32nvG/ueZk0fF+B9cE34roY/4dp/zGOPdPa8f1dfD+K6TimObabLzTXpfHaNr0nyms9YauPbc8DqHJxHi2k4XWs6jJ9e/SmKkc17z5RWOsuWmh4txzrq7X4Xop/4OOf1+SP3rfs/COpMe272g0cf1+PV6bUcI0db6vW5qTT1eGN/V7+Np7RD6TS47YtNhx29qmOtZ+MRDDQcO0nC8EYNHgphx+MVjrafOZ8ZdDOecs1C0Ac0QBQRUAABAAEUBGu+GJnmrM0v5x4/HzbBRqjDNpictuf3bbVj5NigIAigAIKAgqKAAAoCCoCgIgAKACCooAACooAACooAAAKAAAAgoAAAKACAAgqKCKgCKAgAIAAioKAAg1xGX107zHq2whZoRRRABAABFFEAAAARQEFAQUBhyRvvH1Z9xvaO8RPwZoCRaJ6b9fKVJiJ7xunJt7Npj+oKMd7R4RPwXnjx3j4wChExPad1BBQBje9cdZte0ViO8yyaNbgtqMPLX2onePemVsnZrGS2StmLPjzRM47RbbuzcWg0mTBa18nSZjaI3drOFtm6vJjMctY0AbYFAGvH9rm/ij8IbGvH9rm/ij8IbCgEzEd52Tnjw3n4Aqsd7T2iI+Jyb+1Mz/QVZtEePXyhq3tOp6Rt9Tx+LbERHaNmH/M/7PzIMuSO8/Wn3shUABB0AjioAKCAoAA58U8msz1n9uK3j+W0/hDe06nFa3Llxbetx9a79rR4xPxWD5T9InCsuowafiGKs2jBE0yxEdqzO8T8N/xfnuTFjyxHPSttu279uw56ais7dJjpalu9fdMPLz+h/A9RlnLfQUi0zvMUtNYn5ROz28Hq/wAvHpynhqXT899E+AxxXjGDbBE4MFoyZbbdIiOsR8Zl+m6rRaTDpMvJp8UTaNoiI7zPRv02l0vDtPGLT4sWnw167VjaI98sKTOry1yzExhpO9N49ufvfDycubnvLl1e0Lds8ei0+OKxGDFvWIjfkhtilax0rWPhCjzbQAQYU73/AImbCntX/iZKKIIAAMcfe/8AEyYY+9/4magAgqAoogCiKAACiAiiKAAoAAKgIoACoKiiKAqAKIogAoAAoiqgioAACAKDy+Kej+k4nkjUfX02sr7GpwTy3j4+ce6XqC45XG7g8zhfANHwu05qxfPqr+3qc082S3z8I90PSAyyuV3QRUQAAQBQRQEABBUAAARUAABBUAAAAFAAAY2vFZ2jebeUKjJjGSsztFomU5Jv7c9Pux2ZTWto2mI2BRhtanb60eU92VbRbtP/AGBQEUAEAUAAUAEFRQAAFRQAAFRQAAAAUBAABQAEVAEVAAFEABBUARQEABABRFFEAARQEFQQAUAAQUBAAAAAAAAAAAAYzSs+EHJ5WtHzZAMdrx+1E/GDe/3Yn4SyAY81vuSc/wC7b+TIBjzx5W/kvPHlb+TIBjzx5W/kc37tv5MgGPNP3J/mb3+7EfGWQDTNcuO9rxtattpmIjrHwZ0muSN4vM7d47bM2N8VbzE9YtHa0dzarFKx4Qyaue+P7SOav36x+MNkTFoiYmJifGAUY3vXHXmtMRDDfJl7b46+c+1P9kGd8taTt1m09qx3lKVtN5yX2idtorHgtMdccfVjv3nxlmAAgAoNwDi0IAAAogAAA05tNjzTFpia3jtes7Wj5sPo+aOkazJt761mf57OgXdVzxo6TaLZr3zzHWOeekfLs6AS3YCCAADG1Imd4nlt5wnPNfbj/dHZluAu+8DXyTXrSdvd4G97dIjl85nr/I0rK14r3n4R5sdrX7/VjyjutaRXr3nxme7IErEVjaIiIUAABBUAUQUUAAAFEAUBUUQBRFAAAVARRFUABFEAUAFEUQAUFQVFRQEABAFAAEABBUAABAAAFEAARQEAARQEAAABBQEAAAFGFftb/CGbCv2t/hCjMBAYV+1v8mbCv2l/kqMwEUABQBAAAFAAAAAVFAAAVFAAABQAEBUUARQBFBAAQVFBFQBFAQAEFQBFBUAARRRAAAAEUEQAABQAAAARQEFQAUBBQEFARQAAAAAAAFEAABrnDtPNjtyWnv5T8YbAVhTFFZ5rTNr/AHp/LyZigAIAACgDcgOLQAKAgAACAKAgKgACCAAAICqgAAAAAAAKgCiCooACoAoACoAoiqgAAqAKAIAKCoCKAAqAKAqKIAoCiiAgAAiooAAgACKgAACKgACgioAACCoAAAioAAAAAigIAAxtW0Wm1Zjee8T4slUYVvFp26xbylklq1tHWN2Pq5npa8zXy/uKTk3nakc0/wBIWlZjeZneZ7soiIjaI2hQRUVEABQAQAABQAAAAFAAABrwYbYubmvNt5bFUAEBUVAAAVAAAAAAABFAQBRBUBBUAABAAEUFQABFFEAAABBQEFQAEi9ZtNYtE2jvG/VUUAAAAAAAAAAAAAAAAUBFBAAFAAAUAAABAUAAAbQHFoQBQABAAN2u2aInkpE3v5R4fGfBPVTfrmnm/cj2Y/uaVsiYtETExMT4wNc4dp5sU8lvHyn5JGblmK5Y5J8J8J+ZobUBABBQAAAAAAQQUQUUQBRFAAAVBRRFEAAURVAAFEUQABRFAAVAAQVAFEVQVARQAFQUUAQB5HENZmjU2x1valadIiOm7WOO6PXRzcPz31Gn5snW0Ttv5ulLNXQAAgACKgAACKgACgigIAAioAAAACCoAAAAAAAAAAAAKACAAAAAAKAAAACgAAAAKAAAAKAAgAAAAAKAAAACKgCKAgAIKgCKAgAoigIAAiiiCgICWtFIm1piIjxkFYZMtcftT1ntEdZljz5MvsRyV+9aOs/CGVMVce8xvNp72nrMqMOXJl9rfHX7sT1n4yynBjmsV5YiI7bdJj5tgbGnfLi775Kece1H92yl65K81ZiYZNd8MWnmrM0v96Pz8wZjV622PpmjaPvx2+fk2943gQFRAFFEFAQUBBRFAAAAAAAABQABAAABQAAAAbUBxbAAAQAGGXLXDSb3npArHTREYKbR3jdsaNDlrm0uO9O2zet8gxvETW0TG8bMmNvZn4IMcH2GP+GPwZteD7DH/DH4My+VAEAEBUBAAFAAAAAFAAQAUURQABBUAUBQVAFAEFQBQAUQVFEUAAQVBRQAFQVFABRFEGjPosGptFr1nm7bxO27eLLoY48dMVIpSsVrHaFUBAAEVAAAQABFAQAABRAAAAQVAAAAAEUBAAAAAAAAAAAAAABQAAAAAABQAAAABQAAAFAAAAAAAARfEAQAAAAAAARQEABBUARQEAFEUBBUAAAatR9nH8VfxhtatR9nH8VfxhZ5GwVAAAAAY39i3wlMH2OP+GPwZX9i3wljh+xx/wAMfgvsMwEQAFAAABAAUAAAAAAFAAEAABQAAAAAABsAcmwEQAAGGXHXNSaXjeJZArmw4/oWKMcV3xx2tHf5w6ItFoiazExPjCtVsPWbY55LT327T8YXexsmYjrLVOScm8Yo3j789vl5kYZv1y25v3Y9mP7tiCUryUrXffaNlAURUQAAARFVAAAAAAVBRQBABQABo0ttTN8nr4iK7/VdAFuwAEFQBQFFEBFABRFAAUABBUBFAUABFAUFQBQBFEVQEAAAEVAAAQVAAAQVAAFBFAQAAAEFQAAAAAAEFQAVAAAAAAUEUAAAAAAAFRQAAAAFAAAAFABAUEAAAAAAAAAAAAAAAAAQAAAQVAEUBBUFAAEUBGrUfZx/HX8YbWvUfZx/FX8YWeRsAAAAABjf2LfCWOD7HH/DH4Mr+xb4Sxw/Y4/4Y/A9hmKgAqAAAAAAoIKAigAAgAAAoIoAAAAAAAAA2AOTYgAAiAAKgACKgoAAgIAAogIAgKAgKACiKAAqKIKigAKgCiKIAKCooAAKIogAooAAAgAqCoAoAiiCigAoiiACgAAAAACAAIoCAAIoCAKAAIKgAAAAIAAAAAAAAAAAAAAAAAAAAAACgAAAAAAKAAAAAAAAAAAAAAAAAAICiAAHgAAAAAAAACCoAAAioAAKMb0jJXlnfb3MgGnmyYvaiclfvRHWPjDZW1b13rMTHnDJrthibc1Jml/OPH4x4qMxr9bNOmWOX96PZn+zZMxWOaZiI85AY3yVxx9adt+0eMsPWXy/ZxtX79o/CGVMVaTv1m097T3Bjtky9/1dPKPan+zZFYrEREbRHSFAAEABQAAAAAAAQAAAUAAAAAAARQBFAQAAAbUBybCQQEAqiAAAAgCwQAAAEBAARYgAqAAKAACigCACooAAAAAgoKAACgJQBRYAQFBQAEAFQAAUFAAQUAAAFBUAAAAAAEABAAAAABAAAFAAEAAAAABFAEAAAFABAAAAAAAAAAAABQAAAAAABQAAAAAAAAAAAAAAAAAEAAAAAAAAAAAVAAABAAAABAFAFQABO8NcafHExPL0jtWZ6R8gFbFBEQAAAUAAAAAAAAUAABAAAAUQAAAAANwAAAAAf//Z">
+    <h1>Resumo estrutural e<br><em>mapa de competências</em></h1>
+  </div>
+  <span class="selo">Exemplo de entrega · Aula 1</span>
+  <p class="lead">Atividade de Entrega da aula “Da Matriz Curricular ao Mapa de Competências”. Este exemplo aplica as duas etapas a um Projeto Pedagógico de Curso real e mostra o formato esperado para o envio.</p>
+  <dl class="ficha">
+    <div><dt>Curso analisado</dt><dd>CST em Estética e Cosmética</dd></div>
+    <div><dt>Modalidade</dt><dd>EAD, metodologia híbrida</dd></div>
+    <div><dt>Carga horária</dt><dd>2.560 horas</dd></div>
+    <div><dt>Organização</dt><dd>3 anos · 10 módulos de 10 semanas</dd></div>
+    <div><dt>Fonte</dt><dd>PPC Unicesumar, NEAD, 2020</dd></div>
+  </dl>
+</div>
+
+<section>
+  <div class="cab">
+    <span class="rotulo">Parte 1</span>
+    <h2>Resumo estrutural do curso</h2>
+  </div>
+  <p class="texto">O curso é orientado por competências e organizado em três eixos temáticos declarados no PPC: básico, específico e complementar. A formação parte dos fundamentos biológicos e éticos, avança para as áreas técnicas da estética e termina em prática presencial nos polos. As atividades complementares ampliam o percurso ao longo dos três anos.</p>
+  <p class="chamada">A estrutura do curso se organiza em 5 grandes blocos:</p>
+
+  <div class="blocos">
+    <article class="bloco">
+      <div class="carga"><b>660h</b><span>1º ano, em sua maior parte</span></div>
+      <div class="corpo">
+        <h3>Conteúdo Básico</h3>
+        <p>Reúne os fundamentos científicos e éticos que sustentam a atuação sobre o corpo humano e serve de base para as disciplinas técnicas.</p>
+        <ul class="itens"><li>Biologia e Bioquímica Humana</li><li>Anatomia Humana</li><li>Fisiologia Humana</li><li>Biossegurança</li><li>Formação Sociocultural e Ética I e II (FSCE)</li><li>Bioética e Responsabilidade Civil</li></ul>
+        <p class="constroi">Constrói a compreensão do organismo e a postura ética e segura do profissional.</p>
+      </div>
+    </article>
+    <article class="bloco">
+      <div class="carga"><b>1.100h</b><span>2º e 3º anos</span></div>
+      <div class="corpo">
+        <h3>Conteúdo Específico</h3>
+        <p>Núcleo profissionalizante, organizado em cinco áreas de atuação. Cosmetologia e eletrotermofototerapia atendem a todas elas.</p>
+        <ul class="itens"><li>Técnicas de Maquiagem, Visagismo e Imagem Pessoal</li><li>Estética Capilar e Tricologia</li><li>Terapias Integrativas e Técnicas de Spa</li><li>Aromaterapia e Cromoterapia</li><li>Dermatologia e Disfunções da Pele</li><li>Estética Facial</li><li>Estética Corporal</li><li>Técnicas de Massagem</li><li>Pré e Pós-operatório de Cirurgia Plástica</li><li>Princípios de Química e Cosmetologia</li><li>Eletrotermofototerapia e Inovação Tecnológica</li></ul>
+        <p class="constroi">Constrói o domínio técnico de avaliação, escolha de recursos e elaboração de protocolos estéticos.</p>
+      </div>
+    </article>
+    <article class="bloco">
+      <div class="carga"><b>580h</b><span>1º e 2º anos</span></div>
+      <div class="corpo">
+        <h3>Conteúdo Complementar</h3>
+        <p>Amplia a formação com saúde, comportamento e gestão. Prepara o egresso para o cuidado integral do cliente, o trabalho em equipe multiprofissional e a condução do próprio negócio.</p>
+        <ul class="itens"><li>Saúde Coletiva</li><li>Técnicas e Procedimentos de Primeiros Socorros</li><li>Psicologia Organizacional</li><li>Gestão e Empreendedorismo</li><li>Fundamentos de Marketing</li><li>GO – projeto de vida e carreira (4 disciplinas)</li></ul>
+        <p class="constroi">Constrói a visão de gestão, empregabilidade e cuidado ampliado com o cliente.</p>
+      </div>
+    </article>
+    <article class="bloco">
+      <div class="carga"><b>120h</b><span>3º ano, módulos 51 e 52</span></div>
+      <div class="corpo">
+        <h3>Prática Profissional Presencial</h3>
+        <p>Eixo integrador do curso. Aula prática semanal em laboratório do polo, conduzida por tutor facilitador, em duplas, com avaliação por portfólio de protocolos. O PPC vincula estas disciplinas ao conteúdo específico.</p>
+        <ul class="itens"><li>Anamnese</li><li>Massagens e drenagem linfática</li><li>Design de sobrancelhas e maquiagem</li><li>Limpeza de pele e peelings</li><li>Microagulhamento</li><li>Eletroterapia facial, corporal e capilar</li><li>Pós-operatório</li></ul>
+        <p class="constroi">Constrói a execução supervisionada dos procedimentos e a integração dos conteúdos dos anos anteriores.</p>
+      </div>
+    </article>
+    <article class="bloco">
+      <div class="carga"><b>100h</b><span>ao longo do curso</span></div>
+      <div class="corpo">
+        <h3>Atividades Acadêmicas Complementares</h3>
+        <p>Componente obrigatório, cumprido conforme os interesses do estudante e comprovado por certificados. Articula ensino, pesquisa e extensão. O estágio previsto é o de caráter opcional, e a conclusão do curso se dá por disciplinas, AAC e ENADE.</p>
+        <ul class="itens"><li>Projetos de ensino</li><li>Projetos de extensão e webinares</li><li>Visitas técnicas</li><li>Iniciação científica</li><li>Monitoria</li></ul>
+        <p class="constroi">Constrói autonomia, repertório ampliado e vínculo com a comunidade.</p>
+      </div>
+    </article>
+  </div>
+
+  <div class="total"><span>Carga horária total da matriz</span><b>660 + 1.100 + 580 + 120 + 100 = 2.560h</b></div>
+
+  <p class="texto"><b>Síntese.</b> Os cinco blocos se articulam em progressão: os fundamentos do primeiro ano sustentam as áreas técnicas do segundo e do terceiro, e os conteúdos complementares acrescentam gestão e cuidado em saúde. A integração entre teoria e prática ocorre nas atividades aplicadas de cada disciplina (MAPA) e se consolida na prática presencial final.</p>
+</section>
+
+<section>
+  <div class="cab">
+    <span class="rotulo">Parte 2</span>
+    <h2>Mapa de competências</h2>
+  </div>
+  <p class="texto">O mapeamento traduz os blocos do resumo em nove eixos de competências, escritas como ações observáveis. A matriz abaixo mostra quais blocos da estrutura alimentam cada eixo. Os eixos que atravessam três blocos são os transversais do curso.</p>
+
+  <div class="rolagem">
+    <table>
+      <thead>
+        <tr><th style="text-align:left">Eixo de competências</th><th>Básico</th><th>Específico</th><th>Complementar</th><th>Prática</th><th>AAC</th><th>Validação</th></tr>
+      </thead>
+      <tbody>
+        <tr><th><div class="ex"><span>1</span><em>Fundamentação Biológica e Avaliação do Cliente</em><i class="tag t">Transversal</i></div></th><td><i class="pt"></i></td><td><i class="pt"></i></td><td></td><td><i class="pt"></i></td><td></td><td><i class="tag ok">Presente</i></td></tr>
+        <tr><th><div class="ex"><span>2</span><em>Biossegurança, Ética e Responsabilidade Profissional</em><i class="tag t">Transversal</i></div></th><td><i class="pt"></i></td><td></td><td><i class="pt"></i></td><td><i class="pt"></i></td><td></td><td><i class="tag ok">Presente</i></td></tr>
+        <tr><th><div class="ex"><span>3</span><em>Estética Facial</em></div></th><td></td><td><i class="pt"></i></td><td></td><td><i class="pt"></i></td><td></td><td><i class="tag ok">Presente</i></td></tr>
+        <tr><th><div class="ex"><span>4</span><em>Estética Corporal e Pré e Pós-operatório</em></div></th><td></td><td><i class="pt"></i></td><td></td><td><i class="pt"></i></td><td></td><td><i class="tag ok">Presente</i></td></tr>
+        <tr><th><div class="ex"><span>5</span><em>Estética Capilar e Embelezamento Pessoal</em></div></th><td></td><td><i class="pt"></i></td><td></td><td><i class="pt"></i></td><td></td><td><i class="tag ok">Presente</i></td></tr>
+        <tr><th><div class="ex"><span>6</span><em>Terapias Integrativas e Bem-estar</em></div></th><td></td><td><i class="pt"></i></td><td></td><td><i class="pt"></i></td><td></td><td><i class="tag ok">Presente</i></td></tr>
+        <tr><th><div class="ex"><span>7</span><em>Cosmetologia e Recursos Tecnológicos</em></div></th><td></td><td><i class="pt"></i></td><td></td><td><i class="pt"></i></td><td></td><td><i class="tag ok">Presente</i></td></tr>
+        <tr><th><div class="ex"><span>8</span><em>Gestão, Empreendedorismo e Carreira</em></div></th><td></td><td></td><td><i class="pt"></i></td><td><i class="pt"></i></td><td></td><td><i class="tag ok">Presente</i></td></tr>
+        <tr><th><div class="ex"><span>9</span><em>Integração Prática, Comunicação e Desenvolvimento Contínuo</em><i class="tag t">Transversal</i></div></th><td></td><td></td><td><i class="pt"></i></td><td><i class="pt"></i></td><td><i class="pt"></i></td><td><i class="tag parc">Parcial</i></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="legenda"><span><i class="pt"></i> bloco que desenvolve o eixo</span><span><i class="tag ok">Presente</i> validado no curso</span><span><i class="tag parc">Parcial</i> existe em parte</span><span>Resultado: 8 eixos presentes e 1 parcial</span></p>
+
+  <div class="eixos">
+
+    <article class="eixo">
+      <header><div><span class="num">Eixo 1 · Transversal</span><h3>Fundamentação Biológica e Avaliação do Cliente</h3></div><i class="tag ok">Presente</i></header>
+      <p class="onde"><b>Onde se desenvolve:</b> Anatomia Humana, Fisiologia Humana, Biologia e Bioquímica Humana, Dermatologia e Disfunções da Pele, CHPB</p>
+      <ul class="comp">
+        <li><b>Avaliar</b> o cliente em anamnese estruturada, registrando queixas, histórico e condições da pele, do corpo e do couro cabeludo</li>
+        <li><b>Identificar</b> estruturas anatômicas e respostas fisiológicas relevantes para a escolha de cada procedimento</li>
+        <li><b>Relacionar</b> processos celulares e bioquímicos aos efeitos esperados de técnicas, produtos e equipamentos</li>
+        <li><b>Diferenciar</b> disfunções estéticas de alterações que pedem encaminhamento a outros profissionais de saúde</li>
+        <li><b>Fundamentar</b> indicação e contraindicação em critérios anatômicos, fisiológicos e dermatológicos</li>
+      </ul>
+    </article>
+
+    <article class="eixo">
+      <header><div><span class="num">Eixo 2 · Transversal</span><h3>Biossegurança, Ética e Responsabilidade Profissional</h3></div><i class="tag ok">Presente</i></header>
+      <p class="onde"><b>Onde se desenvolve:</b> Biossegurança, Técnicas e Procedimentos de Primeiros Socorros, Bioética e Responsabilidade Civil, FSCE I e II</p>
+      <ul class="comp">
+        <li><b>Aplicar</b> normas de biossegurança na preparação do ambiente, dos materiais e do atendimento</li>
+        <li><b>Prevenir</b> riscos ao cliente e ao profissional durante a execução dos procedimentos</li>
+        <li><b>Executar</b> condutas de primeiros socorros em intercorrências do atendimento</li>
+        <li><b>Atuar</b> dentro dos limites éticos e legais da profissão, assumindo responsabilidade civil pelos serviços</li>
+        <li><b>Proteger</b> a confidencialidade das informações do cliente</li>
+        <li><b>Posicionar-se</b> com respeito à diversidade sociocultural diante de clientes e equipes</li>
+      </ul>
+    </article>
+
+    <article class="eixo">
+      <header><div><span class="num">Eixo 3</span><h3>Estética Facial</h3></div><i class="tag ok">Presente</i></header>
+      <p class="onde"><b>Onde se desenvolve:</b> Estética Facial, Eletrotermofototerapia e Inovação Tecnológica, CHPA</p>
+      <ul class="comp">
+        <li><b>Avaliar</b> a pele da face e classificar suas condições para definir o plano de tratamento</li>
+        <li><b>Executar</b> limpeza de pele seguindo protocolo técnico</li>
+        <li><b>Aplicar</b> peelings e microagulhamento de acordo com a indicação de cada caso</li>
+        <li><b>Operar</b> recursos de eletroterapia em tratamentos faciais</li>
+        <li><b>Elaborar</b> protocolos faciais combinando técnicas manuais, cosméticos e equipamentos</li>
+      </ul>
+    </article>
+
+    <article class="eixo">
+      <header><div><span class="num">Eixo 4</span><h3>Estética Corporal e Pré e Pós-operatório</h3></div><i class="tag ok">Presente</i></header>
+      <p class="onde"><b>Onde se desenvolve:</b> Estética Corporal, Técnicas de Massagem, Pré e Pós-operatório de Cirurgia Plástica, CHPB e CHPA</p>
+      <ul class="comp">
+        <li><b>Avaliar</b> alterações estéticas corporais e definir a intervenção adequada</li>
+        <li><b>Executar</b> massagens e drenagem linfática com técnica correta</li>
+        <li><b>Operar</b> recursos de eletroterapia em tratamentos corporais</li>
+        <li><b>Planejar</b> e conduzir o atendimento estético no pré e no pós-operatório de cirurgia plástica</li>
+        <li><b>Integrar</b> técnicas manuais e equipamentos em protocolos corporais</li>
+      </ul>
+    </article>
+
+    <article class="eixo">
+      <header><div><span class="num">Eixo 5</span><h3>Estética Capilar e Embelezamento Pessoal</h3></div><i class="tag ok">Presente</i></header>
+      <p class="onde"><b>Onde se desenvolve:</b> Estética Capilar e Tricologia, Técnicas de Maquiagem, Visagismo e Imagem Pessoal, CHPB e CHPA</p>
+      <ul class="comp">
+        <li><b>Avaliar</b> o couro cabeludo e os fios para indicar tratamentos capilares</li>
+        <li><b>Aplicar</b> recursos cosméticos e de eletroterapia em tratamentos capilares</li>
+        <li><b>Executar</b> maquiagem adequada ao perfil e à ocasião do cliente</li>
+        <li><b>Aplicar</b> princípios de visagismo e imagem pessoal na orientação estética</li>
+        <li><b>Realizar</b> design de sobrancelhas conforme as características faciais</li>
+      </ul>
+    </article>
+
+    <article class="eixo">
+      <header><div><span class="num">Eixo 6</span><h3>Terapias Integrativas e Bem-estar</h3></div><i class="tag ok">Presente</i></header>
+      <p class="onde"><b>Onde se desenvolve:</b> Terapias Integrativas e Técnicas de Spa, Aromaterapia e Cromoterapia, CHPB</p>
+      <ul class="comp">
+        <li><b>Selecionar</b> terapias integrativas compatíveis com as necessidades do cliente</li>
+        <li><b>Executar</b> técnicas de spa em protocolos de relaxamento e cuidado</li>
+        <li><b>Aplicar</b> aromaterapia e cromoterapia como recursos complementares aos tratamentos</li>
+        <li><b>Integrar</b> terapias complementares aos procedimentos faciais, corporais e capilares</li>
+        <li><b>Orientar</b> o cliente sobre práticas de cuidado que promovam qualidade de vida</li>
+      </ul>
+    </article>
+
+    <article class="eixo">
+      <header><div><span class="num">Eixo 7</span><h3>Cosmetologia e Recursos Tecnológicos</h3></div><i class="tag ok">Presente</i></header>
+      <p class="onde"><b>Onde se desenvolve:</b> Princípios de Química e Cosmetologia, Eletrotermofototerapia e Inovação Tecnológica, CHPA</p>
+      <ul class="comp">
+        <li><b>Selecionar</b> produtos cosméticos com base em sua composição e finalidade</li>
+        <li><b>Indicar</b> ativos cosméticos adequados a cada condição avaliada</li>
+        <li><b>Operar</b> equipamentos de eletrotermofototerapia com segurança e precisão</li>
+        <li><b>Combinar</b> cosméticos e equipamentos em um mesmo protocolo de tratamento</li>
+        <li><b>Avaliar</b> a aplicabilidade de novos produtos e tecnologias aos serviços de estética</li>
+      </ul>
+    </article>
+
+    <article class="eixo">
+      <header><div><span class="num">Eixo 8</span><h3>Gestão, Empreendedorismo e Carreira</h3></div><i class="tag ok">Presente</i></header>
+      <p class="onde"><b>Onde se desenvolve:</b> Gestão e Empreendedorismo, Fundamentos de Marketing, Psicologia Organizacional, GO (4 disciplinas)</p>
+      <ul class="comp">
+        <li><b>Planejar</b> e estruturar um negócio na área de estética</li>
+        <li><b>Gerir</b> serviços, recursos e equipes em estabelecimentos de estética</li>
+        <li><b>Aplicar</b> estratégias de marketing na divulgação e no posicionamento dos serviços</li>
+        <li><b>Liderar</b> e integrar equipes multiprofissionais</li>
+        <li><b>Planejar</b> a própria carreira e o projeto de vida profissional</li>
+      </ul>
+    </article>
+
+    <article class="eixo parcial">
+      <header><div><span class="num">Eixo 9 · Transversal</span><h3>Integração Prática, Comunicação e Desenvolvimento Contínuo</h3></div><i class="tag parc">Parcial</i></header>
+      <p class="onde"><b>Onde se desenvolve:</b> CHPB e CHPA (portfólio e trabalho em duplas), AAC, GO. <b>Por que parcial:</b> portfólio, duplas e AAC estão descritos no PPC; a comunicação com o cliente e a atualização autônoma aparecem de forma indireta, e extensão e iniciação científica ocorrem por adesão do estudante</p>
+      <ul class="comp">
+        <li><b>Integrar</b> conhecimentos de diferentes áreas na solução de casos de atendimento</li>
+        <li><b>Documentar</b> protocolos e resultados em portfólio técnico</li>
+        <li><b>Comunicar</b> ao cliente o plano de tratamento, os cuidados e os resultados esperados</li>
+        <li><b>Colaborar</b> com colegas na execução dos procedimentos</li>
+        <li><b>Participar</b> de projetos de extensão, visitas técnicas e iniciação científica</li>
+        <li><b>Atualizar-se</b> de forma autônoma diante das inovações da área</li>
+      </ul>
+    </article>
+
+  </div>
+</section>
+
+<footer>
+  <span><b>POK</b> · Programa POK de Trilhas Formativas Micro-Certificadas por Competências</span>
+</footer>
+
+</div>
+</body>
+</html>
